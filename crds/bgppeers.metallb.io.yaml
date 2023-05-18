@@ -1,0 +1,416 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.7.0
+    meta.helm.sh/release-name: metallb
+    meta.helm.sh/release-namespace: metallb-system
+  creationTimestamp: '2023-05-18T21:47:34Z'
+  generation: 2
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  managedFields:
+    - apiVersion: apiextensions.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:controller-gen.kubebuilder.io/version: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:spec:
+          f:conversion:
+            .: {}
+            f:strategy: {}
+            f:webhook:
+              .: {}
+              f:clientConfig:
+                .: {}
+                f:service:
+                  .: {}
+                  f:name: {}
+                  f:namespace: {}
+                  f:path: {}
+                  f:port: {}
+              f:conversionReviewVersions: {}
+          f:group: {}
+          f:names:
+            f:kind: {}
+            f:listKind: {}
+            f:plural: {}
+            f:singular: {}
+          f:scope: {}
+          f:versions: {}
+      manager: helm
+      operation: Update
+      time: '2023-05-18T21:47:34Z'
+    - apiVersion: apiextensions.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:acceptedNames:
+            f:kind: {}
+            f:listKind: {}
+            f:plural: {}
+            f:singular: {}
+          f:conditions:
+            k:{"type":"Established"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"NamesAccepted"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: kube-apiserver
+      operation: Update
+      subresource: status
+      time: '2023-05-18T21:47:34Z'
+    - apiVersion: apiextensions.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:conversion:
+            f:webhook:
+              f:clientConfig:
+                f:caBundle: {}
+      manager: controller
+      operation: Update
+      time: '2023-05-18T21:47:42Z'
+  name: bgppeers.metallb.io
+  resourceVersion: '273163'
+  uid: 24bed4bd-f1ad-4634-9dae-f134efc704c9
+spec:
+  conversion:
+    strategy: Webhook
+    webhook:
+      clientConfig:
+        caBundle: >-
+          LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFRENDQWZpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFoTVJBd0RnWURWUVFLRXdkdFpYUmgKYkd4aU1RMHdDd1lEVlFRREV3UmpaWEowTUI0WERUSXpNRFV4T0RJd05EYzBNbG9YRFRNek1EVXhOVEl4TkRjMApNbG93SVRFUU1BNEdBMVVFQ2hNSGJXVjBZV3hzWWpFTk1Bc0dBMVVFQXhNRVkyVnlkRENDQVNJd0RRWUpLb1pJCmh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTEp6ZEZJeFRHUGg0c3oyelFocm96eG1UTWpVOUluSElRajkKMDQ5UWZ1dmRaZmVFQ2cvODdJR2E2KzI5SkhZbGFIa0JvdlBoVng0cm5HTnVKbUh4cElobXJXbkdhRUE3RzZLOApZbjJtTEh0ODFSdmpzVFlsWWUva2sweENubDFLOENTNVByN0NsMW9UcHgwSmIwZXRmbFVBa2lTanlzdmJXMlJ4CjJGU0s3OGc0cVQyQXF1Yk8rOFh1RmhBOWZiVlRUMzZZNXV4bm1CTEJnQ1lmTDJxZGtjTlYxUnlqcXhHYUdPQ1AKclB0ZjVMUnhTUm1OR1RQZjY5VVVqaTFZN1B6TmNHWkpraXFLdUtDdm9JY0dkelg4dEphcjlmbDZDTXFIRVBhUwpndnZQNkZPUWh5OS91Z1pGYlRVNFYwQ3dhOHB1QWlBWmxjYVRBY1RXZnVRSUdxcFNYRlVDQXdFQUFhTlRNRkV3CkRnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3SFFZRFZSME9CQllFRkdPWUlvZkwKZ3kzbHF3WUcxOUZJVHZlTGMxNFdNQThHQTFVZEVRUUlNQWFDQkdObGNuUXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUI5cGhVNFg1NEwvdU5nN2pBd1JmQWRtdGtFdW1Mcnd4YXpTVkQ4VkN0UXQ3YXpsKzhPSEZIbGhpbFJDCmdoNE1aRDhiOUNnUXZwQW9rSzhwcWU1L0FQUk42a0s3QndrOWpSczZ3SnE5eHZOZHVnc0ZGQVNBK24wTUM5SHIKV2ZqUW1RU1Z3Q2FCLzEvL3crNUhXcCttdTUxRlhFVnJuNGVRZXVDUW9GMm9WRlZ3azVsTFRXUkhXSzJad0ZMSwo1dVhZZExRWk9DL1dBclVqL3JHcE95Q3B4TFhOemQ3TUIvRDJkb3FxY1R1ZTRGM1RaQUNCZlEwU1Y5OGF3alJICkVWRGk1M1hYV24zM1NLSXgwc2xNYWJ0aGk4SFdSRFpqaVowNTlnbGs0bytuRys4OXdzaExlWm5tK0hzcUwvckkKOXY0WjVVcWY2ODh1WHk3NlVPOEZpeTdNS3lVPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+        service:
+          name: metallb-webhook-service
+          namespace: metallb-system
+          path: /convert
+          port: 443
+      conversionReviewVersions:
+        - v1beta1
+        - v1beta2
+  group: metallb.io
+  names:
+    kind: BGPPeer
+    listKind: BGPPeerList
+    plural: bgppeers
+    singular: bgppeer
+  scope: Namespaced
+  versions:
+    - name: v1beta1
+      schema:
+        openAPIV3Schema:
+          description: BGPPeer is the Schema for the peers API.
+          properties:
+            apiVersion:
+              description: >-
+                APIVersion defines the versioned schema of this representation
+                of an object. Servers should convert recognized schemas to the
+                latest internal value, and may reject unrecognized values. More
+                info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+              type: string
+            kind:
+              description: >-
+                Kind is a string value representing the REST resource this
+                object represents. Servers may infer this from the endpoint the
+                client submits requests to. Cannot be updated. In CamelCase.
+                More info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: BGPPeerSpec defines the desired state of Peer.
+              properties:
+                bfdProfile:
+                  type: string
+                ebgpMultiHop:
+                  description: EBGP peer is multi-hops away
+                  type: boolean
+                holdTime:
+                  description: Requested BGP hold time, per RFC4271.
+                  type: string
+                keepaliveTime:
+                  description: Requested BGP keepalive time, per RFC4271.
+                  type: string
+                myASN:
+                  description: AS number to use for the local end of the session.
+                  format: int32
+                  maximum: 4294967295
+                  minimum: 0
+                  type: integer
+                nodeSelectors:
+                  description: >-
+                    Only connect to this peer on nodes that match one of these
+                    selectors.
+                  items:
+                    properties:
+                      matchExpressions:
+                        items:
+                          properties:
+                            key:
+                              type: string
+                            operator:
+                              type: string
+                            values:
+                              items:
+                                type: string
+                              minItems: 1
+                              type: array
+                          required:
+                            - key
+                            - operator
+                            - values
+                          type: object
+                        type: array
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        type: object
+                    type: object
+                  type: array
+                password:
+                  description: >-
+                    Authentication password for routers enforcing TCP MD5
+                    authenticated sessions
+                  type: string
+                peerASN:
+                  description: AS number to expect from the remote end of the session.
+                  format: int32
+                  maximum: 4294967295
+                  minimum: 0
+                  type: integer
+                peerAddress:
+                  description: Address to dial when establishing the session.
+                  type: string
+                peerPort:
+                  description: Port to dial when establishing the session.
+                  maximum: 16384
+                  minimum: 0
+                  type: integer
+                routerID:
+                  description: BGP router ID to advertise to the peer
+                  type: string
+                sourceAddress:
+                  description: Source address to use when establishing the session.
+                  type: string
+              required:
+                - myASN
+                - peerASN
+                - peerAddress
+              type: object
+            status:
+              description: BGPPeerStatus defines the observed state of Peer.
+              type: object
+          type: object
+      served: true
+      storage: false
+      subresources:
+        status: {}
+    - name: v1beta2
+      schema:
+        openAPIV3Schema:
+          description: BGPPeer is the Schema for the peers API.
+          properties:
+            apiVersion:
+              description: >-
+                APIVersion defines the versioned schema of this representation
+                of an object. Servers should convert recognized schemas to the
+                latest internal value, and may reject unrecognized values. More
+                info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+              type: string
+            kind:
+              description: >-
+                Kind is a string value representing the REST resource this
+                object represents. Servers may infer this from the endpoint the
+                client submits requests to. Cannot be updated. In CamelCase.
+                More info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: BGPPeerSpec defines the desired state of Peer.
+              properties:
+                bfdProfile:
+                  description: >-
+                    The name of the BFD Profile to be used for the BFD session
+                    associated to the BGP session. If not set, the BFD session
+                    won't be set up.
+                  type: string
+                ebgpMultiHop:
+                  description: >-
+                    To set if the BGPPeer is multi-hops away. Needed for FRR
+                    mode only.
+                  type: boolean
+                holdTime:
+                  description: Requested BGP hold time, per RFC4271.
+                  type: string
+                keepaliveTime:
+                  description: Requested BGP keepalive time, per RFC4271.
+                  type: string
+                myASN:
+                  description: AS number to use for the local end of the session.
+                  format: int32
+                  maximum: 4294967295
+                  minimum: 0
+                  type: integer
+                nodeSelectors:
+                  description: >-
+                    Only connect to this peer on nodes that match one of these
+                    selectors.
+                  items:
+                    description: >-
+                      A label selector is a label query over a set of resources.
+                      The result of matchLabels and matchExpressions are ANDed.
+                      An empty label selector matches all objects. A null label
+                      selector matches no objects.
+                    properties:
+                      matchExpressions:
+                        description: >-
+                          matchExpressions is a list of label selector
+                          requirements. The requirements are ANDed.
+                        items:
+                          description: >-
+                            A label selector requirement is a selector that
+                            contains values, a key, and an operator that relates
+                            the key and values.
+                          properties:
+                            key:
+                              description: >-
+                                key is the label key that the selector applies
+                                to.
+                              type: string
+                            operator:
+                              description: >-
+                                operator represents a key's relationship to a
+                                set of values. Valid operators are In, NotIn,
+                                Exists and DoesNotExist.
+                              type: string
+                            values:
+                              description: >-
+                                values is an array of string values. If the
+                                operator is In or NotIn, the values array must
+                                be non-empty. If the operator is Exists or
+                                DoesNotExist, the values array must be empty.
+                                This array is replaced during a strategic merge
+                                patch.
+                              items:
+                                type: string
+                              type: array
+                          required:
+                            - key
+                            - operator
+                          type: object
+                        type: array
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: >-
+                          matchLabels is a map of {key,value} pairs. A single
+                          {key,value} in the matchLabels map is equivalent to an
+                          element of matchExpressions, whose key field is "key",
+                          the operator is "In", and the values array contains
+                          only "value". The requirements are ANDed.
+                        type: object
+                    type: object
+                  type: array
+                password:
+                  description: >-
+                    Authentication password for routers enforcing TCP MD5
+                    authenticated sessions
+                  type: string
+                passwordSecret:
+                  description: >-
+                    passwordSecret is name of the authentication secret for BGP
+                    Peer. the secret must be of type "kubernetes.io/basic-auth",
+                    and created in the same namespace as the MetalLB deployment.
+                    The password is stored in the secret as the key "password".
+                  properties:
+                    name:
+                      description: >-
+                        Name is unique within a namespace to reference a secret
+                        resource.
+                      type: string
+                    namespace:
+                      description: >-
+                        Namespace defines the space within which the secret name
+                        must be unique.
+                      type: string
+                  type: object
+                peerASN:
+                  description: AS number to expect from the remote end of the session.
+                  format: int32
+                  maximum: 4294967295
+                  minimum: 0
+                  type: integer
+                peerAddress:
+                  description: Address to dial when establishing the session.
+                  type: string
+                peerPort:
+                  default: 179
+                  description: Port to dial when establishing the session.
+                  maximum: 16384
+                  minimum: 0
+                  type: integer
+                routerID:
+                  description: BGP router ID to advertise to the peer
+                  type: string
+                sourceAddress:
+                  description: Source address to use when establishing the session.
+                  type: string
+                vrf:
+                  description: >-
+                    To set if we want to peer with the BGPPeer using an
+                    interface belonging to a host vrf
+                  type: string
+              required:
+                - myASN
+                - peerASN
+                - peerAddress
+              type: object
+            status:
+              description: BGPPeerStatus defines the observed state of Peer.
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+status:
+  acceptedNames:
+    kind: BGPPeer
+    listKind: BGPPeerList
+    plural: bgppeers
+    singular: bgppeer
+  conditions:
+    - lastTransitionTime: '2023-05-18T21:47:34Z'
+      message: no conflicts found
+      reason: NoConflicts
+      status: 'True'
+      type: NamesAccepted
+    - lastTransitionTime: '2023-05-18T21:47:34Z'
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: 'True'
+      type: Established
+  storedVersions:
+    - v1beta2

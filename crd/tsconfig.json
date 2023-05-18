@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
+    },
+    "files": [
+        "clickhouse/index.ts",
+        "clickhouse/v1/clickHouseInstallation.ts",
+        "clickhouse/v1/clickHouseInstallationTemplate.ts",
+        "clickhouse/v1/clickHouseOperatorConfiguration.ts",
+        "clickhouse/v1/index.ts",
+        "index.ts",
+        "metallb/index.ts",
+        "metallb/v1alpha1/addressPool.ts",
+        "metallb/v1alpha1/index.ts",
+        "metallb/v1beta1/addressPool.ts",
+        "metallb/v1beta1/bfdprofile.ts",
+        "metallb/v1beta1/bgpadvertisement.ts",
+        "metallb/v1beta1/bgppeer.ts",
+        "metallb/v1beta1/community.ts",
+        "metallb/v1beta1/index.ts",
+        "metallb/v1beta1/ipaddressPool.ts",
+        "metallb/v1beta1/l2advertisement.ts",
+        "metallb/v1beta2/bgppeer.ts",
+        "metallb/v1beta2/index.ts",
+        "provider.ts",
+        "types/index.ts",
+        "types/input.ts",
+        "types/output.ts",
+        "utilities.ts"
+    ]
+}
