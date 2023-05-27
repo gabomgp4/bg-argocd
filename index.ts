@@ -79,6 +79,8 @@ const pvSimpleInstallation = new clickhouse.ClickHouseInstallation("qryn-db", {
   },
 });
 
+const clickHouseName = pvSimpleInstallation.metadata.apply((meta) => meta?.name);
+
 const qrynDeployment = new k8s.apps.v1.Deployment("qryn", {
   metadata: {
     name: "qryn",
@@ -119,9 +121,7 @@ const qrynDeployment = new k8s.apps.v1.Deployment("qryn", {
               },
               {
                 name: "CLICKHOUSE_SERVER",
-                value: interpolate`clickhouse-${pvSimpleInstallation.metadata.apply(
-                  (meta) => meta?.name
-                )}`,
+                value: interpolate`clickhouse-${clickHouseName}`,
               },
             ],
             ports: [
@@ -159,9 +159,7 @@ const qrynService = new k8s.core.v1.Service("qryn", {
   },
 });
 
-const clickHouseConnString = interpolate`tcp://clickhouse-${pvSimpleInstallation.metadata.apply(
-  (meta) => meta?.name
-)}/cloki?username=admin&password${password}`;
+const clickHouseConnString = interpolate`tcp://clickhouse-${clickHouseName}/cloki?username=admin&password${password}`;
 
 const config = (qrynDsn: string) => ({
   receivers: {

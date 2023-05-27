@@ -12,14 +12,24 @@ utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 
 // Export sub-modules:
+import * as acme from "./acme";
+import * as certmanager from "./certmanager";
 import * as clickhouse from "./clickhouse";
 import * as metallb from "./metallb";
+import * as monitoring from "./monitoring";
+import * as opentelemetry from "./opentelemetry";
 import * as types from "./types";
+import * as upgrade from "./upgrade";
 
 export {
+    acme,
+    certmanager,
     clickhouse,
     metallb,
+    monitoring,
+    opentelemetry,
     types,
+    upgrade,
 };
 pulumi.runtime.registerResourcePackage("crds", {
     version: utilities.getVersion(),
