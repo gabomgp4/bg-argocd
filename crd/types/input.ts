@@ -7716,6 +7716,3139 @@ export namespace clickhouse {
     }
 }
 
+export namespace k8s {
+    export namespace v2alpha1 {
+        export interface KeycloakRealmImportSpecArgs {
+            /**
+             * The name of the Keycloak CR to reference, in the same namespace.
+             */
+            keycloakCRName: pulumi.Input<string>;
+            /**
+             * The RealmRepresentation to import into Keycloak.
+             */
+            realm: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmArgs>;
+        }
+
+        /**
+         * The RealmRepresentation to import into Keycloak.
+         */
+        export interface KeycloakRealmImportSpecRealmArgs {
+            accessCodeLifespan?: pulumi.Input<number>;
+            accessCodeLifespanLogin?: pulumi.Input<number>;
+            accessCodeLifespanUserAction?: pulumi.Input<number>;
+            accessTokenLifespan?: pulumi.Input<number>;
+            accessTokenLifespanForImplicitFlow?: pulumi.Input<number>;
+            accountTheme?: pulumi.Input<string>;
+            actionTokenGeneratedByAdminLifespan?: pulumi.Input<number>;
+            actionTokenGeneratedByUserLifespan?: pulumi.Input<number>;
+            adminEventsDetailsEnabled?: pulumi.Input<boolean>;
+            adminEventsEnabled?: pulumi.Input<boolean>;
+            adminTheme?: pulumi.Input<string>;
+            applicationScopeMappings?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationscopemappingsArgs>[]>}>;
+            applications?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsArgs>[]>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authenticationFlows?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmAuthenticationflowsArgs>[]>;
+            authenticatorConfig?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmAuthenticatorconfigArgs>[]>;
+            browserFlow?: pulumi.Input<string>;
+            browserSecurityHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            bruteForceProtected?: pulumi.Input<boolean>;
+            certificate?: pulumi.Input<string>;
+            clientAuthenticationFlow?: pulumi.Input<string>;
+            clientOfflineSessionIdleTimeout?: pulumi.Input<number>;
+            clientOfflineSessionMaxLifespan?: pulumi.Input<number>;
+            clientPolicies?: pulumi.Input<{[key: string]: any}>;
+            clientProfiles?: pulumi.Input<{[key: string]: any}>;
+            clientScopeMappings?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientscopemappingsArgs>[]>}>;
+            clientScopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientscopesArgs>[]>;
+            clientSessionIdleTimeout?: pulumi.Input<number>;
+            clientSessionMaxLifespan?: pulumi.Input<number>;
+            clientTemplates?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClienttemplatesArgs>[]>;
+            clients?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsArgs>[]>;
+            codeSecret?: pulumi.Input<string>;
+            components?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmComponentsArgs>[]>}>;
+            defaultDefaultClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultGroups?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultLocale?: pulumi.Input<string>;
+            defaultOptionalClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultRole?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmDefaultroleArgs>;
+            defaultRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultSignatureAlgorithm?: pulumi.Input<string>;
+            directGrantFlow?: pulumi.Input<string>;
+            displayName?: pulumi.Input<string>;
+            displayNameHtml?: pulumi.Input<string>;
+            dockerAuthenticationFlow?: pulumi.Input<string>;
+            duplicateEmailsAllowed?: pulumi.Input<boolean>;
+            editUsernameAllowed?: pulumi.Input<boolean>;
+            emailTheme?: pulumi.Input<string>;
+            enabled?: pulumi.Input<boolean>;
+            enabledEventTypes?: pulumi.Input<pulumi.Input<string>[]>;
+            eventsEnabled?: pulumi.Input<boolean>;
+            eventsExpiration?: pulumi.Input<number>;
+            eventsListeners?: pulumi.Input<pulumi.Input<string>[]>;
+            failureFactor?: pulumi.Input<number>;
+            federatedUsers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersArgs>[]>;
+            groups?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmGroupsArgs>[]>;
+            id?: pulumi.Input<string>;
+            identityProviderMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmIdentityprovidermappersArgs>[]>;
+            identityProviders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmIdentityprovidersArgs>[]>;
+            internationalizationEnabled?: pulumi.Input<boolean>;
+            keycloakVersion?: pulumi.Input<string>;
+            loginTheme?: pulumi.Input<string>;
+            loginWithEmailAllowed?: pulumi.Input<boolean>;
+            maxDeltaTimeSeconds?: pulumi.Input<number>;
+            maxFailureWaitSeconds?: pulumi.Input<number>;
+            minimumQuickLoginWaitSeconds?: pulumi.Input<number>;
+            notBefore?: pulumi.Input<number>;
+            oauth2DeviceCodeLifespan?: pulumi.Input<number>;
+            oauth2DevicePollingInterval?: pulumi.Input<number>;
+            oauthClients?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsArgs>[]>;
+            offlineSessionIdleTimeout?: pulumi.Input<number>;
+            offlineSessionMaxLifespan?: pulumi.Input<number>;
+            offlineSessionMaxLifespanEnabled?: pulumi.Input<boolean>;
+            otpPolicyAlgorithm?: pulumi.Input<string>;
+            otpPolicyCodeReusable?: pulumi.Input<boolean>;
+            otpPolicyDigits?: pulumi.Input<number>;
+            otpPolicyInitialCounter?: pulumi.Input<number>;
+            otpPolicyLookAheadWindow?: pulumi.Input<number>;
+            otpPolicyPeriod?: pulumi.Input<number>;
+            otpPolicyType?: pulumi.Input<string>;
+            otpSupportedApplications?: pulumi.Input<pulumi.Input<string>[]>;
+            passwordCredentialGrantAllowed?: pulumi.Input<boolean>;
+            passwordPolicy?: pulumi.Input<string>;
+            permanentLockout?: pulumi.Input<boolean>;
+            privateKey?: pulumi.Input<string>;
+            protocolMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmProtocolmappersArgs>[]>;
+            publicKey?: pulumi.Input<string>;
+            quickLoginCheckMilliSeconds?: pulumi.Input<number>;
+            realm?: pulumi.Input<string>;
+            realmCacheEnabled?: pulumi.Input<boolean>;
+            refreshTokenMaxReuse?: pulumi.Input<number>;
+            registrationAllowed?: pulumi.Input<boolean>;
+            registrationEmailAsUsername?: pulumi.Input<boolean>;
+            registrationFlow?: pulumi.Input<string>;
+            rememberMe?: pulumi.Input<boolean>;
+            requiredActions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRequiredactionsArgs>[]>;
+            requiredCredentials?: pulumi.Input<pulumi.Input<string>[]>;
+            resetCredentialsFlow?: pulumi.Input<string>;
+            resetPasswordAllowed?: pulumi.Input<boolean>;
+            revokeRefreshToken?: pulumi.Input<boolean>;
+            roles?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesArgs>;
+            scopeMappings?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmScopemappingsArgs>[]>;
+            smtpServer?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            social?: pulumi.Input<boolean>;
+            socialProviders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            sslRequired?: pulumi.Input<string>;
+            ssoSessionIdleTimeout?: pulumi.Input<number>;
+            ssoSessionIdleTimeoutRememberMe?: pulumi.Input<number>;
+            ssoSessionMaxLifespan?: pulumi.Input<number>;
+            ssoSessionMaxLifespanRememberMe?: pulumi.Input<number>;
+            supportedLocales?: pulumi.Input<pulumi.Input<string>[]>;
+            updateProfileOnInitialSocialLogin?: pulumi.Input<boolean>;
+            userCacheEnabled?: pulumi.Input<boolean>;
+            userFederationMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUserfederationmappersArgs>[]>;
+            userFederationProviders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUserfederationprovidersArgs>[]>;
+            userManagedAccessAllowed?: pulumi.Input<boolean>;
+            users?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersArgs>[]>;
+            verifyEmail?: pulumi.Input<boolean>;
+            waitIncrementSeconds?: pulumi.Input<number>;
+            webAuthnPolicyAcceptableAaguids?: pulumi.Input<pulumi.Input<string>[]>;
+            webAuthnPolicyAttestationConveyancePreference?: pulumi.Input<string>;
+            webAuthnPolicyAuthenticatorAttachment?: pulumi.Input<string>;
+            webAuthnPolicyAvoidSameAuthenticatorRegister?: pulumi.Input<boolean>;
+            webAuthnPolicyCreateTimeout?: pulumi.Input<number>;
+            webAuthnPolicyPasswordlessAcceptableAaguids?: pulumi.Input<pulumi.Input<string>[]>;
+            webAuthnPolicyPasswordlessAttestationConveyancePreference?: pulumi.Input<string>;
+            webAuthnPolicyPasswordlessAuthenticatorAttachment?: pulumi.Input<string>;
+            webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister?: pulumi.Input<boolean>;
+            webAuthnPolicyPasswordlessCreateTimeout?: pulumi.Input<number>;
+            webAuthnPolicyPasswordlessRequireResidentKey?: pulumi.Input<string>;
+            webAuthnPolicyPasswordlessRpEntityName?: pulumi.Input<string>;
+            webAuthnPolicyPasswordlessRpId?: pulumi.Input<string>;
+            webAuthnPolicyPasswordlessSignatureAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+            webAuthnPolicyPasswordlessUserVerificationRequirement?: pulumi.Input<string>;
+            webAuthnPolicyRequireResidentKey?: pulumi.Input<string>;
+            webAuthnPolicyRpEntityName?: pulumi.Input<string>;
+            webAuthnPolicyRpId?: pulumi.Input<string>;
+            webAuthnPolicySignatureAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+            webAuthnPolicyUserVerificationRequirement?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            adminUrl?: pulumi.Input<string>;
+            alwaysDisplayInConsole?: pulumi.Input<boolean>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authenticationFlowBindingOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authorizationServicesEnabled?: pulumi.Input<boolean>;
+            authorizationSettings?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsArgs>;
+            baseUrl?: pulumi.Input<string>;
+            bearerOnly?: pulumi.Input<boolean>;
+            claims?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsClaimsArgs>;
+            clientAuthenticatorType?: pulumi.Input<string>;
+            clientId?: pulumi.Input<string>;
+            clientTemplate?: pulumi.Input<string>;
+            consentRequired?: pulumi.Input<boolean>;
+            defaultClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            description?: pulumi.Input<string>;
+            directAccessGrantsEnabled?: pulumi.Input<boolean>;
+            directGrantsOnly?: pulumi.Input<boolean>;
+            enabled?: pulumi.Input<boolean>;
+            frontchannelLogout?: pulumi.Input<boolean>;
+            fullScopeAllowed?: pulumi.Input<boolean>;
+            id?: pulumi.Input<string>;
+            implicitFlowEnabled?: pulumi.Input<boolean>;
+            name?: pulumi.Input<string>;
+            nodeReRegistrationTimeout?: pulumi.Input<number>;
+            notBefore?: pulumi.Input<number>;
+            oauth2DeviceAuthorizationGrantEnabled?: pulumi.Input<boolean>;
+            optionalClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            origin?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsProtocolmappersArgs>[]>;
+            publicClient?: pulumi.Input<boolean>;
+            redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+            registeredNodes?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+            registrationAccessToken?: pulumi.Input<string>;
+            rootUrl?: pulumi.Input<string>;
+            secret?: pulumi.Input<string>;
+            serviceAccountsEnabled?: pulumi.Input<boolean>;
+            standardFlowEnabled?: pulumi.Input<boolean>;
+            surrogateAuthRequired?: pulumi.Input<boolean>;
+            useTemplateConfig?: pulumi.Input<boolean>;
+            useTemplateMappers?: pulumi.Input<boolean>;
+            useTemplateScope?: pulumi.Input<boolean>;
+            webOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsArgs {
+            allowRemoteResourceManagement?: pulumi.Input<boolean>;
+            clientId?: pulumi.Input<string>;
+            decisionStrategy?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            policies?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesArgs>[]>;
+            policyEnforcementMode?: pulumi.Input<string>;
+            resources?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesArgs>[]>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsScopesArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            decisionStrategy?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            logic?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<string>;
+            policies?: pulumi.Input<pulumi.Input<string>[]>;
+            resources?: pulumi.Input<pulumi.Input<string>[]>;
+            resourcesData?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataArgs>[]>;
+            scopes?: pulumi.Input<pulumi.Input<string>[]>;
+            scopesData?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesScopesdataArgs>[]>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataArgs {
+            _id?: pulumi.Input<string>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            displayName?: pulumi.Input<string>;
+            icon_uri?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataOwnerArgs>;
+            ownerManagedAccess?: pulumi.Input<boolean>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataScopesArgs>[]>;
+            type?: pulumi.Input<string>;
+            uris?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataOwnerArgs {
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesScopesdataArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesArgs {
+            _id?: pulumi.Input<string>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            displayName?: pulumi.Input<string>;
+            icon_uri?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesOwnerArgs>;
+            ownerManagedAccess?: pulumi.Input<boolean>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesScopesArgs>[]>;
+            type?: pulumi.Input<string>;
+            uris?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesOwnerArgs {
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsClaimsArgs {
+            address?: pulumi.Input<boolean>;
+            email?: pulumi.Input<boolean>;
+            gender?: pulumi.Input<boolean>;
+            locale?: pulumi.Input<boolean>;
+            name?: pulumi.Input<boolean>;
+            phone?: pulumi.Input<boolean>;
+            picture?: pulumi.Input<boolean>;
+            profile?: pulumi.Input<boolean>;
+            username?: pulumi.Input<boolean>;
+            website?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsProtocolmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            consentRequired?: pulumi.Input<boolean>;
+            consentText?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMapper?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationscopemappingsArgs {
+            client?: pulumi.Input<string>;
+            clientScope?: pulumi.Input<string>;
+            clientTemplate?: pulumi.Input<string>;
+            roles?: pulumi.Input<pulumi.Input<string>[]>;
+            self?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmAuthenticationflowsArgs {
+            alias?: pulumi.Input<string>;
+            authenticationExecutions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmAuthenticationflowsAuthenticationexecutionsArgs>[]>;
+            builtIn?: pulumi.Input<boolean>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            providerId?: pulumi.Input<string>;
+            topLevel?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmAuthenticationflowsAuthenticationexecutionsArgs {
+            authenticator?: pulumi.Input<string>;
+            authenticatorConfig?: pulumi.Input<string>;
+            authenticatorFlow?: pulumi.Input<boolean>;
+            autheticatorFlow?: pulumi.Input<boolean>;
+            flowAlias?: pulumi.Input<string>;
+            priority?: pulumi.Input<number>;
+            requirement?: pulumi.Input<string>;
+            userSetupAllowed?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmAuthenticatorconfigArgs {
+            alias?: pulumi.Input<string>;
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            id?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            adminUrl?: pulumi.Input<string>;
+            alwaysDisplayInConsole?: pulumi.Input<boolean>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authenticationFlowBindingOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authorizationServicesEnabled?: pulumi.Input<boolean>;
+            authorizationSettings?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsArgs>;
+            baseUrl?: pulumi.Input<string>;
+            bearerOnly?: pulumi.Input<boolean>;
+            clientAuthenticatorType?: pulumi.Input<string>;
+            clientId?: pulumi.Input<string>;
+            clientTemplate?: pulumi.Input<string>;
+            consentRequired?: pulumi.Input<boolean>;
+            defaultClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            description?: pulumi.Input<string>;
+            directAccessGrantsEnabled?: pulumi.Input<boolean>;
+            directGrantsOnly?: pulumi.Input<boolean>;
+            enabled?: pulumi.Input<boolean>;
+            frontchannelLogout?: pulumi.Input<boolean>;
+            fullScopeAllowed?: pulumi.Input<boolean>;
+            id?: pulumi.Input<string>;
+            implicitFlowEnabled?: pulumi.Input<boolean>;
+            name?: pulumi.Input<string>;
+            nodeReRegistrationTimeout?: pulumi.Input<number>;
+            notBefore?: pulumi.Input<number>;
+            oauth2DeviceAuthorizationGrantEnabled?: pulumi.Input<boolean>;
+            optionalClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            origin?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsProtocolmappersArgs>[]>;
+            publicClient?: pulumi.Input<boolean>;
+            redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+            registeredNodes?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+            registrationAccessToken?: pulumi.Input<string>;
+            rootUrl?: pulumi.Input<string>;
+            secret?: pulumi.Input<string>;
+            serviceAccountsEnabled?: pulumi.Input<boolean>;
+            standardFlowEnabled?: pulumi.Input<boolean>;
+            surrogateAuthRequired?: pulumi.Input<boolean>;
+            useTemplateConfig?: pulumi.Input<boolean>;
+            useTemplateMappers?: pulumi.Input<boolean>;
+            useTemplateScope?: pulumi.Input<boolean>;
+            webOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsArgs {
+            allowRemoteResourceManagement?: pulumi.Input<boolean>;
+            clientId?: pulumi.Input<string>;
+            decisionStrategy?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            policies?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesArgs>[]>;
+            policyEnforcementMode?: pulumi.Input<string>;
+            resources?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesArgs>[]>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsScopesArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            decisionStrategy?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            logic?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<string>;
+            policies?: pulumi.Input<pulumi.Input<string>[]>;
+            resources?: pulumi.Input<pulumi.Input<string>[]>;
+            resourcesData?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataArgs>[]>;
+            scopes?: pulumi.Input<pulumi.Input<string>[]>;
+            scopesData?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesScopesdataArgs>[]>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataArgs {
+            _id?: pulumi.Input<string>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            displayName?: pulumi.Input<string>;
+            icon_uri?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataOwnerArgs>;
+            ownerManagedAccess?: pulumi.Input<boolean>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataScopesArgs>[]>;
+            type?: pulumi.Input<string>;
+            uris?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataOwnerArgs {
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesScopesdataArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesArgs {
+            _id?: pulumi.Input<string>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            displayName?: pulumi.Input<string>;
+            icon_uri?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesOwnerArgs>;
+            ownerManagedAccess?: pulumi.Input<boolean>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesScopesArgs>[]>;
+            type?: pulumi.Input<string>;
+            uris?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesOwnerArgs {
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsProtocolmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            consentRequired?: pulumi.Input<boolean>;
+            consentText?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMapper?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientscopemappingsArgs {
+            client?: pulumi.Input<string>;
+            clientScope?: pulumi.Input<string>;
+            clientTemplate?: pulumi.Input<string>;
+            roles?: pulumi.Input<pulumi.Input<string>[]>;
+            self?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientscopesArgs {
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientscopesProtocolmappersArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientscopesProtocolmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            consentRequired?: pulumi.Input<boolean>;
+            consentText?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMapper?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClienttemplatesArgs {
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            bearerOnly?: pulumi.Input<boolean>;
+            consentRequired?: pulumi.Input<boolean>;
+            description?: pulumi.Input<string>;
+            directAccessGrantsEnabled?: pulumi.Input<boolean>;
+            frontchannelLogout?: pulumi.Input<boolean>;
+            fullScopeAllowed?: pulumi.Input<boolean>;
+            id?: pulumi.Input<string>;
+            implicitFlowEnabled?: pulumi.Input<boolean>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClienttemplatesProtocolmappersArgs>[]>;
+            publicClient?: pulumi.Input<boolean>;
+            serviceAccountsEnabled?: pulumi.Input<boolean>;
+            standardFlowEnabled?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClienttemplatesProtocolmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            consentRequired?: pulumi.Input<boolean>;
+            consentText?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMapper?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmComponentsArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            providerId?: pulumi.Input<string>;
+            subComponents?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmComponentsSubcomponentsArgs>[]>}>;
+            subType?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmComponentsSubcomponentsArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            providerId?: pulumi.Input<string>;
+            subType?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmDefaultroleArgs {
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientRole?: pulumi.Input<boolean>;
+            composite?: pulumi.Input<boolean>;
+            composites?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmDefaultroleCompositesArgs>;
+            containerId?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            scopeParamRequired?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmDefaultroleCompositesArgs {
+            application?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            client?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            realm?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            applicationRoles?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientConsents?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersClientconsentsArgs>[]>;
+            clientRoles?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            createdTimestamp?: pulumi.Input<number>;
+            credentials?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersCredentialsArgs>[]>;
+            disableableCredentialTypes?: pulumi.Input<pulumi.Input<string>[]>;
+            email?: pulumi.Input<string>;
+            emailVerified?: pulumi.Input<boolean>;
+            enabled?: pulumi.Input<boolean>;
+            federatedIdentities?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersFederatedidentitiesArgs>[]>;
+            federationLink?: pulumi.Input<string>;
+            firstName?: pulumi.Input<string>;
+            groups?: pulumi.Input<pulumi.Input<string>[]>;
+            id?: pulumi.Input<string>;
+            lastName?: pulumi.Input<string>;
+            notBefore?: pulumi.Input<number>;
+            origin?: pulumi.Input<string>;
+            realmRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            requiredActions?: pulumi.Input<pulumi.Input<string>[]>;
+            self?: pulumi.Input<string>;
+            serviceAccountClientId?: pulumi.Input<string>;
+            socialLinks?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersSociallinksArgs>[]>;
+            totp?: pulumi.Input<boolean>;
+            username?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersClientconsentsArgs {
+            clientId?: pulumi.Input<string>;
+            createdDate?: pulumi.Input<number>;
+            grantedClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            grantedRealmRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            lastUpdatedDate?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersCredentialsArgs {
+            algorithm?: pulumi.Input<string>;
+            config?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            counter?: pulumi.Input<number>;
+            createdDate?: pulumi.Input<number>;
+            credentialData?: pulumi.Input<string>;
+            device?: pulumi.Input<string>;
+            digits?: pulumi.Input<number>;
+            hashIterations?: pulumi.Input<number>;
+            hashedSaltedValue?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            period?: pulumi.Input<number>;
+            priority?: pulumi.Input<number>;
+            salt?: pulumi.Input<string>;
+            secretData?: pulumi.Input<string>;
+            temporary?: pulumi.Input<boolean>;
+            type?: pulumi.Input<string>;
+            userLabel?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersFederatedidentitiesArgs {
+            identityProvider?: pulumi.Input<string>;
+            userId?: pulumi.Input<string>;
+            userName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersSociallinksArgs {
+            socialProvider?: pulumi.Input<string>;
+            socialUserId?: pulumi.Input<string>;
+            socialUsername?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmGroupsArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientRoles?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            path?: pulumi.Input<string>;
+            realmRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            subGroups?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmGroupsSubgroupsArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmGroupsSubgroupsArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientRoles?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            path?: pulumi.Input<string>;
+            realmRoles?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmIdentityprovidermappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            id?: pulumi.Input<string>;
+            identityProviderAlias?: pulumi.Input<string>;
+            identityProviderMapper?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmIdentityprovidersArgs {
+            addReadTokenRoleOnCreate?: pulumi.Input<boolean>;
+            alias?: pulumi.Input<string>;
+            authenticateByDefault?: pulumi.Input<boolean>;
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            displayName?: pulumi.Input<string>;
+            enabled?: pulumi.Input<boolean>;
+            firstBrokerLoginFlowAlias?: pulumi.Input<string>;
+            internalId?: pulumi.Input<string>;
+            linkOnly?: pulumi.Input<boolean>;
+            postBrokerLoginFlowAlias?: pulumi.Input<string>;
+            providerId?: pulumi.Input<string>;
+            storeToken?: pulumi.Input<boolean>;
+            trustEmail?: pulumi.Input<boolean>;
+            updateProfileFirstLoginMode?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            adminUrl?: pulumi.Input<string>;
+            alwaysDisplayInConsole?: pulumi.Input<boolean>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authenticationFlowBindingOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            authorizationServicesEnabled?: pulumi.Input<boolean>;
+            authorizationSettings?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsArgs>;
+            baseUrl?: pulumi.Input<string>;
+            bearerOnly?: pulumi.Input<boolean>;
+            claims?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsClaimsArgs>;
+            clientAuthenticatorType?: pulumi.Input<string>;
+            clientId?: pulumi.Input<string>;
+            clientTemplate?: pulumi.Input<string>;
+            consentRequired?: pulumi.Input<boolean>;
+            defaultClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            defaultRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            description?: pulumi.Input<string>;
+            directAccessGrantsEnabled?: pulumi.Input<boolean>;
+            directGrantsOnly?: pulumi.Input<boolean>;
+            enabled?: pulumi.Input<boolean>;
+            frontchannelLogout?: pulumi.Input<boolean>;
+            fullScopeAllowed?: pulumi.Input<boolean>;
+            id?: pulumi.Input<string>;
+            implicitFlowEnabled?: pulumi.Input<boolean>;
+            name?: pulumi.Input<string>;
+            nodeReRegistrationTimeout?: pulumi.Input<number>;
+            notBefore?: pulumi.Input<number>;
+            oauth2DeviceAuthorizationGrantEnabled?: pulumi.Input<boolean>;
+            optionalClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            origin?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMappers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsProtocolmappersArgs>[]>;
+            publicClient?: pulumi.Input<boolean>;
+            redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+            registeredNodes?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+            registrationAccessToken?: pulumi.Input<string>;
+            rootUrl?: pulumi.Input<string>;
+            secret?: pulumi.Input<string>;
+            serviceAccountsEnabled?: pulumi.Input<boolean>;
+            standardFlowEnabled?: pulumi.Input<boolean>;
+            surrogateAuthRequired?: pulumi.Input<boolean>;
+            useTemplateConfig?: pulumi.Input<boolean>;
+            useTemplateMappers?: pulumi.Input<boolean>;
+            useTemplateScope?: pulumi.Input<boolean>;
+            webOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsArgs {
+            allowRemoteResourceManagement?: pulumi.Input<boolean>;
+            clientId?: pulumi.Input<string>;
+            decisionStrategy?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            policies?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesArgs>[]>;
+            policyEnforcementMode?: pulumi.Input<string>;
+            resources?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesArgs>[]>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsScopesArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            decisionStrategy?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            logic?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<string>;
+            policies?: pulumi.Input<pulumi.Input<string>[]>;
+            resources?: pulumi.Input<pulumi.Input<string>[]>;
+            resourcesData?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataArgs>[]>;
+            scopes?: pulumi.Input<pulumi.Input<string>[]>;
+            scopesData?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesScopesdataArgs>[]>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataArgs {
+            _id?: pulumi.Input<string>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            displayName?: pulumi.Input<string>;
+            icon_uri?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataOwnerArgs>;
+            ownerManagedAccess?: pulumi.Input<boolean>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataScopesArgs>[]>;
+            type?: pulumi.Input<string>;
+            uris?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataOwnerArgs {
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesScopesdataArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesArgs {
+            _id?: pulumi.Input<string>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            displayName?: pulumi.Input<string>;
+            icon_uri?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            owner?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesOwnerArgs>;
+            ownerManagedAccess?: pulumi.Input<boolean>;
+            scopes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesScopesArgs>[]>;
+            type?: pulumi.Input<string>;
+            uris?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesOwnerArgs {
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsScopesArgs {
+            displayName?: pulumi.Input<string>;
+            iconUri?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsClaimsArgs {
+            address?: pulumi.Input<boolean>;
+            email?: pulumi.Input<boolean>;
+            gender?: pulumi.Input<boolean>;
+            locale?: pulumi.Input<boolean>;
+            name?: pulumi.Input<boolean>;
+            phone?: pulumi.Input<boolean>;
+            picture?: pulumi.Input<boolean>;
+            profile?: pulumi.Input<boolean>;
+            username?: pulumi.Input<boolean>;
+            website?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsProtocolmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            consentRequired?: pulumi.Input<boolean>;
+            consentText?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMapper?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmProtocolmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            consentRequired?: pulumi.Input<boolean>;
+            consentText?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+            protocolMapper?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRequiredactionsArgs {
+            alias?: pulumi.Input<string>;
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            defaultAction?: pulumi.Input<boolean>;
+            enabled?: pulumi.Input<boolean>;
+            name?: pulumi.Input<string>;
+            priority?: pulumi.Input<number>;
+            providerId?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesArgs {
+            application?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesApplicationArgs>[]>}>;
+            client?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesClientArgs>[]>}>;
+            realm?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesRealmArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesApplicationArgs {
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientRole?: pulumi.Input<boolean>;
+            composite?: pulumi.Input<boolean>;
+            composites?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesApplicationCompositesArgs>;
+            containerId?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            scopeParamRequired?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesApplicationCompositesArgs {
+            application?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            client?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            realm?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesClientArgs {
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientRole?: pulumi.Input<boolean>;
+            composite?: pulumi.Input<boolean>;
+            composites?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesClientCompositesArgs>;
+            containerId?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            scopeParamRequired?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesClientCompositesArgs {
+            application?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            client?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            realm?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesRealmArgs {
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientRole?: pulumi.Input<boolean>;
+            composite?: pulumi.Input<boolean>;
+            composites?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesRealmCompositesArgs>;
+            containerId?: pulumi.Input<string>;
+            description?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            scopeParamRequired?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesRealmCompositesArgs {
+            application?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            client?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            realm?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmScopemappingsArgs {
+            client?: pulumi.Input<string>;
+            clientScope?: pulumi.Input<string>;
+            clientTemplate?: pulumi.Input<string>;
+            roles?: pulumi.Input<pulumi.Input<string>[]>;
+            self?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUserfederationmappersArgs {
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            federationMapperType?: pulumi.Input<string>;
+            federationProviderDisplayName?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUserfederationprovidersArgs {
+            changedSyncPeriod?: pulumi.Input<number>;
+            config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            displayName?: pulumi.Input<string>;
+            fullSyncPeriod?: pulumi.Input<number>;
+            id?: pulumi.Input<string>;
+            lastSync?: pulumi.Input<number>;
+            priority?: pulumi.Input<number>;
+            providerName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersArgs {
+            access?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+            applicationRoles?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            clientConsents?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersClientconsentsArgs>[]>;
+            clientRoles?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            createdTimestamp?: pulumi.Input<number>;
+            credentials?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersCredentialsArgs>[]>;
+            disableableCredentialTypes?: pulumi.Input<pulumi.Input<string>[]>;
+            email?: pulumi.Input<string>;
+            emailVerified?: pulumi.Input<boolean>;
+            enabled?: pulumi.Input<boolean>;
+            federatedIdentities?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersFederatedidentitiesArgs>[]>;
+            federationLink?: pulumi.Input<string>;
+            firstName?: pulumi.Input<string>;
+            groups?: pulumi.Input<pulumi.Input<string>[]>;
+            id?: pulumi.Input<string>;
+            lastName?: pulumi.Input<string>;
+            notBefore?: pulumi.Input<number>;
+            origin?: pulumi.Input<string>;
+            realmRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            requiredActions?: pulumi.Input<pulumi.Input<string>[]>;
+            self?: pulumi.Input<string>;
+            serviceAccountClientId?: pulumi.Input<string>;
+            socialLinks?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersSociallinksArgs>[]>;
+            totp?: pulumi.Input<boolean>;
+            username?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersClientconsentsArgs {
+            clientId?: pulumi.Input<string>;
+            createdDate?: pulumi.Input<number>;
+            grantedClientScopes?: pulumi.Input<pulumi.Input<string>[]>;
+            grantedRealmRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            lastUpdatedDate?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersCredentialsArgs {
+            algorithm?: pulumi.Input<string>;
+            config?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            counter?: pulumi.Input<number>;
+            createdDate?: pulumi.Input<number>;
+            credentialData?: pulumi.Input<string>;
+            device?: pulumi.Input<string>;
+            digits?: pulumi.Input<number>;
+            hashIterations?: pulumi.Input<number>;
+            hashedSaltedValue?: pulumi.Input<string>;
+            id?: pulumi.Input<string>;
+            period?: pulumi.Input<number>;
+            priority?: pulumi.Input<number>;
+            salt?: pulumi.Input<string>;
+            secretData?: pulumi.Input<string>;
+            temporary?: pulumi.Input<boolean>;
+            type?: pulumi.Input<string>;
+            userLabel?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersFederatedidentitiesArgs {
+            identityProvider?: pulumi.Input<string>;
+            userId?: pulumi.Input<string>;
+            userName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersSociallinksArgs {
+            socialProvider?: pulumi.Input<string>;
+            socialUserId?: pulumi.Input<string>;
+            socialUsername?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakRealmImportStatusArgs {
+            conditions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakRealmImportStatusConditionsArgs>[]>;
+        }
+
+        export interface KeycloakRealmImportStatusConditionsArgs {
+            lastTransitionTime?: pulumi.Input<string>;
+            message?: pulumi.Input<string>;
+            observedGeneration?: pulumi.Input<number>;
+            status?: pulumi.Input<{[key: string]: any}>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecArgs {
+            /**
+             * Configuration of the Keycloak server.
+             * expressed as a keys (reference: https://www.keycloak.org/server/all-config) and values that can be either direct values or references to secrets.
+             */
+            additionalOptions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecAdditionaloptionsArgs>[]>;
+            /**
+             * In this section you can find all properties related to connect to a database.
+             */
+            db?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecDbArgs>;
+            /**
+             * In this section you can configure Keycloak features, which should be enabled/disabled.
+             */
+            features?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecFeaturesArgs>;
+            /**
+             * In this section you can configure Keycloak hostname and related properties.
+             */
+            hostname?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecHostnameArgs>;
+            /**
+             * In this section you can configure Keycloak features related to HTTP and HTTPS
+             */
+            http?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecHttpArgs>;
+            /**
+             * Custom Keycloak image to be used.
+             */
+            image?: pulumi.Input<string>;
+            /**
+             * Secret(s) that might be used when pulling an image from a private container image registry or repository.
+             */
+            imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecImagepullsecretsArgs>[]>;
+            /**
+             * The deployment is, by default, exposed through a basic ingress.
+             * You can change this behaviour by setting the enabled property to false.
+             */
+            ingress?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecIngressArgs>;
+            /**
+             * Number of Keycloak instances in HA mode. Default is 1.
+             */
+            instances?: pulumi.Input<number>;
+            /**
+             * In this section you can find all properties related to the settings of transaction behavior.
+             */
+            transaction?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecTransactionArgs>;
+            /**
+             * In this section you can configure podTemplate advanced features, not production-ready, and not supported settings.
+             * Use at your own risk and open an issue with your use-case if you don't find an alternative way.
+             */
+            unsupported?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedArgs>;
+        }
+
+        export interface KeycloakSpecAdditionaloptionsArgs {
+            name?: pulumi.Input<string>;
+            secret?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecAdditionaloptionsSecretArgs>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecAdditionaloptionsSecretArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * In this section you can find all properties related to connect to a database.
+         */
+        export interface KeycloakSpecDbArgs {
+            /**
+             * Sets the database name of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+             */
+            database?: pulumi.Input<string>;
+            /**
+             * Sets the hostname of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * The reference to a secret holding the password of the database user.
+             */
+            passwordSecret?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecDbPasswordsecretArgs>;
+            /**
+             * The initial size of the connection pool.
+             */
+            poolInitialSize?: pulumi.Input<number>;
+            /**
+             * The maximum size of the connection pool.
+             */
+            poolMaxSize?: pulumi.Input<number>;
+            /**
+             * The minimal size of the connection pool.
+             */
+            poolMinSize?: pulumi.Input<number>;
+            /**
+             * Sets the port of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+             */
+            port?: pulumi.Input<number>;
+            /**
+             * The database schema to be used.
+             */
+            schema?: pulumi.Input<string>;
+            /**
+             * The full database JDBC URL. If not provided, a default URL is set based on the selected database vendor. For instance, if using 'postgres', the default JDBC URL would be 'jdbc:postgresql://localhost/keycloak'. 
+             */
+            url?: pulumi.Input<string>;
+            /**
+             * The reference to a secret holding the username of the database user.
+             */
+            usernameSecret?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecDbUsernamesecretArgs>;
+            /**
+             * The database vendor.
+             */
+            vendor?: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to a secret holding the password of the database user.
+         */
+        export interface KeycloakSpecDbPasswordsecretArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The reference to a secret holding the username of the database user.
+         */
+        export interface KeycloakSpecDbUsernamesecretArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * In this section you can configure Keycloak features, which should be enabled/disabled.
+         */
+        export interface KeycloakSpecFeaturesArgs {
+            /**
+             * Disabled Keycloak features
+             */
+            disabled?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Enabled Keycloak features
+             */
+            enabled?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * In this section you can configure Keycloak hostname and related properties.
+         */
+        export interface KeycloakSpecHostnameArgs {
+            /**
+             * The hostname for accessing the administration console.
+             */
+            admin?: pulumi.Input<string>;
+            /**
+             * Set the base URL for accessing the administration console, including scheme, host, port and path
+             */
+            adminUrl?: pulumi.Input<string>;
+            /**
+             * Hostname for the Keycloak server.
+             */
+            hostname?: pulumi.Input<string>;
+            /**
+             * Disables dynamically resolving the hostname from request headers.
+             */
+            strict?: pulumi.Input<boolean>;
+            /**
+             * By default backchannel URLs are dynamically resolved from request headers to allow internal and external applications.
+             */
+            strictBackchannel?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * In this section you can configure Keycloak features related to HTTP and HTTPS
+         */
+        export interface KeycloakSpecHttpArgs {
+            /**
+             * Enables the HTTP listener.
+             */
+            httpEnabled?: pulumi.Input<boolean>;
+            /**
+             * The used HTTP port.
+             */
+            httpPort?: pulumi.Input<number>;
+            /**
+             * The used HTTPS port.
+             */
+            httpsPort?: pulumi.Input<number>;
+            /**
+             * A secret containing the TLS configuration for HTTPS. Reference: https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets.
+             */
+            tlsSecret?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecImagepullsecretsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * The deployment is, by default, exposed through a basic ingress.
+         * You can change this behaviour by setting the enabled property to false.
+         */
+        export interface KeycloakSpecIngressArgs {
+            /**
+             * Additional annotations to be appended to the Ingress object
+             */
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            className?: pulumi.Input<string>;
+            enabled?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * In this section you can find all properties related to the settings of transaction behavior.
+         */
+        export interface KeycloakSpecTransactionArgs {
+            /**
+             * Determine whether Keycloak should use a non-XA datasource in case the database does not support XA transactions.
+             */
+            xaEnabled?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * In this section you can configure podTemplate advanced features, not production-ready, and not supported settings.
+         * Use at your own risk and open an issue with your use-case if you don't find an alternative way.
+         */
+        export interface KeycloakSpecUnsupportedArgs {
+            /**
+             * You can configure that will be merged with the one configured by default by the operator.
+             * Use at your own risk, we reserve the possibility to remove/change the way any field gets merged in future releases without notice.
+             * Reference: https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
+             */
+            podTemplate?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateArgs>;
+        }
+
+        /**
+         * You can configure that will be merged with the one configured by default by the operator.
+         * Use at your own risk, we reserve the possibility to remove/change the way any field gets merged in future releases without notice.
+         * Reference: https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
+         */
+        export interface KeycloakSpecUnsupportedPodtemplateArgs {
+            metadata?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateMetadataArgs>;
+            spec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateMetadataArgs {
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            creationTimestamp?: pulumi.Input<string>;
+            deletionGracePeriodSeconds?: pulumi.Input<number>;
+            deletionTimestamp?: pulumi.Input<string>;
+            finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+            generateName?: pulumi.Input<string>;
+            generation?: pulumi.Input<number>;
+            labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            managedFields?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateMetadataManagedfieldsArgs>[]>;
+            name?: pulumi.Input<string>;
+            namespace?: pulumi.Input<string>;
+            ownerReferences?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateMetadataOwnerreferencesArgs>[]>;
+            resourceVersion?: pulumi.Input<string>;
+            selfLink?: pulumi.Input<string>;
+            uid?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateMetadataManagedfieldsArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldsType?: pulumi.Input<string>;
+            fieldsV1?: pulumi.Input<{[key: string]: any}>;
+            manager?: pulumi.Input<string>;
+            operation?: pulumi.Input<string>;
+            subresource?: pulumi.Input<string>;
+            time?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateMetadataOwnerreferencesArgs {
+            apiVersion?: pulumi.Input<string>;
+            blockOwnerDeletion?: pulumi.Input<boolean>;
+            controller?: pulumi.Input<boolean>;
+            kind?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            uid?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecArgs {
+            activeDeadlineSeconds?: pulumi.Input<number>;
+            affinity?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityArgs>;
+            automountServiceAccountToken?: pulumi.Input<boolean>;
+            containers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersArgs>[]>;
+            dnsConfig?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecDnsconfigArgs>;
+            dnsPolicy?: pulumi.Input<string>;
+            enableServiceLinks?: pulumi.Input<boolean>;
+            ephemeralContainers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersArgs>[]>;
+            hostAliases?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecHostaliasesArgs>[]>;
+            hostIPC?: pulumi.Input<boolean>;
+            hostNetwork?: pulumi.Input<boolean>;
+            hostPID?: pulumi.Input<boolean>;
+            hostUsers?: pulumi.Input<boolean>;
+            hostname?: pulumi.Input<string>;
+            imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecImagepullsecretsArgs>[]>;
+            initContainers?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersArgs>[]>;
+            nodeName?: pulumi.Input<string>;
+            nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            os?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecOsArgs>;
+            overhead?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            preemptionPolicy?: pulumi.Input<string>;
+            priority?: pulumi.Input<number>;
+            priorityClassName?: pulumi.Input<string>;
+            readinessGates?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecReadinessgatesArgs>[]>;
+            resourceClaims?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecResourceclaimsArgs>[]>;
+            restartPolicy?: pulumi.Input<string>;
+            runtimeClassName?: pulumi.Input<string>;
+            schedulerName?: pulumi.Input<string>;
+            schedulingGates?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSchedulinggatesArgs>[]>;
+            securityContext?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextArgs>;
+            serviceAccount?: pulumi.Input<string>;
+            serviceAccountName?: pulumi.Input<string>;
+            setHostnameAsFQDN?: pulumi.Input<boolean>;
+            shareProcessNamespace?: pulumi.Input<boolean>;
+            subdomain?: pulumi.Input<string>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            tolerations?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTolerationsArgs>[]>;
+            topologySpreadConstraints?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsArgs>[]>;
+            volumes?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityArgs {
+            nodeAffinity?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityArgs>;
+            podAffinity?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityArgs>;
+            podAntiAffinity?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityArgs {
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            preference?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceArgs>;
+            weight?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressionsArgs>[]>;
+            matchFields?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfieldsArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfieldsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            nodeSelectorTerms?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressionsArgs>[]>;
+            matchFields?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfieldsArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfieldsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityArgs {
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            podAffinityTerm?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs>;
+            weight?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs {
+            labelSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs>;
+            namespaceSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs>;
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            topologyKey?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            labelSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs>;
+            namespaceSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs>;
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            topologyKey?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityArgs {
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            podAffinityTerm?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs>;
+            weight?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs {
+            labelSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs>;
+            namespaceSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs>;
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            topologyKey?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            labelSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs>;
+            namespaceSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs>;
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            topologyKey?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersArgs {
+            args?: pulumi.Input<pulumi.Input<string>[]>;
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+            env?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvArgs>[]>;
+            envFrom?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromArgs>[]>;
+            image?: pulumi.Input<string>;
+            imagePullPolicy?: pulumi.Input<string>;
+            lifecycle?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecycleArgs>;
+            livenessProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeArgs>;
+            name?: pulumi.Input<string>;
+            ports?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersPortsArgs>[]>;
+            readinessProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeArgs>;
+            resources?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersResourcesArgs>;
+            securityContext?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextArgs>;
+            startupProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeArgs>;
+            stdin?: pulumi.Input<boolean>;
+            stdinOnce?: pulumi.Input<boolean>;
+            terminationMessagePath?: pulumi.Input<string>;
+            terminationMessagePolicy?: pulumi.Input<string>;
+            tty?: pulumi.Input<boolean>;
+            volumeDevices?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersVolumedevicesArgs>[]>;
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersVolumemountsArgs>[]>;
+            workingDir?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+            valueFrom?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromArgs {
+            configMapKeyRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromConfigmapkeyrefArgs>;
+            fieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromFieldrefArgs>;
+            resourceFieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromResourcefieldrefArgs>;
+            secretKeyRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromSecretkeyrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromConfigmapkeyrefArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromFieldrefArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldPath?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromResourcefieldrefArgs {
+            containerName?: pulumi.Input<string>;
+            divisor?: pulumi.Input<number | string>;
+            resource?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromSecretkeyrefArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromArgs {
+            configMapRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromConfigmaprefArgs>;
+            prefix?: pulumi.Input<string>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromSecretrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromConfigmaprefArgs {
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromSecretrefArgs {
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecycleArgs {
+            postStart?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartArgs>;
+            preStop?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartExecArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpgetArgs>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartTcpsocketArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopExecArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpgetArgs>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopTcpsocketArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersPortsArgs {
+            containerPort?: pulumi.Input<number>;
+            hostIP?: pulumi.Input<string>;
+            hostPort?: pulumi.Input<number>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersResourcesArgs {
+            claims?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersResourcesClaimsArgs>[]>;
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersResourcesClaimsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextArgs {
+            allowPrivilegeEscalation?: pulumi.Input<boolean>;
+            capabilities?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextCapabilitiesArgs>;
+            privileged?: pulumi.Input<boolean>;
+            procMount?: pulumi.Input<string>;
+            readOnlyRootFilesystem?: pulumi.Input<boolean>;
+            runAsGroup?: pulumi.Input<number>;
+            runAsNonRoot?: pulumi.Input<boolean>;
+            runAsUser?: pulumi.Input<number>;
+            seLinuxOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSelinuxoptionsArgs>;
+            seccompProfile?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSeccompprofileArgs>;
+            windowsOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextWindowsoptionsArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextCapabilitiesArgs {
+            add?: pulumi.Input<pulumi.Input<string>[]>;
+            drop?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSeccompprofileArgs {
+            localhostProfile?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSelinuxoptionsArgs {
+            level?: pulumi.Input<string>;
+            role?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+            user?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextWindowsoptionsArgs {
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            hostProcess?: pulumi.Input<boolean>;
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersVolumedevicesArgs {
+            devicePath?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersVolumemountsArgs {
+            mountPath?: pulumi.Input<string>;
+            mountPropagation?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            subPath?: pulumi.Input<string>;
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecDnsconfigArgs {
+            nameservers?: pulumi.Input<pulumi.Input<string>[]>;
+            options?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecDnsconfigOptionsArgs>[]>;
+            searches?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecDnsconfigOptionsArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersArgs {
+            args?: pulumi.Input<pulumi.Input<string>[]>;
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+            env?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvArgs>[]>;
+            envFrom?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromArgs>[]>;
+            image?: pulumi.Input<string>;
+            imagePullPolicy?: pulumi.Input<string>;
+            lifecycle?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecycleArgs>;
+            livenessProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeArgs>;
+            name?: pulumi.Input<string>;
+            ports?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersPortsArgs>[]>;
+            readinessProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeArgs>;
+            resources?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResourcesArgs>;
+            securityContext?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextArgs>;
+            startupProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeArgs>;
+            stdin?: pulumi.Input<boolean>;
+            stdinOnce?: pulumi.Input<boolean>;
+            targetContainerName?: pulumi.Input<string>;
+            terminationMessagePath?: pulumi.Input<string>;
+            terminationMessagePolicy?: pulumi.Input<string>;
+            tty?: pulumi.Input<boolean>;
+            volumeDevices?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumedevicesArgs>[]>;
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumemountsArgs>[]>;
+            workingDir?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+            valueFrom?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromArgs {
+            configMapKeyRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromConfigmapkeyrefArgs>;
+            fieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromFieldrefArgs>;
+            resourceFieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromResourcefieldrefArgs>;
+            secretKeyRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromSecretkeyrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromConfigmapkeyrefArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromFieldrefArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldPath?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromResourcefieldrefArgs {
+            containerName?: pulumi.Input<string>;
+            divisor?: pulumi.Input<number | string>;
+            resource?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromSecretkeyrefArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromArgs {
+            configMapRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromConfigmaprefArgs>;
+            prefix?: pulumi.Input<string>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromSecretrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromConfigmaprefArgs {
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromSecretrefArgs {
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecycleArgs {
+            postStart?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartArgs>;
+            preStop?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartExecArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpgetArgs>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartTcpsocketArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopExecArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpgetArgs>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopTcpsocketArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersPortsArgs {
+            containerPort?: pulumi.Input<number>;
+            hostIP?: pulumi.Input<string>;
+            hostPort?: pulumi.Input<number>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResourcesArgs {
+            claims?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResourcesClaimsArgs>[]>;
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResourcesClaimsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextArgs {
+            allowPrivilegeEscalation?: pulumi.Input<boolean>;
+            capabilities?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextCapabilitiesArgs>;
+            privileged?: pulumi.Input<boolean>;
+            procMount?: pulumi.Input<string>;
+            readOnlyRootFilesystem?: pulumi.Input<boolean>;
+            runAsGroup?: pulumi.Input<number>;
+            runAsNonRoot?: pulumi.Input<boolean>;
+            runAsUser?: pulumi.Input<number>;
+            seLinuxOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSelinuxoptionsArgs>;
+            seccompProfile?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSeccompprofileArgs>;
+            windowsOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextWindowsoptionsArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextCapabilitiesArgs {
+            add?: pulumi.Input<pulumi.Input<string>[]>;
+            drop?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSeccompprofileArgs {
+            localhostProfile?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSelinuxoptionsArgs {
+            level?: pulumi.Input<string>;
+            role?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+            user?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextWindowsoptionsArgs {
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            hostProcess?: pulumi.Input<boolean>;
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumedevicesArgs {
+            devicePath?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumemountsArgs {
+            mountPath?: pulumi.Input<string>;
+            mountPropagation?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            subPath?: pulumi.Input<string>;
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecHostaliasesArgs {
+            hostnames?: pulumi.Input<pulumi.Input<string>[]>;
+            ip?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecImagepullsecretsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersArgs {
+            args?: pulumi.Input<pulumi.Input<string>[]>;
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+            env?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvArgs>[]>;
+            envFrom?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromArgs>[]>;
+            image?: pulumi.Input<string>;
+            imagePullPolicy?: pulumi.Input<string>;
+            lifecycle?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecycleArgs>;
+            livenessProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeArgs>;
+            name?: pulumi.Input<string>;
+            ports?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersPortsArgs>[]>;
+            readinessProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeArgs>;
+            resources?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResourcesArgs>;
+            securityContext?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextArgs>;
+            startupProbe?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeArgs>;
+            stdin?: pulumi.Input<boolean>;
+            stdinOnce?: pulumi.Input<boolean>;
+            terminationMessagePath?: pulumi.Input<string>;
+            terminationMessagePolicy?: pulumi.Input<string>;
+            tty?: pulumi.Input<boolean>;
+            volumeDevices?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumedevicesArgs>[]>;
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumemountsArgs>[]>;
+            workingDir?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+            valueFrom?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromArgs {
+            configMapKeyRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromConfigmapkeyrefArgs>;
+            fieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromFieldrefArgs>;
+            resourceFieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromResourcefieldrefArgs>;
+            secretKeyRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromSecretkeyrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromConfigmapkeyrefArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromFieldrefArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldPath?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromResourcefieldrefArgs {
+            containerName?: pulumi.Input<string>;
+            divisor?: pulumi.Input<number | string>;
+            resource?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromSecretkeyrefArgs {
+            key?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromArgs {
+            configMapRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromConfigmaprefArgs>;
+            prefix?: pulumi.Input<string>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromSecretrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromConfigmaprefArgs {
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromSecretrefArgs {
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecycleArgs {
+            postStart?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartArgs>;
+            preStop?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartExecArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpgetArgs>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartTcpsocketArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopExecArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpgetArgs>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopTcpsocketArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersPortsArgs {
+            containerPort?: pulumi.Input<number>;
+            hostIP?: pulumi.Input<string>;
+            hostPort?: pulumi.Input<number>;
+            name?: pulumi.Input<string>;
+            protocol?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResourcesArgs {
+            claims?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResourcesClaimsArgs>[]>;
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResourcesClaimsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextArgs {
+            allowPrivilegeEscalation?: pulumi.Input<boolean>;
+            capabilities?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextCapabilitiesArgs>;
+            privileged?: pulumi.Input<boolean>;
+            procMount?: pulumi.Input<string>;
+            readOnlyRootFilesystem?: pulumi.Input<boolean>;
+            runAsGroup?: pulumi.Input<number>;
+            runAsNonRoot?: pulumi.Input<boolean>;
+            runAsUser?: pulumi.Input<number>;
+            seLinuxOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSelinuxoptionsArgs>;
+            seccompProfile?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSeccompprofileArgs>;
+            windowsOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextWindowsoptionsArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextCapabilitiesArgs {
+            add?: pulumi.Input<pulumi.Input<string>[]>;
+            drop?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSeccompprofileArgs {
+            localhostProfile?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSelinuxoptionsArgs {
+            level?: pulumi.Input<string>;
+            role?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+            user?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextWindowsoptionsArgs {
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            hostProcess?: pulumi.Input<boolean>;
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeArgs {
+            exec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeExecArgs>;
+            failureThreshold?: pulumi.Input<number>;
+            grpc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeGrpcArgs>;
+            httpGet?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpgetArgs>;
+            initialDelaySeconds?: pulumi.Input<number>;
+            periodSeconds?: pulumi.Input<number>;
+            successThreshold?: pulumi.Input<number>;
+            tcpSocket?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeTcpsocketArgs>;
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeExecArgs {
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeGrpcArgs {
+            port?: pulumi.Input<number>;
+            service?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpgetArgs {
+            host?: pulumi.Input<string>;
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpgetHttpheadersArgs>[]>;
+            path?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+            scheme?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpgetHttpheadersArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeTcpsocketArgs {
+            host?: pulumi.Input<string>;
+            port?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumedevicesArgs {
+            devicePath?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumemountsArgs {
+            mountPath?: pulumi.Input<string>;
+            mountPropagation?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            subPath?: pulumi.Input<string>;
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecOsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecReadinessgatesArgs {
+            conditionType?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecResourceclaimsArgs {
+            name?: pulumi.Input<string>;
+            source?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecResourceclaimsSourceArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecResourceclaimsSourceArgs {
+            resourceClaimName?: pulumi.Input<string>;
+            resourceClaimTemplateName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSchedulinggatesArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextArgs {
+            fsGroup?: pulumi.Input<number>;
+            fsGroupChangePolicy?: pulumi.Input<string>;
+            runAsGroup?: pulumi.Input<number>;
+            runAsNonRoot?: pulumi.Input<boolean>;
+            runAsUser?: pulumi.Input<number>;
+            seLinuxOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSelinuxoptionsArgs>;
+            seccompProfile?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSeccompprofileArgs>;
+            supplementalGroups?: pulumi.Input<pulumi.Input<number>[]>;
+            sysctls?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSysctlsArgs>[]>;
+            windowsOptions?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextWindowsoptionsArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSeccompprofileArgs {
+            localhostProfile?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSelinuxoptionsArgs {
+            level?: pulumi.Input<string>;
+            role?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+            user?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSysctlsArgs {
+            name?: pulumi.Input<string>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextWindowsoptionsArgs {
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            hostProcess?: pulumi.Input<boolean>;
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTolerationsArgs {
+            effect?: pulumi.Input<string>;
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            tolerationSeconds?: pulumi.Input<number>;
+            value?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsArgs {
+            labelSelector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselectorArgs>;
+            matchLabelKeys?: pulumi.Input<pulumi.Input<string>[]>;
+            maxSkew?: pulumi.Input<number>;
+            minDomains?: pulumi.Input<number>;
+            nodeAffinityPolicy?: pulumi.Input<string>;
+            nodeTaintsPolicy?: pulumi.Input<string>;
+            topologyKey?: pulumi.Input<string>;
+            whenUnsatisfiable?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesArgs {
+            awsElasticBlockStore?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesAwselasticblockstoreArgs>;
+            azureDisk?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesAzurediskArgs>;
+            azureFile?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesAzurefileArgs>;
+            cephfs?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfsArgs>;
+            cinder?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCinderArgs>;
+            configMap?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmapArgs>;
+            csi?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCsiArgs>;
+            downwardAPI?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiArgs>;
+            emptyDir?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEmptydirArgs>;
+            ephemeral?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralArgs>;
+            fc?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFcArgs>;
+            flexVolume?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolumeArgs>;
+            flocker?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFlockerArgs>;
+            gcePersistentDisk?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesGcepersistentdiskArgs>;
+            gitRepo?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesGitrepoArgs>;
+            glusterfs?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesGlusterfsArgs>;
+            hostPath?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesHostpathArgs>;
+            iscsi?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsiArgs>;
+            name?: pulumi.Input<string>;
+            nfs?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesNfsArgs>;
+            persistentVolumeClaim?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesPersistentvolumeclaimArgs>;
+            photonPersistentDisk?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesPhotonpersistentdiskArgs>;
+            portworxVolume?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesPortworxvolumeArgs>;
+            projected?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedArgs>;
+            quobyte?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesQuobyteArgs>;
+            rbd?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesRbdArgs>;
+            scaleIO?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleioArgs>;
+            secret?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesSecretArgs>;
+            storageos?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageosArgs>;
+            vsphereVolume?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesVspherevolumeArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesAwselasticblockstoreArgs {
+            fsType?: pulumi.Input<string>;
+            partition?: pulumi.Input<number>;
+            readOnly?: pulumi.Input<boolean>;
+            volumeID?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesAzurediskArgs {
+            cachingMode?: pulumi.Input<string>;
+            diskName?: pulumi.Input<string>;
+            diskURI?: pulumi.Input<string>;
+            fsType?: pulumi.Input<string>;
+            kind?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesAzurefileArgs {
+            readOnly?: pulumi.Input<boolean>;
+            secretName?: pulumi.Input<string>;
+            shareName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfsArgs {
+            monitors?: pulumi.Input<pulumi.Input<string>[]>;
+            path?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            secretFile?: pulumi.Input<string>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfsSecretrefArgs>;
+            user?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfsSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCinderArgs {
+            fsType?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCinderSecretrefArgs>;
+            volumeID?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCinderSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmapArgs {
+            defaultMode?: pulumi.Input<number>;
+            items?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmapItemsArgs>[]>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmapItemsArgs {
+            key?: pulumi.Input<string>;
+            mode?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCsiArgs {
+            driver?: pulumi.Input<string>;
+            fsType?: pulumi.Input<string>;
+            nodePublishSecretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCsiNodepublishsecretrefArgs>;
+            readOnly?: pulumi.Input<boolean>;
+            volumeAttributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCsiNodepublishsecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiArgs {
+            defaultMode?: pulumi.Input<number>;
+            items?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsArgs {
+            fieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsFieldrefArgs>;
+            mode?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+            resourceFieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsResourcefieldrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsFieldrefArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldPath?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsResourcefieldrefArgs {
+            containerName?: pulumi.Input<string>;
+            divisor?: pulumi.Input<number | string>;
+            resource?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEmptydirArgs {
+            medium?: pulumi.Input<string>;
+            sizeLimit?: pulumi.Input<number | string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralArgs {
+            volumeClaimTemplate?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateArgs {
+            metadata?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataArgs>;
+            spec?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataArgs {
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            creationTimestamp?: pulumi.Input<string>;
+            deletionGracePeriodSeconds?: pulumi.Input<number>;
+            deletionTimestamp?: pulumi.Input<string>;
+            finalizers?: pulumi.Input<pulumi.Input<string>[]>;
+            generateName?: pulumi.Input<string>;
+            generation?: pulumi.Input<number>;
+            labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            managedFields?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataManagedfieldsArgs>[]>;
+            name?: pulumi.Input<string>;
+            namespace?: pulumi.Input<string>;
+            ownerReferences?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataOwnerreferencesArgs>[]>;
+            resourceVersion?: pulumi.Input<string>;
+            selfLink?: pulumi.Input<string>;
+            uid?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataManagedfieldsArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldsType?: pulumi.Input<string>;
+            fieldsV1?: pulumi.Input<{[key: string]: any}>;
+            manager?: pulumi.Input<string>;
+            operation?: pulumi.Input<string>;
+            subresource?: pulumi.Input<string>;
+            time?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataOwnerreferencesArgs {
+            apiVersion?: pulumi.Input<string>;
+            blockOwnerDeletion?: pulumi.Input<boolean>;
+            controller?: pulumi.Input<boolean>;
+            kind?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            uid?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecArgs {
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            dataSource?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceArgs>;
+            dataSourceRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourcerefArgs>;
+            resources?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesArgs>;
+            selector?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorArgs>;
+            storageClassName?: pulumi.Input<string>;
+            volumeMode?: pulumi.Input<string>;
+            volumeName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceArgs {
+            apiGroup?: pulumi.Input<string>;
+            kind?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourcerefArgs {
+            apiGroup?: pulumi.Input<string>;
+            kind?: pulumi.Input<string>;
+            name?: pulumi.Input<string>;
+            namespace?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesArgs {
+            claims?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesClaimsArgs>[]>;
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesClaimsArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorArgs {
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressionsArgs>[]>;
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressionsArgs {
+            key?: pulumi.Input<string>;
+            operator?: pulumi.Input<string>;
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFcArgs {
+            fsType?: pulumi.Input<string>;
+            lun?: pulumi.Input<number>;
+            readOnly?: pulumi.Input<boolean>;
+            targetWWNs?: pulumi.Input<pulumi.Input<string>[]>;
+            wwids?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolumeArgs {
+            driver?: pulumi.Input<string>;
+            fsType?: pulumi.Input<string>;
+            options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            readOnly?: pulumi.Input<boolean>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolumeSecretrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolumeSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFlockerArgs {
+            datasetName?: pulumi.Input<string>;
+            datasetUUID?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesGcepersistentdiskArgs {
+            fsType?: pulumi.Input<string>;
+            partition?: pulumi.Input<number>;
+            pdName?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesGitrepoArgs {
+            directory?: pulumi.Input<string>;
+            repository?: pulumi.Input<string>;
+            revision?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesGlusterfsArgs {
+            endpoints?: pulumi.Input<string>;
+            path?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesHostpathArgs {
+            path?: pulumi.Input<string>;
+            type?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsiArgs {
+            chapAuthDiscovery?: pulumi.Input<boolean>;
+            chapAuthSession?: pulumi.Input<boolean>;
+            fsType?: pulumi.Input<string>;
+            initiatorName?: pulumi.Input<string>;
+            iqn?: pulumi.Input<string>;
+            iscsiInterface?: pulumi.Input<string>;
+            lun?: pulumi.Input<number>;
+            portals?: pulumi.Input<pulumi.Input<string>[]>;
+            readOnly?: pulumi.Input<boolean>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsiSecretrefArgs>;
+            targetPortal?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsiSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesNfsArgs {
+            path?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            server?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesPersistentvolumeclaimArgs {
+            claimName?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesPhotonpersistentdiskArgs {
+            fsType?: pulumi.Input<string>;
+            pdID?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesPortworxvolumeArgs {
+            fsType?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            volumeID?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedArgs {
+            defaultMode?: pulumi.Input<number>;
+            sources?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesArgs {
+            configMap?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmapArgs>;
+            downwardAPI?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiArgs>;
+            secret?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecretArgs>;
+            serviceAccountToken?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesServiceaccounttokenArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmapArgs {
+            items?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmapItemsArgs>[]>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmapItemsArgs {
+            key?: pulumi.Input<string>;
+            mode?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiArgs {
+            items?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsArgs>[]>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsArgs {
+            fieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsFieldrefArgs>;
+            mode?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+            resourceFieldRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldrefArgs>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsFieldrefArgs {
+            apiVersion?: pulumi.Input<string>;
+            fieldPath?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldrefArgs {
+            containerName?: pulumi.Input<string>;
+            divisor?: pulumi.Input<number | string>;
+            resource?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecretArgs {
+            items?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecretItemsArgs>[]>;
+            name?: pulumi.Input<string>;
+            optional?: pulumi.Input<boolean>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecretItemsArgs {
+            key?: pulumi.Input<string>;
+            mode?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesServiceaccounttokenArgs {
+            audience?: pulumi.Input<string>;
+            expirationSeconds?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesQuobyteArgs {
+            group?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            registry?: pulumi.Input<string>;
+            tenant?: pulumi.Input<string>;
+            user?: pulumi.Input<string>;
+            volume?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesRbdArgs {
+            fsType?: pulumi.Input<string>;
+            image?: pulumi.Input<string>;
+            keyring?: pulumi.Input<string>;
+            monitors?: pulumi.Input<pulumi.Input<string>[]>;
+            pool?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesRbdSecretrefArgs>;
+            user?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesRbdSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleioArgs {
+            fsType?: pulumi.Input<string>;
+            gateway?: pulumi.Input<string>;
+            protectionDomain?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleioSecretrefArgs>;
+            sslEnabled?: pulumi.Input<boolean>;
+            storageMode?: pulumi.Input<string>;
+            storagePool?: pulumi.Input<string>;
+            system?: pulumi.Input<string>;
+            volumeName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleioSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesSecretArgs {
+            defaultMode?: pulumi.Input<number>;
+            items?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesSecretItemsArgs>[]>;
+            optional?: pulumi.Input<boolean>;
+            secretName?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesSecretItemsArgs {
+            key?: pulumi.Input<string>;
+            mode?: pulumi.Input<number>;
+            path?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageosArgs {
+            fsType?: pulumi.Input<string>;
+            readOnly?: pulumi.Input<boolean>;
+            secretRef?: pulumi.Input<inputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageosSecretrefArgs>;
+            volumeName?: pulumi.Input<string>;
+            volumeNamespace?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageosSecretrefArgs {
+            name?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesVspherevolumeArgs {
+            fsType?: pulumi.Input<string>;
+            storagePolicyID?: pulumi.Input<string>;
+            storagePolicyName?: pulumi.Input<string>;
+            volumePath?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakStatusArgs {
+            conditions?: pulumi.Input<pulumi.Input<inputs.k8s.v2alpha1.KeycloakStatusConditionsArgs>[]>;
+            instances?: pulumi.Input<number>;
+            observedGeneration?: pulumi.Input<number>;
+            selector?: pulumi.Input<string>;
+        }
+
+        export interface KeycloakStatusConditionsArgs {
+            lastTransitionTime?: pulumi.Input<string>;
+            message?: pulumi.Input<string>;
+            observedGeneration?: pulumi.Input<number>;
+            status?: pulumi.Input<{[key: string]: any}>;
+            type?: pulumi.Input<string>;
+        }
+    }
+}
+
 export namespace metallb {
     export namespace v1alpha1 {
         /**
@@ -15194,6 +18327,7480 @@ export namespace monitoring {
             for?: pulumi.Input<string>;
             labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
             record?: pulumi.Input<string>;
+        }
+
+        /**
+         * Specification of the desired behavior of the Prometheus cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface PrometheusSpecArgs {
+            /**
+             * AdditionalAlertManagerConfigs allows specifying a key of a Secret containing additional Prometheus AlertManager configurations. AlertManager configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alertmanager_config. As AlertManager configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible AlertManager configs are going to break Prometheus after the upgrade.
+             */
+            additionalAlertManagerConfigs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAdditionalalertmanagerconfigsArgs>;
+            /**
+             * AdditionalAlertRelabelConfigs allows specifying a key of a Secret containing additional Prometheus alert relabel configurations. Alert relabel configurations specified are appended to the configurations generated by the Prometheus Operator. Alert relabel configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alert_relabel_configs. As alert relabel configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible alert relabel configs are going to break Prometheus after the upgrade.
+             */
+            additionalAlertRelabelConfigs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAdditionalalertrelabelconfigsArgs>;
+            /**
+             * AdditionalArgs allows setting additional arguments for the Prometheus container. It is intended for e.g. activating hidden flags which are not supported by the dedicated configuration options yet. The arguments are passed as-is to the Prometheus container which may cause issues if they are invalid or not supporeted by the given Prometheus version. In case of an argument conflict (e.g. an argument which is already set by the operator itself) or when providing an invalid argument the reconciliation will fail and an error will be logged.
+             */
+            additionalArgs?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAdditionalargsArgs>[]>;
+            /**
+             * AdditionalScrapeConfigs allows specifying a key of a Secret containing additional Prometheus scrape configurations. Scrape configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config. As scrape configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible scrape configs are going to break Prometheus after the upgrade.
+             */
+            additionalScrapeConfigs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAdditionalscrapeconfigsArgs>;
+            /**
+             * If specified, the pod's scheduling constraints.
+             */
+            affinity?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityArgs>;
+            /**
+             * Define details regarding alerting.
+             */
+            alerting?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingArgs>;
+            /**
+             * AllowOverlappingBlocks enables vertical compaction and vertical query merge in Prometheus. This is still experimental in Prometheus so it may change in any upcoming release.
+             */
+            allowOverlappingBlocks?: pulumi.Input<boolean>;
+            /**
+             * APIServerConfig allows specifying a host and auth methods to access apiserver. If left empty, Prometheus is assumed to run inside of the cluster and will discover API servers automatically and use the pod's CA certificate and bearer token file at /var/run/secrets/kubernetes.io/serviceaccount/.
+             */
+            apiserverConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigArgs>;
+            /**
+             * ArbitraryFSAccessThroughSMs configures whether configuration based on a service monitor can access arbitrary files on the file system of the Prometheus container e.g. bearer token files.
+             */
+            arbitraryFSAccessThroughSMs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecArbitraryfsaccessthroughsmsArgs>;
+            /**
+             * Base image to use for a Prometheus deployment. Deprecated: use 'image' instead
+             */
+            baseImage?: pulumi.Input<string>;
+            /**
+             * ConfigMaps is a list of ConfigMaps in the same namespace as the Prometheus object, which shall be mounted into the Prometheus Pods. The ConfigMaps are mounted into /etc/prometheus/configmaps/<configmap-name>.
+             */
+            configMaps?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Containers allows injecting additional containers or modifying operator generated containers. This can be used to allow adding an authentication proxy to a Prometheus pod or to change the behavior of an operator generated container. Containers described here modify an operator generated container if they share the same name and modifications are done via a strategic merge patch. The current container names are: `prometheus`, `config-reloader`, and `thanos-sidecar`. Overriding containers is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.
+             */
+            containers?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersArgs>[]>;
+            /**
+             * Disable prometheus compaction.
+             */
+            disableCompaction?: pulumi.Input<boolean>;
+            /**
+             * Enable access to prometheus web admin API. Defaults to the value of `false`. WARNING: Enabling the admin APIs enables mutating endpoints, to delete data, shutdown Prometheus, and more. Enabling this should be done with care and the user is advised to add additional authentication authorization via a proxy to ensure only clients authorized to perform these actions can do so. For more information see https://prometheus.io/docs/prometheus/latest/querying/api/#tsdb-admin-apis
+             */
+            enableAdminAPI?: pulumi.Input<boolean>;
+            /**
+             * Enable access to Prometheus disabled features. By default, no features are enabled. Enabling disabled features is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice. For more information see https://prometheus.io/docs/prometheus/latest/disabled_features/
+             */
+            enableFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Enable Prometheus to be used as a receiver for the Prometheus remote write protocol. Defaults to the value of `false`. WARNING: This is not considered an efficient way of ingesting samples. Use it with caution for specific low-volume use cases. It is not suitable for replacing the ingestion via scraping and turning Prometheus into a push-based metrics collection system. For more information see https://prometheus.io/docs/prometheus/latest/querying/api/#remote-write-receiver Only valid in Prometheus versions 2.33.0 and newer.
+             */
+            enableRemoteWriteReceiver?: pulumi.Input<boolean>;
+            /**
+             * EnforcedBodySizeLimit defines the maximum size of uncompressed response body that will be accepted by Prometheus. Targets responding with a body larger than this many bytes will cause the scrape to fail. Example: 100MB. If defined, the limit will apply to all service/pod monitors and probes. This is an experimental feature, this behaviour could change or be removed in the future. Only valid in Prometheus versions 2.28.0 and newer.
+             */
+            enforcedBodySizeLimit?: pulumi.Input<string>;
+            /**
+             * Per-scrape limit on number of labels that will be accepted for a sample. If more than this number of labels are present post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            enforcedLabelLimit?: pulumi.Input<number>;
+            /**
+             * Per-scrape limit on length of labels name that will be accepted for a sample. If a label name is longer than this number post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            enforcedLabelNameLengthLimit?: pulumi.Input<number>;
+            /**
+             * Per-scrape limit on length of labels value that will be accepted for a sample. If a label value is longer than this number post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            enforcedLabelValueLengthLimit?: pulumi.Input<number>;
+            /**
+             * EnforcedNamespaceLabel If set, a label will be added to 
+             *  1. all user-metrics (created by `ServiceMonitor`, `PodMonitor` and `Probe` objects) and 2. in all `PrometheusRule` objects (except the ones excluded in `prometheusRulesExcludedFromEnforce`) to * alerting & recording rules and * the metrics used in their expressions (`expr`). 
+             *  Label name is this field's value. Label value is the namespace of the created object (mentioned above).
+             */
+            enforcedNamespaceLabel?: pulumi.Input<string>;
+            /**
+             * EnforcedSampleLimit defines global limit on number of scraped samples that will be accepted. This overrides any SampleLimit set per ServiceMonitor or/and PodMonitor. It is meant to be used by admins to enforce the SampleLimit to keep overall number of samples/series under the desired limit. Note that if SampleLimit is lower that value will be taken instead.
+             */
+            enforcedSampleLimit?: pulumi.Input<number>;
+            /**
+             * EnforcedTargetLimit defines a global limit on the number of scraped targets.  This overrides any TargetLimit set per ServiceMonitor or/and PodMonitor.  It is meant to be used by admins to enforce the TargetLimit to keep the overall number of targets under the desired limit. Note that if TargetLimit is lower, that value will be taken instead, except if either value is zero, in which case the non-zero value will be used.  If both values are zero, no limit is enforced.
+             */
+            enforcedTargetLimit?: pulumi.Input<number>;
+            /**
+             * Interval between consecutive evaluations. Default: `30s`
+             */
+            evaluationInterval?: pulumi.Input<string>;
+            /**
+             * List of references to PodMonitor, ServiceMonitor, Probe and PrometheusRule objects to be excluded from enforcing a namespace label of origin. Applies only if enforcedNamespaceLabel set to true.
+             */
+            excludedFromEnforcement?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecExcludedfromenforcementArgs>[]>;
+            /**
+             * Exemplars related settings that are runtime reloadable. It requires to enable the exemplar storage feature to be effective.
+             */
+            exemplars?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecExemplarsArgs>;
+            /**
+             * The labels to add to any time series or alerts when communicating with external systems (federation, remote storage, Alertmanager).
+             */
+            externalLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The external URL the Prometheus instances will be available under. This is necessary to generate correct URLs. This is necessary if Prometheus is not served from root of a DNS name.
+             */
+            externalUrl?: pulumi.Input<string>;
+            /**
+             * Pods' hostAliases configuration
+             */
+            hostAliases?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecHostaliasesArgs>[]>;
+            /**
+             * IgnoreNamespaceSelectors if set to true will ignore NamespaceSelector settings from all PodMonitor, ServiceMonitor and Probe objects. They will only discover endpoints within the namespace of the PodMonitor, ServiceMonitor and Probe objects. Defaults to false.
+             */
+            ignoreNamespaceSelectors?: pulumi.Input<boolean>;
+            /**
+             * Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Prometheus is being configured.
+             */
+            image?: pulumi.Input<string>;
+            /**
+             * An optional list of references to secrets in the same namespace to use for pulling prometheus and alertmanager images from registries see http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod
+             */
+            imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecImagepullsecretsArgs>[]>;
+            /**
+             * InitContainers allows adding initContainers to the pod definition. Those can be used to e.g. fetch secrets for injection into the Prometheus configuration from external sources. Any errors during the execution of an initContainer will lead to a restart of the Pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ InitContainers described here modify an operator generated init containers if they share the same name and modifications are done via a strategic merge patch. The current init container name is: `init-config-reloader`. Overriding init containers is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.
+             */
+            initContainers?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersArgs>[]>;
+            /**
+             * ListenLocal makes the Prometheus server listen on loopback, so that it does not bind against the Pod IP.
+             */
+            listenLocal?: pulumi.Input<boolean>;
+            /**
+             * Log format for Prometheus to be configured with.
+             */
+            logFormat?: pulumi.Input<string>;
+            /**
+             * Log level for Prometheus to be configured with.
+             */
+            logLevel?: pulumi.Input<string>;
+            /**
+             * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+             */
+            minReadySeconds?: pulumi.Input<number>;
+            /**
+             * Define which Nodes the Pods are scheduled on.
+             */
+            nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * When true, Prometheus resolves label conflicts by renaming the labels in the scraped data to "exported_<label value>" for all targets created from service and pod monitors. Otherwise the HonorLabels field of the service or pod monitor applies.
+             */
+            overrideHonorLabels?: pulumi.Input<boolean>;
+            /**
+             * When true, Prometheus ignores the timestamps for all the targets created from service and pod monitors. Otherwise the HonorTimestamps field of the service or pod monitor applies.
+             */
+            overrideHonorTimestamps?: pulumi.Input<boolean>;
+            /**
+             * When a Prometheus deployment is paused, no actions except for deletion will be performed on the underlying objects.
+             */
+            paused?: pulumi.Input<boolean>;
+            /**
+             * PodMetadata configures Labels and Annotations which are propagated to the prometheus pods.
+             */
+            podMetadata?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecPodmetadataArgs>;
+            /**
+             * Namespace's labels to match for PodMonitor discovery. If nil, only check own namespace.
+             */
+            podMonitorNamespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecPodmonitornamespaceselectorArgs>;
+            /**
+             * *Experimental* PodMonitors to be selected for target discovery. *Deprecated:* if neither this nor serviceMonitorSelector are specified, configuration is unmanaged.
+             */
+            podMonitorSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecPodmonitorselectorArgs>;
+            /**
+             * Port name used for the pods and governing service. This defaults to web
+             */
+            portName?: pulumi.Input<string>;
+            /**
+             * Priority class assigned to the Pods
+             */
+            priorityClassName?: pulumi.Input<string>;
+            /**
+             * *Experimental* Namespaces to be selected for Probe discovery. If nil, only check own namespace.
+             */
+            probeNamespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecProbenamespaceselectorArgs>;
+            /**
+             * *Experimental* Probes to be selected for target discovery.
+             */
+            probeSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecProbeselectorArgs>;
+            /**
+             * Name of Prometheus external label used to denote Prometheus instance name. Defaults to the value of `prometheus`. External label will _not_ be added when value is set to empty string (`""`).
+             */
+            prometheusExternalLabelName?: pulumi.Input<string>;
+            /**
+             * PrometheusRulesExcludedFromEnforce - list of prometheus rules to be excluded from enforcing of adding namespace labels. Works only if enforcedNamespaceLabel set to true. Make sure both ruleNamespace and ruleName are set for each pair. Deprecated: use excludedFromEnforcement instead.
+             */
+            prometheusRulesExcludedFromEnforce?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecPrometheusrulesexcludedfromenforceArgs>[]>;
+            /**
+             * QuerySpec defines the query command line flags when starting Prometheus.
+             */
+            query?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecQueryArgs>;
+            /**
+             * QueryLogFile specifies the file to which PromQL queries are logged. If the filename has an empty path, e.g. 'query.log', prometheus-operator will mount the file into an emptyDir volume at `/var/log/prometheus`. If a full path is provided, e.g. /var/log/prometheus/query.log, you must mount a volume in the specified directory and it must be writable. This is because the prometheus container runs with a read-only root filesystem for security reasons. Alternatively, the location can be set to a stdout location such as `/dev/stdout` to log query information to the default Prometheus log stream. This is only available in versions of Prometheus >= 2.16.0. For more details, see the Prometheus docs (https://prometheus.io/docs/guides/query-log/)
+             */
+            queryLogFile?: pulumi.Input<string>;
+            /**
+             * remoteRead is the list of remote read configurations.
+             */
+            remoteRead?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadArgs>[]>;
+            /**
+             * remoteWrite is the list of remote write configurations.
+             */
+            remoteWrite?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteArgs>[]>;
+            /**
+             * Name of Prometheus external label used to denote replica name. Defaults to the value of `prometheus_replica`. External label will _not_ be added when value is set to empty string (`""`).
+             */
+            replicaExternalLabelName?: pulumi.Input<string>;
+            /**
+             * Number of replicas of each shard to deploy for a Prometheus deployment. Number of replicas multiplied by shards is the total number of Pods created.
+             */
+            replicas?: pulumi.Input<number>;
+            /**
+             * Define resources requests and limits for single Pods.
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecResourcesArgs>;
+            /**
+             * Time duration Prometheus shall retain data for. Default is '24h' if retentionSize is not set, and must match the regular expression `[0-9]+(ms|s|m|h|d|w|y)` (milliseconds seconds minutes hours days weeks years).
+             */
+            retention?: pulumi.Input<string>;
+            /**
+             * Maximum amount of disk space used by blocks.
+             */
+            retentionSize?: pulumi.Input<string>;
+            /**
+             * The route prefix Prometheus registers HTTP handlers for. This is useful, if using ExternalURL and a proxy is rewriting HTTP routes of a request, and the actual ExternalURL is still true, but the server serves requests under a different route prefix. For example for use with `kubectl proxy`.
+             */
+            routePrefix?: pulumi.Input<string>;
+            /**
+             * Namespaces to be selected for PrometheusRules discovery. If unspecified, only the same namespace as the Prometheus object is in is used.
+             */
+            ruleNamespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRulenamespaceselectorArgs>;
+            /**
+             * A selector to select which PrometheusRules to mount for loading alerting/recording rules from. Until (excluding) Prometheus Operator v0.24.0 Prometheus Operator will migrate any legacy rule ConfigMaps to PrometheusRule custom resources selected by RuleSelector. Make sure it does not match any config maps that you do not want to be migrated.
+             */
+            ruleSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRuleselectorArgs>;
+            /**
+             * /--rules.*&#47; command-line arguments.
+             */
+            rules?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRulesArgs>;
+            /**
+             * Interval between consecutive scrapes. Default: `30s`
+             */
+            scrapeInterval?: pulumi.Input<string>;
+            /**
+             * Number of seconds to wait for target to respond before erroring.
+             */
+            scrapeTimeout?: pulumi.Input<string>;
+            /**
+             * Secrets is a list of Secrets in the same namespace as the Prometheus object, which shall be mounted into the Prometheus Pods. The Secrets are mounted into /etc/prometheus/secrets/<secret-name>.
+             */
+            secrets?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * SecurityContext holds pod-level security attributes and common container settings. This defaults to the default PodSecurityContext.
+             */
+            securityContext?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecSecuritycontextArgs>;
+            /**
+             * ServiceAccountName is the name of the ServiceAccount to use to run the Prometheus Pods.
+             */
+            serviceAccountName?: pulumi.Input<string>;
+            /**
+             * Namespace's labels to match for ServiceMonitor discovery. If nil, only check own namespace.
+             */
+            serviceMonitorNamespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecServicemonitornamespaceselectorArgs>;
+            /**
+             * ServiceMonitors to be selected for target discovery. *Deprecated:* if neither this nor podMonitorSelector are specified, configuration is unmanaged.
+             */
+            serviceMonitorSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecServicemonitorselectorArgs>;
+            /**
+             * SHA of Prometheus container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set. Deprecated: use 'image' instead.  The image digest can be specified as part of the image URL.
+             */
+            sha?: pulumi.Input<string>;
+            /**
+             * EXPERIMENTAL: Number of shards to distribute targets onto. Number of replicas multiplied by shards is the total number of Pods created. Note that scaling down shards will not reshard data onto remaining instances, it must be manually moved. Increasing shards will not reshard data either but it will continue to be available from the same instances. To query globally use Thanos sidecar and Thanos querier or remote write data to a central location. Sharding is done on the content of the `__address__` target meta-label.
+             */
+            shards?: pulumi.Input<number>;
+            /**
+             * Storage spec to specify how storage shall be used.
+             */
+            storage?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageArgs>;
+            /**
+             * Tag of Prometheus container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set. Deprecated: use 'image' instead.  The image tag can be specified as part of the image URL.
+             */
+            tag?: pulumi.Input<string>;
+            /**
+             * Thanos configuration allows configuring various aspects of a Prometheus server in a Thanos environment. 
+             *  This section is experimental, it may change significantly without deprecation notice in any release. 
+             *  This is experimental and may change significantly without backward compatibility in any release.
+             */
+            thanos?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosArgs>;
+            /**
+             * If specified, the pod's tolerations.
+             */
+            tolerations?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecTolerationsArgs>[]>;
+            /**
+             * If specified, the pod's topology spread constraints.
+             */
+            topologySpreadConstraints?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecTopologyspreadconstraintsArgs>[]>;
+            /**
+             * Version of Prometheus to be deployed.
+             */
+            version?: pulumi.Input<string>;
+            /**
+             * VolumeMounts allows configuration of additional VolumeMounts on the output StatefulSet definition. VolumeMounts specified will be appended to other VolumeMounts in the prometheus container, that are generated as a result of StorageSpec objects.
+             */
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumemountsArgs>[]>;
+            /**
+             * Volumes allows configuration of additional volumes on the output StatefulSet definition. Volumes specified will be appended to other volumes that are generated as a result of StorageSpec objects.
+             */
+            volumes?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesArgs>[]>;
+            /**
+             * Enable compression of the write-ahead log using Snappy. This flag is only available in versions of Prometheus >= 2.11.0.
+             */
+            walCompression?: pulumi.Input<boolean>;
+            /**
+             * Defines the web command line flags when starting Prometheus.
+             */
+            web?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebArgs>;
+        }
+        /**
+         * prometheusSpecArgsProvideDefaults sets the appropriate defaults for PrometheusSpecArgs
+         */
+        export function prometheusSpecArgsProvideDefaults(val: PrometheusSpecArgs): PrometheusSpecArgs {
+            return {
+                ...val,
+                evaluationInterval: (val.evaluationInterval) ?? "30s",
+                scrapeInterval: (val.scrapeInterval) ?? "30s",
+            };
+        }
+
+        /**
+         * AdditionalAlertManagerConfigs allows specifying a key of a Secret containing additional Prometheus AlertManager configurations. AlertManager configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alertmanager_config. As AlertManager configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible AlertManager configs are going to break Prometheus after the upgrade.
+         */
+        export interface PrometheusSpecAdditionalalertmanagerconfigsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * AdditionalAlertRelabelConfigs allows specifying a key of a Secret containing additional Prometheus alert relabel configurations. Alert relabel configurations specified are appended to the configurations generated by the Prometheus Operator. Alert relabel configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alert_relabel_configs. As alert relabel configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible alert relabel configs are going to break Prometheus after the upgrade.
+         */
+        export interface PrometheusSpecAdditionalalertrelabelconfigsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Argument as part of the AdditionalArgs list.
+         */
+        export interface PrometheusSpecAdditionalargsArgs {
+            /**
+             * Name of the argument, e.g. "scrape.discovery-reload-interval".
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Argument value, e.g. 30s. Can be empty for name-only arguments (e.g. --storage.tsdb.no-lockfile)
+             */
+            value?: pulumi.Input<string>;
+        }
+
+        /**
+         * AdditionalScrapeConfigs allows specifying a key of a Secret containing additional Prometheus scrape configurations. Scrape configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config. As scrape configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible scrape configs are going to break Prometheus after the upgrade.
+         */
+        export interface PrometheusSpecAdditionalscrapeconfigsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * If specified, the pod's scheduling constraints.
+         */
+        export interface PrometheusSpecAffinityArgs {
+            /**
+             * Describes node affinity scheduling rules for the pod.
+             */
+            nodeAffinity?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityArgs>;
+            /**
+             * Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+             */
+            podAffinity?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityArgs>;
+            /**
+             * Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+             */
+            podAntiAffinity?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityArgs>;
+        }
+
+        /**
+         * Describes node affinity scheduling rules for the pod.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityArgs {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionArgs>;
+        }
+
+        /**
+         * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            /**
+             * A node selector term, associated with the corresponding weight.
+             */
+            preference: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceArgs>;
+            /**
+             * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
+             */
+            weight: pulumi.Input<number>;
+        }
+
+        /**
+         * A node selector term, associated with the corresponding weight.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceArgs {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressionsArgs>[]>;
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfieldsArgs>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressionsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfieldsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            /**
+             * Required. A list of node selector terms. The terms are ORed.
+             */
+            nodeSelectorTerms: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsArgs>[]>;
+        }
+
+        /**
+         * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsArgs {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressionsArgs>[]>;
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfieldsArgs>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressionsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfieldsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+         */
+        export interface PrometheusSpecAffinityPodaffinityArgs {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionArgs>[]>;
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs>;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: pulumi.Input<number>;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityArgs {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            /**
+             * If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionArgs>[]>;
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs>;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: pulumi.Input<number>;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Define details regarding alerting.
+         */
+        export interface PrometheusSpecAlertingArgs {
+            /**
+             * AlertmanagerEndpoints Prometheus should fire alerts against.
+             */
+            alertmanagers: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersArgs>[]>;
+        }
+
+        /**
+         * AlertmanagerEndpoints defines a selection of a single Endpoints object containing alertmanager IPs to fire alerts against.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersArgs {
+            /**
+             * Version of the Alertmanager API that Prometheus uses to send alerts. It can be "v1" or "v2".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Authorization section for this alertmanager endpoint
+             */
+            authorization?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersAuthorizationArgs>;
+            /**
+             * BearerTokenFile to read from filesystem to use when authenticating to Alertmanager.
+             */
+            bearerTokenFile?: pulumi.Input<string>;
+            /**
+             * Name of Endpoints object in Namespace.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Namespace of Endpoints object.
+             */
+            namespace: pulumi.Input<string>;
+            /**
+             * Prefix for the HTTP path alerts are pushed to.
+             */
+            pathPrefix?: pulumi.Input<string>;
+            /**
+             * Port the Alertmanager API is exposed on.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use when firing alerts.
+             */
+            scheme?: pulumi.Input<string>;
+            /**
+             * Timeout is a per-target Alertmanager timeout when pushing alerts.
+             */
+            timeout?: pulumi.Input<string>;
+            /**
+             * TLS Config to use for alertmanager connection.
+             */
+            tlsConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigArgs>;
+        }
+
+        /**
+         * Authorization section for this alertmanager endpoint
+         */
+        export interface PrometheusSpecAlertingAlertmanagersAuthorizationArgs {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersAuthorizationCredentialsArgs>;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: pulumi.Input<string>;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecAlertingAlertmanagersAuthorizationCredentialsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * TLS Config to use for alertmanager connection.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigArgs {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCaArgs>;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: pulumi.Input<string>;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCertArgs>;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: pulumi.Input<string>;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: pulumi.Input<boolean>;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: pulumi.Input<string>;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigKeysecretArgs>;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCaArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCaConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCaSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCaConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCaSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCertArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCertConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCertSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCertConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCertSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigKeysecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * APIServerConfig allows specifying a host and auth methods to access apiserver. If left empty, Prometheus is assumed to run inside of the cluster and will discover API servers automatically and use the pod's CA certificate and bearer token file at /var/run/secrets/kubernetes.io/serviceaccount/.
+         */
+        export interface PrometheusSpecApiserverconfigArgs {
+            /**
+             * Authorization section for accessing apiserver
+             */
+            authorization?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigAuthorizationArgs>;
+            /**
+             * BasicAuth allow an endpoint to authenticate over basic authentication
+             */
+            basicAuth?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigBasicauthArgs>;
+            /**
+             * Bearer token for accessing apiserver.
+             */
+            bearerToken?: pulumi.Input<string>;
+            /**
+             * File to read bearer token for accessing apiserver.
+             */
+            bearerTokenFile?: pulumi.Input<string>;
+            /**
+             * Host of apiserver. A valid string consisting of a hostname or IP followed by an optional port number
+             */
+            host: pulumi.Input<string>;
+            /**
+             * TLS Config to use for accessing apiserver.
+             */
+            tlsConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigArgs>;
+        }
+
+        /**
+         * Authorization section for accessing apiserver
+         */
+        export interface PrometheusSpecApiserverconfigAuthorizationArgs {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigAuthorizationCredentialsArgs>;
+            /**
+             * File to read a secret from, mutually exclusive with Credentials (from SafeAuthorization)
+             */
+            credentialsFile?: pulumi.Input<string>;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: pulumi.Input<string>;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecApiserverconfigAuthorizationCredentialsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * BasicAuth allow an endpoint to authenticate over basic authentication
+         */
+        export interface PrometheusSpecApiserverconfigBasicauthArgs {
+            /**
+             * The secret in the service monitor namespace that contains the password for authentication.
+             */
+            password?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigBasicauthPasswordArgs>;
+            /**
+             * The secret in the service monitor namespace that contains the username for authentication.
+             */
+            username?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigBasicauthUsernameArgs>;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the password for authentication.
+         */
+        export interface PrometheusSpecApiserverconfigBasicauthPasswordArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the username for authentication.
+         */
+        export interface PrometheusSpecApiserverconfigBasicauthUsernameArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * TLS Config to use for accessing apiserver.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigArgs {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCaArgs>;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: pulumi.Input<string>;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCertArgs>;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: pulumi.Input<string>;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: pulumi.Input<boolean>;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: pulumi.Input<string>;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigKeysecretArgs>;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCaArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCaConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCaSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCaConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCaSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCertArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCertConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCertSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCertConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCertSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigKeysecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * ArbitraryFSAccessThroughSMs configures whether configuration based on a service monitor can access arbitrary files on the file system of the Prometheus container e.g. bearer token files.
+         */
+        export interface PrometheusSpecArbitraryfsaccessthroughsmsArgs {
+            deny?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * A single application container that you want to run within a pod.
+         */
+        export interface PrometheusSpecContainersArgs {
+            /**
+             * Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            args?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * List of environment variables to set in the container. Cannot be updated.
+             */
+            env?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvArgs>[]>;
+            /**
+             * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
+             */
+            envFrom?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvfromArgs>[]>;
+            /**
+             * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+             */
+            image?: pulumi.Input<string>;
+            /**
+             * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             */
+            imagePullPolicy?: pulumi.Input<string>;
+            /**
+             * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+             */
+            lifecycle?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecycleArgs>;
+            /**
+             * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            livenessProbe?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLivenessprobeArgs>;
+            /**
+             * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
+             */
+            ports?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersPortsArgs>[]>;
+            /**
+             * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            readinessProbe?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersReadinessprobeArgs>;
+            /**
+             * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersResourcesArgs>;
+            /**
+             * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+             */
+            securityContext?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersSecuritycontextArgs>;
+            /**
+             * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            startupProbe?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersStartupprobeArgs>;
+            /**
+             * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
+             */
+            stdin?: pulumi.Input<boolean>;
+            /**
+             * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+             */
+            stdinOnce?: pulumi.Input<boolean>;
+            /**
+             * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
+             */
+            terminationMessagePath?: pulumi.Input<string>;
+            /**
+             * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+             */
+            terminationMessagePolicy?: pulumi.Input<string>;
+            /**
+             * Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
+             */
+            tty?: pulumi.Input<boolean>;
+            /**
+             * volumeDevices is the list of block devices to be used by the container.
+             */
+            volumeDevices?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersVolumedevicesArgs>[]>;
+            /**
+             * Pod volumes to mount into the container's filesystem. Cannot be updated.
+             */
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersVolumemountsArgs>[]>;
+            /**
+             * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+             */
+            workingDir?: pulumi.Input<string>;
+        }
+
+        /**
+         * EnvVar represents an environment variable present in a Container.
+         */
+        export interface PrometheusSpecContainersEnvArgs {
+            /**
+             * Name of the environment variable. Must be a C_IDENTIFIER.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             */
+            value?: pulumi.Input<string>;
+            /**
+             * Source for the environment variable's value. Cannot be used if value is not empty.
+             */
+            valueFrom?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvValuefromArgs>;
+        }
+
+        /**
+         * Source for the environment variable's value. Cannot be used if value is not empty.
+         */
+        export interface PrometheusSpecContainersEnvValuefromArgs {
+            /**
+             * Selects a key of a ConfigMap.
+             */
+            configMapKeyRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvValuefromConfigmapkeyrefArgs>;
+            /**
+             * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+             */
+            fieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvValuefromFieldrefArgs>;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+             */
+            resourceFieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvValuefromResourcefieldrefArgs>;
+            /**
+             * Selects a key of a secret in the pod's namespace
+             */
+            secretKeyRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvValuefromSecretkeyrefArgs>;
+        }
+
+        /**
+         * Selects a key of a ConfigMap.
+         */
+        export interface PrometheusSpecContainersEnvValuefromConfigmapkeyrefArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+         */
+        export interface PrometheusSpecContainersEnvValuefromFieldrefArgs {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+         */
+        export interface PrometheusSpecContainersEnvValuefromResourcefieldrefArgs {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: pulumi.Input<string>;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: pulumi.Input<number | string>;
+            /**
+             * Required: resource to select
+             */
+            resource: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a key of a secret in the pod's namespace
+         */
+        export interface PrometheusSpecContainersEnvValuefromSecretkeyrefArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * EnvFromSource represents the source of a set of ConfigMaps
+         */
+        export interface PrometheusSpecContainersEnvfromArgs {
+            /**
+             * The ConfigMap to select from
+             */
+            configMapRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvfromConfigmaprefArgs>;
+            /**
+             * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+             */
+            prefix?: pulumi.Input<string>;
+            /**
+             * The Secret to select from
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersEnvfromSecretrefArgs>;
+        }
+
+        /**
+         * The ConfigMap to select from
+         */
+        export interface PrometheusSpecContainersEnvfromConfigmaprefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The Secret to select from
+         */
+        export interface PrometheusSpecContainersEnvfromSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+         */
+        export interface PrometheusSpecContainersLifecycleArgs {
+            /**
+             * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            postStart?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartArgs>;
+            /**
+             * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            preStop?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopArgs>;
+        }
+
+        /**
+         * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartExecArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartHttpgetArgs>;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartTcpsocketArgs>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopExecArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopHttpgetArgs>;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopTcpsocketArgs>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecContainersLivenessprobeArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLivenessprobeExecArgs>;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: pulumi.Input<number>;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLivenessprobeGrpcArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLivenessprobeHttpgetArgs>;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: pulumi.Input<number>;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: pulumi.Input<number>;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: pulumi.Input<number>;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLivenessprobeTcpsocketArgs>;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersLivenessprobeExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecContainersLivenessprobeGrpcArgs {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: pulumi.Input<number>;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersLivenessprobeHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersLivenessprobeHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersLivenessprobeHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecContainersLivenessprobeTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * ContainerPort represents a network port in a single container.
+         */
+        export interface PrometheusSpecContainersPortsArgs {
+            /**
+             * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+             */
+            containerPort: pulumi.Input<number>;
+            /**
+             * What host IP to bind the external port to.
+             */
+            hostIP?: pulumi.Input<string>;
+            /**
+             * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+             */
+            hostPort?: pulumi.Input<number>;
+            /**
+             * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
+             */
+            protocol?: pulumi.Input<string>;
+        }
+        /**
+         * prometheusSpecContainersPortsArgsProvideDefaults sets the appropriate defaults for PrometheusSpecContainersPortsArgs
+         */
+        export function prometheusSpecContainersPortsArgsProvideDefaults(val: PrometheusSpecContainersPortsArgs): PrometheusSpecContainersPortsArgs {
+            return {
+                ...val,
+                protocol: (val.protocol) ?? "TCP",
+            };
+        }
+
+        /**
+         * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecContainersReadinessprobeArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersReadinessprobeExecArgs>;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: pulumi.Input<number>;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersReadinessprobeGrpcArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersReadinessprobeHttpgetArgs>;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: pulumi.Input<number>;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: pulumi.Input<number>;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: pulumi.Input<number>;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersReadinessprobeTcpsocketArgs>;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersReadinessprobeExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecContainersReadinessprobeGrpcArgs {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: pulumi.Input<number>;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersReadinessprobeHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersReadinessprobeHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersReadinessprobeHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecContainersReadinessprobeTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+         */
+        export interface PrometheusSpecContainersResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+         */
+        export interface PrometheusSpecContainersSecuritycontextArgs {
+            /**
+             * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
+             */
+            allowPrivilegeEscalation?: pulumi.Input<boolean>;
+            /**
+             * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+             */
+            capabilities?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersSecuritycontextCapabilitiesArgs>;
+            /**
+             * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            privileged?: pulumi.Input<boolean>;
+            /**
+             * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.
+             */
+            procMount?: pulumi.Input<string>;
+            /**
+             * Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            readOnlyRootFilesystem?: pulumi.Input<boolean>;
+            /**
+             * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsGroup?: pulumi.Input<number>;
+            /**
+             * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsNonRoot?: pulumi.Input<boolean>;
+            /**
+             * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsUser?: pulumi.Input<number>;
+            /**
+             * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seLinuxOptions?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersSecuritycontextSelinuxoptionsArgs>;
+            /**
+             * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seccompProfile?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersSecuritycontextSeccompprofileArgs>;
+            /**
+             * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+             */
+            windowsOptions?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersSecuritycontextWindowsoptionsArgs>;
+        }
+
+        /**
+         * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecContainersSecuritycontextCapabilitiesArgs {
+            /**
+             * Added capabilities
+             */
+            add?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Removed capabilities
+             */
+            drop?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecContainersSecuritycontextSeccompprofileArgs {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: pulumi.Input<string>;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: pulumi.Input<string>;
+        }
+
+        /**
+         * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecContainersSecuritycontextSelinuxoptionsArgs {
+            /**
+             * Level is SELinux level label that applies to the container.
+             */
+            level?: pulumi.Input<string>;
+            /**
+             * Role is a SELinux role label that applies to the container.
+             */
+            role?: pulumi.Input<string>;
+            /**
+             * Type is a SELinux type label that applies to the container.
+             */
+            type?: pulumi.Input<string>;
+            /**
+             * User is a SELinux user label that applies to the container.
+             */
+            user?: pulumi.Input<string>;
+        }
+
+        /**
+         * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+         */
+        export interface PrometheusSpecContainersSecuritycontextWindowsoptionsArgs {
+            /**
+             * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
+             */
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            /**
+             * GMSACredentialSpecName is the name of the GMSA credential spec to use.
+             */
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            /**
+             * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+             */
+            hostProcess?: pulumi.Input<boolean>;
+            /**
+             * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        /**
+         * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecContainersStartupprobeArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersStartupprobeExecArgs>;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: pulumi.Input<number>;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersStartupprobeGrpcArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersStartupprobeHttpgetArgs>;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: pulumi.Input<number>;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: pulumi.Input<number>;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: pulumi.Input<number>;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersStartupprobeTcpsocketArgs>;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersStartupprobeExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecContainersStartupprobeGrpcArgs {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: pulumi.Input<number>;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersStartupprobeHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecContainersStartupprobeHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersStartupprobeHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecContainersStartupprobeTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * volumeDevice describes a mapping of a raw block device within a container.
+         */
+        export interface PrometheusSpecContainersVolumedevicesArgs {
+            /**
+             * devicePath is the path inside of the container that the device will be mapped to.
+             */
+            devicePath: pulumi.Input<string>;
+            /**
+             * name must match the name of a persistentVolumeClaim in the pod
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecContainersVolumemountsArgs {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: pulumi.Input<string>;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: pulumi.Input<string>;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: pulumi.Input<string>;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        /**
+         * ObjectReference references a PodMonitor, ServiceMonitor, Probe or PrometheusRule object.
+         */
+        export interface PrometheusSpecExcludedfromenforcementArgs {
+            /**
+             * Group of the referent. When not specified, it defaults to `monitoring.coreos.com`
+             */
+            group?: pulumi.Input<string>;
+            /**
+             * Name of the referent. When not set, all resources are matched.
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+             */
+            namespace: pulumi.Input<string>;
+            /**
+             * Resource of the referent.
+             */
+            resource: pulumi.Input<string>;
+        }
+        /**
+         * prometheusSpecExcludedfromenforcementArgsProvideDefaults sets the appropriate defaults for PrometheusSpecExcludedfromenforcementArgs
+         */
+        export function prometheusSpecExcludedfromenforcementArgsProvideDefaults(val: PrometheusSpecExcludedfromenforcementArgs): PrometheusSpecExcludedfromenforcementArgs {
+            return {
+                ...val,
+                group: (val.group) ?? "monitoring.coreos.com",
+            };
+        }
+
+        /**
+         * Exemplars related settings that are runtime reloadable. It requires to enable the exemplar storage feature to be effective.
+         */
+        export interface PrometheusSpecExemplarsArgs {
+            /**
+             * Maximum number of exemplars stored in memory for all series. If not set, Prometheus uses its default value. A value of zero or less than zero disables the storage.
+             */
+            maxSize?: pulumi.Input<number>;
+        }
+
+        /**
+         * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
+         */
+        export interface PrometheusSpecHostaliasesArgs {
+            /**
+             * Hostnames for the above IP address.
+             */
+            hostnames: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * IP address of the host file entry.
+             */
+            ip: pulumi.Input<string>;
+        }
+
+        /**
+         * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
+         */
+        export interface PrometheusSpecImagepullsecretsArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * A single application container that you want to run within a pod.
+         */
+        export interface PrometheusSpecInitcontainersArgs {
+            /**
+             * Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            args?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * List of environment variables to set in the container. Cannot be updated.
+             */
+            env?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvArgs>[]>;
+            /**
+             * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
+             */
+            envFrom?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvfromArgs>[]>;
+            /**
+             * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+             */
+            image?: pulumi.Input<string>;
+            /**
+             * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             */
+            imagePullPolicy?: pulumi.Input<string>;
+            /**
+             * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+             */
+            lifecycle?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecycleArgs>;
+            /**
+             * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            livenessProbe?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeArgs>;
+            /**
+             * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
+             */
+            ports?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersPortsArgs>[]>;
+            /**
+             * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            readinessProbe?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeArgs>;
+            /**
+             * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersResourcesArgs>;
+            /**
+             * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+             */
+            securityContext?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextArgs>;
+            /**
+             * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            startupProbe?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeArgs>;
+            /**
+             * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
+             */
+            stdin?: pulumi.Input<boolean>;
+            /**
+             * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+             */
+            stdinOnce?: pulumi.Input<boolean>;
+            /**
+             * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
+             */
+            terminationMessagePath?: pulumi.Input<string>;
+            /**
+             * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+             */
+            terminationMessagePolicy?: pulumi.Input<string>;
+            /**
+             * Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
+             */
+            tty?: pulumi.Input<boolean>;
+            /**
+             * volumeDevices is the list of block devices to be used by the container.
+             */
+            volumeDevices?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersVolumedevicesArgs>[]>;
+            /**
+             * Pod volumes to mount into the container's filesystem. Cannot be updated.
+             */
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersVolumemountsArgs>[]>;
+            /**
+             * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+             */
+            workingDir?: pulumi.Input<string>;
+        }
+
+        /**
+         * EnvVar represents an environment variable present in a Container.
+         */
+        export interface PrometheusSpecInitcontainersEnvArgs {
+            /**
+             * Name of the environment variable. Must be a C_IDENTIFIER.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             */
+            value?: pulumi.Input<string>;
+            /**
+             * Source for the environment variable's value. Cannot be used if value is not empty.
+             */
+            valueFrom?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromArgs>;
+        }
+
+        /**
+         * Source for the environment variable's value. Cannot be used if value is not empty.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromArgs {
+            /**
+             * Selects a key of a ConfigMap.
+             */
+            configMapKeyRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromConfigmapkeyrefArgs>;
+            /**
+             * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+             */
+            fieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromFieldrefArgs>;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+             */
+            resourceFieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromResourcefieldrefArgs>;
+            /**
+             * Selects a key of a secret in the pod's namespace
+             */
+            secretKeyRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromSecretkeyrefArgs>;
+        }
+
+        /**
+         * Selects a key of a ConfigMap.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromConfigmapkeyrefArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromFieldrefArgs {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromResourcefieldrefArgs {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: pulumi.Input<string>;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: pulumi.Input<number | string>;
+            /**
+             * Required: resource to select
+             */
+            resource: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a key of a secret in the pod's namespace
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromSecretkeyrefArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * EnvFromSource represents the source of a set of ConfigMaps
+         */
+        export interface PrometheusSpecInitcontainersEnvfromArgs {
+            /**
+             * The ConfigMap to select from
+             */
+            configMapRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvfromConfigmaprefArgs>;
+            /**
+             * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+             */
+            prefix?: pulumi.Input<string>;
+            /**
+             * The Secret to select from
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersEnvfromSecretrefArgs>;
+        }
+
+        /**
+         * The ConfigMap to select from
+         */
+        export interface PrometheusSpecInitcontainersEnvfromConfigmaprefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The Secret to select from
+         */
+        export interface PrometheusSpecInitcontainersEnvfromSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+         */
+        export interface PrometheusSpecInitcontainersLifecycleArgs {
+            /**
+             * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            postStart?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartArgs>;
+            /**
+             * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            preStop?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopArgs>;
+        }
+
+        /**
+         * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartExecArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartHttpgetArgs>;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartTcpsocketArgs>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopExecArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopHttpgetArgs>;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopTcpsocketArgs>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeExecArgs>;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: pulumi.Input<number>;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeGrpcArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeHttpgetArgs>;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: pulumi.Input<number>;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: pulumi.Input<number>;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: pulumi.Input<number>;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeTcpsocketArgs>;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeGrpcArgs {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: pulumi.Input<number>;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * ContainerPort represents a network port in a single container.
+         */
+        export interface PrometheusSpecInitcontainersPortsArgs {
+            /**
+             * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+             */
+            containerPort: pulumi.Input<number>;
+            /**
+             * What host IP to bind the external port to.
+             */
+            hostIP?: pulumi.Input<string>;
+            /**
+             * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+             */
+            hostPort?: pulumi.Input<number>;
+            /**
+             * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
+             */
+            protocol?: pulumi.Input<string>;
+        }
+        /**
+         * prometheusSpecInitcontainersPortsArgsProvideDefaults sets the appropriate defaults for PrometheusSpecInitcontainersPortsArgs
+         */
+        export function prometheusSpecInitcontainersPortsArgsProvideDefaults(val: PrometheusSpecInitcontainersPortsArgs): PrometheusSpecInitcontainersPortsArgs {
+            return {
+                ...val,
+                protocol: (val.protocol) ?? "TCP",
+            };
+        }
+
+        /**
+         * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeExecArgs>;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: pulumi.Input<number>;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeGrpcArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeHttpgetArgs>;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: pulumi.Input<number>;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: pulumi.Input<number>;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: pulumi.Input<number>;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeTcpsocketArgs>;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeGrpcArgs {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: pulumi.Input<number>;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+         */
+        export interface PrometheusSpecInitcontainersResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextArgs {
+            /**
+             * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
+             */
+            allowPrivilegeEscalation?: pulumi.Input<boolean>;
+            /**
+             * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+             */
+            capabilities?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextCapabilitiesArgs>;
+            /**
+             * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            privileged?: pulumi.Input<boolean>;
+            /**
+             * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.
+             */
+            procMount?: pulumi.Input<string>;
+            /**
+             * Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            readOnlyRootFilesystem?: pulumi.Input<boolean>;
+            /**
+             * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsGroup?: pulumi.Input<number>;
+            /**
+             * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsNonRoot?: pulumi.Input<boolean>;
+            /**
+             * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsUser?: pulumi.Input<number>;
+            /**
+             * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seLinuxOptions?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextSelinuxoptionsArgs>;
+            /**
+             * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seccompProfile?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextSeccompprofileArgs>;
+            /**
+             * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+             */
+            windowsOptions?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextWindowsoptionsArgs>;
+        }
+
+        /**
+         * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextCapabilitiesArgs {
+            /**
+             * Added capabilities
+             */
+            add?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Removed capabilities
+             */
+            drop?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextSeccompprofileArgs {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: pulumi.Input<string>;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: pulumi.Input<string>;
+        }
+
+        /**
+         * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextSelinuxoptionsArgs {
+            /**
+             * Level is SELinux level label that applies to the container.
+             */
+            level?: pulumi.Input<string>;
+            /**
+             * Role is a SELinux role label that applies to the container.
+             */
+            role?: pulumi.Input<string>;
+            /**
+             * Type is a SELinux type label that applies to the container.
+             */
+            type?: pulumi.Input<string>;
+            /**
+             * User is a SELinux user label that applies to the container.
+             */
+            user?: pulumi.Input<string>;
+        }
+
+        /**
+         * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextWindowsoptionsArgs {
+            /**
+             * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
+             */
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            /**
+             * GMSACredentialSpecName is the name of the GMSA credential spec to use.
+             */
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            /**
+             * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+             */
+            hostProcess?: pulumi.Input<boolean>;
+            /**
+             * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        /**
+         * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeArgs {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeExecArgs>;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: pulumi.Input<number>;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeGrpcArgs>;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeHttpgetArgs>;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: pulumi.Input<number>;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: pulumi.Input<number>;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: pulumi.Input<number>;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeTcpsocketArgs>;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: pulumi.Input<number>;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: pulumi.Input<number>;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeExecArgs {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeGrpcArgs {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: pulumi.Input<number>;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeHttpgetArgs {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeHttpgetHttpheadersArgs>[]>;
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: pulumi.Input<string>;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeHttpgetHttpheadersArgs {
+            /**
+             * The header field name
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The header field value
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeTcpsocketArgs {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: pulumi.Input<string>;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: pulumi.Input<number | string>;
+        }
+
+        /**
+         * volumeDevice describes a mapping of a raw block device within a container.
+         */
+        export interface PrometheusSpecInitcontainersVolumedevicesArgs {
+            /**
+             * devicePath is the path inside of the container that the device will be mapped to.
+             */
+            devicePath: pulumi.Input<string>;
+            /**
+             * name must match the name of a persistentVolumeClaim in the pod
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecInitcontainersVolumemountsArgs {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: pulumi.Input<string>;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: pulumi.Input<string>;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: pulumi.Input<string>;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        /**
+         * PodMetadata configures Labels and Annotations which are propagated to the prometheus pods.
+         */
+        export interface PrometheusSpecPodmetadataArgs {
+            /**
+             * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             */
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+             */
+            labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * Namespace's labels to match for PodMonitor discovery. If nil, only check own namespace.
+         */
+        export interface PrometheusSpecPodmonitornamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecPodmonitornamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecPodmonitornamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * *Experimental* PodMonitors to be selected for target discovery. *Deprecated:* if neither this nor serviceMonitorSelector are specified, configuration is unmanaged.
+         */
+        export interface PrometheusSpecPodmonitorselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecPodmonitorselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecPodmonitorselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * *Experimental* Namespaces to be selected for Probe discovery. If nil, only check own namespace.
+         */
+        export interface PrometheusSpecProbenamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecProbenamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecProbenamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * *Experimental* Probes to be selected for target discovery.
+         */
+        export interface PrometheusSpecProbeselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecProbeselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecProbeselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * PrometheusRuleExcludeConfig enables users to configure excluded PrometheusRule names and their namespaces to be ignored while enforcing namespace label for alerts and metrics.
+         */
+        export interface PrometheusSpecPrometheusrulesexcludedfromenforceArgs {
+            /**
+             * RuleNamespace - name of excluded rule
+             */
+            ruleName: pulumi.Input<string>;
+            /**
+             * RuleNamespace - namespace of excluded rule
+             */
+            ruleNamespace: pulumi.Input<string>;
+        }
+
+        /**
+         * QuerySpec defines the query command line flags when starting Prometheus.
+         */
+        export interface PrometheusSpecQueryArgs {
+            /**
+             * The delta difference allowed for retrieving metrics during expression evaluations.
+             */
+            lookbackDelta?: pulumi.Input<string>;
+            /**
+             * Number of concurrent queries that can be run at once.
+             */
+            maxConcurrency?: pulumi.Input<number>;
+            /**
+             * Maximum number of samples a single query can load into memory. Note that queries will fail if they would load more samples than this into memory, so this also limits the number of samples a query can return.
+             */
+            maxSamples?: pulumi.Input<number>;
+            /**
+             * Maximum time a query may take before being aborted.
+             */
+            timeout?: pulumi.Input<string>;
+        }
+
+        /**
+         * RemoteReadSpec defines the configuration for Prometheus to read back samples from a remote endpoint.
+         */
+        export interface PrometheusSpecRemotereadArgs {
+            /**
+             * Authorization section for remote read
+             */
+            authorization?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadAuthorizationArgs>;
+            /**
+             * BasicAuth for the URL.
+             */
+            basicAuth?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadBasicauthArgs>;
+            /**
+             * Bearer token for remote read.
+             */
+            bearerToken?: pulumi.Input<string>;
+            /**
+             * File to read bearer token for remote read.
+             */
+            bearerTokenFile?: pulumi.Input<string>;
+            /**
+             * Custom HTTP headers to be sent along with each remote read request. Be aware that headers that are set by Prometheus itself can't be overwritten. Only valid in Prometheus versions 2.26.0 and newer.
+             */
+            headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The name of the remote read queue, it must be unique if specified. The name is used in metrics and logging in order to differentiate read configurations.  Only valid in Prometheus versions 2.15.0 and newer.
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            oauth2?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadOauth2Args>;
+            /**
+             * Optional ProxyURL.
+             */
+            proxyUrl?: pulumi.Input<string>;
+            /**
+             * Whether reads should be made for queries for time ranges that the local storage should have complete data for.
+             */
+            readRecent?: pulumi.Input<boolean>;
+            /**
+             * Timeout for requests to the remote read endpoint.
+             */
+            remoteTimeout?: pulumi.Input<string>;
+            /**
+             * An optional list of equality matchers which have to be present in a selector to query the remote read endpoint.
+             */
+            requiredMatchers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * TLS Config to use for remote read.
+             */
+            tlsConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigArgs>;
+            /**
+             * The URL of the endpoint to query from.
+             */
+            url: pulumi.Input<string>;
+        }
+
+        /**
+         * Authorization section for remote read
+         */
+        export interface PrometheusSpecRemotereadAuthorizationArgs {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadAuthorizationCredentialsArgs>;
+            /**
+             * File to read a secret from, mutually exclusive with Credentials (from SafeAuthorization)
+             */
+            credentialsFile?: pulumi.Input<string>;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: pulumi.Input<string>;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecRemotereadAuthorizationCredentialsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * BasicAuth for the URL.
+         */
+        export interface PrometheusSpecRemotereadBasicauthArgs {
+            /**
+             * The secret in the service monitor namespace that contains the password for authentication.
+             */
+            password?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadBasicauthPasswordArgs>;
+            /**
+             * The secret in the service monitor namespace that contains the username for authentication.
+             */
+            username?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadBasicauthUsernameArgs>;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the password for authentication.
+         */
+        export interface PrometheusSpecRemotereadBasicauthPasswordArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the username for authentication.
+         */
+        export interface PrometheusSpecRemotereadBasicauthUsernameArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+         */
+        export interface PrometheusSpecRemotereadOauth2Args {
+            /**
+             * The secret or configmap containing the OAuth2 client id
+             */
+            clientId: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadOauth2ClientidArgs>;
+            /**
+             * The secret containing the OAuth2 client secret
+             */
+            clientSecret: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadOauth2ClientsecretArgs>;
+            /**
+             * Parameters to append to the token URL
+             */
+            endpointParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * OAuth2 scopes used for the token request
+             */
+            scopes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The URL to fetch the token from
+             */
+            tokenUrl: pulumi.Input<string>;
+        }
+
+        /**
+         * The secret or configmap containing the OAuth2 client id
+         */
+        export interface PrometheusSpecRemotereadOauth2ClientidArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadOauth2ClientidConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadOauth2ClientidSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadOauth2ClientidConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadOauth2ClientidSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret containing the OAuth2 client secret
+         */
+        export interface PrometheusSpecRemotereadOauth2ClientsecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * TLS Config to use for remote read.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigArgs {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCaArgs>;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: pulumi.Input<string>;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCertArgs>;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: pulumi.Input<string>;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: pulumi.Input<boolean>;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: pulumi.Input<string>;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigKeysecretArgs>;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCaArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCaConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCaSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCaConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCaSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCertArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCertConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCertSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCertConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCertSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigKeysecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * RemoteWriteSpec defines the configuration to write samples from Prometheus to a remote endpoint.
+         */
+        export interface PrometheusSpecRemotewriteArgs {
+            /**
+             * Authorization section for remote write
+             */
+            authorization?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteAuthorizationArgs>;
+            /**
+             * BasicAuth for the URL.
+             */
+            basicAuth?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteBasicauthArgs>;
+            /**
+             * Bearer token for remote write.
+             */
+            bearerToken?: pulumi.Input<string>;
+            /**
+             * File to read bearer token for remote write.
+             */
+            bearerTokenFile?: pulumi.Input<string>;
+            /**
+             * Custom HTTP headers to be sent along with each remote write request. Be aware that headers that are set by Prometheus itself can't be overwritten. Only valid in Prometheus versions 2.25.0 and newer.
+             */
+            headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * MetadataConfig configures the sending of series metadata to the remote storage.
+             */
+            metadataConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteMetadataconfigArgs>;
+            /**
+             * The name of the remote write queue, it must be unique if specified. The name is used in metrics and logging in order to differentiate queues. Only valid in Prometheus versions 2.15.0 and newer.
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            oauth2?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteOauth2Args>;
+            /**
+             * Optional ProxyURL.
+             */
+            proxyUrl?: pulumi.Input<string>;
+            /**
+             * QueueConfig allows tuning of the remote write queue parameters.
+             */
+            queueConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteQueueconfigArgs>;
+            /**
+             * Timeout for requests to the remote write endpoint.
+             */
+            remoteTimeout?: pulumi.Input<string>;
+            /**
+             * Enables sending of exemplars over remote write. Note that exemplar-storage itself must be enabled using the enableFeature option for exemplars to be scraped in the first place.  Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            sendExemplars?: pulumi.Input<boolean>;
+            /**
+             * Sigv4 allows to configures AWS's Signature Verification 4
+             */
+            sigv4?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteSigv4Args>;
+            /**
+             * TLS Config to use for remote write.
+             */
+            tlsConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigArgs>;
+            /**
+             * The URL of the endpoint to send samples to.
+             */
+            url: pulumi.Input<string>;
+            /**
+             * The list of remote write relabel configurations.
+             */
+            writeRelabelConfigs?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteWriterelabelconfigsArgs>[]>;
+        }
+
+        /**
+         * Authorization section for remote write
+         */
+        export interface PrometheusSpecRemotewriteAuthorizationArgs {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteAuthorizationCredentialsArgs>;
+            /**
+             * File to read a secret from, mutually exclusive with Credentials (from SafeAuthorization)
+             */
+            credentialsFile?: pulumi.Input<string>;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: pulumi.Input<string>;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecRemotewriteAuthorizationCredentialsArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * BasicAuth for the URL.
+         */
+        export interface PrometheusSpecRemotewriteBasicauthArgs {
+            /**
+             * The secret in the service monitor namespace that contains the password for authentication.
+             */
+            password?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteBasicauthPasswordArgs>;
+            /**
+             * The secret in the service monitor namespace that contains the username for authentication.
+             */
+            username?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteBasicauthUsernameArgs>;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the password for authentication.
+         */
+        export interface PrometheusSpecRemotewriteBasicauthPasswordArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the username for authentication.
+         */
+        export interface PrometheusSpecRemotewriteBasicauthUsernameArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * MetadataConfig configures the sending of series metadata to the remote storage.
+         */
+        export interface PrometheusSpecRemotewriteMetadataconfigArgs {
+            /**
+             * Whether metric metadata is sent to the remote storage or not.
+             */
+            send?: pulumi.Input<boolean>;
+            /**
+             * How frequently metric metadata is sent to the remote storage.
+             */
+            sendInterval?: pulumi.Input<string>;
+        }
+
+        /**
+         * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+         */
+        export interface PrometheusSpecRemotewriteOauth2Args {
+            /**
+             * The secret or configmap containing the OAuth2 client id
+             */
+            clientId: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteOauth2ClientidArgs>;
+            /**
+             * The secret containing the OAuth2 client secret
+             */
+            clientSecret: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteOauth2ClientsecretArgs>;
+            /**
+             * Parameters to append to the token URL
+             */
+            endpointParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * OAuth2 scopes used for the token request
+             */
+            scopes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The URL to fetch the token from
+             */
+            tokenUrl: pulumi.Input<string>;
+        }
+
+        /**
+         * The secret or configmap containing the OAuth2 client id
+         */
+        export interface PrometheusSpecRemotewriteOauth2ClientidArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteOauth2ClientidConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteOauth2ClientidSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteOauth2ClientidConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteOauth2ClientidSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret containing the OAuth2 client secret
+         */
+        export interface PrometheusSpecRemotewriteOauth2ClientsecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * QueueConfig allows tuning of the remote write queue parameters.
+         */
+        export interface PrometheusSpecRemotewriteQueueconfigArgs {
+            /**
+             * BatchSendDeadline is the maximum time a sample will wait in buffer.
+             */
+            batchSendDeadline?: pulumi.Input<string>;
+            /**
+             * Capacity is the number of samples to buffer per shard before we start dropping them.
+             */
+            capacity?: pulumi.Input<number>;
+            /**
+             * MaxBackoff is the maximum retry delay.
+             */
+            maxBackoff?: pulumi.Input<string>;
+            /**
+             * MaxRetries is the maximum number of times to retry a batch on recoverable errors.
+             */
+            maxRetries?: pulumi.Input<number>;
+            /**
+             * MaxSamplesPerSend is the maximum number of samples per send.
+             */
+            maxSamplesPerSend?: pulumi.Input<number>;
+            /**
+             * MaxShards is the maximum number of shards, i.e. amount of concurrency.
+             */
+            maxShards?: pulumi.Input<number>;
+            /**
+             * MinBackoff is the initial retry delay. Gets doubled for every retry.
+             */
+            minBackoff?: pulumi.Input<string>;
+            /**
+             * MinShards is the minimum number of shards, i.e. amount of concurrency.
+             */
+            minShards?: pulumi.Input<number>;
+            /**
+             * Retry upon receiving a 429 status code from the remote-write storage. This is experimental feature and might change in the future.
+             */
+            retryOnRateLimit?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Sigv4 allows to configures AWS's Signature Verification 4
+         */
+        export interface PrometheusSpecRemotewriteSigv4Args {
+            /**
+             * AccessKey is the AWS API key. If blank, the environment variable `AWS_ACCESS_KEY_ID` is used.
+             */
+            accessKey?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteSigv4AccesskeyArgs>;
+            /**
+             * Profile is the named AWS profile used to authenticate.
+             */
+            profile?: pulumi.Input<string>;
+            /**
+             * Region is the AWS region. If blank, the region from the default credentials chain used.
+             */
+            region?: pulumi.Input<string>;
+            /**
+             * RoleArn is the named AWS profile used to authenticate.
+             */
+            roleArn?: pulumi.Input<string>;
+            /**
+             * SecretKey is the AWS API secret. If blank, the environment variable `AWS_SECRET_ACCESS_KEY` is used.
+             */
+            secretKey?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteSigv4SecretkeyArgs>;
+        }
+
+        /**
+         * AccessKey is the AWS API key. If blank, the environment variable `AWS_ACCESS_KEY_ID` is used.
+         */
+        export interface PrometheusSpecRemotewriteSigv4AccesskeyArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * SecretKey is the AWS API secret. If blank, the environment variable `AWS_SECRET_ACCESS_KEY` is used.
+         */
+        export interface PrometheusSpecRemotewriteSigv4SecretkeyArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * TLS Config to use for remote write.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigArgs {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCaArgs>;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: pulumi.Input<string>;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCertArgs>;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: pulumi.Input<string>;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: pulumi.Input<boolean>;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: pulumi.Input<string>;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigKeysecretArgs>;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCaArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCaConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCaSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCaConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCaSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCertArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCertConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCertSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCertConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCertSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigKeysecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * RelabelConfig allows dynamic rewriting of the label set, being applied to samples before ingestion. It defines `<metric_relabel_configs>`-section of Prometheus configuration. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
+         */
+        export interface PrometheusSpecRemotewriteWriterelabelconfigsArgs {
+            /**
+             * Action to perform based on regex matching. Default is 'replace'. uppercase and lowercase actions require Prometheus >= 2.36.
+             */
+            action?: pulumi.Input<string>;
+            /**
+             * Modulus to take of the hash of the source label values.
+             */
+            modulus?: pulumi.Input<number>;
+            /**
+             * Regular expression against which the extracted value is matched. Default is '(.*)'
+             */
+            regex?: pulumi.Input<string>;
+            /**
+             * Replacement value against which a regex replace is performed if the regular expression matches. Regex capture groups are available. Default is '$1'
+             */
+            replacement?: pulumi.Input<string>;
+            /**
+             * Separator placed between concatenated source label values. default is ';'.
+             */
+            separator?: pulumi.Input<string>;
+            /**
+             * The source labels select values from existing labels. Their content is concatenated using the configured separator and matched against the configured regular expression for the replace, keep, and drop actions.
+             */
+            sourceLabels?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Label to which the resulting value is written in a replace action. It is mandatory for replace actions. Regex capture groups are available.
+             */
+            targetLabel?: pulumi.Input<string>;
+        }
+        /**
+         * prometheusSpecRemotewriteWriterelabelconfigsArgsProvideDefaults sets the appropriate defaults for PrometheusSpecRemotewriteWriterelabelconfigsArgs
+         */
+        export function prometheusSpecRemotewriteWriterelabelconfigsArgsProvideDefaults(val: PrometheusSpecRemotewriteWriterelabelconfigsArgs): PrometheusSpecRemotewriteWriterelabelconfigsArgs {
+            return {
+                ...val,
+                action: (val.action) ?? "replace",
+            };
+        }
+
+        /**
+         * Define resources requests and limits for single Pods.
+         */
+        export interface PrometheusSpecResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * Namespaces to be selected for PrometheusRules discovery. If unspecified, only the same namespace as the Prometheus object is in is used.
+         */
+        export interface PrometheusSpecRulenamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecRulenamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecRulenamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * /--rules.*&#47; command-line arguments.
+         */
+        export interface PrometheusSpecRulesArgs {
+            /**
+             * /--rules.alert.*&#47; command-line arguments
+             */
+            alert?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecRulesAlertArgs>;
+        }
+
+        /**
+         * /--rules.alert.*&#47; command-line arguments
+         */
+        export interface PrometheusSpecRulesAlertArgs {
+            /**
+             * Minimum duration between alert and restored 'for' state. This is maintained only for alerts with configured 'for' time greater than grace period.
+             */
+            forGracePeriod?: pulumi.Input<string>;
+            /**
+             * Max time to tolerate prometheus outage for restoring 'for' state of alert.
+             */
+            forOutageTolerance?: pulumi.Input<string>;
+            /**
+             * Minimum amount of time to wait before resending an alert to Alertmanager.
+             */
+            resendDelay?: pulumi.Input<string>;
+        }
+
+        /**
+         * A selector to select which PrometheusRules to mount for loading alerting/recording rules from. Until (excluding) Prometheus Operator v0.24.0 Prometheus Operator will migrate any legacy rule ConfigMaps to PrometheusRule custom resources selected by RuleSelector. Make sure it does not match any config maps that you do not want to be migrated.
+         */
+        export interface PrometheusSpecRuleselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecRuleselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecRuleselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * SecurityContext holds pod-level security attributes and common container settings. This defaults to the default PodSecurityContext.
+         */
+        export interface PrometheusSpecSecuritycontextArgs {
+            /**
+             * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 
+             *  1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- 
+             *  If unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.
+             */
+            fsGroup?: pulumi.Input<number>;
+            /**
+             * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are "OnRootMismatch" and "Always". If not specified, "Always" is used. Note that this field cannot be set when spec.os.name is windows.
+             */
+            fsGroupChangePolicy?: pulumi.Input<string>;
+            /**
+             * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsGroup?: pulumi.Input<number>;
+            /**
+             * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsNonRoot?: pulumi.Input<boolean>;
+            /**
+             * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsUser?: pulumi.Input<number>;
+            /**
+             * The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seLinuxOptions?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecSecuritycontextSelinuxoptionsArgs>;
+            /**
+             * The seccomp options to use by the containers in this pod. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seccompProfile?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecSecuritycontextSeccompprofileArgs>;
+            /**
+             * A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            supplementalGroups?: pulumi.Input<pulumi.Input<number>[]>;
+            /**
+             * Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.
+             */
+            sysctls?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecSecuritycontextSysctlsArgs>[]>;
+            /**
+             * The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+             */
+            windowsOptions?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecSecuritycontextWindowsoptionsArgs>;
+        }
+
+        /**
+         * The seccomp options to use by the containers in this pod. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecSecuritycontextSeccompprofileArgs {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: pulumi.Input<string>;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: pulumi.Input<string>;
+        }
+
+        /**
+         * The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecSecuritycontextSelinuxoptionsArgs {
+            /**
+             * Level is SELinux level label that applies to the container.
+             */
+            level?: pulumi.Input<string>;
+            /**
+             * Role is a SELinux role label that applies to the container.
+             */
+            role?: pulumi.Input<string>;
+            /**
+             * Type is a SELinux type label that applies to the container.
+             */
+            type?: pulumi.Input<string>;
+            /**
+             * User is a SELinux user label that applies to the container.
+             */
+            user?: pulumi.Input<string>;
+        }
+
+        /**
+         * Sysctl defines a kernel parameter to be set
+         */
+        export interface PrometheusSpecSecuritycontextSysctlsArgs {
+            /**
+             * Name of a property to set
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Value of a property to set
+             */
+            value: pulumi.Input<string>;
+        }
+
+        /**
+         * The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+         */
+        export interface PrometheusSpecSecuritycontextWindowsoptionsArgs {
+            /**
+             * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
+             */
+            gmsaCredentialSpec?: pulumi.Input<string>;
+            /**
+             * GMSACredentialSpecName is the name of the GMSA credential spec to use.
+             */
+            gmsaCredentialSpecName?: pulumi.Input<string>;
+            /**
+             * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+             */
+            hostProcess?: pulumi.Input<boolean>;
+            /**
+             * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsUserName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Namespace's labels to match for ServiceMonitor discovery. If nil, only check own namespace.
+         */
+        export interface PrometheusSpecServicemonitornamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecServicemonitornamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecServicemonitornamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * ServiceMonitors to be selected for target discovery. *Deprecated:* if neither this nor podMonitorSelector are specified, configuration is unmanaged.
+         */
+        export interface PrometheusSpecServicemonitorselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecServicemonitorselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecServicemonitorselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Storage spec to specify how storage shall be used.
+         */
+        export interface PrometheusSpecStorageArgs {
+            /**
+             * Deprecated: subPath usage will be disabled by default in a future release, this option will become unnecessary. DisableMountSubPath allows to remove any subPath usage in volume mounts.
+             */
+            disableMountSubPath?: pulumi.Input<boolean>;
+            /**
+             * EmptyDirVolumeSource to be used by the Prometheus StatefulSets. If specified, used in place of any volumeClaimTemplate. More info: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
+             */
+            emptyDir?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEmptydirArgs>;
+            /**
+             * EphemeralVolumeSource to be used by the Prometheus StatefulSets. This is a beta field in k8s 1.21, for lower versions, starting with k8s 1.19, it requires enabling the GenericEphemeralVolume feature gate. More info: https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes
+             */
+            ephemeral?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralArgs>;
+            /**
+             * A PVC spec to be used by the Prometheus StatefulSets.
+             */
+            volumeClaimTemplate?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateArgs>;
+        }
+
+        /**
+         * EmptyDirVolumeSource to be used by the Prometheus StatefulSets. If specified, used in place of any volumeClaimTemplate. More info: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
+         */
+        export interface PrometheusSpecStorageEmptydirArgs {
+            /**
+             * medium represents what type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+             */
+            medium?: pulumi.Input<string>;
+            /**
+             * sizeLimit is the total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+             */
+            sizeLimit?: pulumi.Input<number | string>;
+        }
+
+        /**
+         * EphemeralVolumeSource to be used by the Prometheus StatefulSets. This is a beta field in k8s 1.21, for lower versions, starting with k8s 1.19, it requires enabling the GenericEphemeralVolume feature gate. More info: https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes
+         */
+        export interface PrometheusSpecStorageEphemeralArgs {
+            /**
+             * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+             *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+             *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+             *  Required, must not be nil.
+             */
+            volumeClaimTemplate?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateArgs>;
+        }
+
+        /**
+         * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+         *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+         *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+         *  Required, must not be nil.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateArgs {
+            /**
+             * May contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation.
+             */
+            metadata?: pulumi.Input<{[key: string]: any}>;
+            /**
+             * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+             */
+            spec: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecArgs>;
+        }
+
+        /**
+         * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecArgs {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+             */
+            dataSource?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasourceArgs>;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasourcerefArgs>;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecResourcesArgs>;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelectorArgs>;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: pulumi.Input<string>;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: pulumi.Input<string>;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasourceArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasourcerefArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A PVC spec to be used by the Prometheus StatefulSets.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateArgs {
+            /**
+             * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+             */
+            kind?: pulumi.Input<string>;
+            /**
+             * EmbeddedMetadata contains metadata relevant to an EmbeddedResource.
+             */
+            metadata?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateMetadataArgs>;
+            /**
+             * Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            spec?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecArgs>;
+            /**
+             * Status represents the current information/status of a persistent volume claim. Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            status?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateStatusArgs>;
+        }
+
+        /**
+         * EmbeddedMetadata contains metadata relevant to an EmbeddedResource.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateMetadataArgs {
+            /**
+             * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             */
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+             */
+            labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecArgs {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+             */
+            dataSource?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecDatasourceArgs>;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecDatasourcerefArgs>;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecResourcesArgs>;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecSelectorArgs>;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: pulumi.Input<string>;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: pulumi.Input<string>;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecDatasourceArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecDatasourcerefArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecSelectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecSelectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecSelectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Status represents the current information/status of a persistent volume claim. Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateStatusArgs {
+            /**
+             * accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
+             */
+            allocatedResources?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * capacity represents the actual resources of the underlying volume.
+             */
+            capacity?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.
+             */
+            conditions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateStatusConditionsArgs>[]>;
+            /**
+             * phase represents the current phase of PersistentVolumeClaim.
+             */
+            phase?: pulumi.Input<string>;
+            /**
+             * resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
+             */
+            resizeStatus?: pulumi.Input<string>;
+        }
+
+        /**
+         * PersistentVolumeClaimCondition contails details about state of pvc
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateStatusConditionsArgs {
+            /**
+             * lastProbeTime is the time we probed the condition.
+             */
+            lastProbeTime?: pulumi.Input<string>;
+            /**
+             * lastTransitionTime is the time the condition transitioned from one status to another.
+             */
+            lastTransitionTime?: pulumi.Input<string>;
+            /**
+             * message is the human-readable message indicating details about last transition.
+             */
+            message?: pulumi.Input<string>;
+            /**
+             * reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
+             */
+            reason?: pulumi.Input<string>;
+            status: pulumi.Input<string>;
+            /**
+             * PersistentVolumeClaimConditionType is a valid value of PersistentVolumeClaimCondition.Type
+             */
+            type: pulumi.Input<string>;
+        }
+
+        /**
+         * Thanos configuration allows configuring various aspects of a Prometheus server in a Thanos environment. 
+         *  This section is experimental, it may change significantly without deprecation notice in any release. 
+         *  This is experimental and may change significantly without backward compatibility in any release.
+         */
+        export interface PrometheusSpecThanosArgs {
+            /**
+             * AdditionalArgs allows setting additional arguments for the Thanos container. The arguments are passed as-is to the Thanos container which may cause issues if they are invalid or not supporeted the given Thanos version. In case of an argument conflict (e.g. an argument which is already set by the operator itself) or when providing an invalid argument the reconciliation will fail and an error will be logged.
+             */
+            additionalArgs?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosAdditionalargsArgs>[]>;
+            /**
+             * Thanos base image if other than default. Deprecated: use 'image' instead
+             */
+            baseImage?: pulumi.Input<string>;
+            /**
+             * GRPCServerTLSConfig configures the gRPC server from which Thanos Querier reads recorded rule data. Note: Currently only the CAFile, CertFile, and KeyFile fields are supported. Maps to the '--grpc-server-tls-*' CLI args.
+             */
+            grpcServerTlsConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigArgs>;
+            /**
+             * Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Thanos is being configured.
+             */
+            image?: pulumi.Input<string>;
+            /**
+             * ListenLocal makes the Thanos sidecar listen on loopback, so that it does not bind against the Pod IP.
+             */
+            listenLocal?: pulumi.Input<boolean>;
+            /**
+             * LogFormat for Thanos sidecar to be configured with.
+             */
+            logFormat?: pulumi.Input<string>;
+            /**
+             * LogLevel for Thanos sidecar to be configured with.
+             */
+            logLevel?: pulumi.Input<string>;
+            /**
+             * MinTime for Thanos sidecar to be configured with. Option can be a constant time in RFC3339 format or time duration relative to current time, such as -1d or 2h45m. Valid duration units are ms, s, m, h, d, w, y.
+             */
+            minTime?: pulumi.Input<string>;
+            /**
+             * ObjectStorageConfig configures object storage in Thanos. Alternative to ObjectStorageConfigFile, and lower order priority.
+             */
+            objectStorageConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosObjectstorageconfigArgs>;
+            /**
+             * ObjectStorageConfigFile specifies the path of the object storage configuration file. When used alongside with ObjectStorageConfig, ObjectStorageConfigFile takes precedence.
+             */
+            objectStorageConfigFile?: pulumi.Input<string>;
+            /**
+             * ReadyTimeout is the maximum time Thanos sidecar will wait for Prometheus to start. Eg 10m
+             */
+            readyTimeout?: pulumi.Input<string>;
+            /**
+             * Resources defines the resource requirements for the Thanos sidecar. If not provided, no requests/limits will be set
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosResourcesArgs>;
+            /**
+             * SHA of Thanos container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set. Deprecated: use 'image' instead.  The image digest can be specified as part of the image URL.
+             */
+            sha?: pulumi.Input<string>;
+            /**
+             * Tag of Thanos sidecar container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set. Deprecated: use 'image' instead.  The image tag can be specified as part of the image URL.
+             */
+            tag?: pulumi.Input<string>;
+            /**
+             * TracingConfig configures tracing in Thanos. This is an experimental feature, it may change in any upcoming release in a breaking way.
+             */
+            tracingConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosTracingconfigArgs>;
+            /**
+             * TracingConfig specifies the path of the tracing configuration file. When used alongside with TracingConfig, TracingConfigFile takes precedence.
+             */
+            tracingConfigFile?: pulumi.Input<string>;
+            /**
+             * Version describes the version of Thanos to use.
+             */
+            version?: pulumi.Input<string>;
+            /**
+             * VolumeMounts allows configuration of additional VolumeMounts on the output StatefulSet definition. VolumeMounts specified will be appended to other VolumeMounts in the thanos-sidecar container.
+             */
+            volumeMounts?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosVolumemountsArgs>[]>;
+        }
+
+        /**
+         * Argument as part of the AdditionalArgs list.
+         */
+        export interface PrometheusSpecThanosAdditionalargsArgs {
+            /**
+             * Name of the argument, e.g. "scrape.discovery-reload-interval".
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Argument value, e.g. 30s. Can be empty for name-only arguments (e.g. --storage.tsdb.no-lockfile)
+             */
+            value?: pulumi.Input<string>;
+        }
+
+        /**
+         * GRPCServerTLSConfig configures the gRPC server from which Thanos Querier reads recorded rule data. Note: Currently only the CAFile, CertFile, and KeyFile fields are supported. Maps to the '--grpc-server-tls-*' CLI args.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigArgs {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCaArgs>;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: pulumi.Input<string>;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCertArgs>;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: pulumi.Input<string>;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: pulumi.Input<boolean>;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: pulumi.Input<string>;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigKeysecretArgs>;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCaArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCaConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCaSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCaConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCaSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCertArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCertConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCertSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCertConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCertSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigKeysecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * ObjectStorageConfig configures object storage in Thanos. Alternative to ObjectStorageConfigFile, and lower order priority.
+         */
+        export interface PrometheusSpecThanosObjectstorageconfigArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Resources defines the resource requirements for the Thanos sidecar. If not provided, no requests/limits will be set
+         */
+        export interface PrometheusSpecThanosResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * TracingConfig configures tracing in Thanos. This is an experimental feature, it may change in any upcoming release in a breaking way.
+         */
+        export interface PrometheusSpecThanosTracingconfigArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecThanosVolumemountsArgs {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: pulumi.Input<string>;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: pulumi.Input<string>;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: pulumi.Input<string>;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        /**
+         * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+         */
+        export interface PrometheusSpecTolerationsArgs {
+            /**
+             * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+             */
+            effect?: pulumi.Input<string>;
+            /**
+             * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+             */
+            key?: pulumi.Input<string>;
+            /**
+             * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+             */
+            operator?: pulumi.Input<string>;
+            /**
+             * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+             */
+            tolerationSeconds?: pulumi.Input<number>;
+            /**
+             * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+             */
+            value?: pulumi.Input<string>;
+        }
+
+        /**
+         * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
+         */
+        export interface PrometheusSpecTopologyspreadconstraintsArgs {
+            /**
+             * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+             */
+            labelSelector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecTopologyspreadconstraintsLabelselectorArgs>;
+            /**
+             * MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated. The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod. Keys that don't exist in the incoming pod labels will be ignored. A null or empty list means only match against labelSelector.
+             */
+            matchLabelKeys?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 2/2/1: In this case, the global minimum is 1. | zone1 | zone2 | zone3 | |  P P  |  P P  |   P   | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 2/2/2; scheduling it onto zone1(zone2) would make the ActualSkew(3-1) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.
+             */
+            maxSkew: pulumi.Input<number>;
+            /**
+             * MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats "global minimum" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule. 
+             *  For example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so "global minimum" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew. 
+             *  This is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).
+             */
+            minDomains?: pulumi.Input<number>;
+            /**
+             * NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations. 
+             *  If this value is nil, the behavior is equivalent to the Honor policy. This is a alpha-level feature enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeAffinityPolicy?: pulumi.Input<string>;
+            /**
+             * NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included. 
+             *  If this value is nil, the behavior is equivalent to the Ignore policy. This is a alpha-level feature enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeTaintsPolicy?: pulumi.Input<string>;
+            /**
+             * TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology. And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology. It's a required field.
+             */
+            topologyKey: pulumi.Input<string>;
+            /**
+             * WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location, but giving higher precedence to topologies that would help reduce the skew. A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assignment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
+             */
+            whenUnsatisfiable: pulumi.Input<string>;
+        }
+
+        /**
+         * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+         */
+        export interface PrometheusSpecTopologyspreadconstraintsLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecTopologyspreadconstraintsLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecTopologyspreadconstraintsLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecVolumemountsArgs {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: pulumi.Input<string>;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: pulumi.Input<string>;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: pulumi.Input<string>;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: pulumi.Input<string>;
+        }
+
+        /**
+         * Volume represents a named volume in a pod that may be accessed by any container in the pod.
+         */
+        export interface PrometheusSpecVolumesArgs {
+            /**
+             * awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+             */
+            awsElasticBlockStore?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesAwselasticblockstoreArgs>;
+            /**
+             * azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+             */
+            azureDisk?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesAzurediskArgs>;
+            /**
+             * azureFile represents an Azure File Service mount on the host and bind mount to the pod.
+             */
+            azureFile?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesAzurefileArgs>;
+            /**
+             * cephFS represents a Ceph FS mount on the host that shares a pod's lifetime
+             */
+            cephfs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesCephfsArgs>;
+            /**
+             * cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            cinder?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesCinderArgs>;
+            /**
+             * configMap represents a configMap that should populate this volume
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesConfigmapArgs>;
+            /**
+             * csi (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).
+             */
+            csi?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesCsiArgs>;
+            /**
+             * downwardAPI represents downward API about the pod that should populate this volume
+             */
+            downwardAPI?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesDownwardapiArgs>;
+            /**
+             * emptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+             */
+            emptyDir?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEmptydirArgs>;
+            /**
+             * ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. 
+             *  Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through a PersistentVolumeClaim (see EphemeralVolumeSource for more information on the connection between this volume type and PersistentVolumeClaim). 
+             *  Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. 
+             *  Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. 
+             *  A pod can use both types of ephemeral volumes and persistent volumes at the same time.
+             */
+            ephemeral?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralArgs>;
+            /**
+             * fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
+             */
+            fc?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesFcArgs>;
+            /**
+             * flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
+             */
+            flexVolume?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesFlexvolumeArgs>;
+            /**
+             * flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running
+             */
+            flocker?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesFlockerArgs>;
+            /**
+             * gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            gcePersistentDisk?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesGcepersistentdiskArgs>;
+            /**
+             * gitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
+             */
+            gitRepo?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesGitrepoArgs>;
+            /**
+             * glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/glusterfs/README.md
+             */
+            glusterfs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesGlusterfsArgs>;
+            /**
+             * hostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
+             */
+            hostPath?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesHostpathArgs>;
+            /**
+             * iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md
+             */
+            iscsi?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesIscsiArgs>;
+            /**
+             * name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+             */
+            name: pulumi.Input<string>;
+            /**
+             * nfs represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            nfs?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesNfsArgs>;
+            /**
+             * persistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            persistentVolumeClaim?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesPersistentvolumeclaimArgs>;
+            /**
+             * photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+             */
+            photonPersistentDisk?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesPhotonpersistentdiskArgs>;
+            /**
+             * portworxVolume represents a portworx volume attached and mounted on kubelets host machine
+             */
+            portworxVolume?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesPortworxvolumeArgs>;
+            /**
+             * projected items for all in one resources secrets, configmaps, and downward API
+             */
+            projected?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedArgs>;
+            /**
+             * quobyte represents a Quobyte mount on the host that shares a pod's lifetime
+             */
+            quobyte?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesQuobyteArgs>;
+            /**
+             * rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
+             */
+            rbd?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesRbdArgs>;
+            /**
+             * scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+             */
+            scaleIO?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesScaleioArgs>;
+            /**
+             * secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesSecretArgs>;
+            /**
+             * storageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
+             */
+            storageos?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesStorageosArgs>;
+            /**
+             * vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+             */
+            vsphereVolume?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesVspherevolumeArgs>;
+        }
+
+        /**
+         * awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+         */
+        export interface PrometheusSpecVolumesAwselasticblockstoreArgs {
+            /**
+             * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * partition is the partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+             */
+            partition?: pulumi.Input<number>;
+            /**
+             * readOnly value true will force the readOnly setting in VolumeMounts. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * volumeID is unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+             */
+            volumeID: pulumi.Input<string>;
+        }
+
+        /**
+         * azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+         */
+        export interface PrometheusSpecVolumesAzurediskArgs {
+            /**
+             * cachingMode is the Host Caching mode: None, Read Only, Read Write.
+             */
+            cachingMode?: pulumi.Input<string>;
+            /**
+             * diskName is the Name of the data disk in the blob storage
+             */
+            diskName: pulumi.Input<string>;
+            /**
+             * diskURI is the URI of data disk in the blob storage
+             */
+            diskURI: pulumi.Input<string>;
+            /**
+             * fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
+             */
+            kind?: pulumi.Input<string>;
+            /**
+             * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * azureFile represents an Azure File Service mount on the host and bind mount to the pod.
+         */
+        export interface PrometheusSpecVolumesAzurefileArgs {
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretName is the  name of secret that contains Azure Storage Account Name and Key
+             */
+            secretName: pulumi.Input<string>;
+            /**
+             * shareName is the azure share Name
+             */
+            shareName: pulumi.Input<string>;
+        }
+
+        /**
+         * cephFS represents a Ceph FS mount on the host that shares a pod's lifetime
+         */
+        export interface PrometheusSpecVolumesCephfsArgs {
+            /**
+             * monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            monitors: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            secretFile?: pulumi.Input<string>;
+            /**
+             * secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesCephfsSecretrefArgs>;
+            /**
+             * user is optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            user?: pulumi.Input<string>;
+        }
+
+        /**
+         * secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+         */
+        export interface PrometheusSpecVolumesCephfsSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+         */
+        export interface PrometheusSpecVolumesCinderArgs {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretRef is optional: points to a secret object containing parameters used to connect to OpenStack.
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesCinderSecretrefArgs>;
+            /**
+             * volumeID used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            volumeID: pulumi.Input<string>;
+        }
+
+        /**
+         * secretRef is optional: points to a secret object containing parameters used to connect to OpenStack.
+         */
+        export interface PrometheusSpecVolumesCinderSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * configMap represents a configMap that should populate this volume
+         */
+        export interface PrometheusSpecVolumesConfigmapArgs {
+            /**
+             * defaultMode is optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: pulumi.Input<number>;
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesConfigmapItemsArgs>[]>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * optional specify whether the ConfigMap or its keys must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesConfigmapItemsArgs {
+            /**
+             * key is the key to project.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * csi (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).
+         */
+        export interface PrometheusSpecVolumesCsiArgs {
+            /**
+             * driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
+             */
+            driver: pulumi.Input<string>;
+            /**
+             * fsType to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+             */
+            nodePublishSecretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesCsiNodepublishsecretrefArgs>;
+            /**
+             * readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
+             */
+            volumeAttributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+         */
+        export interface PrometheusSpecVolumesCsiNodepublishsecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * downwardAPI represents downward API about the pod that should populate this volume
+         */
+        export interface PrometheusSpecVolumesDownwardapiArgs {
+            /**
+             * Optional: mode bits to use on created files by default. Must be a Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: pulumi.Input<number>;
+            /**
+             * Items is a list of downward API volume file
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesDownwardapiItemsArgs>[]>;
+        }
+
+        /**
+         * DownwardAPIVolumeFile represents information to create the file containing the pod field
+         */
+        export interface PrometheusSpecVolumesDownwardapiItemsArgs {
+            /**
+             * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+             */
+            fieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesDownwardapiItemsFieldrefArgs>;
+            /**
+             * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+             */
+            path: pulumi.Input<string>;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+             */
+            resourceFieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesDownwardapiItemsResourcefieldrefArgs>;
+        }
+
+        /**
+         * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+         */
+        export interface PrometheusSpecVolumesDownwardapiItemsFieldrefArgs {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+         */
+        export interface PrometheusSpecVolumesDownwardapiItemsResourcefieldrefArgs {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: pulumi.Input<string>;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: pulumi.Input<number | string>;
+            /**
+             * Required: resource to select
+             */
+            resource: pulumi.Input<string>;
+        }
+
+        /**
+         * emptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+         */
+        export interface PrometheusSpecVolumesEmptydirArgs {
+            /**
+             * medium represents what type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+             */
+            medium?: pulumi.Input<string>;
+            /**
+             * sizeLimit is the total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+             */
+            sizeLimit?: pulumi.Input<number | string>;
+        }
+
+        /**
+         * ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. 
+         *  Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through a PersistentVolumeClaim (see EphemeralVolumeSource for more information on the connection between this volume type and PersistentVolumeClaim). 
+         *  Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. 
+         *  Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. 
+         *  A pod can use both types of ephemeral volumes and persistent volumes at the same time.
+         */
+        export interface PrometheusSpecVolumesEphemeralArgs {
+            /**
+             * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+             *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+             *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+             *  Required, must not be nil.
+             */
+            volumeClaimTemplate?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateArgs>;
+        }
+
+        /**
+         * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+         *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+         *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+         *  Required, must not be nil.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateArgs {
+            /**
+             * May contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation.
+             */
+            metadata?: pulumi.Input<{[key: string]: any}>;
+            /**
+             * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+             */
+            spec: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecArgs>;
+        }
+
+        /**
+         * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecArgs {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+             */
+            dataSource?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceArgs>;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourcerefArgs>;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesArgs>;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorArgs>;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: pulumi.Input<string>;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: pulumi.Input<string>;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourcerefArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesArgs {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
+         */
+        export interface PrometheusSpecVolumesFcArgs {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * lun is Optional: FC target lun number
+             */
+            lun?: pulumi.Input<number>;
+            /**
+             * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * targetWWNs is Optional: FC target worldwide names (WWNs)
+             */
+            targetWWNs?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
+             */
+            wwids?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
+         */
+        export interface PrometheusSpecVolumesFlexvolumeArgs {
+            /**
+             * driver is the name of the driver to use for this volume.
+             */
+            driver: pulumi.Input<string>;
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * options is Optional: this field holds extra command options if any.
+             */
+            options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretRef is Optional: secretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesFlexvolumeSecretrefArgs>;
+        }
+
+        /**
+         * secretRef is Optional: secretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+         */
+        export interface PrometheusSpecVolumesFlexvolumeSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running
+         */
+        export interface PrometheusSpecVolumesFlockerArgs {
+            /**
+             * datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+             */
+            datasetName?: pulumi.Input<string>;
+            /**
+             * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
+             */
+            datasetUUID?: pulumi.Input<string>;
+        }
+
+        /**
+         * gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+         */
+        export interface PrometheusSpecVolumesGcepersistentdiskArgs {
+            /**
+             * fsType is filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * partition is the partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            partition?: pulumi.Input<number>;
+            /**
+             * pdName is unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            pdName: pulumi.Input<string>;
+            /**
+             * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * gitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
+         */
+        export interface PrometheusSpecVolumesGitrepoArgs {
+            /**
+             * directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+             */
+            directory?: pulumi.Input<string>;
+            /**
+             * repository is the URL
+             */
+            repository: pulumi.Input<string>;
+            /**
+             * revision is the commit hash for the specified revision.
+             */
+            revision?: pulumi.Input<string>;
+        }
+
+        /**
+         * glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/glusterfs/README.md
+         */
+        export interface PrometheusSpecVolumesGlusterfsArgs {
+            /**
+             * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+             */
+            endpoints: pulumi.Input<string>;
+            /**
+             * path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+             */
+            path: pulumi.Input<string>;
+            /**
+             * readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+             */
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * hostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
+         */
+        export interface PrometheusSpecVolumesHostpathArgs {
+            /**
+             * path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+             */
+            path: pulumi.Input<string>;
+            /**
+             * type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+             */
+            type?: pulumi.Input<string>;
+        }
+
+        /**
+         * iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md
+         */
+        export interface PrometheusSpecVolumesIscsiArgs {
+            /**
+             * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
+             */
+            chapAuthDiscovery?: pulumi.Input<boolean>;
+            /**
+             * chapAuthSession defines whether support iSCSI Session CHAP authentication
+             */
+            chapAuthSession?: pulumi.Input<boolean>;
+            /**
+             * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
+             */
+            initiatorName?: pulumi.Input<string>;
+            /**
+             * iqn is the target iSCSI Qualified Name.
+             */
+            iqn: pulumi.Input<string>;
+            /**
+             * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
+             */
+            iscsiInterface?: pulumi.Input<string>;
+            /**
+             * lun represents iSCSI Target Lun number.
+             */
+            lun: pulumi.Input<number>;
+            /**
+             * portals is the iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+             */
+            portals?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretRef is the CHAP Secret for iSCSI target and initiator authentication
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesIscsiSecretrefArgs>;
+            /**
+             * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+             */
+            targetPortal: pulumi.Input<string>;
+        }
+
+        /**
+         * secretRef is the CHAP Secret for iSCSI target and initiator authentication
+         */
+        export interface PrometheusSpecVolumesIscsiSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * nfs represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+         */
+        export interface PrometheusSpecVolumesNfsArgs {
+            /**
+             * path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            path: pulumi.Input<string>;
+            /**
+             * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            server: pulumi.Input<string>;
+        }
+
+        /**
+         * persistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+         */
+        export interface PrometheusSpecVolumesPersistentvolumeclaimArgs {
+            /**
+             * claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            claimName: pulumi.Input<string>;
+            /**
+             * readOnly Will force the ReadOnly setting in VolumeMounts. Default false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+         */
+        export interface PrometheusSpecVolumesPhotonpersistentdiskArgs {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * pdID is the ID that identifies Photon Controller persistent disk
+             */
+            pdID: pulumi.Input<string>;
+        }
+
+        /**
+         * portworxVolume represents a portworx volume attached and mounted on kubelets host machine
+         */
+        export interface PrometheusSpecVolumesPortworxvolumeArgs {
+            /**
+             * fSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * volumeID uniquely identifies a Portworx volume
+             */
+            volumeID: pulumi.Input<string>;
+        }
+
+        /**
+         * projected items for all in one resources secrets, configmaps, and downward API
+         */
+        export interface PrometheusSpecVolumesProjectedArgs {
+            /**
+             * defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: pulumi.Input<number>;
+            /**
+             * sources is the list of volume projections
+             */
+            sources?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesArgs>[]>;
+        }
+
+        /**
+         * Projection that may be projected along with other supported volume types
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesArgs {
+            /**
+             * configMap information about the configMap data to project
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesConfigmapArgs>;
+            /**
+             * downwardAPI information about the downwardAPI data to project
+             */
+            downwardAPI?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiArgs>;
+            /**
+             * secret information about the secret data to project
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesSecretArgs>;
+            /**
+             * serviceAccountToken is information about the serviceAccountToken data to project
+             */
+            serviceAccountToken?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesServiceaccounttokenArgs>;
+        }
+
+        /**
+         * configMap information about the configMap data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesConfigmapArgs {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesConfigmapItemsArgs>[]>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * optional specify whether the ConfigMap or its keys must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesConfigmapItemsArgs {
+            /**
+             * key is the key to project.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * downwardAPI information about the downwardAPI data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiArgs {
+            /**
+             * Items is a list of DownwardAPIVolume file
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiItemsArgs>[]>;
+        }
+
+        /**
+         * DownwardAPIVolumeFile represents information to create the file containing the pod field
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiItemsArgs {
+            /**
+             * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+             */
+            fieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiItemsFieldrefArgs>;
+            /**
+             * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+             */
+            path: pulumi.Input<string>;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+             */
+            resourceFieldRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldrefArgs>;
+        }
+
+        /**
+         * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiItemsFieldrefArgs {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldrefArgs {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: pulumi.Input<string>;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: pulumi.Input<number | string>;
+            /**
+             * Required: resource to select
+             */
+            resource: pulumi.Input<string>;
+        }
+
+        /**
+         * secret information about the secret data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesSecretArgs {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesSecretItemsArgs>[]>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * optional field specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesSecretItemsArgs {
+            /**
+             * key is the key to project.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * serviceAccountToken is information about the serviceAccountToken data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesServiceaccounttokenArgs {
+            /**
+             * audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
+             */
+            audience?: pulumi.Input<string>;
+            /**
+             * expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
+             */
+            expirationSeconds?: pulumi.Input<number>;
+            /**
+             * path is the path relative to the mount point of the file to project the token into.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * quobyte represents a Quobyte mount on the host that shares a pod's lifetime
+         */
+        export interface PrometheusSpecVolumesQuobyteArgs {
+            /**
+             * group to map volume access to Default is no group
+             */
+            group?: pulumi.Input<string>;
+            /**
+             * readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+             */
+            registry: pulumi.Input<string>;
+            /**
+             * tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin
+             */
+            tenant?: pulumi.Input<string>;
+            /**
+             * user to map volume access to Defaults to serivceaccount user
+             */
+            user?: pulumi.Input<string>;
+            /**
+             * volume is a string that references an already created Quobyte volume by name.
+             */
+            volume: pulumi.Input<string>;
+        }
+
+        /**
+         * rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
+         */
+        export interface PrometheusSpecVolumesRbdArgs {
+            /**
+             * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            image: pulumi.Input<string>;
+            /**
+             * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            keyring?: pulumi.Input<string>;
+            /**
+             * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            monitors: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            pool?: pulumi.Input<string>;
+            /**
+             * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesRbdSecretrefArgs>;
+            /**
+             * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            user?: pulumi.Input<string>;
+        }
+
+        /**
+         * secretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+         */
+        export interface PrometheusSpecVolumesRbdSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+         */
+        export interface PrometheusSpecVolumesScaleioArgs {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * gateway is the host address of the ScaleIO API Gateway.
+             */
+            gateway: pulumi.Input<string>;
+            /**
+             * protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.
+             */
+            protectionDomain?: pulumi.Input<string>;
+            /**
+             * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+             */
+            secretRef: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesScaleioSecretrefArgs>;
+            /**
+             * sslEnabled Flag enable/disable SSL communication with Gateway, default false
+             */
+            sslEnabled?: pulumi.Input<boolean>;
+            /**
+             * storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
+             */
+            storageMode?: pulumi.Input<string>;
+            /**
+             * storagePool is the ScaleIO Storage Pool associated with the protection domain.
+             */
+            storagePool?: pulumi.Input<string>;
+            /**
+             * system is the name of the storage system as configured in ScaleIO.
+             */
+            system: pulumi.Input<string>;
+            /**
+             * volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.
+             */
+            volumeName?: pulumi.Input<string>;
+        }
+
+        /**
+         * secretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+         */
+        export interface PrometheusSpecVolumesScaleioSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+         */
+        export interface PrometheusSpecVolumesSecretArgs {
+            /**
+             * defaultMode is Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: pulumi.Input<number>;
+            /**
+             * items If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesSecretItemsArgs>[]>;
+            /**
+             * optional field specify whether the Secret or its keys must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+            /**
+             * secretName is the name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+             */
+            secretName?: pulumi.Input<string>;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesSecretItemsArgs {
+            /**
+             * key is the key to project.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * storageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
+         */
+        export interface PrometheusSpecVolumesStorageosArgs {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: pulumi.Input<boolean>;
+            /**
+             * secretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
+             */
+            secretRef?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecVolumesStorageosSecretrefArgs>;
+            /**
+             * volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
+             */
+            volumeName?: pulumi.Input<string>;
+            /**
+             * volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
+             */
+            volumeNamespace?: pulumi.Input<string>;
+        }
+
+        /**
+         * secretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
+         */
+        export interface PrometheusSpecVolumesStorageosSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+        }
+
+        /**
+         * vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+         */
+        export interface PrometheusSpecVolumesVspherevolumeArgs {
+            /**
+             * fsType is filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: pulumi.Input<string>;
+            /**
+             * storagePolicyID is the storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
+             */
+            storagePolicyID?: pulumi.Input<string>;
+            /**
+             * storagePolicyName is the storage Policy Based Management (SPBM) profile name.
+             */
+            storagePolicyName?: pulumi.Input<string>;
+            /**
+             * volumePath is the path that identifies vSphere volume vmdk
+             */
+            volumePath: pulumi.Input<string>;
+        }
+
+        /**
+         * Defines the web command line flags when starting Prometheus.
+         */
+        export interface PrometheusSpecWebArgs {
+            /**
+             * Defines HTTP parameters for web server.
+             */
+            httpConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebHttpconfigArgs>;
+            /**
+             * The prometheus web page title
+             */
+            pageTitle?: pulumi.Input<string>;
+            /**
+             * Defines the TLS parameters for HTTPS.
+             */
+            tlsConfig?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigArgs>;
+        }
+
+        /**
+         * Defines HTTP parameters for web server.
+         */
+        export interface PrometheusSpecWebHttpconfigArgs {
+            /**
+             * List of headers that can be added to HTTP responses.
+             */
+            headers?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebHttpconfigHeadersArgs>;
+            /**
+             * Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS. When TLSConfig is not configured, HTTP/2 will be disabled. Whenever the value of the field changes, a rolling update will be triggered.
+             */
+            http2?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * List of headers that can be added to HTTP responses.
+         */
+        export interface PrometheusSpecWebHttpconfigHeadersArgs {
+            /**
+             * Set the Content-Security-Policy header to HTTP responses. Unset if blank.
+             */
+            contentSecurityPolicy?: pulumi.Input<string>;
+            /**
+             * Set the Strict-Transport-Security header to HTTP responses. Unset if blank. Please make sure that you use this with care as this header might force browsers to load Prometheus and the other applications hosted on the same domain and subdomains over HTTPS. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+             */
+            strictTransportSecurity?: pulumi.Input<string>;
+            /**
+             * Set the X-Content-Type-Options header to HTTP responses. Unset if blank. Accepted value is nosniff. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+             */
+            xContentTypeOptions?: pulumi.Input<string>;
+            /**
+             * Set the X-Frame-Options header to HTTP responses. Unset if blank. Accepted values are deny and sameorigin. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+             */
+            xFrameOptions?: pulumi.Input<string>;
+            /**
+             * Set the X-XSS-Protection header to all responses. Unset if blank. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+             */
+            xXSSProtection?: pulumi.Input<string>;
+        }
+
+        /**
+         * Defines the TLS parameters for HTTPS.
+         */
+        export interface PrometheusSpecWebTlsconfigArgs {
+            /**
+             * Contains the TLS certificate for the server.
+             */
+            cert: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigCertArgs>;
+            /**
+             * List of supported cipher suites for TLS versions up to TLS 1.2. If empty, Go default cipher suites are used. Available cipher suites are documented in the go documentation: https://golang.org/pkg/crypto/tls/#pkg-constants
+             */
+            cipherSuites?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Server policy for client authentication. Maps to ClientAuth Policies. For more detail on clientAuth options: https://golang.org/pkg/crypto/tls/#ClientAuthType
+             */
+            clientAuthType?: pulumi.Input<string>;
+            /**
+             * Contains the CA certificate for client certificate authentication to the server.
+             */
+            client_ca?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigClient_caArgs>;
+            /**
+             * Elliptic curves that will be used in an ECDHE handshake, in preference order. Available curves are documented in the go documentation: https://golang.org/pkg/crypto/tls/#CurveID
+             */
+            curvePreferences?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Secret containing the TLS key for the server.
+             */
+            keySecret: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigKeysecretArgs>;
+            /**
+             * Maximum TLS version that is acceptable. Defaults to TLS13.
+             */
+            maxVersion?: pulumi.Input<string>;
+            /**
+             * Minimum TLS version that is acceptable. Defaults to TLS12.
+             */
+            minVersion?: pulumi.Input<string>;
+            /**
+             * Controls whether the server selects the client's most preferred cipher suite, or the server's most preferred cipher suite. If true then the server's preference, as expressed in the order of elements in cipherSuites, is used.
+             */
+            preferServerCipherSuites?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Contains the TLS certificate for the server.
+         */
+        export interface PrometheusSpecWebTlsconfigCertArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigCertConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigCertSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigCertConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigCertSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Contains the CA certificate for client certificate authentication to the server.
+         */
+        export interface PrometheusSpecWebTlsconfigClient_caArgs {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigClient_caConfigmapArgs>;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: pulumi.Input<inputs.monitoring.v1.PrometheusSpecWebTlsconfigClient_caSecretArgs>;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigClient_caConfigmapArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigClient_caSecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Secret containing the TLS key for the server.
+         */
+        export interface PrometheusSpecWebTlsconfigKeysecretArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Most recent observed status of the Prometheus cluster. Read-only. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface PrometheusStatusArgs {
+            /**
+             * Total number of available pods (ready for at least minReadySeconds) targeted by this Prometheus deployment.
+             */
+            availableReplicas: pulumi.Input<number>;
+            /**
+             * The current state of the Prometheus deployment.
+             */
+            conditions?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusStatusConditionsArgs>[]>;
+            /**
+             * Represents whether any actions on the underlying managed objects are being performed. Only delete actions will be performed.
+             */
+            paused: pulumi.Input<boolean>;
+            /**
+             * Total number of non-terminated pods targeted by this Prometheus deployment (their labels match the selector).
+             */
+            replicas: pulumi.Input<number>;
+            /**
+             * The list has one entry per shard. Each entry provides a summary of the shard status.
+             */
+            shardStatuses?: pulumi.Input<pulumi.Input<inputs.monitoring.v1.PrometheusStatusShardstatusesArgs>[]>;
+            /**
+             * Total number of unavailable pods targeted by this Prometheus deployment.
+             */
+            unavailableReplicas: pulumi.Input<number>;
+            /**
+             * Total number of non-terminated pods targeted by this Prometheus deployment that have the desired version spec.
+             */
+            updatedReplicas: pulumi.Input<number>;
+        }
+
+        /**
+         * PrometheusCondition represents the state of the resources associated with the Prometheus resource.
+         */
+        export interface PrometheusStatusConditionsArgs {
+            /**
+             * lastTransitionTime is the time of the last update to the current status property.
+             */
+            lastTransitionTime: pulumi.Input<string>;
+            /**
+             * Human-readable message indicating details for the condition's last transition.
+             */
+            message?: pulumi.Input<string>;
+            /**
+             * Reason for the condition's last transition.
+             */
+            reason?: pulumi.Input<string>;
+            /**
+             * status of the condition.
+             */
+            status: pulumi.Input<string>;
+            /**
+             * Type of the condition being reported.
+             */
+            type: pulumi.Input<string>;
+        }
+
+        export interface PrometheusStatusShardstatusesArgs {
+            /**
+             * Total number of available pods (ready for at least minReadySeconds) targeted by this shard.
+             */
+            availableReplicas: pulumi.Input<number>;
+            /**
+             * Total number of pods targeted by this shard.
+             */
+            replicas: pulumi.Input<number>;
+            /**
+             * Identifier of the shard.
+             */
+            shardID: pulumi.Input<string>;
+            /**
+             * Total number of unavailable pods targeted by this shard.
+             */
+            unavailableReplicas: pulumi.Input<number>;
+            /**
+             * Total number of non-terminated pods targeted by this shard that have the desired spec.
+             */
+            updatedReplicas: pulumi.Input<number>;
         }
 
         /**
@@ -24923,6 +35530,3932 @@ export namespace opentelemetry {
              * The selector used to match the OpenTelemetryCollector's deployment or statefulSet pods.
              */
             selector?: pulumi.Input<string>;
+        }
+    }
+}
+
+export namespace postgresql {
+    export namespace v1 {
+        /**
+         * Specification of the desired behavior of the backup. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface BackupSpecArgs {
+            /**
+             * The cluster to backup
+             */
+            cluster?: pulumi.Input<inputs.postgresql.v1.BackupSpecClusterArgs>;
+            /**
+             * The policy to decide which instance should perform this backup. If empty, it defaults to `cluster.spec.backup.target`. Available options are empty string, `primary` and `prefer-standby`. `primary` to have backups run always on primary instances, `prefer-standby` to have backups run preferably on the most updated standby, if available.
+             */
+            target?: pulumi.Input<string>;
+        }
+
+        /**
+         * The cluster to backup
+         */
+        export interface BackupSpecClusterArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Most recently observed status of the backup. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface BackupStatusArgs {
+            /**
+             * The credentials to use to upload data to Azure Blob Storage
+             */
+            azureCredentials?: pulumi.Input<inputs.postgresql.v1.BackupStatusAzurecredentialsArgs>;
+            /**
+             * The ID of the Barman backup
+             */
+            backupId?: pulumi.Input<string>;
+            /**
+             * The Name of the Barman backup
+             */
+            backupName?: pulumi.Input<string>;
+            /**
+             * The starting xlog
+             */
+            beginLSN?: pulumi.Input<string>;
+            /**
+             * The starting WAL
+             */
+            beginWal?: pulumi.Input<string>;
+            /**
+             * The backup command output in case of error
+             */
+            commandError?: pulumi.Input<string>;
+            /**
+             * Unused. Retained for compatibility with old versions.
+             */
+            commandOutput?: pulumi.Input<string>;
+            /**
+             * The path where to store the backup (i.e. s3://bucket/path/to/folder) this path, with different destination folders, will be used for WALs and for data. This may not be populated in case of errors.
+             */
+            destinationPath?: pulumi.Input<string>;
+            /**
+             * Encryption method required to S3 API
+             */
+            encryption?: pulumi.Input<string>;
+            /**
+             * The ending xlog
+             */
+            endLSN?: pulumi.Input<string>;
+            /**
+             * The ending WAL
+             */
+            endWal?: pulumi.Input<string>;
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+             */
+            endpointCA?: pulumi.Input<inputs.postgresql.v1.BackupStatusEndpointcaArgs>;
+            /**
+             * Endpoint to be used to upload data to the cloud, overriding the automatic endpoint discovery
+             */
+            endpointURL?: pulumi.Input<string>;
+            /**
+             * The detected error
+             */
+            error?: pulumi.Input<string>;
+            /**
+             * The credentials to use to upload data to Google Cloud Storage
+             */
+            googleCredentials?: pulumi.Input<inputs.postgresql.v1.BackupStatusGooglecredentialsArgs>;
+            /**
+             * Information to identify the instance where the backup has been taken from
+             */
+            instanceID?: pulumi.Input<inputs.postgresql.v1.BackupStatusInstanceidArgs>;
+            /**
+             * The last backup status
+             */
+            phase?: pulumi.Input<string>;
+            /**
+             * The credentials to use to upload data to S3
+             */
+            s3Credentials?: pulumi.Input<inputs.postgresql.v1.BackupStatusS3credentialsArgs>;
+            /**
+             * The server name on S3, the cluster name is used if this parameter is omitted
+             */
+            serverName?: pulumi.Input<string>;
+            /**
+             * When the backup was started
+             */
+            startedAt?: pulumi.Input<string>;
+            /**
+             * When the backup was terminated
+             */
+            stoppedAt?: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to Azure Blob Storage
+         */
+        export interface BackupStatusAzurecredentialsArgs {
+            /**
+             * The connection string to be used
+             */
+            connectionString?: pulumi.Input<inputs.postgresql.v1.BackupStatusAzurecredentialsConnectionstringArgs>;
+            /**
+             * Use the Azure AD based authentication without providing explicitly the keys.
+             */
+            inheritFromAzureAD?: pulumi.Input<boolean>;
+            /**
+             * The storage account where to upload data
+             */
+            storageAccount?: pulumi.Input<inputs.postgresql.v1.BackupStatusAzurecredentialsStorageaccountArgs>;
+            /**
+             * The storage account key to be used in conjunction with the storage account name
+             */
+            storageKey?: pulumi.Input<inputs.postgresql.v1.BackupStatusAzurecredentialsStoragekeyArgs>;
+            /**
+             * A shared-access-signature to be used in conjunction with the storage account name
+             */
+            storageSasToken?: pulumi.Input<inputs.postgresql.v1.BackupStatusAzurecredentialsStoragesastokenArgs>;
+        }
+
+        /**
+         * The connection string to be used
+         */
+        export interface BackupStatusAzurecredentialsConnectionstringArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The storage account where to upload data
+         */
+        export interface BackupStatusAzurecredentialsStorageaccountArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The storage account key to be used in conjunction with the storage account name
+         */
+        export interface BackupStatusAzurecredentialsStoragekeyArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * A shared-access-signature to be used in conjunction with the storage account name
+         */
+        export interface BackupStatusAzurecredentialsStoragesastokenArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+         */
+        export interface BackupStatusEndpointcaArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to Google Cloud Storage
+         */
+        export interface BackupStatusGooglecredentialsArgs {
+            /**
+             * The secret containing the Google Cloud Storage JSON file with the credentials
+             */
+            applicationCredentials?: pulumi.Input<inputs.postgresql.v1.BackupStatusGooglecredentialsApplicationcredentialsArgs>;
+            /**
+             * If set to true, will presume that it's running inside a GKE environment, default to false.
+             */
+            gkeEnvironment?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret containing the Google Cloud Storage JSON file with the credentials
+         */
+        export interface BackupStatusGooglecredentialsApplicationcredentialsArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Information to identify the instance where the backup has been taken from
+         */
+        export interface BackupStatusInstanceidArgs {
+            /**
+             * The container ID
+             */
+            ContainerID?: pulumi.Input<string>;
+            /**
+             * The pod name
+             */
+            podName?: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to S3
+         */
+        export interface BackupStatusS3credentialsArgs {
+            /**
+             * The reference to the access key id
+             */
+            accessKeyId?: pulumi.Input<inputs.postgresql.v1.BackupStatusS3credentialsAccesskeyidArgs>;
+            /**
+             * Use the role based authentication without providing explicitly the keys.
+             */
+            inheritFromIAMRole?: pulumi.Input<boolean>;
+            /**
+             * The reference to the secret containing the region name
+             */
+            region?: pulumi.Input<inputs.postgresql.v1.BackupStatusS3credentialsRegionArgs>;
+            /**
+             * The reference to the secret access key
+             */
+            secretAccessKey?: pulumi.Input<inputs.postgresql.v1.BackupStatusS3credentialsSecretaccesskeyArgs>;
+            /**
+             * The references to the session key
+             */
+            sessionToken?: pulumi.Input<inputs.postgresql.v1.BackupStatusS3credentialsSessiontokenArgs>;
+        }
+
+        /**
+         * The reference to the access key id
+         */
+        export interface BackupStatusS3credentialsAccesskeyidArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to the secret containing the region name
+         */
+        export interface BackupStatusS3credentialsRegionArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to the secret access key
+         */
+        export interface BackupStatusS3credentialsSecretaccesskeyArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The references to the session key
+         */
+        export interface BackupStatusS3credentialsSessiontokenArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Specification of the desired behavior of the cluster. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ClusterSpecArgs {
+            /**
+             * Affinity/Anti-affinity rules for Pods
+             */
+            affinity?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityArgs>;
+            /**
+             * The configuration to be used for backups
+             */
+            backup?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupArgs>;
+            /**
+             * Instructions to bootstrap this cluster
+             */
+            bootstrap?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapArgs>;
+            /**
+             * The configuration for the CA and related certificates
+             */
+            certificates?: pulumi.Input<inputs.postgresql.v1.ClusterSpecCertificatesArgs>;
+            /**
+             * Description of this PostgreSQL cluster
+             */
+            description?: pulumi.Input<string>;
+            /**
+             * When this option is enabled, the operator will use the `SuperuserSecret` to update the `postgres` user password (if the secret is not present, the operator will automatically create one). When this option is disabled, the operator will ignore the `SuperuserSecret` content, delete it when automatically created, and then blank the password of the `postgres` user by setting it to `NULL`. Enabled by default.
+             */
+            enableSuperuserAccess?: pulumi.Input<boolean>;
+            /**
+             * Env follows the Env format to pass environment variables to the pods created in the cluster
+             */
+            env?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvArgs>[]>;
+            /**
+             * EnvFrom follows the EnvFrom format to pass environment variables sources to the pods to be used by Env
+             */
+            envFrom?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvfromArgs>[]>;
+            /**
+             * The list of external clusters which are used in the configuration
+             */
+            externalClusters?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersArgs>[]>;
+            /**
+             * The amount of time (in seconds) to wait before triggering a failover after the primary PostgreSQL instance in the cluster was detected to be unhealthy
+             */
+            failoverDelay?: pulumi.Input<number>;
+            /**
+             * Name of the container image, supporting both tags (`<image>:<tag>`) and digests for deterministic and repeatable deployments (`<image>:<tag>@sha256:<digestValue>`)
+             */
+            imageName?: pulumi.Input<string>;
+            /**
+             * Image pull policy. One of `Always`, `Never` or `IfNotPresent`. If not defined, it defaults to `IfNotPresent`. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             */
+            imagePullPolicy?: pulumi.Input<string>;
+            /**
+             * The list of pull secrets to be used to pull the images
+             */
+            imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecImagepullsecretsArgs>[]>;
+            /**
+             * Metadata that will be inherited by all objects related to the Cluster
+             */
+            inheritedMetadata?: pulumi.Input<inputs.postgresql.v1.ClusterSpecInheritedmetadataArgs>;
+            /**
+             * Number of instances required in the cluster
+             */
+            instances: pulumi.Input<number>;
+            /**
+             * The instances' log level, one of the following values: error, warning, info (default), debug, trace
+             */
+            logLevel?: pulumi.Input<string>;
+            /**
+             * The configuration that is used by the portions of PostgreSQL that are managed by the instance manager
+             */
+            managed?: pulumi.Input<inputs.postgresql.v1.ClusterSpecManagedArgs>;
+            /**
+             * The target value for the synchronous replication quorum, that can be decreased if the number of ready standbys is lower than this. Undefined or 0 disable synchronous replication.
+             */
+            maxSyncReplicas?: pulumi.Input<number>;
+            /**
+             * Minimum number of instances required in synchronous replication with the primary. Undefined or 0 allow writes to complete when no standby is available.
+             */
+            minSyncReplicas?: pulumi.Input<number>;
+            /**
+             * The configuration of the monitoring infrastructure of this cluster
+             */
+            monitoring?: pulumi.Input<inputs.postgresql.v1.ClusterSpecMonitoringArgs>;
+            /**
+             * Define a maintenance window for the Kubernetes nodes
+             */
+            nodeMaintenanceWindow?: pulumi.Input<inputs.postgresql.v1.ClusterSpecNodemaintenancewindowArgs>;
+            /**
+             * The GID of the `postgres` user inside the image, defaults to `26`
+             */
+            postgresGID?: pulumi.Input<number>;
+            /**
+             * The UID of the `postgres` user inside the image, defaults to `26`
+             */
+            postgresUID?: pulumi.Input<number>;
+            /**
+             * Configuration of the PostgreSQL server
+             */
+            postgresql?: pulumi.Input<inputs.postgresql.v1.ClusterSpecPostgresqlArgs>;
+            /**
+             * Method to follow to upgrade the primary server during a rolling update procedure, after all replicas have been successfully updated: it can be with a switchover (`switchover`) or in-place (`restart` - default)
+             */
+            primaryUpdateMethod?: pulumi.Input<string>;
+            /**
+             * Deployment strategy to follow to upgrade the primary server during a rolling update procedure, after all replicas have been successfully updated: it can be automated (`unsupervised` - default) or manual (`supervised`)
+             */
+            primaryUpdateStrategy?: pulumi.Input<string>;
+            /**
+             * Template to be used to define projected volumes, projected volumes will be mounted under `/projected` base folder
+             */
+            projectedVolumeTemplate?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateArgs>;
+            /**
+             * Replica cluster configuration
+             */
+            replica?: pulumi.Input<inputs.postgresql.v1.ClusterSpecReplicaArgs>;
+            /**
+             * Replication slots management configuration
+             */
+            replicationSlots?: pulumi.Input<inputs.postgresql.v1.ClusterSpecReplicationslotsArgs>;
+            /**
+             * Resources requirements of every generated Pod. Please refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ for more information.
+             */
+            resources?: pulumi.Input<inputs.postgresql.v1.ClusterSpecResourcesArgs>;
+            /**
+             * If specified, the pod will be dispatched by specified Kubernetes scheduler. If not specified, the pod will be dispatched by the default scheduler. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/
+             */
+            schedulerName?: pulumi.Input<string>;
+            /**
+             * The SeccompProfile applied to every Pod and Container. Defaults to: `RuntimeDefault`
+             */
+            seccompProfile?: pulumi.Input<inputs.postgresql.v1.ClusterSpecSeccompprofileArgs>;
+            /**
+             * Configure the generation of the service account
+             */
+            serviceAccountTemplate?: pulumi.Input<inputs.postgresql.v1.ClusterSpecServiceaccounttemplateArgs>;
+            /**
+             * The time in seconds that is allowed for a PostgreSQL instance to successfully start up (default 30)
+             */
+            startDelay?: pulumi.Input<number>;
+            /**
+             * The time in seconds that is allowed for a PostgreSQL instance to gracefully shutdown (default 30)
+             */
+            stopDelay?: pulumi.Input<number>;
+            /**
+             * Configuration of the storage of the instances
+             */
+            storage?: pulumi.Input<inputs.postgresql.v1.ClusterSpecStorageArgs>;
+            /**
+             * The secret containing the superuser password. If not defined a new secret will be created with a randomly generated password
+             */
+            superuserSecret?: pulumi.Input<inputs.postgresql.v1.ClusterSpecSuperusersecretArgs>;
+            /**
+             * The time in seconds that is allowed for a primary PostgreSQL instance to gracefully shutdown during a switchover. Default value is 40000000, greater than one year in seconds, big enough to simulate an infinite delay
+             */
+            switchoverDelay?: pulumi.Input<number>;
+            /**
+             * TopologySpreadConstraints specifies how to spread matching pods among the given topology. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
+             */
+            topologySpreadConstraints?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecTopologyspreadconstraintsArgs>[]>;
+            /**
+             * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+             */
+            walStorage?: pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstorageArgs>;
+        }
+        /**
+         * clusterSpecArgsProvideDefaults sets the appropriate defaults for ClusterSpecArgs
+         */
+        export function clusterSpecArgsProvideDefaults(val: ClusterSpecArgs): ClusterSpecArgs {
+            return {
+                ...val,
+                backup: (val.backup ? pulumi.output(val.backup).apply(inputs.postgresql.v1.clusterSpecBackupArgsProvideDefaults) : undefined),
+                bootstrap: (val.bootstrap ? pulumi.output(val.bootstrap).apply(inputs.postgresql.v1.clusterSpecBootstrapArgsProvideDefaults) : undefined),
+                enableSuperuserAccess: (val.enableSuperuserAccess) ?? true,
+                failoverDelay: (val.failoverDelay) ?? 0,
+                instances: (val.instances) ?? 1,
+                logLevel: (val.logLevel) ?? "info",
+                maxSyncReplicas: (val.maxSyncReplicas) ?? 0,
+                minSyncReplicas: (val.minSyncReplicas) ?? 0,
+                monitoring: (val.monitoring ? pulumi.output(val.monitoring).apply(inputs.postgresql.v1.clusterSpecMonitoringArgsProvideDefaults) : undefined),
+                nodeMaintenanceWindow: (val.nodeMaintenanceWindow ? pulumi.output(val.nodeMaintenanceWindow).apply(inputs.postgresql.v1.clusterSpecNodemaintenancewindowArgsProvideDefaults) : undefined),
+                postgresGID: (val.postgresGID) ?? 26,
+                postgresUID: (val.postgresUID) ?? 26,
+                primaryUpdateMethod: (val.primaryUpdateMethod) ?? "restart",
+                primaryUpdateStrategy: (val.primaryUpdateStrategy) ?? "unsupervised",
+                replicationSlots: (val.replicationSlots ? pulumi.output(val.replicationSlots).apply(inputs.postgresql.v1.clusterSpecReplicationslotsArgsProvideDefaults) : undefined),
+                startDelay: (val.startDelay) ?? 30,
+                stopDelay: (val.stopDelay) ?? 30,
+                storage: (val.storage ? pulumi.output(val.storage).apply(inputs.postgresql.v1.clusterSpecStorageArgsProvideDefaults) : undefined),
+                switchoverDelay: (val.switchoverDelay) ?? 40000000,
+                walStorage: (val.walStorage ? pulumi.output(val.walStorage).apply(inputs.postgresql.v1.clusterSpecWalstorageArgsProvideDefaults) : undefined),
+            };
+        }
+
+        /**
+         * Affinity/Anti-affinity rules for Pods
+         */
+        export interface ClusterSpecAffinityArgs {
+            /**
+             * AdditionalPodAffinity allows to specify pod affinity terms to be passed to all the cluster's pods.
+             */
+            additionalPodAffinity?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityArgs>;
+            /**
+             * AdditionalPodAntiAffinity allows to specify pod anti-affinity terms to be added to the ones generated by the operator if EnablePodAntiAffinity is set to true (default) or to be used exclusively if set to false.
+             */
+            additionalPodAntiAffinity?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityArgs>;
+            /**
+             * Activates anti-affinity for the pods. The operator will define pods anti-affinity unless this field is explicitly set to false
+             */
+            enablePodAntiAffinity?: pulumi.Input<boolean>;
+            /**
+             * NodeAffinity describes node affinity scheduling rules for the pod. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+             */
+            nodeAffinity?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityArgs>;
+            /**
+             * NodeSelector is map of key-value pairs used to define the nodes on which the pods can run. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+             */
+            nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * PodAntiAffinityType allows the user to decide whether pod anti-affinity between cluster instance has to be considered a strong requirement during scheduling or not. Allowed values are: "preferred" (default if empty) or "required". Setting it to "required", could lead to instances remaining pending until new kubernetes nodes are added if all the existing nodes don't match the required pod anti-affinity rule. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+             */
+            podAntiAffinityType?: pulumi.Input<string>;
+            /**
+             * Tolerations is a list of Tolerations that should be set for all the pods, in order to allow them to run on tainted nodes. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+             */
+            tolerations?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityTolerationsArgs>[]>;
+            /**
+             * TopologyKey to use for anti-affinity configuration. See k8s documentation for more info on that
+             */
+            topologyKey?: pulumi.Input<string>;
+        }
+
+        /**
+         * AdditionalPodAffinity allows to specify pod affinity terms to be passed to all the cluster's pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityArgs {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionArgs>[]>;
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs>;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: pulumi.Input<number>;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * AdditionalPodAntiAffinity allows to specify pod anti-affinity terms to be added to the ones generated by the operator if EnablePodAntiAffinity is set to true (default) or to be used exclusively if set to false.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityArgs {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            /**
+             * If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionArgs>[]>;
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs>;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: pulumi.Input<number>;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs>;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs>;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: pulumi.Input<string>;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * NodeAffinity describes node affinity scheduling rules for the pod. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+         */
+        export interface ClusterSpecAffinityNodeaffinityArgs {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionArgs>[]>;
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionArgs>;
+        }
+
+        /**
+         * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionArgs {
+            /**
+             * A node selector term, associated with the corresponding weight.
+             */
+            preference: pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceArgs>;
+            /**
+             * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
+             */
+            weight: pulumi.Input<number>;
+        }
+
+        /**
+         * A node selector term, associated with the corresponding weight.
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceArgs {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressionsArgs>[]>;
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfieldsArgs>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressionsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfieldsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionArgs {
+            /**
+             * Required. A list of node selector terms. The terms are ORed.
+             */
+            nodeSelectorTerms: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsArgs>[]>;
+        }
+
+        /**
+         * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsArgs {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressionsArgs>[]>;
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfieldsArgs>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressionsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfieldsArgs {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+         */
+        export interface ClusterSpecAffinityTolerationsArgs {
+            /**
+             * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+             */
+            effect?: pulumi.Input<string>;
+            /**
+             * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+             */
+            key?: pulumi.Input<string>;
+            /**
+             * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+             */
+            operator?: pulumi.Input<string>;
+            /**
+             * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+             */
+            tolerationSeconds?: pulumi.Input<number>;
+            /**
+             * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+             */
+            value?: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration to be used for backups
+         */
+        export interface ClusterSpecBackupArgs {
+            /**
+             * The configuration for the barman-cloud tool suite
+             */
+            barmanObjectStore?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreArgs>;
+            /**
+             * RetentionPolicy is the retention policy to be used for backups and WALs (i.e. '60d'). The retention policy is expressed in the form of `XXu` where `XX` is a positive integer and `u` is in `[dwm]` - days, weeks, months.
+             */
+            retentionPolicy?: pulumi.Input<string>;
+            /**
+             * The policy to decide which instance should perform backups. Available options are empty string, which will default to `prefer-standby` policy, `primary` to have backups run always on primary instances, `prefer-standby` to have backups run preferably on the most updated standby, if available.
+             */
+            target?: pulumi.Input<string>;
+        }
+        /**
+         * clusterSpecBackupArgsProvideDefaults sets the appropriate defaults for ClusterSpecBackupArgs
+         */
+        export function clusterSpecBackupArgsProvideDefaults(val: ClusterSpecBackupArgs): ClusterSpecBackupArgs {
+            return {
+                ...val,
+                target: (val.target) ?? "prefer-standby",
+            };
+        }
+
+        /**
+         * The configuration for the barman-cloud tool suite
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreArgs {
+            /**
+             * The credentials to use to upload data to Azure Blob Storage
+             */
+            azureCredentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsArgs>;
+            /**
+             * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            data?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreDataArgs>;
+            /**
+             * The path where to store the backup (i.e. s3://bucket/path/to/folder) this path, with different destination folders, will be used for WALs and for data
+             */
+            destinationPath: pulumi.Input<string>;
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+             */
+            endpointCA?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreEndpointcaArgs>;
+            /**
+             * Endpoint to be used to upload data to the cloud, overriding the automatic endpoint discovery
+             */
+            endpointURL?: pulumi.Input<string>;
+            /**
+             * The credentials to use to upload data to Google Cloud Storage
+             */
+            googleCredentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreGooglecredentialsArgs>;
+            /**
+             * HistoryTags is a list of key value pairs that will be passed to the Barman --history-tags option.
+             */
+            historyTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The credentials to use to upload data to S3
+             */
+            s3Credentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsArgs>;
+            /**
+             * The server name on S3, the cluster name is used if this parameter is omitted
+             */
+            serverName?: pulumi.Input<string>;
+            /**
+             * Tags is a list of key value pairs that will be passed to the Barman --tags option.
+             */
+            tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            wal?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreWalArgs>;
+        }
+
+        /**
+         * The credentials to use to upload data to Azure Blob Storage
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsArgs {
+            /**
+             * The connection string to be used
+             */
+            connectionString?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsConnectionstringArgs>;
+            /**
+             * Use the Azure AD based authentication without providing explicitly the keys.
+             */
+            inheritFromAzureAD?: pulumi.Input<boolean>;
+            /**
+             * The storage account where to upload data
+             */
+            storageAccount?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsStorageaccountArgs>;
+            /**
+             * The storage account key to be used in conjunction with the storage account name
+             */
+            storageKey?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragekeyArgs>;
+            /**
+             * A shared-access-signature to be used in conjunction with the storage account name
+             */
+            storageSasToken?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragesastokenArgs>;
+        }
+
+        /**
+         * The connection string to be used
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsConnectionstringArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The storage account where to upload data
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsStorageaccountArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The storage account key to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragekeyArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * A shared-access-signature to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragesastokenArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreDataArgs {
+            /**
+             * Compress a backup file (a tar file per tablespace) while streaming it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: pulumi.Input<string>;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: pulumi.Input<string>;
+            /**
+             * Control whether the I/O workload for the backup initial checkpoint will be limited, according to the `checkpoint_completion_target` setting on the PostgreSQL server. If set to true, an immediate checkpoint will be used, meaning PostgreSQL will complete the checkpoint as soon as possible. `false` by default.
+             */
+            immediateCheckpoint?: pulumi.Input<boolean>;
+            /**
+             * The number of parallel jobs to be used to upload the backup, defaults to 2
+             */
+            jobs?: pulumi.Input<number>;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreEndpointcaArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to Google Cloud Storage
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreGooglecredentialsArgs {
+            /**
+             * The secret containing the Google Cloud Storage JSON file with the credentials
+             */
+            applicationCredentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreGooglecredentialsApplicationcredentialsArgs>;
+            /**
+             * If set to true, will presume that it's running inside a GKE environment, default to false.
+             */
+            gkeEnvironment?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret containing the Google Cloud Storage JSON file with the credentials
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreGooglecredentialsApplicationcredentialsArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to S3
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsArgs {
+            /**
+             * The reference to the access key id
+             */
+            accessKeyId?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsAccesskeyidArgs>;
+            /**
+             * Use the role based authentication without providing explicitly the keys.
+             */
+            inheritFromIAMRole?: pulumi.Input<boolean>;
+            /**
+             * The reference to the secret containing the region name
+             */
+            region?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsRegionArgs>;
+            /**
+             * The reference to the secret access key
+             */
+            secretAccessKey?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsSecretaccesskeyArgs>;
+            /**
+             * The references to the session key
+             */
+            sessionToken?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsSessiontokenArgs>;
+        }
+
+        /**
+         * The reference to the access key id
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsAccesskeyidArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to the secret containing the region name
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsRegionArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to the secret access key
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsSecretaccesskeyArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The references to the session key
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsSessiontokenArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreWalArgs {
+            /**
+             * Compress a WAL file before sending it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: pulumi.Input<string>;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: pulumi.Input<string>;
+            /**
+             * Number of WAL files to be either archived in parallel (when the PostgreSQL instance is archiving to a backup object store) or restored in parallel (when a PostgreSQL standby is fetching WAL files from a recovery object store). If not specified, WAL files will be processed one at a time. It accepts a positive integer as a value - with 1 being the minimum accepted value.
+             */
+            maxParallel?: pulumi.Input<number>;
+        }
+
+        /**
+         * Instructions to bootstrap this cluster
+         */
+        export interface ClusterSpecBootstrapArgs {
+            /**
+             * Bootstrap the cluster via initdb
+             */
+            initdb?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbArgs>;
+            /**
+             * Bootstrap the cluster taking a physical backup of another compatible PostgreSQL instance
+             */
+            pg_basebackup?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapPg_basebackupArgs>;
+            /**
+             * Bootstrap the cluster from a backup
+             */
+            recovery?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryArgs>;
+        }
+        /**
+         * clusterSpecBootstrapArgsProvideDefaults sets the appropriate defaults for ClusterSpecBootstrapArgs
+         */
+        export function clusterSpecBootstrapArgsProvideDefaults(val: ClusterSpecBootstrapArgs): ClusterSpecBootstrapArgs {
+            return {
+                ...val,
+                initdb: (val.initdb ? pulumi.output(val.initdb).apply(inputs.postgresql.v1.clusterSpecBootstrapInitdbArgsProvideDefaults) : undefined),
+            };
+        }
+
+        /**
+         * Bootstrap the cluster via initdb
+         */
+        export interface ClusterSpecBootstrapInitdbArgs {
+            /**
+             * Whether the `-k` option should be passed to initdb, enabling checksums on data pages (default: `false`)
+             */
+            dataChecksums?: pulumi.Input<boolean>;
+            /**
+             * Name of the database used by the application. Default: `app`.
+             */
+            database?: pulumi.Input<string>;
+            /**
+             * The value to be passed as option `--encoding` for initdb (default:`UTF8`)
+             */
+            encoding?: pulumi.Input<string>;
+            /**
+             * Bootstraps the new cluster by importing data from an existing PostgreSQL instance using logical backup (`pg_dump` and `pg_restore`)
+             */
+            import?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbImportArgs>;
+            /**
+             * The value to be passed as option `--lc-ctype` for initdb (default:`C`)
+             */
+            localeCType?: pulumi.Input<string>;
+            /**
+             * The value to be passed as option `--lc-collate` for initdb (default:`C`)
+             */
+            localeCollate?: pulumi.Input<string>;
+            /**
+             * The list of options that must be passed to initdb when creating the cluster. Deprecated: This could lead to inconsistent configurations, please use the explicit provided parameters instead. If defined, explicit values will be ignored.
+             */
+            options?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+             */
+            owner?: pulumi.Input<string>;
+            /**
+             * List of SQL queries to be executed as a superuser in the application database right after is created - to be used with extreme care (by default empty)
+             */
+            postInitApplicationSQL?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * PostInitApplicationSQLRefs points references to ConfigMaps or Secrets which contain SQL files, the general implementation order to these references is from all Secrets to all ConfigMaps, and inside Secrets or ConfigMaps, the implementation order is same as the order of each array (by default empty)
+             */
+            postInitApplicationSQLRefs?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsArgs>;
+            /**
+             * List of SQL queries to be executed as a superuser immediately after the cluster has been created - to be used with extreme care (by default empty)
+             */
+            postInitSQL?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * List of SQL queries to be executed as a superuser in the `template1` after the cluster has been created - to be used with extreme care (by default empty)
+             */
+            postInitTemplateSQL?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+             */
+            secret?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbSecretArgs>;
+            /**
+             * The value in megabytes (1 to 1024) to be passed to the `--wal-segsize` option for initdb (default: empty, resulting in PostgreSQL default: 16MB)
+             */
+            walSegmentSize?: pulumi.Input<number>;
+        }
+        /**
+         * clusterSpecBootstrapInitdbArgsProvideDefaults sets the appropriate defaults for ClusterSpecBootstrapInitdbArgs
+         */
+        export function clusterSpecBootstrapInitdbArgsProvideDefaults(val: ClusterSpecBootstrapInitdbArgs): ClusterSpecBootstrapInitdbArgs {
+            return {
+                ...val,
+                import: (val.import ? pulumi.output(val.import).apply(inputs.postgresql.v1.clusterSpecBootstrapInitdbImportArgsProvideDefaults) : undefined),
+            };
+        }
+
+        /**
+         * Bootstraps the new cluster by importing data from an existing PostgreSQL instance using logical backup (`pg_dump` and `pg_restore`)
+         */
+        export interface ClusterSpecBootstrapInitdbImportArgs {
+            /**
+             * The databases to import
+             */
+            databases: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * List of SQL queries to be executed as a superuser in the application database right after is imported - to be used with extreme care (by default empty). Only available in microservice type.
+             */
+            postImportApplicationSQL?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The roles to import
+             */
+            roles?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * When set to true, only the `pre-data` and `post-data` sections of `pg_restore` are invoked, avoiding data import. Default: `false`.
+             */
+            schemaOnly?: pulumi.Input<boolean>;
+            /**
+             * The source of the import
+             */
+            source: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbImportSourceArgs>;
+            /**
+             * The import type. Can be `microservice` or `monolith`.
+             */
+            type: pulumi.Input<string>;
+        }
+        /**
+         * clusterSpecBootstrapInitdbImportArgsProvideDefaults sets the appropriate defaults for ClusterSpecBootstrapInitdbImportArgs
+         */
+        export function clusterSpecBootstrapInitdbImportArgsProvideDefaults(val: ClusterSpecBootstrapInitdbImportArgs): ClusterSpecBootstrapInitdbImportArgs {
+            return {
+                ...val,
+                schemaOnly: (val.schemaOnly) ?? false,
+            };
+        }
+
+        /**
+         * The source of the import
+         */
+        export interface ClusterSpecBootstrapInitdbImportSourceArgs {
+            /**
+             * The name of the externalCluster used for import
+             */
+            externalCluster: pulumi.Input<string>;
+        }
+
+        /**
+         * PostInitApplicationSQLRefs points references to ConfigMaps or Secrets which contain SQL files, the general implementation order to these references is from all Secrets to all ConfigMaps, and inside Secrets or ConfigMaps, the implementation order is same as the order of each array (by default empty)
+         */
+        export interface ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsArgs {
+            /**
+             * ConfigMapRefs holds a list of references to ConfigMaps
+             */
+            configMapRefs?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsConfigmaprefsArgs>[]>;
+            /**
+             * SecretRefs holds a list of references to Secrets
+             */
+            secretRefs?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsSecretrefsArgs>[]>;
+        }
+
+        /**
+         * ConfigMapKeySelector contains enough information to let you locate the key of a ConfigMap
+         */
+        export interface ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsConfigmaprefsArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * SecretKeySelector contains enough information to let you locate the key of a Secret
+         */
+        export interface ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsSecretrefsArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+         */
+        export interface ClusterSpecBootstrapInitdbSecretArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Bootstrap the cluster taking a physical backup of another compatible PostgreSQL instance
+         */
+        export interface ClusterSpecBootstrapPg_basebackupArgs {
+            /**
+             * Name of the database used by the application. Default: `app`.
+             */
+            database?: pulumi.Input<string>;
+            /**
+             * Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+             */
+            owner?: pulumi.Input<string>;
+            /**
+             * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+             */
+            secret?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapPg_basebackupSecretArgs>;
+            /**
+             * The name of the server of which we need to take a physical backup
+             */
+            source: pulumi.Input<string>;
+        }
+
+        /**
+         * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+         */
+        export interface ClusterSpecBootstrapPg_basebackupSecretArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Bootstrap the cluster from a backup
+         */
+        export interface ClusterSpecBootstrapRecoveryArgs {
+            /**
+             * The backup object containing the physical base backup from which to initiate the recovery procedure. Mutually exclusive with `source` and `volumeSnapshots`.
+             */
+            backup?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryBackupArgs>;
+            /**
+             * Name of the database used by the application. Default: `app`.
+             */
+            database?: pulumi.Input<string>;
+            /**
+             * Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+             */
+            owner?: pulumi.Input<string>;
+            /**
+             * By default, the recovery process applies all the available WAL files in the archive (full recovery). However, you can also end the recovery as soon as a consistent state is reached or recover to a point-in-time (PITR) by specifying a `RecoveryTarget` object, as expected by PostgreSQL (i.e., timestamp, transaction Id, LSN, ...). More info: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-RECOVERY-TARGET
+             */
+            recoveryTarget?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryRecoverytargetArgs>;
+            /**
+             * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+             */
+            secret?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoverySecretArgs>;
+            /**
+             * The external cluster whose backup we will restore. This is also used as the name of the folder under which the backup is stored, so it must be set to the name of the source cluster Mutually exclusive with `backup` and `volumeSnapshots`.
+             */
+            source?: pulumi.Input<string>;
+            /**
+             * The static PVC data source(s) from which to initiate the recovery procedure. Currently supporting `VolumeSnapshot` and `PersistentVolumeClaim` resources that map an existing PVC group, compatible with CloudNativePG, and taken with a cold backup copy on a fenced Postgres instance (limitation which will be removed in the future when online backup will be implemented). Mutually exclusive with `backup` and `source`.
+             */
+            volumeSnapshots?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryVolumesnapshotsArgs>;
+        }
+
+        /**
+         * The backup object containing the physical base backup from which to initiate the recovery procedure. Mutually exclusive with `source` and `volumeSnapshots`.
+         */
+        export interface ClusterSpecBootstrapRecoveryBackupArgs {
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+             */
+            endpointCA?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryBackupEndpointcaArgs>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+         */
+        export interface ClusterSpecBootstrapRecoveryBackupEndpointcaArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * By default, the recovery process applies all the available WAL files in the archive (full recovery). However, you can also end the recovery as soon as a consistent state is reached or recover to a point-in-time (PITR) by specifying a `RecoveryTarget` object, as expected by PostgreSQL (i.e., timestamp, transaction Id, LSN, ...). More info: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-RECOVERY-TARGET
+         */
+        export interface ClusterSpecBootstrapRecoveryRecoverytargetArgs {
+            /**
+             * The ID of the backup from which to start the recovery process. If empty (default) the operator will automatically detect the backup based on targetTime or targetLSN if specified. Otherwise use the latest available backup in chronological order.
+             */
+            backupID?: pulumi.Input<string>;
+            /**
+             * Set the target to be exclusive (defaults to true)
+             */
+            exclusive?: pulumi.Input<boolean>;
+            /**
+             * End recovery as soon as a consistent state is reached
+             */
+            targetImmediate?: pulumi.Input<boolean>;
+            /**
+             * The target LSN (Log Sequence Number)
+             */
+            targetLSN?: pulumi.Input<string>;
+            /**
+             * The target name (to be previously created with `pg_create_restore_point`)
+             */
+            targetName?: pulumi.Input<string>;
+            /**
+             * The target timeline ("latest" or a positive integer)
+             */
+            targetTLI?: pulumi.Input<string>;
+            /**
+             * The target time as a timestamp in the RFC3339 standard
+             */
+            targetTime?: pulumi.Input<string>;
+            /**
+             * The target transaction ID
+             */
+            targetXID?: pulumi.Input<string>;
+        }
+
+        /**
+         * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+         */
+        export interface ClusterSpecBootstrapRecoverySecretArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The static PVC data source(s) from which to initiate the recovery procedure. Currently supporting `VolumeSnapshot` and `PersistentVolumeClaim` resources that map an existing PVC group, compatible with CloudNativePG, and taken with a cold backup copy on a fenced Postgres instance (limitation which will be removed in the future when online backup will be implemented). Mutually exclusive with `backup` and `source`.
+         */
+        export interface ClusterSpecBootstrapRecoveryVolumesnapshotsArgs {
+            /**
+             * Configuration of the storage of the instances
+             */
+            storage: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryVolumesnapshotsStorageArgs>;
+            /**
+             * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+             */
+            walStorage?: pulumi.Input<inputs.postgresql.v1.ClusterSpecBootstrapRecoveryVolumesnapshotsWalstorageArgs>;
+        }
+
+        /**
+         * Configuration of the storage of the instances
+         */
+        export interface ClusterSpecBootstrapRecoveryVolumesnapshotsStorageArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+         */
+        export interface ClusterSpecBootstrapRecoveryVolumesnapshotsWalstorageArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration for the CA and related certificates
+         */
+        export interface ClusterSpecCertificatesArgs {
+            /**
+             * The secret containing the Client CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate all the client certificates.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the client certificates, used as `ssl_ca_file` of all the instances.<br /> - `ca.key`: key used to generate client certificates, if ReplicationTLSSecret is provided, this can be omitted.<br />
+             */
+            clientCASecret?: pulumi.Input<string>;
+            /**
+             * The secret of type kubernetes.io/tls containing the client certificate to authenticate as the `streaming_replica` user. If not defined, ClientCASecret must provide also `ca.key`, and a new secret will be created using the provided CA.
+             */
+            replicationTLSSecret?: pulumi.Input<string>;
+            /**
+             * The list of the server alternative DNS names to be added to the generated server TLS certificates, when required.
+             */
+            serverAltDNSNames?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The secret containing the Server CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate the TLS certificate ServerTLSSecret.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the server certificate, used as `sslrootcert` in client connection strings.<br /> - `ca.key`: key used to generate Server SSL certs, if ServerTLSSecret is provided, this can be omitted.<br />
+             */
+            serverCASecret?: pulumi.Input<string>;
+            /**
+             * The secret of type kubernetes.io/tls containing the server TLS certificate and key that will be set as `ssl_cert_file` and `ssl_key_file` so that clients can connect to postgres securely. If not defined, ServerCASecret must provide also `ca.key` and a new secret will be created using the provided CA.
+             */
+            serverTLSSecret?: pulumi.Input<string>;
+        }
+
+        /**
+         * EnvVar represents an environment variable present in a Container.
+         */
+        export interface ClusterSpecEnvArgs {
+            /**
+             * Name of the environment variable. Must be a C_IDENTIFIER.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             */
+            value?: pulumi.Input<string>;
+            /**
+             * Source for the environment variable's value. Cannot be used if value is not empty.
+             */
+            valueFrom?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvValuefromArgs>;
+        }
+
+        /**
+         * Source for the environment variable's value. Cannot be used if value is not empty.
+         */
+        export interface ClusterSpecEnvValuefromArgs {
+            /**
+             * Selects a key of a ConfigMap.
+             */
+            configMapKeyRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvValuefromConfigmapkeyrefArgs>;
+            /**
+             * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+             */
+            fieldRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvValuefromFieldrefArgs>;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+             */
+            resourceFieldRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvValuefromResourcefieldrefArgs>;
+            /**
+             * Selects a key of a secret in the pod's namespace
+             */
+            secretKeyRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvValuefromSecretkeyrefArgs>;
+        }
+
+        /**
+         * Selects a key of a ConfigMap.
+         */
+        export interface ClusterSpecEnvValuefromConfigmapkeyrefArgs {
+            /**
+             * The key to select.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+         */
+        export interface ClusterSpecEnvValuefromFieldrefArgs {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+         */
+        export interface ClusterSpecEnvValuefromResourcefieldrefArgs {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: pulumi.Input<string>;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: pulumi.Input<number | string>;
+            /**
+             * Required: resource to select
+             */
+            resource: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a key of a secret in the pod's namespace
+         */
+        export interface ClusterSpecEnvValuefromSecretkeyrefArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * EnvFromSource represents the source of a set of ConfigMaps
+         */
+        export interface ClusterSpecEnvfromArgs {
+            /**
+             * The ConfigMap to select from
+             */
+            configMapRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvfromConfigmaprefArgs>;
+            /**
+             * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+             */
+            prefix?: pulumi.Input<string>;
+            /**
+             * The Secret to select from
+             */
+            secretRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecEnvfromSecretrefArgs>;
+        }
+
+        /**
+         * The ConfigMap to select from
+         */
+        export interface ClusterSpecEnvfromConfigmaprefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the ConfigMap must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The Secret to select from
+         */
+        export interface ClusterSpecEnvfromSecretrefArgs {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * ExternalCluster represents the connection parameters to an external cluster which is used in the other sections of the configuration
+         */
+        export interface ClusterSpecExternalclustersArgs {
+            /**
+             * The configuration for the barman-cloud tool suite
+             */
+            barmanObjectStore?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreArgs>;
+            /**
+             * The list of connection parameters, such as dbname, host, username, etc
+             */
+            connectionParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The server name, required
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The reference to the password to be used to connect to the server
+             */
+            password?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersPasswordArgs>;
+            /**
+             * The reference to an SSL certificate to be used to connect to this instance
+             */
+            sslCert?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersSslcertArgs>;
+            /**
+             * The reference to an SSL private key to be used to connect to this instance
+             */
+            sslKey?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersSslkeyArgs>;
+            /**
+             * The reference to an SSL CA public key to be used to connect to this instance
+             */
+            sslRootCert?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersSslrootcertArgs>;
+        }
+
+        /**
+         * The configuration for the barman-cloud tool suite
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreArgs {
+            /**
+             * The credentials to use to upload data to Azure Blob Storage
+             */
+            azureCredentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsArgs>;
+            /**
+             * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            data?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreDataArgs>;
+            /**
+             * The path where to store the backup (i.e. s3://bucket/path/to/folder) this path, with different destination folders, will be used for WALs and for data
+             */
+            destinationPath: pulumi.Input<string>;
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+             */
+            endpointCA?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreEndpointcaArgs>;
+            /**
+             * Endpoint to be used to upload data to the cloud, overriding the automatic endpoint discovery
+             */
+            endpointURL?: pulumi.Input<string>;
+            /**
+             * The credentials to use to upload data to Google Cloud Storage
+             */
+            googleCredentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreGooglecredentialsArgs>;
+            /**
+             * HistoryTags is a list of key value pairs that will be passed to the Barman --history-tags option.
+             */
+            historyTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The credentials to use to upload data to S3
+             */
+            s3Credentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsArgs>;
+            /**
+             * The server name on S3, the cluster name is used if this parameter is omitted
+             */
+            serverName?: pulumi.Input<string>;
+            /**
+             * Tags is a list of key value pairs that will be passed to the Barman --tags option.
+             */
+            tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            wal?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreWalArgs>;
+        }
+
+        /**
+         * The credentials to use to upload data to Azure Blob Storage
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsArgs {
+            /**
+             * The connection string to be used
+             */
+            connectionString?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsConnectionstringArgs>;
+            /**
+             * Use the Azure AD based authentication without providing explicitly the keys.
+             */
+            inheritFromAzureAD?: pulumi.Input<boolean>;
+            /**
+             * The storage account where to upload data
+             */
+            storageAccount?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStorageaccountArgs>;
+            /**
+             * The storage account key to be used in conjunction with the storage account name
+             */
+            storageKey?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragekeyArgs>;
+            /**
+             * A shared-access-signature to be used in conjunction with the storage account name
+             */
+            storageSasToken?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragesastokenArgs>;
+        }
+
+        /**
+         * The connection string to be used
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsConnectionstringArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The storage account where to upload data
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStorageaccountArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The storage account key to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragekeyArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * A shared-access-signature to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragesastokenArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreDataArgs {
+            /**
+             * Compress a backup file (a tar file per tablespace) while streaming it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: pulumi.Input<string>;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: pulumi.Input<string>;
+            /**
+             * Control whether the I/O workload for the backup initial checkpoint will be limited, according to the `checkpoint_completion_target` setting on the PostgreSQL server. If set to true, an immediate checkpoint will be used, meaning PostgreSQL will complete the checkpoint as soon as possible. `false` by default.
+             */
+            immediateCheckpoint?: pulumi.Input<boolean>;
+            /**
+             * The number of parallel jobs to be used to upload the backup, defaults to 2
+             */
+            jobs?: pulumi.Input<number>;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreEndpointcaArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to Google Cloud Storage
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreGooglecredentialsArgs {
+            /**
+             * The secret containing the Google Cloud Storage JSON file with the credentials
+             */
+            applicationCredentials?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreGooglecredentialsApplicationcredentialsArgs>;
+            /**
+             * If set to true, will presume that it's running inside a GKE environment, default to false.
+             */
+            gkeEnvironment?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The secret containing the Google Cloud Storage JSON file with the credentials
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreGooglecredentialsApplicationcredentialsArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The credentials to use to upload data to S3
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsArgs {
+            /**
+             * The reference to the access key id
+             */
+            accessKeyId?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsAccesskeyidArgs>;
+            /**
+             * Use the role based authentication without providing explicitly the keys.
+             */
+            inheritFromIAMRole?: pulumi.Input<boolean>;
+            /**
+             * The reference to the secret containing the region name
+             */
+            region?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsRegionArgs>;
+            /**
+             * The reference to the secret access key
+             */
+            secretAccessKey?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSecretaccesskeyArgs>;
+            /**
+             * The references to the session key
+             */
+            sessionToken?: pulumi.Input<inputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSessiontokenArgs>;
+        }
+
+        /**
+         * The reference to the access key id
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsAccesskeyidArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to the secret containing the region name
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsRegionArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The reference to the secret access key
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSecretaccesskeyArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The references to the session key
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSessiontokenArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreWalArgs {
+            /**
+             * Compress a WAL file before sending it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: pulumi.Input<string>;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: pulumi.Input<string>;
+            /**
+             * Number of WAL files to be either archived in parallel (when the PostgreSQL instance is archiving to a backup object store) or restored in parallel (when a PostgreSQL standby is fetching WAL files from a recovery object store). If not specified, WAL files will be processed one at a time. It accepts a positive integer as a value - with 1 being the minimum accepted value.
+             */
+            maxParallel?: pulumi.Input<number>;
+        }
+
+        /**
+         * The reference to the password to be used to connect to the server
+         */
+        export interface ClusterSpecExternalclustersPasswordArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The reference to an SSL certificate to be used to connect to this instance
+         */
+        export interface ClusterSpecExternalclustersSslcertArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The reference to an SSL private key to be used to connect to this instance
+         */
+        export interface ClusterSpecExternalclustersSslkeyArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * The reference to an SSL CA public key to be used to connect to this instance
+         */
+        export interface ClusterSpecExternalclustersSslrootcertArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * LocalObjectReference contains enough information to let you locate a local object with a known type inside the same namespace
+         */
+        export interface ClusterSpecImagepullsecretsArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Metadata that will be inherited by all objects related to the Cluster
+         */
+        export interface ClusterSpecInheritedmetadataArgs {
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * The configuration that is used by the portions of PostgreSQL that are managed by the instance manager
+         */
+        export interface ClusterSpecManagedArgs {
+            /**
+             * Database roles managed by the `Cluster`
+             */
+            roles?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecManagedRolesArgs>[]>;
+        }
+
+        /**
+         * RoleConfiguration is the representation, in Kubernetes, of a PostgreSQL role with the additional field Ensure specifying whether to ensure the presence or absence of the role in the database 
+         *  The defaults of the CREATE ROLE command are applied Reference: https://www.postgresql.org/docs/current/sql-createrole.html
+         */
+        export interface ClusterSpecManagedRolesArgs {
+            /**
+             * Whether a role bypasses every row-level security (RLS) policy. Default is `false`.
+             */
+            bypassrls?: pulumi.Input<boolean>;
+            /**
+             * Description of the role
+             */
+            comment?: pulumi.Input<string>;
+            /**
+             * If the role can log in, this specifies how many concurrent connections the role can make. `-1` (the default) means no limit.
+             */
+            connectionLimit?: pulumi.Input<number>;
+            /**
+             * When set to `true`, the role being defined will be allowed to create new databases. Specifying `false` (default) will deny a role the ability to create databases.
+             */
+            createdb?: pulumi.Input<boolean>;
+            /**
+             * Whether the role will be permitted to create, alter, drop, comment on, change the security label for, and grant or revoke membership in other roles. Default is `false`.
+             */
+            createrole?: pulumi.Input<boolean>;
+            /**
+             * DisablePassword indicates that a role's password should be set to NULL in Postgres
+             */
+            disablePassword?: pulumi.Input<boolean>;
+            /**
+             * Ensure the role is `present` or `absent` - defaults to "present"
+             */
+            ensure?: pulumi.Input<string>;
+            /**
+             * List of one or more existing roles to which this role will be immediately added as a new member. Default empty.
+             */
+            inRoles?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Whether a role "inherits" the privileges of roles it is a member of. Defaults is `true`.
+             */
+            inherit?: pulumi.Input<boolean>;
+            /**
+             * Whether the role is allowed to log in. A role having the `login` attribute can be thought of as a user. Roles without this attribute are useful for managing database privileges, but are not users in the usual sense of the word. Default is `false`.
+             */
+            login?: pulumi.Input<boolean>;
+            /**
+             * Name of the role
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Secret containing the password of the role (if present) If null, the password will be ignored unless DisablePassword is set
+             */
+            passwordSecret?: pulumi.Input<inputs.postgresql.v1.ClusterSpecManagedRolesPasswordsecretArgs>;
+            /**
+             * Whether a role is a replication role. A role must have this attribute (or be a superuser) in order to be able to connect to the server in replication mode (physical or logical replication) and in order to be able to create or drop replication slots. A role having the `replication` attribute is a very highly privileged role, and should only be used on roles actually used for replication. Default is `false`.
+             */
+            replication?: pulumi.Input<boolean>;
+            /**
+             * Whether the role is a `superuser` who can override all access restrictions within the database - superuser status is dangerous and should be used only when really needed. You must yourself be a superuser to create a new superuser. Defaults is `false`.
+             */
+            superuser?: pulumi.Input<boolean>;
+            /**
+             * Date and time after which the role's password is no longer valid. When omitted, the password will never expire (default).
+             */
+            validUntil?: pulumi.Input<string>;
+        }
+        /**
+         * clusterSpecManagedRolesArgsProvideDefaults sets the appropriate defaults for ClusterSpecManagedRolesArgs
+         */
+        export function clusterSpecManagedRolesArgsProvideDefaults(val: ClusterSpecManagedRolesArgs): ClusterSpecManagedRolesArgs {
+            return {
+                ...val,
+                connectionLimit: (val.connectionLimit) ?? -1,
+                ensure: (val.ensure) ?? "present",
+                inherit: (val.inherit) ?? true,
+            };
+        }
+
+        /**
+         * Secret containing the password of the role (if present) If null, the password will be ignored unless DisablePassword is set
+         */
+        export interface ClusterSpecManagedRolesPasswordsecretArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration of the monitoring infrastructure of this cluster
+         */
+        export interface ClusterSpecMonitoringArgs {
+            /**
+             * The list of config maps containing the custom queries
+             */
+            customQueriesConfigMap?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecMonitoringCustomqueriesconfigmapArgs>[]>;
+            /**
+             * The list of secrets containing the custom queries
+             */
+            customQueriesSecret?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecMonitoringCustomqueriessecretArgs>[]>;
+            /**
+             * Whether the default queries should be injected. Set it to `true` if you don't want to inject default queries into the cluster. Default: false.
+             */
+            disableDefaultQueries?: pulumi.Input<boolean>;
+            /**
+             * Enable or disable the `PodMonitor`
+             */
+            enablePodMonitor?: pulumi.Input<boolean>;
+        }
+        /**
+         * clusterSpecMonitoringArgsProvideDefaults sets the appropriate defaults for ClusterSpecMonitoringArgs
+         */
+        export function clusterSpecMonitoringArgsProvideDefaults(val: ClusterSpecMonitoringArgs): ClusterSpecMonitoringArgs {
+            return {
+                ...val,
+                disableDefaultQueries: (val.disableDefaultQueries) ?? false,
+                enablePodMonitor: (val.enablePodMonitor) ?? false,
+            };
+        }
+
+        /**
+         * ConfigMapKeySelector contains enough information to let you locate the key of a ConfigMap
+         */
+        export interface ClusterSpecMonitoringCustomqueriesconfigmapArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * SecretKeySelector contains enough information to let you locate the key of a Secret
+         */
+        export interface ClusterSpecMonitoringCustomqueriessecretArgs {
+            /**
+             * The key to select
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Define a maintenance window for the Kubernetes nodes
+         */
+        export interface ClusterSpecNodemaintenancewindowArgs {
+            /**
+             * Is there a node maintenance activity in progress?
+             */
+            inProgress: pulumi.Input<boolean>;
+            /**
+             * Reuse the existing PVC (wait for the node to come up again) or not (recreate it elsewhere - when `instances` >1)
+             */
+            reusePVC?: pulumi.Input<boolean>;
+        }
+        /**
+         * clusterSpecNodemaintenancewindowArgsProvideDefaults sets the appropriate defaults for ClusterSpecNodemaintenancewindowArgs
+         */
+        export function clusterSpecNodemaintenancewindowArgsProvideDefaults(val: ClusterSpecNodemaintenancewindowArgs): ClusterSpecNodemaintenancewindowArgs {
+            return {
+                ...val,
+                inProgress: (val.inProgress) ?? false,
+                reusePVC: (val.reusePVC) ?? true,
+            };
+        }
+
+        /**
+         * Configuration of the PostgreSQL server
+         */
+        export interface ClusterSpecPostgresqlArgs {
+            /**
+             * Options to specify LDAP configuration
+             */
+            ldap?: pulumi.Input<inputs.postgresql.v1.ClusterSpecPostgresqlLdapArgs>;
+            /**
+             * PostgreSQL configuration options (postgresql.conf)
+             */
+            parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * PostgreSQL Host Based Authentication rules (lines to be appended to the pg_hba.conf file)
+             */
+            pg_hba?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Specifies the maximum number of seconds to wait when promoting an instance to primary. Default value is 40000000, greater than one year in seconds, big enough to simulate an infinite timeout
+             */
+            promotionTimeout?: pulumi.Input<number>;
+            /**
+             * Lists of shared preload libraries to add to the default ones
+             */
+            shared_preload_libraries?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Requirements to be met by sync replicas. This will affect how the "synchronous_standby_names" parameter will be set up.
+             */
+            syncReplicaElectionConstraint?: pulumi.Input<inputs.postgresql.v1.ClusterSpecPostgresqlSyncreplicaelectionconstraintArgs>;
+        }
+
+        /**
+         * Options to specify LDAP configuration
+         */
+        export interface ClusterSpecPostgresqlLdapArgs {
+            /**
+             * Bind as authentication configuration
+             */
+            bindAsAuth?: pulumi.Input<inputs.postgresql.v1.ClusterSpecPostgresqlLdapBindasauthArgs>;
+            /**
+             * Bind+Search authentication configuration
+             */
+            bindSearchAuth?: pulumi.Input<inputs.postgresql.v1.ClusterSpecPostgresqlLdapBindsearchauthArgs>;
+            /**
+             * LDAP server port
+             */
+            port?: pulumi.Input<number>;
+            /**
+             * LDAP schema to be used, possible options are `ldap` and `ldaps`
+             */
+            scheme?: pulumi.Input<string>;
+            /**
+             * LDAP hostname or IP address
+             */
+            server?: pulumi.Input<string>;
+            /**
+             * Set to 'true' to enable LDAP over TLS. 'false' is default
+             */
+            tls?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Bind as authentication configuration
+         */
+        export interface ClusterSpecPostgresqlLdapBindasauthArgs {
+            /**
+             * Prefix for the bind authentication option
+             */
+            prefix?: pulumi.Input<string>;
+            /**
+             * Suffix for the bind authentication option
+             */
+            suffix?: pulumi.Input<string>;
+        }
+
+        /**
+         * Bind+Search authentication configuration
+         */
+        export interface ClusterSpecPostgresqlLdapBindsearchauthArgs {
+            /**
+             * Root DN to begin the user search
+             */
+            baseDN?: pulumi.Input<string>;
+            /**
+             * DN of the user to bind to the directory
+             */
+            bindDN?: pulumi.Input<string>;
+            /**
+             * Secret with the password for the user to bind to the directory
+             */
+            bindPassword?: pulumi.Input<inputs.postgresql.v1.ClusterSpecPostgresqlLdapBindsearchauthBindpasswordArgs>;
+            /**
+             * Attribute to match against the username
+             */
+            searchAttribute?: pulumi.Input<string>;
+            /**
+             * Search filter to use when doing the search+bind authentication
+             */
+            searchFilter?: pulumi.Input<string>;
+        }
+
+        /**
+         * Secret with the password for the user to bind to the directory
+         */
+        export interface ClusterSpecPostgresqlLdapBindsearchauthBindpasswordArgs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Requirements to be met by sync replicas. This will affect how the "synchronous_standby_names" parameter will be set up.
+         */
+        export interface ClusterSpecPostgresqlSyncreplicaelectionconstraintArgs {
+            /**
+             * This flag enables the constraints for sync replicas
+             */
+            enabled: pulumi.Input<boolean>;
+            /**
+             * A list of node labels values to extract and compare to evaluate if the pods reside in the same topology or not
+             */
+            nodeLabelsAntiAffinity?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Template to be used to define projected volumes, projected volumes will be mounted under `/projected` base folder
+         */
+        export interface ClusterSpecProjectedvolumetemplateArgs {
+            /**
+             * defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: pulumi.Input<number>;
+            /**
+             * sources is the list of volume projections
+             */
+            sources?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesArgs>[]>;
+        }
+
+        /**
+         * Projection that may be projected along with other supported volume types
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesArgs {
+            /**
+             * configMap information about the configMap data to project
+             */
+            configMap?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesConfigmapArgs>;
+            /**
+             * downwardAPI information about the downwardAPI data to project
+             */
+            downwardAPI?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiArgs>;
+            /**
+             * secret information about the secret data to project
+             */
+            secret?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesSecretArgs>;
+            /**
+             * serviceAccountToken is information about the serviceAccountToken data to project
+             */
+            serviceAccountToken?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesServiceaccounttokenArgs>;
+        }
+
+        /**
+         * configMap information about the configMap data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesConfigmapArgs {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesConfigmapItemsArgs>[]>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * optional specify whether the ConfigMap or its keys must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesConfigmapItemsArgs {
+            /**
+             * key is the key to project.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * downwardAPI information about the downwardAPI data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiArgs {
+            /**
+             * Items is a list of DownwardAPIVolume file
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsArgs>[]>;
+        }
+
+        /**
+         * DownwardAPIVolumeFile represents information to create the file containing the pod field
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsArgs {
+            /**
+             * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+             */
+            fieldRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsFieldrefArgs>;
+            /**
+             * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+             */
+            path: pulumi.Input<string>;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+             */
+            resourceFieldRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsResourcefieldrefArgs>;
+        }
+
+        /**
+         * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsFieldrefArgs {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: pulumi.Input<string>;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: pulumi.Input<string>;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsResourcefieldrefArgs {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: pulumi.Input<string>;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: pulumi.Input<number | string>;
+            /**
+             * Required: resource to select
+             */
+            resource: pulumi.Input<string>;
+        }
+
+        /**
+         * secret information about the secret data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesSecretArgs {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesSecretItemsArgs>[]>;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: pulumi.Input<string>;
+            /**
+             * optional field specify whether the Secret or its key must be defined
+             */
+            optional?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesSecretItemsArgs {
+            /**
+             * key is the key to project.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: pulumi.Input<number>;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * serviceAccountToken is information about the serviceAccountToken data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesServiceaccounttokenArgs {
+            /**
+             * audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
+             */
+            audience?: pulumi.Input<string>;
+            /**
+             * expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
+             */
+            expirationSeconds?: pulumi.Input<number>;
+            /**
+             * path is the path relative to the mount point of the file to project the token into.
+             */
+            path: pulumi.Input<string>;
+        }
+
+        /**
+         * Replica cluster configuration
+         */
+        export interface ClusterSpecReplicaArgs {
+            /**
+             * If replica mode is enabled, this cluster will be a replica of an existing cluster. Replica cluster can be created from a recovery object store or via streaming through pg_basebackup. Refer to the Replication page of the documentation for more information.
+             */
+            enabled?: pulumi.Input<boolean>;
+            /**
+             * The name of the external cluster which is the replication origin
+             */
+            source: pulumi.Input<string>;
+        }
+
+        /**
+         * Replication slots management configuration
+         */
+        export interface ClusterSpecReplicationslotsArgs {
+            /**
+             * Replication slots for high availability configuration
+             */
+            highAvailability?: pulumi.Input<inputs.postgresql.v1.ClusterSpecReplicationslotsHighavailabilityArgs>;
+            /**
+             * Standby will update the status of the local replication slots every `updateInterval` seconds (default 30).
+             */
+            updateInterval?: pulumi.Input<number>;
+        }
+        /**
+         * clusterSpecReplicationslotsArgsProvideDefaults sets the appropriate defaults for ClusterSpecReplicationslotsArgs
+         */
+        export function clusterSpecReplicationslotsArgsProvideDefaults(val: ClusterSpecReplicationslotsArgs): ClusterSpecReplicationslotsArgs {
+            return {
+                ...val,
+                highAvailability: (val.highAvailability ? pulumi.output(val.highAvailability).apply(inputs.postgresql.v1.clusterSpecReplicationslotsHighavailabilityArgsProvideDefaults) : undefined),
+                updateInterval: (val.updateInterval) ?? 30,
+            };
+        }
+
+        /**
+         * Replication slots for high availability configuration
+         */
+        export interface ClusterSpecReplicationslotsHighavailabilityArgs {
+            /**
+             * If enabled, the operator will automatically manage replication slots on the primary instance and use them in streaming replication connections with all the standby instances that are part of the HA cluster. If disabled (default), the operator will not take advantage of replication slots in streaming connections with the replicas. This feature also controls replication slots in replica cluster, from the designated primary to its cascading replicas. This can only be set at creation time.
+             */
+            enabled?: pulumi.Input<boolean>;
+            /**
+             * Prefix for replication slots managed by the operator for HA. It may only contain lower case letters, numbers, and the underscore character. This can only be set at creation time. By default set to `_cnpg_`.
+             */
+            slotPrefix?: pulumi.Input<string>;
+        }
+        /**
+         * clusterSpecReplicationslotsHighavailabilityArgsProvideDefaults sets the appropriate defaults for ClusterSpecReplicationslotsHighavailabilityArgs
+         */
+        export function clusterSpecReplicationslotsHighavailabilityArgsProvideDefaults(val: ClusterSpecReplicationslotsHighavailabilityArgs): ClusterSpecReplicationslotsHighavailabilityArgs {
+            return {
+                ...val,
+                enabled: (val.enabled) ?? false,
+                slotPrefix: (val.slotPrefix) ?? "_cnpg_",
+            };
+        }
+
+        /**
+         * Resources requirements of every generated Pod. Please refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ for more information.
+         */
+        export interface ClusterSpecResourcesArgs {
+            /**
+             * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. 
+             *  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. 
+             *  This field is immutable. It can only be set for containers.
+             */
+            claims?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecResourcesClaimsArgs>[]>;
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * ResourceClaim references one entry in PodSpec.ResourceClaims.
+         */
+        export interface ClusterSpecResourcesClaimsArgs {
+            /**
+             * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * The SeccompProfile applied to every Pod and Container. Defaults to: `RuntimeDefault`
+         */
+        export interface ClusterSpecSeccompprofileArgs {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: pulumi.Input<string>;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: pulumi.Input<string>;
+        }
+
+        /**
+         * Configure the generation of the service account
+         */
+        export interface ClusterSpecServiceaccounttemplateArgs {
+            /**
+             * Metadata are the metadata to be used for the generated service account
+             */
+            metadata: pulumi.Input<inputs.postgresql.v1.ClusterSpecServiceaccounttemplateMetadataArgs>;
+        }
+
+        /**
+         * Metadata are the metadata to be used for the generated service account
+         */
+        export interface ClusterSpecServiceaccounttemplateMetadataArgs {
+            /**
+             * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             */
+            annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+             */
+            labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * Configuration of the storage of the instances
+         */
+        export interface ClusterSpecStorageArgs {
+            /**
+             * Template to be used to generate the Persistent Volume Claim
+             */
+            pvcTemplate?: pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateArgs>;
+            /**
+             * Resize existent PVCs, defaults to true
+             */
+            resizeInUseVolumes?: pulumi.Input<boolean>;
+            /**
+             * Size of the storage. Required if not already specified in the PVC template. Changes to this field are automatically reapplied to the created PVCs. Size cannot be decreased.
+             */
+            size?: pulumi.Input<string>;
+            /**
+             * StorageClass to use for database data (`PGDATA`). Applied after evaluating the PVC template, if available. If not specified, generated PVCs will be satisfied by the default storage class
+             */
+            storageClass?: pulumi.Input<string>;
+        }
+        /**
+         * clusterSpecStorageArgsProvideDefaults sets the appropriate defaults for ClusterSpecStorageArgs
+         */
+        export function clusterSpecStorageArgsProvideDefaults(val: ClusterSpecStorageArgs): ClusterSpecStorageArgs {
+            return {
+                ...val,
+                resizeInUseVolumes: (val.resizeInUseVolumes) ?? true,
+            };
+        }
+
+        /**
+         * Template to be used to generate the Persistent Volume Claim
+         */
+        export interface ClusterSpecStoragePvctemplateArgs {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+             */
+            dataSource?: pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateDatasourceArgs>;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateDatasourcerefArgs>;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateResourcesArgs>;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateSelectorArgs>;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: pulumi.Input<string>;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: pulumi.Input<string>;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+         */
+        export interface ClusterSpecStoragePvctemplateDatasourceArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+         */
+        export interface ClusterSpecStoragePvctemplateDatasourcerefArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            namespace?: pulumi.Input<string>;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface ClusterSpecStoragePvctemplateResourcesArgs {
+            /**
+             * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. 
+             *  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. 
+             *  This field is immutable. It can only be set for containers.
+             */
+            claims?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateResourcesClaimsArgs>[]>;
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * ResourceClaim references one entry in PodSpec.ResourceClaims.
+         */
+        export interface ClusterSpecStoragePvctemplateResourcesClaimsArgs {
+            /**
+             * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface ClusterSpecStoragePvctemplateSelectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecStoragePvctemplateSelectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecStoragePvctemplateSelectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * The secret containing the superuser password. If not defined a new secret will be created with a randomly generated password
+         */
+        export interface ClusterSpecSuperusersecretArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
+         */
+        export interface ClusterSpecTopologyspreadconstraintsArgs {
+            /**
+             * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+             */
+            labelSelector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecTopologyspreadconstraintsLabelselectorArgs>;
+            /**
+             * MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated. The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. MatchLabelKeys cannot be set when LabelSelector isn't set. Keys that don't exist in the incoming pod labels will be ignored. A null or empty list means only match against labelSelector. 
+             *  This is a beta field and requires the MatchLabelKeysInPodTopologySpread feature gate to be enabled (enabled by default).
+             */
+            matchLabelKeys?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 2/2/1: In this case, the global minimum is 1. | zone1 | zone2 | zone3 | |  P P  |  P P  |   P   | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 2/2/2; scheduling it onto zone1(zone2) would make the ActualSkew(3-1) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.
+             */
+            maxSkew: pulumi.Input<number>;
+            /**
+             * MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats "global minimum" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule. 
+             *  For example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so "global minimum" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew. 
+             *  This is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).
+             */
+            minDomains?: pulumi.Input<number>;
+            /**
+             * NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations. 
+             *  If this value is nil, the behavior is equivalent to the Honor policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeAffinityPolicy?: pulumi.Input<string>;
+            /**
+             * NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included. 
+             *  If this value is nil, the behavior is equivalent to the Ignore policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeTaintsPolicy?: pulumi.Input<string>;
+            /**
+             * TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology. And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology. It's a required field.
+             */
+            topologyKey: pulumi.Input<string>;
+            /**
+             * WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location, but giving higher precedence to topologies that would help reduce the skew. A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assignment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
+             */
+            whenUnsatisfiable: pulumi.Input<string>;
+        }
+
+        /**
+         * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+         */
+        export interface ClusterSpecTopologyspreadconstraintsLabelselectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecTopologyspreadconstraintsLabelselectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecTopologyspreadconstraintsLabelselectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+         */
+        export interface ClusterSpecWalstorageArgs {
+            /**
+             * Template to be used to generate the Persistent Volume Claim
+             */
+            pvcTemplate?: pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateArgs>;
+            /**
+             * Resize existent PVCs, defaults to true
+             */
+            resizeInUseVolumes?: pulumi.Input<boolean>;
+            /**
+             * Size of the storage. Required if not already specified in the PVC template. Changes to this field are automatically reapplied to the created PVCs. Size cannot be decreased.
+             */
+            size?: pulumi.Input<string>;
+            /**
+             * StorageClass to use for database data (`PGDATA`). Applied after evaluating the PVC template, if available. If not specified, generated PVCs will be satisfied by the default storage class
+             */
+            storageClass?: pulumi.Input<string>;
+        }
+        /**
+         * clusterSpecWalstorageArgsProvideDefaults sets the appropriate defaults for ClusterSpecWalstorageArgs
+         */
+        export function clusterSpecWalstorageArgsProvideDefaults(val: ClusterSpecWalstorageArgs): ClusterSpecWalstorageArgs {
+            return {
+                ...val,
+                resizeInUseVolumes: (val.resizeInUseVolumes) ?? true,
+            };
+        }
+
+        /**
+         * Template to be used to generate the Persistent Volume Claim
+         */
+        export interface ClusterSpecWalstoragePvctemplateArgs {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+             */
+            dataSource?: pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateDatasourceArgs>;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateDatasourcerefArgs>;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateResourcesArgs>;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateSelectorArgs>;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: pulumi.Input<string>;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: pulumi.Input<string>;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+         */
+        export interface ClusterSpecWalstoragePvctemplateDatasourceArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+         */
+        export interface ClusterSpecWalstoragePvctemplateDatasourcerefArgs {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: pulumi.Input<string>;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: pulumi.Input<string>;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: pulumi.Input<string>;
+            /**
+             * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            namespace?: pulumi.Input<string>;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface ClusterSpecWalstoragePvctemplateResourcesArgs {
+            /**
+             * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. 
+             *  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. 
+             *  This field is immutable. It can only be set for containers.
+             */
+            claims?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateResourcesClaimsArgs>[]>;
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: pulumi.Input<{[key: string]: pulumi.Input<number | string>}>;
+        }
+
+        /**
+         * ResourceClaim references one entry in PodSpec.ResourceClaims.
+         */
+        export interface ClusterSpecWalstoragePvctemplateResourcesClaimsArgs {
+            /**
+             * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface ClusterSpecWalstoragePvctemplateSelectorArgs {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterSpecWalstoragePvctemplateSelectorMatchexpressionsArgs>[]>;
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecWalstoragePvctemplateSelectorMatchexpressionsArgs {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: pulumi.Input<string>;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * Most recently observed status of the cluster. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ClusterStatusArgs {
+            /**
+             * AzurePVCUpdateEnabled shows if the PVC online upgrade is enabled for this cluster
+             */
+            azurePVCUpdateEnabled?: pulumi.Input<boolean>;
+            /**
+             * The configuration for the CA and related certificates, initialized with defaults.
+             */
+            certificates?: pulumi.Input<inputs.postgresql.v1.ClusterStatusCertificatesArgs>;
+            /**
+             * The commit hash number of which this operator running
+             */
+            cloudNativePGCommitHash?: pulumi.Input<string>;
+            /**
+             * The hash of the binary of the operator
+             */
+            cloudNativePGOperatorHash?: pulumi.Input<string>;
+            /**
+             * Conditions for cluster object
+             */
+            conditions?: pulumi.Input<pulumi.Input<inputs.postgresql.v1.ClusterStatusConditionsArgs>[]>;
+            /**
+             * The list of resource versions of the configmaps, managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the configmap data
+             */
+            configMapResourceVersion?: pulumi.Input<inputs.postgresql.v1.ClusterStatusConfigmapresourceversionArgs>;
+            /**
+             * Current primary instance
+             */
+            currentPrimary?: pulumi.Input<string>;
+            /**
+             * The timestamp when the primary was detected to be unhealthy This field is reported when spec.failoverDelay is populated or during online upgrades
+             */
+            currentPrimaryFailingSinceTimestamp?: pulumi.Input<string>;
+            /**
+             * The timestamp when the last actual promotion to primary has occurred
+             */
+            currentPrimaryTimestamp?: pulumi.Input<string>;
+            /**
+             * List of all the PVCs created by this cluster and still available which are not attached to a Pod
+             */
+            danglingPVC?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The first recoverability point, stored as a date in RFC3339 format
+             */
+            firstRecoverabilityPoint?: pulumi.Input<string>;
+            /**
+             * List of all the PVCs not dangling nor initializing
+             */
+            healthyPVC?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * List of all the PVCs that are being initialized by this cluster
+             */
+            initializingPVC?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * List of instance names in the cluster
+             */
+            instanceNames?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The total number of PVC Groups detected in the cluster. It may differ from the number of existing instance pods.
+             */
+            instances?: pulumi.Input<number>;
+            /**
+             * The reported state of the instances during the last reconciliation loop
+             */
+            instancesReportedState?: pulumi.Input<{[key: string]: pulumi.Input<inputs.postgresql.v1.ClusterStatusInstancesreportedstateArgs>}>;
+            /**
+             * InstancesStatus indicates in which status the instances are
+             */
+            instancesStatus?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            /**
+             * How many Jobs have been created by this cluster
+             */
+            jobCount?: pulumi.Input<number>;
+            /**
+             * Stored as a date in RFC3339 format
+             */
+            lastFailedBackup?: pulumi.Input<string>;
+            /**
+             * Stored as a date in RFC3339 format
+             */
+            lastSuccessfulBackup?: pulumi.Input<string>;
+            /**
+             * ID of the latest generated node (used to avoid node name clashing)
+             */
+            latestGeneratedNode?: pulumi.Input<number>;
+            /**
+             * ManagedRolesStatus reports the state of the managed roles in the cluster
+             */
+            managedRolesStatus?: pulumi.Input<inputs.postgresql.v1.ClusterStatusManagedrolesstatusArgs>;
+            /**
+             * OnlineUpdateEnabled shows if the online upgrade is enabled inside the cluster
+             */
+            onlineUpdateEnabled?: pulumi.Input<boolean>;
+            /**
+             * Current phase of the cluster
+             */
+            phase?: pulumi.Input<string>;
+            /**
+             * Reason for the current phase
+             */
+            phaseReason?: pulumi.Input<string>;
+            /**
+             * The integration needed by poolers referencing the cluster
+             */
+            poolerIntegrations?: pulumi.Input<inputs.postgresql.v1.ClusterStatusPoolerintegrationsArgs>;
+            /**
+             * How many PVCs have been created by this cluster
+             */
+            pvcCount?: pulumi.Input<number>;
+            /**
+             * Current list of read pods
+             */
+            readService?: pulumi.Input<string>;
+            /**
+             * The total number of ready instances in the cluster. It is equal to the number of ready instance pods.
+             */
+            readyInstances?: pulumi.Input<number>;
+            /**
+             * List of all the PVCs that have ResizingPVC condition.
+             */
+            resizingPVC?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The list of resource versions of the secrets managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the secret data
+             */
+            secretsResourceVersion?: pulumi.Input<inputs.postgresql.v1.ClusterStatusSecretsresourceversionArgs>;
+            /**
+             * Target primary instance, this is different from the previous one during a switchover or a failover
+             */
+            targetPrimary?: pulumi.Input<string>;
+            /**
+             * The timestamp when the last request for a new primary has occurred
+             */
+            targetPrimaryTimestamp?: pulumi.Input<string>;
+            /**
+             * The timeline of the Postgres cluster
+             */
+            timelineID?: pulumi.Input<number>;
+            /**
+             * Instances topology.
+             */
+            topology?: pulumi.Input<inputs.postgresql.v1.ClusterStatusTopologyArgs>;
+            /**
+             * List of all the PVCs that are unusable because another PVC is missing
+             */
+            unusablePVC?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * Current write pod
+             */
+            writeService?: pulumi.Input<string>;
+        }
+
+        /**
+         * The configuration for the CA and related certificates, initialized with defaults.
+         */
+        export interface ClusterStatusCertificatesArgs {
+            /**
+             * The secret containing the Client CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate all the client certificates.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the client certificates, used as `ssl_ca_file` of all the instances.<br /> - `ca.key`: key used to generate client certificates, if ReplicationTLSSecret is provided, this can be omitted.<br />
+             */
+            clientCASecret?: pulumi.Input<string>;
+            /**
+             * Expiration dates for all certificates.
+             */
+            expirations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The secret of type kubernetes.io/tls containing the client certificate to authenticate as the `streaming_replica` user. If not defined, ClientCASecret must provide also `ca.key`, and a new secret will be created using the provided CA.
+             */
+            replicationTLSSecret?: pulumi.Input<string>;
+            /**
+             * The list of the server alternative DNS names to be added to the generated server TLS certificates, when required.
+             */
+            serverAltDNSNames?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * The secret containing the Server CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate the TLS certificate ServerTLSSecret.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the server certificate, used as `sslrootcert` in client connection strings.<br /> - `ca.key`: key used to generate Server SSL certs, if ServerTLSSecret is provided, this can be omitted.<br />
+             */
+            serverCASecret?: pulumi.Input<string>;
+            /**
+             * The secret of type kubernetes.io/tls containing the server TLS certificate and key that will be set as `ssl_cert_file` and `ssl_key_file` so that clients can connect to postgres securely. If not defined, ServerCASecret must provide also `ca.key` and a new secret will be created using the provided CA.
+             */
+            serverTLSSecret?: pulumi.Input<string>;
+        }
+
+        /**
+         * Condition contains details for one aspect of the current state of this API Resource. --- This struct is intended for direct use as an array at the field path .status.conditions.  For example, 
+         *  type FooStatus struct{ // Represents the observations of a foo's current state. // Known .status.conditions.type are: "Available", "Progressing", and "Degraded" // +patchMergeKey=type // +patchStrategy=merge // +listType=map // +listMapKey=type Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"` 
+         *  // other fields }
+         */
+        export interface ClusterStatusConditionsArgs {
+            /**
+             * lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.
+             */
+            lastTransitionTime: pulumi.Input<string>;
+            /**
+             * message is a human readable message indicating details about the transition. This may be an empty string.
+             */
+            message: pulumi.Input<string>;
+            /**
+             * observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.
+             */
+            observedGeneration?: pulumi.Input<number>;
+            /**
+             * reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.
+             */
+            reason: pulumi.Input<string>;
+            /**
+             * status of the condition, one of True, False, Unknown.
+             */
+            status: pulumi.Input<string>;
+            /**
+             * type of condition in CamelCase or in foo.example.com/CamelCase. --- Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)
+             */
+            type: pulumi.Input<string>;
+        }
+
+        /**
+         * The list of resource versions of the configmaps, managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the configmap data
+         */
+        export interface ClusterStatusConfigmapresourceversionArgs {
+            /**
+             * A map with the versions of all the config maps used to pass metrics. Map keys are the config map names, map values are the versions
+             */
+            metrics?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        }
+
+        /**
+         * InstanceReportedState describes the last reported state of an instance during a reconciliation loop
+         */
+        export interface ClusterStatusInstancesreportedstateArgs {
+            /**
+             * indicates if an instance is the primary one
+             */
+            isPrimary: pulumi.Input<boolean>;
+            /**
+             * indicates on which TimelineId the instance is
+             */
+            timeLineID?: pulumi.Input<number>;
+        }
+
+        /**
+         * ManagedRolesStatus reports the state of the managed roles in the cluster
+         */
+        export interface ClusterStatusManagedrolesstatusArgs {
+            /**
+             * ByStatus gives the list of roles in each state
+             */
+            byStatus?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            /**
+             * CannotReconcile lists roles that cannot be reconciled in PostgreSQL, with an explanation of the cause
+             */
+            cannotReconcile?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            /**
+             * PasswordStatus gives the last transaction id and password secret version for each managed role
+             */
+            passwordStatus?: pulumi.Input<{[key: string]: pulumi.Input<inputs.postgresql.v1.ClusterStatusManagedrolesstatusPasswordstatusArgs>}>;
+        }
+
+        /**
+         * PasswordState represents the state of the password of a managed RoleConfiguration
+         */
+        export interface ClusterStatusManagedrolesstatusPasswordstatusArgs {
+            /**
+             * the resource version of the password secret
+             */
+            resourceVersion?: pulumi.Input<string>;
+            /**
+             * the last transaction ID to affect the role definition in PostgreSQL
+             */
+            transactionID?: pulumi.Input<number>;
+        }
+
+        /**
+         * The integration needed by poolers referencing the cluster
+         */
+        export interface ClusterStatusPoolerintegrationsArgs {
+            /**
+             * PgBouncerIntegrationStatus encapsulates the needed integration for the pgbouncer poolers referencing the cluster
+             */
+            pgBouncerIntegration?: pulumi.Input<inputs.postgresql.v1.ClusterStatusPoolerintegrationsPgbouncerintegrationArgs>;
+        }
+
+        /**
+         * PgBouncerIntegrationStatus encapsulates the needed integration for the pgbouncer poolers referencing the cluster
+         */
+        export interface ClusterStatusPoolerintegrationsPgbouncerintegrationArgs {
+            secrets?: pulumi.Input<pulumi.Input<string>[]>;
+        }
+
+        /**
+         * The list of resource versions of the secrets managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the secret data
+         */
+        export interface ClusterStatusSecretsresourceversionArgs {
+            /**
+             * The resource version of the "app" user secret
+             */
+            applicationSecretVersion?: pulumi.Input<string>;
+            /**
+             * The resource version of the Barman Endpoint CA if provided
+             */
+            barmanEndpointCA?: pulumi.Input<string>;
+            /**
+             * Unused. Retained for compatibility with old versions.
+             */
+            caSecretVersion?: pulumi.Input<string>;
+            /**
+             * The resource version of the PostgreSQL client-side CA secret version
+             */
+            clientCaSecretVersion?: pulumi.Input<string>;
+            /**
+             * The resource versions of the managed roles secrets
+             */
+            managedRoleSecretVersion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * A map with the versions of all the secrets used to pass metrics. Map keys are the secret names, map values are the versions
+             */
+            metrics?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+            /**
+             * The resource version of the "streaming_replica" user secret
+             */
+            replicationSecretVersion?: pulumi.Input<string>;
+            /**
+             * The resource version of the PostgreSQL server-side CA secret version
+             */
+            serverCaSecretVersion?: pulumi.Input<string>;
+            /**
+             * The resource version of the PostgreSQL server-side secret version
+             */
+            serverSecretVersion?: pulumi.Input<string>;
+            /**
+             * The resource version of the "postgres" user secret
+             */
+            superuserSecretVersion?: pulumi.Input<string>;
+        }
+
+        /**
+         * Instances topology.
+         */
+        export interface ClusterStatusTopologyArgs {
+            /**
+             * Instances contains the pod topology of the instances
+             */
+            instances?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+            /**
+             * SuccessfullyExtracted indicates if the topology data was extract. It is useful to enact fallback behaviors in synchronous replica election in case of failures
+             */
+            successfullyExtracted?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Specification of the desired behavior of the ScheduledBackup. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ScheduledBackupSpecArgs {
+            /**
+             * Indicates which ownerReference should be put inside the created backup resources.<br /> - none: no owner reference for created backup objects (same behavior as before the field was introduced)<br /> - self: sets the Scheduled backup object as owner of the backup<br /> - cluster: set the cluster as owner of the backup<br />
+             */
+            backupOwnerReference?: pulumi.Input<string>;
+            /**
+             * The cluster to backup
+             */
+            cluster?: pulumi.Input<inputs.postgresql.v1.ScheduledBackupSpecClusterArgs>;
+            /**
+             * If the first backup has to be immediately start after creation or not
+             */
+            immediate?: pulumi.Input<boolean>;
+            /**
+             * The schedule does not follow the same format used in Kubernetes CronJobs as it includes an additional seconds specifier, see https://pkg.go.dev/github.com/robfig/cron#hdr-CRON_Expression_Format
+             */
+            schedule: pulumi.Input<string>;
+            /**
+             * If this backup is suspended or not
+             */
+            suspend?: pulumi.Input<boolean>;
+            /**
+             * The policy to decide which instance should perform this backup. If empty, it defaults to `cluster.spec.backup.target`. Available options are empty string, `primary` and `prefer-standby`. `primary` to have backups run always on primary instances, `prefer-standby` to have backups run preferably on the most updated standby, if available.
+             */
+            target?: pulumi.Input<string>;
+        }
+        /**
+         * scheduledBackupSpecArgsProvideDefaults sets the appropriate defaults for ScheduledBackupSpecArgs
+         */
+        export function scheduledBackupSpecArgsProvideDefaults(val: ScheduledBackupSpecArgs): ScheduledBackupSpecArgs {
+            return {
+                ...val,
+                backupOwnerReference: (val.backupOwnerReference) ?? "none",
+            };
+        }
+
+        /**
+         * The cluster to backup
+         */
+        export interface ScheduledBackupSpecClusterArgs {
+            /**
+             * Name of the referent.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Most recently observed status of the ScheduledBackup. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ScheduledBackupStatusArgs {
+            /**
+             * The latest time the schedule
+             */
+            lastCheckTime?: pulumi.Input<string>;
+            /**
+             * Information when was the last time that backup was successfully scheduled.
+             */
+            lastScheduleTime?: pulumi.Input<string>;
+            /**
+             * Next time we will run a backup
+             */
+            nextScheduleTime?: pulumi.Input<string>;
         }
     }
 }

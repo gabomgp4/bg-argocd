@@ -1,7 +1,9 @@
 import * as k8s from "@pulumi/kubernetes";
 import * as kx from "@pulumi/kubernetesx";
+5;
 import * as clickhouse from "./crd/clickhouse/v1"; // Replace this with the path to your generated module
-import * as metallb from "./crd/metallb/v1beta1"; // Replace this with the path to your generated module
+import * as metallb from "./crd/metallb/v1beta1"; // Replace this with the path to your generated module5
+import {selector} from "./keycloack";
 import { interpolate } from "@pulumi/pulumi";
 const yaml = require("js-yaml");
 const crypto = require("crypto");
@@ -14,17 +16,6 @@ function computeSHA256(input: string) {
 
 const password = "1082925798";
 const codedPassword = computeSHA256(password);
-
-const addressPool = new metallb.AddressPool("address-pool", {
-  metadata: {
-    name: "address-pool",
-    namespace: "default",
-  },
-  spec: {
-    protocol: "layer2",
-    addresses: ["198.51.100.0/24"],
-  },
-});
 
 const pvSimpleInstallation = new clickhouse.ClickHouseInstallation("qryn-db", {
   spec: {
@@ -79,7 +70,8 @@ const pvSimpleInstallation = new clickhouse.ClickHouseInstallation("qryn-db", {
   },
 });
 
-const clickHouseName = pvSimpleInstallation.metadata.apply((meta) => meta?.name);
+const lickhouseName = pvSimpleInstallation.metadata.apply((meta) => meta?.name);
+const clickHouseName = interpolate`clickhouse-${lickhouseName}`;
 
 const qrynDeployment = new k8s.apps.v1.Deployment("qryn", {
   metadata: {
@@ -121,7 +113,7 @@ const qrynDeployment = new k8s.apps.v1.Deployment("qryn", {
               },
               {
                 name: "CLICKHOUSE_SERVER",
-                value: interpolate`clickhouse-${clickHouseName}`,
+                value: clickHouseName,
               },
             ],
             ports: [
@@ -142,8 +134,7 @@ const qrynService = new k8s.core.v1.Service("qryn", {
   metadata: {
     labels: {
       "io.metrico.service": "qryn",
-    },
-    name: "qryn",
+    }
   },
   spec: {
     ports: [
@@ -159,202 +150,5 @@ const qrynService = new k8s.core.v1.Service("qryn", {
   },
 });
 
-const clickHouseConnString = interpolate`tcp://clickhouse-${clickHouseName}/cloki?username=admin&password${password}`;
 
-const config = (qrynDsn: string) => ({
-  receivers: {
-    otlp: {
-      protocols: {
-        grpc: {
-          endpoint: "0.0.0.0:4317",
-        },
-        http: {
-          endpoint: "0.0.0.0:4318",
-        },
-      },
-    },
-    jaeger: {
-      protocols: {
-        grpc: {
-          endpoint: "0.0.0.0:14250",
-        },
-        thrift_http: {
-          endpoint: "0.0.0.0:14268",
-        },
-      },
-    },
-    zipkin: {
-      endpoint: "0.0.0.0:9411",
-    },
-    fluentforward: {
-      endpoint: "0.0.0.0:24224",
-    },
-    prometheus: {
-      config: {
-        scrape_configs: [
-          {
-            job_name: "otel-collector",
-            scrape_interval: "5s",
-            static_configs: [
-              {
-                targets: ["exporter:8080"],
-              },
-            ],
-          },
-        ],
-      },
-    },
-  },
-  processors: {
-    batch: {
-      send_batch_size: 10000,
-      timeout: "5s",
-    },
-    memory_limiter: {
-      check_interval: "2s",
-      limit_mib: 1800,
-      spike_limit_mib: 500,
-    },
-    "resourcedetection/system": {
-      detectors: ["system"],
-      system: {
-        hostname_sources: ["os"],
-      },
-    },
-    resource: {
-      attributes: [
-        {
-          key: "service.name",
-          value: "serviceName",
-          action: "upsert",
-        },
-      ],
-    },
-    spanmetrics: {
-      metrics_exporter: "otlp/spanmetrics",
-      latency_histogram_buckets: ["100us", "1ms", "2ms", "6ms", "10ms", "100ms", "250ms"],
-      dimensions_cache_size: 1500,
-    },
-    servicegraph: {
-      metrics_exporter: "otlp/spanmetrics",
-      latency_histogram_buckets: ["100us", "1ms", "2ms", "6ms", "10ms", "100ms", "250ms"],
-      dimensions: ["cluster", "namespace"],
-      store: {
-        ttl: "2s",
-        max_items: 200,
-      },
-    },
-    metricstransform: {
-      transforms: [
-        {
-          include: "calls_total",
-          action: "update",
-          new_name: "traces_spanmetrics_calls_total",
-        },
-        {
-          include: "latency",
-          action: "update",
-          new_name: "traces_spanmetrics_latency",
-        },
-      ],
-    },
-  },
-  exporters: {
-    qryn: {
-      dsn: qrynDsn,
-      timeout: "10s",
-      sending_queue: {
-        queue_size: 100,
-      },
-      retry_on_failure: {
-        enabled: true,
-        initial_interval: "5s",
-        max_interval: "30s",
-        max_elapsed_time: "300s",
-      },
-      logs: {
-        format: "json",
-      },
-    },
-    "otlp/spanmetrics": {
-      endpoint: "localhost:4317",
-      tls: {
-        insecure: true,
-      },
-    },
-  },
-  extensions: {
-    health_check: null,
-    pprof: null,
-    zpages: null,
-    memory_ballast: {
-      size_mib: 1000,
-    },
-  },
-  service: {
-    extensions: ["pprof", "zpages", "health_check"],
-    pipelines: {
-      logs: {
-        receivers: ["fluentforward", "otlp"],
-        processors: ["memory_limiter", "resourcedetection/system", "resource", "batch"],
-        exporters: ["qryn"],
-      },
-      traces: {
-        receivers: ["otlp", "jaeger", "zipkin"],
-        processors: [
-          "memory_limiter",
-          "resourcedetection/system",
-          "resource",
-          //"spanmetrics",
-          // "servicegraph",
-          "batch",
-        ],
-        exporters: ["qryn"],
-      },
-      "metrics/spanmetrics": {
-        receivers: ["otlp"],
-        processors: ["metricstransform"],
-        exporters: ["qryn"],
-      },
-      metrics: {
-        receivers: ["prometheus"],
-        processors: ["memory_limiter", "resourcedetection/system", "resource", "batch"],
-        exporters: ["qryn"],
-      },
-    },
-  },
-});
-
-const cm = new kx.ConfigMap("qryn-otel-collector-configmap", {
-  data: { config: clickHouseConnString.apply((qrynDsn) => yaml.dump(config(qrynDsn))) },
-});
-
-const qrynOtelCollector = new kx.PodBuilder({
-  containers: [
-    {
-      image: "ghcr.io/metrico/qryn-otel-collector:latest",
-      ports: [
-        { name: "otlp-grpc", containerPort: 4317 },
-        { name: "otlp-http", containerPort: 4318 },
-        { name: "jaeger-grpc", containerPort: 14250 },
-        { name: "jaeger-thrift", containerPort: 14268 },
-        { name: "zipkin", containerPort: 9411 },
-        { name: "fluent-forward", containerPort: 24224 },
-      ],
-      volumeMounts: [cm.mount("/etc/otel/config.yaml", "config")],
-    },
-  ],
-});
-
-const qrynOtelCollectorDeploy = new kx.Deployment("qryn-otel-collector", {
-  metadata: {
-    labels: {
-      "io.metrico.service": "qryn-otel-collector",
-    },
-  },
-  spec: qrynOtelCollector.asDeploymentSpec(),
-});
-
-const otelService = qrynOtelCollectorDeploy.createService();
-
-export const name = otelService.metadata.name;
+export const selectorKeyCloack = selector;

@@ -15,9 +15,11 @@ utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 import * as acme from "./acme";
 import * as certmanager from "./certmanager";
 import * as clickhouse from "./clickhouse";
+import * as k8s from "./k8s";
 import * as metallb from "./metallb";
 import * as monitoring from "./monitoring";
 import * as opentelemetry from "./opentelemetry";
+import * as postgresql from "./postgresql";
 import * as types from "./types";
 import * as upgrade from "./upgrade";
 
@@ -25,9 +27,11 @@ export {
     acme,
     certmanager,
     clickhouse,
+    k8s,
     metallb,
     monitoring,
     opentelemetry,
+    postgresql,
     types,
     upgrade,
 };

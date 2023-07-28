@@ -6307,19 +6307,19 @@ export namespace clickhouse {
             /**
              * ClickHouse operator git commit SHA
              */
-            chopCommit?: string;
+            chop-commit?: string;
             /**
              * ClickHouse operator build date
              */
-            chopDate?: string;
+            chop-date?: string;
             /**
              * IP address of the operator's pod which managed this CHI
              */
-            chopIp?: string;
+            chop-ip?: string;
             /**
              * ClickHouse operator version
              */
-            chopVersion?: string;
+            chop-version?: string;
             /**
              * Clusters count
              */
@@ -6383,7 +6383,7 @@ export namespace clickhouse {
             /**
              * Pod IPs
              */
-            podIps?: string[];
+            pod-ips?: string[];
             /**
              * Pods
              */
@@ -7608,19 +7608,19 @@ export namespace clickhouse {
             /**
              * ClickHouse operator git commit SHA
              */
-            chopCommit?: string;
+            chop-commit?: string;
             /**
              * ClickHouse operator build date
              */
-            chopDate?: string;
+            chop-date?: string;
             /**
              * IP address of the operator's pod which managed this CHI
              */
-            chopIp?: string;
+            chop-ip?: string;
             /**
              * ClickHouse operator version
              */
-            chopVersion?: string;
+            chop-version?: string;
             /**
              * Clusters count
              */
@@ -7684,7 +7684,7 @@ export namespace clickhouse {
             /**
              * Pod IPs
              */
-            podIps?: string[];
+            pod-ips?: string[];
             /**
              * Pods
              */
@@ -7713,6 +7713,3140 @@ export namespace clickhouse {
              * Started task ids
              */
             taskIDsStarted?: string[];
+        }
+
+    }
+}
+
+export namespace k8s {
+    export namespace v2alpha1 {
+        export interface KeycloakRealmImportSpec {
+            /**
+             * The name of the Keycloak CR to reference, in the same namespace.
+             */
+            keycloakCRName: string;
+            /**
+             * The RealmRepresentation to import into Keycloak.
+             */
+            realm: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealm;
+        }
+
+        /**
+         * The RealmRepresentation to import into Keycloak.
+         */
+        export interface KeycloakRealmImportSpecRealm {
+            accessCodeLifespan?: number;
+            accessCodeLifespanLogin?: number;
+            accessCodeLifespanUserAction?: number;
+            accessTokenLifespan?: number;
+            accessTokenLifespanForImplicitFlow?: number;
+            accountTheme?: string;
+            actionTokenGeneratedByAdminLifespan?: number;
+            actionTokenGeneratedByUserLifespan?: number;
+            adminEventsDetailsEnabled?: boolean;
+            adminEventsEnabled?: boolean;
+            adminTheme?: string;
+            applicationScopeMappings?: {[key: string]: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationscopemappings[]};
+            applications?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplications[];
+            attributes?: {[key: string]: string};
+            authenticationFlows?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmAuthenticationflows[];
+            authenticatorConfig?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmAuthenticatorconfig[];
+            browserFlow?: string;
+            browserSecurityHeaders?: {[key: string]: string};
+            bruteForceProtected?: boolean;
+            certificate?: string;
+            clientAuthenticationFlow?: string;
+            clientOfflineSessionIdleTimeout?: number;
+            clientOfflineSessionMaxLifespan?: number;
+            clientPolicies?: {[key: string]: any};
+            clientProfiles?: {[key: string]: any};
+            clientScopeMappings?: {[key: string]: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientscopemappings[]};
+            clientScopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientscopes[];
+            clientSessionIdleTimeout?: number;
+            clientSessionMaxLifespan?: number;
+            clientTemplates?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClienttemplates[];
+            clients?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClients[];
+            codeSecret?: string;
+            components?: {[key: string]: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmComponents[]};
+            defaultDefaultClientScopes?: string[];
+            defaultGroups?: string[];
+            defaultLocale?: string;
+            defaultOptionalClientScopes?: string[];
+            defaultRole?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmDefaultrole;
+            defaultRoles?: string[];
+            defaultSignatureAlgorithm?: string;
+            directGrantFlow?: string;
+            displayName?: string;
+            displayNameHtml?: string;
+            dockerAuthenticationFlow?: string;
+            duplicateEmailsAllowed?: boolean;
+            editUsernameAllowed?: boolean;
+            emailTheme?: string;
+            enabled?: boolean;
+            enabledEventTypes?: string[];
+            eventsEnabled?: boolean;
+            eventsExpiration?: number;
+            eventsListeners?: string[];
+            failureFactor?: number;
+            federatedUsers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusers[];
+            groups?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmGroups[];
+            id?: string;
+            identityProviderMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmIdentityprovidermappers[];
+            identityProviders?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmIdentityproviders[];
+            internationalizationEnabled?: boolean;
+            keycloakVersion?: string;
+            loginTheme?: string;
+            loginWithEmailAllowed?: boolean;
+            maxDeltaTimeSeconds?: number;
+            maxFailureWaitSeconds?: number;
+            minimumQuickLoginWaitSeconds?: number;
+            notBefore?: number;
+            oauth2DeviceCodeLifespan?: number;
+            oauth2DevicePollingInterval?: number;
+            oauthClients?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclients[];
+            offlineSessionIdleTimeout?: number;
+            offlineSessionMaxLifespan?: number;
+            offlineSessionMaxLifespanEnabled?: boolean;
+            otpPolicyAlgorithm?: string;
+            otpPolicyCodeReusable?: boolean;
+            otpPolicyDigits?: number;
+            otpPolicyInitialCounter?: number;
+            otpPolicyLookAheadWindow?: number;
+            otpPolicyPeriod?: number;
+            otpPolicyType?: string;
+            otpSupportedApplications?: string[];
+            passwordCredentialGrantAllowed?: boolean;
+            passwordPolicy?: string;
+            permanentLockout?: boolean;
+            privateKey?: string;
+            protocolMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmProtocolmappers[];
+            publicKey?: string;
+            quickLoginCheckMilliSeconds?: number;
+            realm?: string;
+            realmCacheEnabled?: boolean;
+            refreshTokenMaxReuse?: number;
+            registrationAllowed?: boolean;
+            registrationEmailAsUsername?: boolean;
+            registrationFlow?: string;
+            rememberMe?: boolean;
+            requiredActions?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRequiredactions[];
+            requiredCredentials?: string[];
+            resetCredentialsFlow?: string;
+            resetPasswordAllowed?: boolean;
+            revokeRefreshToken?: boolean;
+            roles?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRoles;
+            scopeMappings?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmScopemappings[];
+            smtpServer?: {[key: string]: string};
+            social?: boolean;
+            socialProviders?: {[key: string]: string};
+            sslRequired?: string;
+            ssoSessionIdleTimeout?: number;
+            ssoSessionIdleTimeoutRememberMe?: number;
+            ssoSessionMaxLifespan?: number;
+            ssoSessionMaxLifespanRememberMe?: number;
+            supportedLocales?: string[];
+            updateProfileOnInitialSocialLogin?: boolean;
+            userCacheEnabled?: boolean;
+            userFederationMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUserfederationmappers[];
+            userFederationProviders?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUserfederationproviders[];
+            userManagedAccessAllowed?: boolean;
+            users?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsers[];
+            verifyEmail?: boolean;
+            waitIncrementSeconds?: number;
+            webAuthnPolicyAcceptableAaguids?: string[];
+            webAuthnPolicyAttestationConveyancePreference?: string;
+            webAuthnPolicyAuthenticatorAttachment?: string;
+            webAuthnPolicyAvoidSameAuthenticatorRegister?: boolean;
+            webAuthnPolicyCreateTimeout?: number;
+            webAuthnPolicyPasswordlessAcceptableAaguids?: string[];
+            webAuthnPolicyPasswordlessAttestationConveyancePreference?: string;
+            webAuthnPolicyPasswordlessAuthenticatorAttachment?: string;
+            webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister?: boolean;
+            webAuthnPolicyPasswordlessCreateTimeout?: number;
+            webAuthnPolicyPasswordlessRequireResidentKey?: string;
+            webAuthnPolicyPasswordlessRpEntityName?: string;
+            webAuthnPolicyPasswordlessRpId?: string;
+            webAuthnPolicyPasswordlessSignatureAlgorithms?: string[];
+            webAuthnPolicyPasswordlessUserVerificationRequirement?: string;
+            webAuthnPolicyRequireResidentKey?: string;
+            webAuthnPolicyRpEntityName?: string;
+            webAuthnPolicyRpId?: string;
+            webAuthnPolicySignatureAlgorithms?: string[];
+            webAuthnPolicyUserVerificationRequirement?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplications {
+            access?: {[key: string]: boolean};
+            adminUrl?: string;
+            alwaysDisplayInConsole?: boolean;
+            attributes?: {[key: string]: string};
+            authenticationFlowBindingOverrides?: {[key: string]: string};
+            authorizationServicesEnabled?: boolean;
+            authorizationSettings?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettings;
+            baseUrl?: string;
+            bearerOnly?: boolean;
+            claims?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsClaims;
+            clientAuthenticatorType?: string;
+            clientId?: string;
+            clientTemplate?: string;
+            consentRequired?: boolean;
+            defaultClientScopes?: string[];
+            defaultRoles?: string[];
+            description?: string;
+            directAccessGrantsEnabled?: boolean;
+            directGrantsOnly?: boolean;
+            enabled?: boolean;
+            frontchannelLogout?: boolean;
+            fullScopeAllowed?: boolean;
+            id?: string;
+            implicitFlowEnabled?: boolean;
+            name?: string;
+            nodeReRegistrationTimeout?: number;
+            notBefore?: number;
+            oauth2DeviceAuthorizationGrantEnabled?: boolean;
+            optionalClientScopes?: string[];
+            origin?: string;
+            protocol?: string;
+            protocolMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsProtocolmappers[];
+            publicClient?: boolean;
+            redirectUris?: string[];
+            registeredNodes?: {[key: string]: number};
+            registrationAccessToken?: string;
+            rootUrl?: string;
+            secret?: string;
+            serviceAccountsEnabled?: boolean;
+            standardFlowEnabled?: boolean;
+            surrogateAuthRequired?: boolean;
+            useTemplateConfig?: boolean;
+            useTemplateMappers?: boolean;
+            useTemplateScope?: boolean;
+            webOrigins?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettings {
+            allowRemoteResourceManagement?: boolean;
+            clientId?: string;
+            decisionStrategy?: string;
+            id?: string;
+            name?: string;
+            policies?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPolicies[];
+            policyEnforcementMode?: string;
+            resources?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResources[];
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsScopes[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPolicies {
+            config?: {[key: string]: string};
+            decisionStrategy?: string;
+            description?: string;
+            id?: string;
+            logic?: string;
+            name?: string;
+            owner?: string;
+            policies?: string[];
+            resources?: string[];
+            resourcesData?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdata[];
+            scopes?: string[];
+            scopesData?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesScopesdata[];
+            type?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdata {
+            _id?: string;
+            attributes?: {[key: string]: string[]};
+            displayName?: string;
+            icon_uri?: string;
+            name?: string;
+            owner?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataOwner;
+            ownerManagedAccess?: boolean;
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataScopes[];
+            type?: string;
+            uris?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataOwner {
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesResourcesdataScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsPoliciesScopesdata {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResources {
+            _id?: string;
+            attributes?: {[key: string]: string[]};
+            displayName?: string;
+            icon_uri?: string;
+            name?: string;
+            owner?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesOwner;
+            ownerManagedAccess?: boolean;
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesScopes[];
+            type?: string;
+            uris?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesOwner {
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsResourcesScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsAuthorizationsettingsScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsClaims {
+            address?: boolean;
+            email?: boolean;
+            gender?: boolean;
+            locale?: boolean;
+            name?: boolean;
+            phone?: boolean;
+            picture?: boolean;
+            profile?: boolean;
+            username?: boolean;
+            website?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationsProtocolmappers {
+            config?: {[key: string]: string};
+            consentRequired?: boolean;
+            consentText?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMapper?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmApplicationscopemappings {
+            client?: string;
+            clientScope?: string;
+            clientTemplate?: string;
+            roles?: string[];
+            self?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmAuthenticationflows {
+            alias?: string;
+            authenticationExecutions?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmAuthenticationflowsAuthenticationexecutions[];
+            builtIn?: boolean;
+            description?: string;
+            id?: string;
+            providerId?: string;
+            topLevel?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmAuthenticationflowsAuthenticationexecutions {
+            authenticator?: string;
+            authenticatorConfig?: string;
+            authenticatorFlow?: boolean;
+            autheticatorFlow?: boolean;
+            flowAlias?: string;
+            priority?: number;
+            requirement?: string;
+            userSetupAllowed?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmAuthenticatorconfig {
+            alias?: string;
+            config?: {[key: string]: string};
+            id?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClients {
+            access?: {[key: string]: boolean};
+            adminUrl?: string;
+            alwaysDisplayInConsole?: boolean;
+            attributes?: {[key: string]: string};
+            authenticationFlowBindingOverrides?: {[key: string]: string};
+            authorizationServicesEnabled?: boolean;
+            authorizationSettings?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettings;
+            baseUrl?: string;
+            bearerOnly?: boolean;
+            clientAuthenticatorType?: string;
+            clientId?: string;
+            clientTemplate?: string;
+            consentRequired?: boolean;
+            defaultClientScopes?: string[];
+            defaultRoles?: string[];
+            description?: string;
+            directAccessGrantsEnabled?: boolean;
+            directGrantsOnly?: boolean;
+            enabled?: boolean;
+            frontchannelLogout?: boolean;
+            fullScopeAllowed?: boolean;
+            id?: string;
+            implicitFlowEnabled?: boolean;
+            name?: string;
+            nodeReRegistrationTimeout?: number;
+            notBefore?: number;
+            oauth2DeviceAuthorizationGrantEnabled?: boolean;
+            optionalClientScopes?: string[];
+            origin?: string;
+            protocol?: string;
+            protocolMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsProtocolmappers[];
+            publicClient?: boolean;
+            redirectUris?: string[];
+            registeredNodes?: {[key: string]: number};
+            registrationAccessToken?: string;
+            rootUrl?: string;
+            secret?: string;
+            serviceAccountsEnabled?: boolean;
+            standardFlowEnabled?: boolean;
+            surrogateAuthRequired?: boolean;
+            useTemplateConfig?: boolean;
+            useTemplateMappers?: boolean;
+            useTemplateScope?: boolean;
+            webOrigins?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettings {
+            allowRemoteResourceManagement?: boolean;
+            clientId?: string;
+            decisionStrategy?: string;
+            id?: string;
+            name?: string;
+            policies?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPolicies[];
+            policyEnforcementMode?: string;
+            resources?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResources[];
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsScopes[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPolicies {
+            config?: {[key: string]: string};
+            decisionStrategy?: string;
+            description?: string;
+            id?: string;
+            logic?: string;
+            name?: string;
+            owner?: string;
+            policies?: string[];
+            resources?: string[];
+            resourcesData?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdata[];
+            scopes?: string[];
+            scopesData?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesScopesdata[];
+            type?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdata {
+            _id?: string;
+            attributes?: {[key: string]: string[]};
+            displayName?: string;
+            icon_uri?: string;
+            name?: string;
+            owner?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataOwner;
+            ownerManagedAccess?: boolean;
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataScopes[];
+            type?: string;
+            uris?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataOwner {
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesResourcesdataScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsPoliciesScopesdata {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResources {
+            _id?: string;
+            attributes?: {[key: string]: string[]};
+            displayName?: string;
+            icon_uri?: string;
+            name?: string;
+            owner?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesOwner;
+            ownerManagedAccess?: boolean;
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesScopes[];
+            type?: string;
+            uris?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesOwner {
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsResourcesScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsAuthorizationsettingsScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientsProtocolmappers {
+            config?: {[key: string]: string};
+            consentRequired?: boolean;
+            consentText?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMapper?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientscopemappings {
+            client?: string;
+            clientScope?: string;
+            clientTemplate?: string;
+            roles?: string[];
+            self?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientscopes {
+            attributes?: {[key: string]: string};
+            description?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClientscopesProtocolmappers[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmClientscopesProtocolmappers {
+            config?: {[key: string]: string};
+            consentRequired?: boolean;
+            consentText?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMapper?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClienttemplates {
+            attributes?: {[key: string]: string};
+            bearerOnly?: boolean;
+            consentRequired?: boolean;
+            description?: string;
+            directAccessGrantsEnabled?: boolean;
+            frontchannelLogout?: boolean;
+            fullScopeAllowed?: boolean;
+            id?: string;
+            implicitFlowEnabled?: boolean;
+            name?: string;
+            protocol?: string;
+            protocolMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmClienttemplatesProtocolmappers[];
+            publicClient?: boolean;
+            serviceAccountsEnabled?: boolean;
+            standardFlowEnabled?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmClienttemplatesProtocolmappers {
+            config?: {[key: string]: string};
+            consentRequired?: boolean;
+            consentText?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMapper?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmComponents {
+            config?: {[key: string]: string[]};
+            id?: string;
+            name?: string;
+            providerId?: string;
+            subComponents?: {[key: string]: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmComponentsSubcomponents[]};
+            subType?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmComponentsSubcomponents {
+            config?: {[key: string]: string[]};
+            id?: string;
+            name?: string;
+            providerId?: string;
+            subType?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmDefaultrole {
+            attributes?: {[key: string]: string[]};
+            clientRole?: boolean;
+            composite?: boolean;
+            composites?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmDefaultroleComposites;
+            containerId?: string;
+            description?: string;
+            id?: string;
+            name?: string;
+            scopeParamRequired?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmDefaultroleComposites {
+            application?: {[key: string]: string[]};
+            client?: {[key: string]: string[]};
+            realm?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusers {
+            access?: {[key: string]: boolean};
+            applicationRoles?: {[key: string]: string[]};
+            attributes?: {[key: string]: string[]};
+            clientConsents?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersClientconsents[];
+            clientRoles?: {[key: string]: string[]};
+            createdTimestamp?: number;
+            credentials?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersCredentials[];
+            disableableCredentialTypes?: string[];
+            email?: string;
+            emailVerified?: boolean;
+            enabled?: boolean;
+            federatedIdentities?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersFederatedidentities[];
+            federationLink?: string;
+            firstName?: string;
+            groups?: string[];
+            id?: string;
+            lastName?: string;
+            notBefore?: number;
+            origin?: string;
+            realmRoles?: string[];
+            requiredActions?: string[];
+            self?: string;
+            serviceAccountClientId?: string;
+            socialLinks?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmFederatedusersSociallinks[];
+            totp?: boolean;
+            username?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersClientconsents {
+            clientId?: string;
+            createdDate?: number;
+            grantedClientScopes?: string[];
+            grantedRealmRoles?: string[];
+            lastUpdatedDate?: number;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersCredentials {
+            algorithm?: string;
+            config?: {[key: string]: string[]};
+            counter?: number;
+            createdDate?: number;
+            credentialData?: string;
+            device?: string;
+            digits?: number;
+            hashIterations?: number;
+            hashedSaltedValue?: string;
+            id?: string;
+            period?: number;
+            priority?: number;
+            salt?: string;
+            secretData?: string;
+            temporary?: boolean;
+            type?: string;
+            userLabel?: string;
+            value?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersFederatedidentities {
+            identityProvider?: string;
+            userId?: string;
+            userName?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmFederatedusersSociallinks {
+            socialProvider?: string;
+            socialUserId?: string;
+            socialUsername?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmGroups {
+            access?: {[key: string]: boolean};
+            attributes?: {[key: string]: string[]};
+            clientRoles?: {[key: string]: string[]};
+            id?: string;
+            name?: string;
+            path?: string;
+            realmRoles?: string[];
+            subGroups?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmGroupsSubgroups[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmGroupsSubgroups {
+            access?: {[key: string]: boolean};
+            attributes?: {[key: string]: string[]};
+            clientRoles?: {[key: string]: string[]};
+            id?: string;
+            name?: string;
+            path?: string;
+            realmRoles?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmIdentityprovidermappers {
+            config?: {[key: string]: string};
+            id?: string;
+            identityProviderAlias?: string;
+            identityProviderMapper?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmIdentityproviders {
+            addReadTokenRoleOnCreate?: boolean;
+            alias?: string;
+            authenticateByDefault?: boolean;
+            config?: {[key: string]: string};
+            displayName?: string;
+            enabled?: boolean;
+            firstBrokerLoginFlowAlias?: string;
+            internalId?: string;
+            linkOnly?: boolean;
+            postBrokerLoginFlowAlias?: string;
+            providerId?: string;
+            storeToken?: boolean;
+            trustEmail?: boolean;
+            updateProfileFirstLoginMode?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclients {
+            access?: {[key: string]: boolean};
+            adminUrl?: string;
+            alwaysDisplayInConsole?: boolean;
+            attributes?: {[key: string]: string};
+            authenticationFlowBindingOverrides?: {[key: string]: string};
+            authorizationServicesEnabled?: boolean;
+            authorizationSettings?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettings;
+            baseUrl?: string;
+            bearerOnly?: boolean;
+            claims?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsClaims;
+            clientAuthenticatorType?: string;
+            clientId?: string;
+            clientTemplate?: string;
+            consentRequired?: boolean;
+            defaultClientScopes?: string[];
+            defaultRoles?: string[];
+            description?: string;
+            directAccessGrantsEnabled?: boolean;
+            directGrantsOnly?: boolean;
+            enabled?: boolean;
+            frontchannelLogout?: boolean;
+            fullScopeAllowed?: boolean;
+            id?: string;
+            implicitFlowEnabled?: boolean;
+            name?: string;
+            nodeReRegistrationTimeout?: number;
+            notBefore?: number;
+            oauth2DeviceAuthorizationGrantEnabled?: boolean;
+            optionalClientScopes?: string[];
+            origin?: string;
+            protocol?: string;
+            protocolMappers?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsProtocolmappers[];
+            publicClient?: boolean;
+            redirectUris?: string[];
+            registeredNodes?: {[key: string]: number};
+            registrationAccessToken?: string;
+            rootUrl?: string;
+            secret?: string;
+            serviceAccountsEnabled?: boolean;
+            standardFlowEnabled?: boolean;
+            surrogateAuthRequired?: boolean;
+            useTemplateConfig?: boolean;
+            useTemplateMappers?: boolean;
+            useTemplateScope?: boolean;
+            webOrigins?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettings {
+            allowRemoteResourceManagement?: boolean;
+            clientId?: string;
+            decisionStrategy?: string;
+            id?: string;
+            name?: string;
+            policies?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPolicies[];
+            policyEnforcementMode?: string;
+            resources?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResources[];
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsScopes[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPolicies {
+            config?: {[key: string]: string};
+            decisionStrategy?: string;
+            description?: string;
+            id?: string;
+            logic?: string;
+            name?: string;
+            owner?: string;
+            policies?: string[];
+            resources?: string[];
+            resourcesData?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdata[];
+            scopes?: string[];
+            scopesData?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesScopesdata[];
+            type?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdata {
+            _id?: string;
+            attributes?: {[key: string]: string[]};
+            displayName?: string;
+            icon_uri?: string;
+            name?: string;
+            owner?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataOwner;
+            ownerManagedAccess?: boolean;
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataScopes[];
+            type?: string;
+            uris?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataOwner {
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesResourcesdataScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsPoliciesScopesdata {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResources {
+            _id?: string;
+            attributes?: {[key: string]: string[]};
+            displayName?: string;
+            icon_uri?: string;
+            name?: string;
+            owner?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesOwner;
+            ownerManagedAccess?: boolean;
+            scopes?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesScopes[];
+            type?: string;
+            uris?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesOwner {
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsResourcesScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsAuthorizationsettingsScopes {
+            displayName?: string;
+            iconUri?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsClaims {
+            address?: boolean;
+            email?: boolean;
+            gender?: boolean;
+            locale?: boolean;
+            name?: boolean;
+            phone?: boolean;
+            picture?: boolean;
+            profile?: boolean;
+            username?: boolean;
+            website?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmOauthclientsProtocolmappers {
+            config?: {[key: string]: string};
+            consentRequired?: boolean;
+            consentText?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMapper?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmProtocolmappers {
+            config?: {[key: string]: string};
+            consentRequired?: boolean;
+            consentText?: string;
+            id?: string;
+            name?: string;
+            protocol?: string;
+            protocolMapper?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRequiredactions {
+            alias?: string;
+            config?: {[key: string]: string};
+            defaultAction?: boolean;
+            enabled?: boolean;
+            name?: string;
+            priority?: number;
+            providerId?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRoles {
+            application?: {[key: string]: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesApplication[]};
+            client?: {[key: string]: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesClient[]};
+            realm?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesRealm[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesApplication {
+            attributes?: {[key: string]: string[]};
+            clientRole?: boolean;
+            composite?: boolean;
+            composites?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesApplicationComposites;
+            containerId?: string;
+            description?: string;
+            id?: string;
+            name?: string;
+            scopeParamRequired?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesApplicationComposites {
+            application?: {[key: string]: string[]};
+            client?: {[key: string]: string[]};
+            realm?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesClient {
+            attributes?: {[key: string]: string[]};
+            clientRole?: boolean;
+            composite?: boolean;
+            composites?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesClientComposites;
+            containerId?: string;
+            description?: string;
+            id?: string;
+            name?: string;
+            scopeParamRequired?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesClientComposites {
+            application?: {[key: string]: string[]};
+            client?: {[key: string]: string[]};
+            realm?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesRealm {
+            attributes?: {[key: string]: string[]};
+            clientRole?: boolean;
+            composite?: boolean;
+            composites?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmRolesRealmComposites;
+            containerId?: string;
+            description?: string;
+            id?: string;
+            name?: string;
+            scopeParamRequired?: boolean;
+        }
+
+        export interface KeycloakRealmImportSpecRealmRolesRealmComposites {
+            application?: {[key: string]: string[]};
+            client?: {[key: string]: string[]};
+            realm?: string[];
+        }
+
+        export interface KeycloakRealmImportSpecRealmScopemappings {
+            client?: string;
+            clientScope?: string;
+            clientTemplate?: string;
+            roles?: string[];
+            self?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUserfederationmappers {
+            config?: {[key: string]: string};
+            federationMapperType?: string;
+            federationProviderDisplayName?: string;
+            id?: string;
+            name?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUserfederationproviders {
+            changedSyncPeriod?: number;
+            config?: {[key: string]: string};
+            displayName?: string;
+            fullSyncPeriod?: number;
+            id?: string;
+            lastSync?: number;
+            priority?: number;
+            providerName?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsers {
+            access?: {[key: string]: boolean};
+            applicationRoles?: {[key: string]: string[]};
+            attributes?: {[key: string]: string[]};
+            clientConsents?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersClientconsents[];
+            clientRoles?: {[key: string]: string[]};
+            createdTimestamp?: number;
+            credentials?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersCredentials[];
+            disableableCredentialTypes?: string[];
+            email?: string;
+            emailVerified?: boolean;
+            enabled?: boolean;
+            federatedIdentities?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersFederatedidentities[];
+            federationLink?: string;
+            firstName?: string;
+            groups?: string[];
+            id?: string;
+            lastName?: string;
+            notBefore?: number;
+            origin?: string;
+            realmRoles?: string[];
+            requiredActions?: string[];
+            self?: string;
+            serviceAccountClientId?: string;
+            socialLinks?: outputs.k8s.v2alpha1.KeycloakRealmImportSpecRealmUsersSociallinks[];
+            totp?: boolean;
+            username?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersClientconsents {
+            clientId?: string;
+            createdDate?: number;
+            grantedClientScopes?: string[];
+            grantedRealmRoles?: string[];
+            lastUpdatedDate?: number;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersCredentials {
+            algorithm?: string;
+            config?: {[key: string]: string[]};
+            counter?: number;
+            createdDate?: number;
+            credentialData?: string;
+            device?: string;
+            digits?: number;
+            hashIterations?: number;
+            hashedSaltedValue?: string;
+            id?: string;
+            period?: number;
+            priority?: number;
+            salt?: string;
+            secretData?: string;
+            temporary?: boolean;
+            type?: string;
+            userLabel?: string;
+            value?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersFederatedidentities {
+            identityProvider?: string;
+            userId?: string;
+            userName?: string;
+        }
+
+        export interface KeycloakRealmImportSpecRealmUsersSociallinks {
+            socialProvider?: string;
+            socialUserId?: string;
+            socialUsername?: string;
+        }
+
+        export interface KeycloakRealmImportStatus {
+            conditions?: outputs.k8s.v2alpha1.KeycloakRealmImportStatusConditions[];
+        }
+
+        export interface KeycloakRealmImportStatusConditions {
+            lastTransitionTime?: string;
+            message?: string;
+            observedGeneration?: number;
+            status?: {[key: string]: any};
+            type?: string;
+        }
+
+        export interface KeycloakSpec {
+            /**
+             * Configuration of the Keycloak server.
+             * expressed as a keys (reference: https://www.keycloak.org/server/all-config) and values that can be either direct values or references to secrets.
+             */
+            additionalOptions?: outputs.k8s.v2alpha1.KeycloakSpecAdditionaloptions[];
+            /**
+             * In this section you can find all properties related to connect to a database.
+             */
+            db?: outputs.k8s.v2alpha1.KeycloakSpecDb;
+            /**
+             * In this section you can configure Keycloak features, which should be enabled/disabled.
+             */
+            features?: outputs.k8s.v2alpha1.KeycloakSpecFeatures;
+            /**
+             * In this section you can configure Keycloak hostname and related properties.
+             */
+            hostname?: outputs.k8s.v2alpha1.KeycloakSpecHostname;
+            /**
+             * In this section you can configure Keycloak features related to HTTP and HTTPS
+             */
+            http?: outputs.k8s.v2alpha1.KeycloakSpecHttp;
+            /**
+             * Custom Keycloak image to be used.
+             */
+            image?: string;
+            /**
+             * Secret(s) that might be used when pulling an image from a private container image registry or repository.
+             */
+            imagePullSecrets?: outputs.k8s.v2alpha1.KeycloakSpecImagepullsecrets[];
+            /**
+             * The deployment is, by default, exposed through a basic ingress.
+             * You can change this behaviour by setting the enabled property to false.
+             */
+            ingress?: outputs.k8s.v2alpha1.KeycloakSpecIngress;
+            /**
+             * Number of Keycloak instances in HA mode. Default is 1.
+             */
+            instances?: number;
+            /**
+             * In this section you can find all properties related to the settings of transaction behavior.
+             */
+            transaction?: outputs.k8s.v2alpha1.KeycloakSpecTransaction;
+            /**
+             * In this section you can configure podTemplate advanced features, not production-ready, and not supported settings.
+             * Use at your own risk and open an issue with your use-case if you don't find an alternative way.
+             */
+            unsupported?: outputs.k8s.v2alpha1.KeycloakSpecUnsupported;
+        }
+
+        export interface KeycloakSpecAdditionaloptions {
+            name?: string;
+            secret?: outputs.k8s.v2alpha1.KeycloakSpecAdditionaloptionsSecret;
+            value?: string;
+        }
+
+        export interface KeycloakSpecAdditionaloptionsSecret {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        /**
+         * In this section you can find all properties related to connect to a database.
+         */
+        export interface KeycloakSpecDb {
+            /**
+             * Sets the database name of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+             */
+            database?: string;
+            /**
+             * Sets the hostname of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+             */
+            host?: string;
+            /**
+             * The reference to a secret holding the password of the database user.
+             */
+            passwordSecret?: outputs.k8s.v2alpha1.KeycloakSpecDbPasswordsecret;
+            /**
+             * The initial size of the connection pool.
+             */
+            poolInitialSize?: number;
+            /**
+             * The maximum size of the connection pool.
+             */
+            poolMaxSize?: number;
+            /**
+             * The minimal size of the connection pool.
+             */
+            poolMinSize?: number;
+            /**
+             * Sets the port of the default JDBC URL of the chosen vendor. If the `url` option is set, this option is ignored.
+             */
+            port?: number;
+            /**
+             * The database schema to be used.
+             */
+            schema?: string;
+            /**
+             * The full database JDBC URL. If not provided, a default URL is set based on the selected database vendor. For instance, if using 'postgres', the default JDBC URL would be 'jdbc:postgresql://localhost/keycloak'. 
+             */
+            url?: string;
+            /**
+             * The reference to a secret holding the username of the database user.
+             */
+            usernameSecret?: outputs.k8s.v2alpha1.KeycloakSpecDbUsernamesecret;
+            /**
+             * The database vendor.
+             */
+            vendor?: string;
+        }
+
+        /**
+         * The reference to a secret holding the password of the database user.
+         */
+        export interface KeycloakSpecDbPasswordsecret {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        /**
+         * The reference to a secret holding the username of the database user.
+         */
+        export interface KeycloakSpecDbUsernamesecret {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        /**
+         * In this section you can configure Keycloak features, which should be enabled/disabled.
+         */
+        export interface KeycloakSpecFeatures {
+            /**
+             * Disabled Keycloak features
+             */
+            disabled?: string[];
+            /**
+             * Enabled Keycloak features
+             */
+            enabled?: string[];
+        }
+
+        /**
+         * In this section you can configure Keycloak hostname and related properties.
+         */
+        export interface KeycloakSpecHostname {
+            /**
+             * The hostname for accessing the administration console.
+             */
+            admin?: string;
+            /**
+             * Set the base URL for accessing the administration console, including scheme, host, port and path
+             */
+            adminUrl?: string;
+            /**
+             * Hostname for the Keycloak server.
+             */
+            hostname?: string;
+            /**
+             * Disables dynamically resolving the hostname from request headers.
+             */
+            strict?: boolean;
+            /**
+             * By default backchannel URLs are dynamically resolved from request headers to allow internal and external applications.
+             */
+            strictBackchannel?: boolean;
+        }
+
+        /**
+         * In this section you can configure Keycloak features related to HTTP and HTTPS
+         */
+        export interface KeycloakSpecHttp {
+            /**
+             * Enables the HTTP listener.
+             */
+            httpEnabled?: boolean;
+            /**
+             * The used HTTP port.
+             */
+            httpPort?: number;
+            /**
+             * The used HTTPS port.
+             */
+            httpsPort?: number;
+            /**
+             * A secret containing the TLS configuration for HTTPS. Reference: https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets.
+             */
+            tlsSecret?: string;
+        }
+
+        export interface KeycloakSpecImagepullsecrets {
+            name?: string;
+        }
+
+        /**
+         * The deployment is, by default, exposed through a basic ingress.
+         * You can change this behaviour by setting the enabled property to false.
+         */
+        export interface KeycloakSpecIngress {
+            /**
+             * Additional annotations to be appended to the Ingress object
+             */
+            annotations?: {[key: string]: string};
+            className?: string;
+            enabled?: boolean;
+        }
+
+        /**
+         * In this section you can find all properties related to the settings of transaction behavior.
+         */
+        export interface KeycloakSpecTransaction {
+            /**
+             * Determine whether Keycloak should use a non-XA datasource in case the database does not support XA transactions.
+             */
+            xaEnabled?: boolean;
+        }
+
+        /**
+         * In this section you can configure podTemplate advanced features, not production-ready, and not supported settings.
+         * Use at your own risk and open an issue with your use-case if you don't find an alternative way.
+         */
+        export interface KeycloakSpecUnsupported {
+            /**
+             * You can configure that will be merged with the one configured by default by the operator.
+             * Use at your own risk, we reserve the possibility to remove/change the way any field gets merged in future releases without notice.
+             * Reference: https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
+             */
+            podTemplate?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplate;
+        }
+
+        /**
+         * You can configure that will be merged with the one configured by default by the operator.
+         * Use at your own risk, we reserve the possibility to remove/change the way any field gets merged in future releases without notice.
+         * Reference: https://kubernetes.io/docs/concepts/workloads/pods/#pod-templates
+         */
+        export interface KeycloakSpecUnsupportedPodtemplate {
+            metadata?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateMetadata;
+            spec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpec;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateMetadata {
+            annotations?: {[key: string]: string};
+            creationTimestamp?: string;
+            deletionGracePeriodSeconds?: number;
+            deletionTimestamp?: string;
+            finalizers?: string[];
+            generateName?: string;
+            generation?: number;
+            labels?: {[key: string]: string};
+            managedFields?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateMetadataManagedfields[];
+            name?: string;
+            namespace?: string;
+            ownerReferences?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateMetadataOwnerreferences[];
+            resourceVersion?: string;
+            selfLink?: string;
+            uid?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateMetadataManagedfields {
+            apiVersion?: string;
+            fieldsType?: string;
+            fieldsV1?: {[key: string]: any};
+            manager?: string;
+            operation?: string;
+            subresource?: string;
+            time?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateMetadataOwnerreferences {
+            apiVersion?: string;
+            blockOwnerDeletion?: boolean;
+            controller?: boolean;
+            kind?: string;
+            name?: string;
+            uid?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpec {
+            activeDeadlineSeconds?: number;
+            affinity?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinity;
+            automountServiceAccountToken?: boolean;
+            containers?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainers[];
+            dnsConfig?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecDnsconfig;
+            dnsPolicy?: string;
+            enableServiceLinks?: boolean;
+            ephemeralContainers?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainers[];
+            hostAliases?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecHostaliases[];
+            hostIPC?: boolean;
+            hostNetwork?: boolean;
+            hostPID?: boolean;
+            hostUsers?: boolean;
+            hostname?: string;
+            imagePullSecrets?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecImagepullsecrets[];
+            initContainers?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainers[];
+            nodeName?: string;
+            nodeSelector?: {[key: string]: string};
+            os?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecOs;
+            overhead?: {[key: string]: number | string};
+            preemptionPolicy?: string;
+            priority?: number;
+            priorityClassName?: string;
+            readinessGates?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecReadinessgates[];
+            resourceClaims?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecResourceclaims[];
+            restartPolicy?: string;
+            runtimeClassName?: string;
+            schedulerName?: string;
+            schedulingGates?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSchedulinggates[];
+            securityContext?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontext;
+            serviceAccount?: string;
+            serviceAccountName?: string;
+            setHostnameAsFQDN?: boolean;
+            shareProcessNamespace?: boolean;
+            subdomain?: string;
+            terminationGracePeriodSeconds?: number;
+            tolerations?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTolerations[];
+            topologySpreadConstraints?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraints[];
+            volumes?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumes[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinity {
+            nodeAffinity?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinity;
+            podAffinity?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinity;
+            podAntiAffinity?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinity;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinity {
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecution[];
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecution;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecution {
+            preference?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreference;
+            weight?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreference {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressions[];
+            matchFields?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfields[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfields {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecution {
+            nodeSelectorTerms?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectorterms[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectorterms {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressions[];
+            matchFields?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfields[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfields {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinity {
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecution[];
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecution[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecution {
+            podAffinityTerm?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm;
+            weight?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm {
+            labelSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector;
+            namespaceSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector;
+            namespaces?: string[];
+            topologyKey?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecution {
+            labelSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselector;
+            namespaceSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector;
+            namespaces?: string[];
+            topologyKey?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinity {
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecution[];
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecution[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecution {
+            podAffinityTerm?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm;
+            weight?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm {
+            labelSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector;
+            namespaceSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector;
+            namespaces?: string[];
+            topologyKey?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecution {
+            labelSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselector;
+            namespaceSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector;
+            namespaces?: string[];
+            topologyKey?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainers {
+            args?: string[];
+            command?: string[];
+            env?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnv[];
+            envFrom?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfrom[];
+            image?: string;
+            imagePullPolicy?: string;
+            lifecycle?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecycle;
+            livenessProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobe;
+            name?: string;
+            ports?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersPorts[];
+            readinessProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobe;
+            resources?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersResources;
+            securityContext?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontext;
+            startupProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobe;
+            stdin?: boolean;
+            stdinOnce?: boolean;
+            terminationMessagePath?: string;
+            terminationMessagePolicy?: string;
+            tty?: boolean;
+            volumeDevices?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersVolumedevices[];
+            volumeMounts?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersVolumemounts[];
+            workingDir?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnv {
+            name?: string;
+            value?: string;
+            valueFrom?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefrom;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefrom {
+            configMapKeyRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromConfigmapkeyref;
+            fieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromFieldref;
+            resourceFieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromResourcefieldref;
+            secretKeyRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromSecretkeyref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromConfigmapkeyref {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromFieldref {
+            apiVersion?: string;
+            fieldPath?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromResourcefieldref {
+            containerName?: string;
+            divisor?: number | string;
+            resource?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvValuefromSecretkeyref {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfrom {
+            configMapRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromConfigmapref;
+            prefix?: string;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromSecretref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromConfigmapref {
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersEnvfromSecretref {
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecycle {
+            postStart?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststart;
+            preStop?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestop;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststart {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartExec;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpget;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartTcpsocket;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePoststartTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestop {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopExec;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpget;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopTcpsocket;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLifecyclePrestopTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersLivenessprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersPorts {
+            containerPort?: number;
+            hostIP?: string;
+            hostPort?: number;
+            name?: string;
+            protocol?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersReadinessprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersResources {
+            claims?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersResourcesClaims[];
+            limits?: {[key: string]: number | string};
+            requests?: {[key: string]: number | string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersResourcesClaims {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontext {
+            allowPrivilegeEscalation?: boolean;
+            capabilities?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextCapabilities;
+            privileged?: boolean;
+            procMount?: string;
+            readOnlyRootFilesystem?: boolean;
+            runAsGroup?: number;
+            runAsNonRoot?: boolean;
+            runAsUser?: number;
+            seLinuxOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSelinuxoptions;
+            seccompProfile?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSeccompprofile;
+            windowsOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextWindowsoptions;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextCapabilities {
+            add?: string[];
+            drop?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSeccompprofile {
+            localhostProfile?: string;
+            type?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextSelinuxoptions {
+            level?: string;
+            role?: string;
+            type?: string;
+            user?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersSecuritycontextWindowsoptions {
+            gmsaCredentialSpec?: string;
+            gmsaCredentialSpecName?: string;
+            hostProcess?: boolean;
+            runAsUserName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersStartupprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersVolumedevices {
+            devicePath?: string;
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecContainersVolumemounts {
+            mountPath?: string;
+            mountPropagation?: string;
+            name?: string;
+            readOnly?: boolean;
+            subPath?: string;
+            subPathExpr?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecDnsconfig {
+            nameservers?: string[];
+            options?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecDnsconfigOptions[];
+            searches?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecDnsconfigOptions {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainers {
+            args?: string[];
+            command?: string[];
+            env?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnv[];
+            envFrom?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfrom[];
+            image?: string;
+            imagePullPolicy?: string;
+            lifecycle?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecycle;
+            livenessProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobe;
+            name?: string;
+            ports?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersPorts[];
+            readinessProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobe;
+            resources?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResources;
+            securityContext?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontext;
+            startupProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobe;
+            stdin?: boolean;
+            stdinOnce?: boolean;
+            targetContainerName?: string;
+            terminationMessagePath?: string;
+            terminationMessagePolicy?: string;
+            tty?: boolean;
+            volumeDevices?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumedevices[];
+            volumeMounts?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumemounts[];
+            workingDir?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnv {
+            name?: string;
+            value?: string;
+            valueFrom?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefrom;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefrom {
+            configMapKeyRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromConfigmapkeyref;
+            fieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromFieldref;
+            resourceFieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromResourcefieldref;
+            secretKeyRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromSecretkeyref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromConfigmapkeyref {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromFieldref {
+            apiVersion?: string;
+            fieldPath?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromResourcefieldref {
+            containerName?: string;
+            divisor?: number | string;
+            resource?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvValuefromSecretkeyref {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfrom {
+            configMapRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromConfigmapref;
+            prefix?: string;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromSecretref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromConfigmapref {
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersEnvfromSecretref {
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecycle {
+            postStart?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststart;
+            preStop?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestop;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststart {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartExec;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpget;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartTcpsocket;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePoststartTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestop {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopExec;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpget;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopTcpsocket;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLifecyclePrestopTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersLivenessprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersPorts {
+            containerPort?: number;
+            hostIP?: string;
+            hostPort?: number;
+            name?: string;
+            protocol?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersReadinessprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResources {
+            claims?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResourcesClaims[];
+            limits?: {[key: string]: number | string};
+            requests?: {[key: string]: number | string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersResourcesClaims {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontext {
+            allowPrivilegeEscalation?: boolean;
+            capabilities?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextCapabilities;
+            privileged?: boolean;
+            procMount?: string;
+            readOnlyRootFilesystem?: boolean;
+            runAsGroup?: number;
+            runAsNonRoot?: boolean;
+            runAsUser?: number;
+            seLinuxOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSelinuxoptions;
+            seccompProfile?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSeccompprofile;
+            windowsOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextWindowsoptions;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextCapabilities {
+            add?: string[];
+            drop?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSeccompprofile {
+            localhostProfile?: string;
+            type?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextSelinuxoptions {
+            level?: string;
+            role?: string;
+            type?: string;
+            user?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersSecuritycontextWindowsoptions {
+            gmsaCredentialSpec?: string;
+            gmsaCredentialSpecName?: string;
+            hostProcess?: boolean;
+            runAsUserName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersStartupprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumedevices {
+            devicePath?: string;
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecEphemeralcontainersVolumemounts {
+            mountPath?: string;
+            mountPropagation?: string;
+            name?: string;
+            readOnly?: boolean;
+            subPath?: string;
+            subPathExpr?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecHostaliases {
+            hostnames?: string[];
+            ip?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecImagepullsecrets {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainers {
+            args?: string[];
+            command?: string[];
+            env?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnv[];
+            envFrom?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfrom[];
+            image?: string;
+            imagePullPolicy?: string;
+            lifecycle?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecycle;
+            livenessProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobe;
+            name?: string;
+            ports?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersPorts[];
+            readinessProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobe;
+            resources?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResources;
+            securityContext?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontext;
+            startupProbe?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobe;
+            stdin?: boolean;
+            stdinOnce?: boolean;
+            terminationMessagePath?: string;
+            terminationMessagePolicy?: string;
+            tty?: boolean;
+            volumeDevices?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumedevices[];
+            volumeMounts?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumemounts[];
+            workingDir?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnv {
+            name?: string;
+            value?: string;
+            valueFrom?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefrom;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefrom {
+            configMapKeyRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromConfigmapkeyref;
+            fieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromFieldref;
+            resourceFieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromResourcefieldref;
+            secretKeyRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromSecretkeyref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromConfigmapkeyref {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromFieldref {
+            apiVersion?: string;
+            fieldPath?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromResourcefieldref {
+            containerName?: string;
+            divisor?: number | string;
+            resource?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvValuefromSecretkeyref {
+            key?: string;
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfrom {
+            configMapRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromConfigmapref;
+            prefix?: string;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromSecretref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromConfigmapref {
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersEnvfromSecretref {
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecycle {
+            postStart?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststart;
+            preStop?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestop;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststart {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartExec;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpget;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartTcpsocket;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePoststartTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestop {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopExec;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpget;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopTcpsocket;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLifecyclePrestopTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersLivenessprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersPorts {
+            containerPort?: number;
+            hostIP?: string;
+            hostPort?: number;
+            name?: string;
+            protocol?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersReadinessprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResources {
+            claims?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResourcesClaims[];
+            limits?: {[key: string]: number | string};
+            requests?: {[key: string]: number | string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersResourcesClaims {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontext {
+            allowPrivilegeEscalation?: boolean;
+            capabilities?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextCapabilities;
+            privileged?: boolean;
+            procMount?: string;
+            readOnlyRootFilesystem?: boolean;
+            runAsGroup?: number;
+            runAsNonRoot?: boolean;
+            runAsUser?: number;
+            seLinuxOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSelinuxoptions;
+            seccompProfile?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSeccompprofile;
+            windowsOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextWindowsoptions;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextCapabilities {
+            add?: string[];
+            drop?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSeccompprofile {
+            localhostProfile?: string;
+            type?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextSelinuxoptions {
+            level?: string;
+            role?: string;
+            type?: string;
+            user?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersSecuritycontextWindowsoptions {
+            gmsaCredentialSpec?: string;
+            gmsaCredentialSpecName?: string;
+            hostProcess?: boolean;
+            runAsUserName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobe {
+            exec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeExec;
+            failureThreshold?: number;
+            grpc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeGrpc;
+            httpGet?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpget;
+            initialDelaySeconds?: number;
+            periodSeconds?: number;
+            successThreshold?: number;
+            tcpSocket?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeTcpsocket;
+            terminationGracePeriodSeconds?: number;
+            timeoutSeconds?: number;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeExec {
+            command?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeGrpc {
+            port?: number;
+            service?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpget {
+            host?: string;
+            httpHeaders?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpgetHttpheaders[];
+            path?: string;
+            port?: number | string;
+            scheme?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeHttpgetHttpheaders {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersStartupprobeTcpsocket {
+            host?: string;
+            port?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumedevices {
+            devicePath?: string;
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecInitcontainersVolumemounts {
+            mountPath?: string;
+            mountPropagation?: string;
+            name?: string;
+            readOnly?: boolean;
+            subPath?: string;
+            subPathExpr?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecOs {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecReadinessgates {
+            conditionType?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecResourceclaims {
+            name?: string;
+            source?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecResourceclaimsSource;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecResourceclaimsSource {
+            resourceClaimName?: string;
+            resourceClaimTemplateName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSchedulinggates {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontext {
+            fsGroup?: number;
+            fsGroupChangePolicy?: string;
+            runAsGroup?: number;
+            runAsNonRoot?: boolean;
+            runAsUser?: number;
+            seLinuxOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSelinuxoptions;
+            seccompProfile?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSeccompprofile;
+            supplementalGroups?: number[];
+            sysctls?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSysctls[];
+            windowsOptions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextWindowsoptions;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSeccompprofile {
+            localhostProfile?: string;
+            type?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSelinuxoptions {
+            level?: string;
+            role?: string;
+            type?: string;
+            user?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextSysctls {
+            name?: string;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecSecuritycontextWindowsoptions {
+            gmsaCredentialSpec?: string;
+            gmsaCredentialSpecName?: string;
+            hostProcess?: boolean;
+            runAsUserName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTolerations {
+            effect?: string;
+            key?: string;
+            operator?: string;
+            tolerationSeconds?: number;
+            value?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraints {
+            labelSelector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselector;
+            matchLabelKeys?: string[];
+            maxSkew?: number;
+            minDomains?: number;
+            nodeAffinityPolicy?: string;
+            nodeTaintsPolicy?: string;
+            topologyKey?: string;
+            whenUnsatisfiable?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecTopologyspreadconstraintsLabelselectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumes {
+            awsElasticBlockStore?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesAwselasticblockstore;
+            azureDisk?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesAzuredisk;
+            azureFile?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesAzurefile;
+            cephfs?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfs;
+            cinder?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCinder;
+            configMap?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmap;
+            csi?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCsi;
+            downwardAPI?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapi;
+            emptyDir?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEmptydir;
+            ephemeral?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeral;
+            fc?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFc;
+            flexVolume?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolume;
+            flocker?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFlocker;
+            gcePersistentDisk?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesGcepersistentdisk;
+            gitRepo?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesGitrepo;
+            glusterfs?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesGlusterfs;
+            hostPath?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesHostpath;
+            iscsi?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsi;
+            name?: string;
+            nfs?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesNfs;
+            persistentVolumeClaim?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesPersistentvolumeclaim;
+            photonPersistentDisk?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesPhotonpersistentdisk;
+            portworxVolume?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesPortworxvolume;
+            projected?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjected;
+            quobyte?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesQuobyte;
+            rbd?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesRbd;
+            scaleIO?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleio;
+            secret?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesSecret;
+            storageos?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageos;
+            vsphereVolume?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesVspherevolume;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesAwselasticblockstore {
+            fsType?: string;
+            partition?: number;
+            readOnly?: boolean;
+            volumeID?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesAzuredisk {
+            cachingMode?: string;
+            diskName?: string;
+            diskURI?: string;
+            fsType?: string;
+            kind?: string;
+            readOnly?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesAzurefile {
+            readOnly?: boolean;
+            secretName?: string;
+            shareName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfs {
+            monitors?: string[];
+            path?: string;
+            readOnly?: boolean;
+            secretFile?: string;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfsSecretref;
+            user?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCephfsSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCinder {
+            fsType?: string;
+            readOnly?: boolean;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCinderSecretref;
+            volumeID?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCinderSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmap {
+            defaultMode?: number;
+            items?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmapItems[];
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesConfigmapItems {
+            key?: string;
+            mode?: number;
+            path?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCsi {
+            driver?: string;
+            fsType?: string;
+            nodePublishSecretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesCsiNodepublishsecretref;
+            readOnly?: boolean;
+            volumeAttributes?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesCsiNodepublishsecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapi {
+            defaultMode?: number;
+            items?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItems[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItems {
+            fieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsFieldref;
+            mode?: number;
+            path?: string;
+            resourceFieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsResourcefieldref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsFieldref {
+            apiVersion?: string;
+            fieldPath?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesDownwardapiItemsResourcefieldref {
+            containerName?: string;
+            divisor?: number | string;
+            resource?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEmptydir {
+            medium?: string;
+            sizeLimit?: number | string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeral {
+            volumeClaimTemplate?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplate;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplate {
+            metadata?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadata;
+            spec?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpec;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadata {
+            annotations?: {[key: string]: string};
+            creationTimestamp?: string;
+            deletionGracePeriodSeconds?: number;
+            deletionTimestamp?: string;
+            finalizers?: string[];
+            generateName?: string;
+            generation?: number;
+            labels?: {[key: string]: string};
+            managedFields?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataManagedfields[];
+            name?: string;
+            namespace?: string;
+            ownerReferences?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataOwnerreferences[];
+            resourceVersion?: string;
+            selfLink?: string;
+            uid?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataManagedfields {
+            apiVersion?: string;
+            fieldsType?: string;
+            fieldsV1?: {[key: string]: any};
+            manager?: string;
+            operation?: string;
+            subresource?: string;
+            time?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateMetadataOwnerreferences {
+            apiVersion?: string;
+            blockOwnerDeletion?: boolean;
+            controller?: boolean;
+            kind?: string;
+            name?: string;
+            uid?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpec {
+            accessModes?: string[];
+            dataSource?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasource;
+            dataSourceRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceref;
+            resources?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResources;
+            selector?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelector;
+            storageClassName?: string;
+            volumeMode?: string;
+            volumeName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasource {
+            apiGroup?: string;
+            kind?: string;
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceref {
+            apiGroup?: string;
+            kind?: string;
+            name?: string;
+            namespace?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResources {
+            claims?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesClaims[];
+            limits?: {[key: string]: number | string};
+            requests?: {[key: string]: number | string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecResourcesClaims {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelector {
+            matchExpressions?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressions[];
+            matchLabels?: {[key: string]: string};
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressions {
+            key?: string;
+            operator?: string;
+            values?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFc {
+            fsType?: string;
+            lun?: number;
+            readOnly?: boolean;
+            targetWWNs?: string[];
+            wwids?: string[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolume {
+            driver?: string;
+            fsType?: string;
+            options?: {[key: string]: string};
+            readOnly?: boolean;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolumeSecretref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFlexvolumeSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesFlocker {
+            datasetName?: string;
+            datasetUUID?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesGcepersistentdisk {
+            fsType?: string;
+            partition?: number;
+            pdName?: string;
+            readOnly?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesGitrepo {
+            directory?: string;
+            repository?: string;
+            revision?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesGlusterfs {
+            endpoints?: string;
+            path?: string;
+            readOnly?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesHostpath {
+            path?: string;
+            type?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsi {
+            chapAuthDiscovery?: boolean;
+            chapAuthSession?: boolean;
+            fsType?: string;
+            initiatorName?: string;
+            iqn?: string;
+            iscsiInterface?: string;
+            lun?: number;
+            portals?: string[];
+            readOnly?: boolean;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsiSecretref;
+            targetPortal?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesIscsiSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesNfs {
+            path?: string;
+            readOnly?: boolean;
+            server?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesPersistentvolumeclaim {
+            claimName?: string;
+            readOnly?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesPhotonpersistentdisk {
+            fsType?: string;
+            pdID?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesPortworxvolume {
+            fsType?: string;
+            readOnly?: boolean;
+            volumeID?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjected {
+            defaultMode?: number;
+            sources?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSources[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSources {
+            configMap?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmap;
+            downwardAPI?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapi;
+            secret?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecret;
+            serviceAccountToken?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesServiceaccounttoken;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmap {
+            items?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmapItems[];
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesConfigmapItems {
+            key?: string;
+            mode?: number;
+            path?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapi {
+            items?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItems[];
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItems {
+            fieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsFieldref;
+            mode?: number;
+            path?: string;
+            resourceFieldRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldref;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsFieldref {
+            apiVersion?: string;
+            fieldPath?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldref {
+            containerName?: string;
+            divisor?: number | string;
+            resource?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecret {
+            items?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecretItems[];
+            name?: string;
+            optional?: boolean;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesSecretItems {
+            key?: string;
+            mode?: number;
+            path?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesProjectedSourcesServiceaccounttoken {
+            audience?: string;
+            expirationSeconds?: number;
+            path?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesQuobyte {
+            group?: string;
+            readOnly?: boolean;
+            registry?: string;
+            tenant?: string;
+            user?: string;
+            volume?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesRbd {
+            fsType?: string;
+            image?: string;
+            keyring?: string;
+            monitors?: string[];
+            pool?: string;
+            readOnly?: boolean;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesRbdSecretref;
+            user?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesRbdSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleio {
+            fsType?: string;
+            gateway?: string;
+            protectionDomain?: string;
+            readOnly?: boolean;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleioSecretref;
+            sslEnabled?: boolean;
+            storageMode?: string;
+            storagePool?: string;
+            system?: string;
+            volumeName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesScaleioSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesSecret {
+            defaultMode?: number;
+            items?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesSecretItems[];
+            optional?: boolean;
+            secretName?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesSecretItems {
+            key?: string;
+            mode?: number;
+            path?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageos {
+            fsType?: string;
+            readOnly?: boolean;
+            secretRef?: outputs.k8s.v2alpha1.KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageosSecretref;
+            volumeName?: string;
+            volumeNamespace?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesStorageosSecretref {
+            name?: string;
+        }
+
+        export interface KeycloakSpecUnsupportedPodtemplateSpecVolumesVspherevolume {
+            fsType?: string;
+            storagePolicyID?: string;
+            storagePolicyName?: string;
+            volumePath?: string;
+        }
+
+        export interface KeycloakStatus {
+            conditions?: outputs.k8s.v2alpha1.KeycloakStatusConditions[];
+            instances?: number;
+            observedGeneration?: number;
+            selector?: string;
+        }
+
+        export interface KeycloakStatusConditions {
+            lastTransitionTime?: string;
+            message?: string;
+            observedGeneration?: number;
+            status?: {[key: string]: any};
+            type?: string;
         }
 
     }
@@ -15196,6 +18330,7480 @@ export namespace monitoring {
             for?: string;
             labels?: {[key: string]: string};
             record?: string;
+        }
+
+        /**
+         * Specification of the desired behavior of the Prometheus cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface PrometheusSpec {
+            /**
+             * AdditionalAlertManagerConfigs allows specifying a key of a Secret containing additional Prometheus AlertManager configurations. AlertManager configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alertmanager_config. As AlertManager configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible AlertManager configs are going to break Prometheus after the upgrade.
+             */
+            additionalAlertManagerConfigs?: outputs.monitoring.v1.PrometheusSpecAdditionalalertmanagerconfigs;
+            /**
+             * AdditionalAlertRelabelConfigs allows specifying a key of a Secret containing additional Prometheus alert relabel configurations. Alert relabel configurations specified are appended to the configurations generated by the Prometheus Operator. Alert relabel configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alert_relabel_configs. As alert relabel configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible alert relabel configs are going to break Prometheus after the upgrade.
+             */
+            additionalAlertRelabelConfigs?: outputs.monitoring.v1.PrometheusSpecAdditionalalertrelabelconfigs;
+            /**
+             * AdditionalArgs allows setting additional arguments for the Prometheus container. It is intended for e.g. activating hidden flags which are not supported by the dedicated configuration options yet. The arguments are passed as-is to the Prometheus container which may cause issues if they are invalid or not supporeted by the given Prometheus version. In case of an argument conflict (e.g. an argument which is already set by the operator itself) or when providing an invalid argument the reconciliation will fail and an error will be logged.
+             */
+            additionalArgs?: outputs.monitoring.v1.PrometheusSpecAdditionalargs[];
+            /**
+             * AdditionalScrapeConfigs allows specifying a key of a Secret containing additional Prometheus scrape configurations. Scrape configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config. As scrape configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible scrape configs are going to break Prometheus after the upgrade.
+             */
+            additionalScrapeConfigs?: outputs.monitoring.v1.PrometheusSpecAdditionalscrapeconfigs;
+            /**
+             * If specified, the pod's scheduling constraints.
+             */
+            affinity?: outputs.monitoring.v1.PrometheusSpecAffinity;
+            /**
+             * Define details regarding alerting.
+             */
+            alerting?: outputs.monitoring.v1.PrometheusSpecAlerting;
+            /**
+             * AllowOverlappingBlocks enables vertical compaction and vertical query merge in Prometheus. This is still experimental in Prometheus so it may change in any upcoming release.
+             */
+            allowOverlappingBlocks?: boolean;
+            /**
+             * APIServerConfig allows specifying a host and auth methods to access apiserver. If left empty, Prometheus is assumed to run inside of the cluster and will discover API servers automatically and use the pod's CA certificate and bearer token file at /var/run/secrets/kubernetes.io/serviceaccount/.
+             */
+            apiserverConfig?: outputs.monitoring.v1.PrometheusSpecApiserverconfig;
+            /**
+             * ArbitraryFSAccessThroughSMs configures whether configuration based on a service monitor can access arbitrary files on the file system of the Prometheus container e.g. bearer token files.
+             */
+            arbitraryFSAccessThroughSMs?: outputs.monitoring.v1.PrometheusSpecArbitraryfsaccessthroughsms;
+            /**
+             * Base image to use for a Prometheus deployment. Deprecated: use 'image' instead
+             */
+            baseImage?: string;
+            /**
+             * ConfigMaps is a list of ConfigMaps in the same namespace as the Prometheus object, which shall be mounted into the Prometheus Pods. The ConfigMaps are mounted into /etc/prometheus/configmaps/<configmap-name>.
+             */
+            configMaps?: string[];
+            /**
+             * Containers allows injecting additional containers or modifying operator generated containers. This can be used to allow adding an authentication proxy to a Prometheus pod or to change the behavior of an operator generated container. Containers described here modify an operator generated container if they share the same name and modifications are done via a strategic merge patch. The current container names are: `prometheus`, `config-reloader`, and `thanos-sidecar`. Overriding containers is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.
+             */
+            containers?: outputs.monitoring.v1.PrometheusSpecContainers[];
+            /**
+             * Disable prometheus compaction.
+             */
+            disableCompaction?: boolean;
+            /**
+             * Enable access to prometheus web admin API. Defaults to the value of `false`. WARNING: Enabling the admin APIs enables mutating endpoints, to delete data, shutdown Prometheus, and more. Enabling this should be done with care and the user is advised to add additional authentication authorization via a proxy to ensure only clients authorized to perform these actions can do so. For more information see https://prometheus.io/docs/prometheus/latest/querying/api/#tsdb-admin-apis
+             */
+            enableAdminAPI?: boolean;
+            /**
+             * Enable access to Prometheus disabled features. By default, no features are enabled. Enabling disabled features is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice. For more information see https://prometheus.io/docs/prometheus/latest/disabled_features/
+             */
+            enableFeatures?: string[];
+            /**
+             * Enable Prometheus to be used as a receiver for the Prometheus remote write protocol. Defaults to the value of `false`. WARNING: This is not considered an efficient way of ingesting samples. Use it with caution for specific low-volume use cases. It is not suitable for replacing the ingestion via scraping and turning Prometheus into a push-based metrics collection system. For more information see https://prometheus.io/docs/prometheus/latest/querying/api/#remote-write-receiver Only valid in Prometheus versions 2.33.0 and newer.
+             */
+            enableRemoteWriteReceiver?: boolean;
+            /**
+             * EnforcedBodySizeLimit defines the maximum size of uncompressed response body that will be accepted by Prometheus. Targets responding with a body larger than this many bytes will cause the scrape to fail. Example: 100MB. If defined, the limit will apply to all service/pod monitors and probes. This is an experimental feature, this behaviour could change or be removed in the future. Only valid in Prometheus versions 2.28.0 and newer.
+             */
+            enforcedBodySizeLimit?: string;
+            /**
+             * Per-scrape limit on number of labels that will be accepted for a sample. If more than this number of labels are present post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            enforcedLabelLimit?: number;
+            /**
+             * Per-scrape limit on length of labels name that will be accepted for a sample. If a label name is longer than this number post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            enforcedLabelNameLengthLimit?: number;
+            /**
+             * Per-scrape limit on length of labels value that will be accepted for a sample. If a label value is longer than this number post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            enforcedLabelValueLengthLimit?: number;
+            /**
+             * EnforcedNamespaceLabel If set, a label will be added to 
+             *  1. all user-metrics (created by `ServiceMonitor`, `PodMonitor` and `Probe` objects) and 2. in all `PrometheusRule` objects (except the ones excluded in `prometheusRulesExcludedFromEnforce`) to * alerting & recording rules and * the metrics used in their expressions (`expr`). 
+             *  Label name is this field's value. Label value is the namespace of the created object (mentioned above).
+             */
+            enforcedNamespaceLabel?: string;
+            /**
+             * EnforcedSampleLimit defines global limit on number of scraped samples that will be accepted. This overrides any SampleLimit set per ServiceMonitor or/and PodMonitor. It is meant to be used by admins to enforce the SampleLimit to keep overall number of samples/series under the desired limit. Note that if SampleLimit is lower that value will be taken instead.
+             */
+            enforcedSampleLimit?: number;
+            /**
+             * EnforcedTargetLimit defines a global limit on the number of scraped targets.  This overrides any TargetLimit set per ServiceMonitor or/and PodMonitor.  It is meant to be used by admins to enforce the TargetLimit to keep the overall number of targets under the desired limit. Note that if TargetLimit is lower, that value will be taken instead, except if either value is zero, in which case the non-zero value will be used.  If both values are zero, no limit is enforced.
+             */
+            enforcedTargetLimit?: number;
+            /**
+             * Interval between consecutive evaluations. Default: `30s`
+             */
+            evaluationInterval?: string;
+            /**
+             * List of references to PodMonitor, ServiceMonitor, Probe and PrometheusRule objects to be excluded from enforcing a namespace label of origin. Applies only if enforcedNamespaceLabel set to true.
+             */
+            excludedFromEnforcement?: outputs.monitoring.v1.PrometheusSpecExcludedfromenforcement[];
+            /**
+             * Exemplars related settings that are runtime reloadable. It requires to enable the exemplar storage feature to be effective.
+             */
+            exemplars?: outputs.monitoring.v1.PrometheusSpecExemplars;
+            /**
+             * The labels to add to any time series or alerts when communicating with external systems (federation, remote storage, Alertmanager).
+             */
+            externalLabels?: {[key: string]: string};
+            /**
+             * The external URL the Prometheus instances will be available under. This is necessary to generate correct URLs. This is necessary if Prometheus is not served from root of a DNS name.
+             */
+            externalUrl?: string;
+            /**
+             * Pods' hostAliases configuration
+             */
+            hostAliases?: outputs.monitoring.v1.PrometheusSpecHostaliases[];
+            /**
+             * IgnoreNamespaceSelectors if set to true will ignore NamespaceSelector settings from all PodMonitor, ServiceMonitor and Probe objects. They will only discover endpoints within the namespace of the PodMonitor, ServiceMonitor and Probe objects. Defaults to false.
+             */
+            ignoreNamespaceSelectors?: boolean;
+            /**
+             * Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Prometheus is being configured.
+             */
+            image?: string;
+            /**
+             * An optional list of references to secrets in the same namespace to use for pulling prometheus and alertmanager images from registries see http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod
+             */
+            imagePullSecrets?: outputs.monitoring.v1.PrometheusSpecImagepullsecrets[];
+            /**
+             * InitContainers allows adding initContainers to the pod definition. Those can be used to e.g. fetch secrets for injection into the Prometheus configuration from external sources. Any errors during the execution of an initContainer will lead to a restart of the Pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ InitContainers described here modify an operator generated init containers if they share the same name and modifications are done via a strategic merge patch. The current init container name is: `init-config-reloader`. Overriding init containers is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.
+             */
+            initContainers?: outputs.monitoring.v1.PrometheusSpecInitcontainers[];
+            /**
+             * ListenLocal makes the Prometheus server listen on loopback, so that it does not bind against the Pod IP.
+             */
+            listenLocal?: boolean;
+            /**
+             * Log format for Prometheus to be configured with.
+             */
+            logFormat?: string;
+            /**
+             * Log level for Prometheus to be configured with.
+             */
+            logLevel?: string;
+            /**
+             * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+             */
+            minReadySeconds?: number;
+            /**
+             * Define which Nodes the Pods are scheduled on.
+             */
+            nodeSelector?: {[key: string]: string};
+            /**
+             * When true, Prometheus resolves label conflicts by renaming the labels in the scraped data to "exported_<label value>" for all targets created from service and pod monitors. Otherwise the HonorLabels field of the service or pod monitor applies.
+             */
+            overrideHonorLabels?: boolean;
+            /**
+             * When true, Prometheus ignores the timestamps for all the targets created from service and pod monitors. Otherwise the HonorTimestamps field of the service or pod monitor applies.
+             */
+            overrideHonorTimestamps?: boolean;
+            /**
+             * When a Prometheus deployment is paused, no actions except for deletion will be performed on the underlying objects.
+             */
+            paused?: boolean;
+            /**
+             * PodMetadata configures Labels and Annotations which are propagated to the prometheus pods.
+             */
+            podMetadata?: outputs.monitoring.v1.PrometheusSpecPodmetadata;
+            /**
+             * Namespace's labels to match for PodMonitor discovery. If nil, only check own namespace.
+             */
+            podMonitorNamespaceSelector?: outputs.monitoring.v1.PrometheusSpecPodmonitornamespaceselector;
+            /**
+             * *Experimental* PodMonitors to be selected for target discovery. *Deprecated:* if neither this nor serviceMonitorSelector are specified, configuration is unmanaged.
+             */
+            podMonitorSelector?: outputs.monitoring.v1.PrometheusSpecPodmonitorselector;
+            /**
+             * Port name used for the pods and governing service. This defaults to web
+             */
+            portName?: string;
+            /**
+             * Priority class assigned to the Pods
+             */
+            priorityClassName?: string;
+            /**
+             * *Experimental* Namespaces to be selected for Probe discovery. If nil, only check own namespace.
+             */
+            probeNamespaceSelector?: outputs.monitoring.v1.PrometheusSpecProbenamespaceselector;
+            /**
+             * *Experimental* Probes to be selected for target discovery.
+             */
+            probeSelector?: outputs.monitoring.v1.PrometheusSpecProbeselector;
+            /**
+             * Name of Prometheus external label used to denote Prometheus instance name. Defaults to the value of `prometheus`. External label will _not_ be added when value is set to empty string (`""`).
+             */
+            prometheusExternalLabelName?: string;
+            /**
+             * PrometheusRulesExcludedFromEnforce - list of prometheus rules to be excluded from enforcing of adding namespace labels. Works only if enforcedNamespaceLabel set to true. Make sure both ruleNamespace and ruleName are set for each pair. Deprecated: use excludedFromEnforcement instead.
+             */
+            prometheusRulesExcludedFromEnforce?: outputs.monitoring.v1.PrometheusSpecPrometheusrulesexcludedfromenforce[];
+            /**
+             * QuerySpec defines the query command line flags when starting Prometheus.
+             */
+            query?: outputs.monitoring.v1.PrometheusSpecQuery;
+            /**
+             * QueryLogFile specifies the file to which PromQL queries are logged. If the filename has an empty path, e.g. 'query.log', prometheus-operator will mount the file into an emptyDir volume at `/var/log/prometheus`. If a full path is provided, e.g. /var/log/prometheus/query.log, you must mount a volume in the specified directory and it must be writable. This is because the prometheus container runs with a read-only root filesystem for security reasons. Alternatively, the location can be set to a stdout location such as `/dev/stdout` to log query information to the default Prometheus log stream. This is only available in versions of Prometheus >= 2.16.0. For more details, see the Prometheus docs (https://prometheus.io/docs/guides/query-log/)
+             */
+            queryLogFile?: string;
+            /**
+             * remoteRead is the list of remote read configurations.
+             */
+            remoteRead?: outputs.monitoring.v1.PrometheusSpecRemoteread[];
+            /**
+             * remoteWrite is the list of remote write configurations.
+             */
+            remoteWrite?: outputs.monitoring.v1.PrometheusSpecRemotewrite[];
+            /**
+             * Name of Prometheus external label used to denote replica name. Defaults to the value of `prometheus_replica`. External label will _not_ be added when value is set to empty string (`""`).
+             */
+            replicaExternalLabelName?: string;
+            /**
+             * Number of replicas of each shard to deploy for a Prometheus deployment. Number of replicas multiplied by shards is the total number of Pods created.
+             */
+            replicas?: number;
+            /**
+             * Define resources requests and limits for single Pods.
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecResources;
+            /**
+             * Time duration Prometheus shall retain data for. Default is '24h' if retentionSize is not set, and must match the regular expression `[0-9]+(ms|s|m|h|d|w|y)` (milliseconds seconds minutes hours days weeks years).
+             */
+            retention?: string;
+            /**
+             * Maximum amount of disk space used by blocks.
+             */
+            retentionSize?: string;
+            /**
+             * The route prefix Prometheus registers HTTP handlers for. This is useful, if using ExternalURL and a proxy is rewriting HTTP routes of a request, and the actual ExternalURL is still true, but the server serves requests under a different route prefix. For example for use with `kubectl proxy`.
+             */
+            routePrefix?: string;
+            /**
+             * Namespaces to be selected for PrometheusRules discovery. If unspecified, only the same namespace as the Prometheus object is in is used.
+             */
+            ruleNamespaceSelector?: outputs.monitoring.v1.PrometheusSpecRulenamespaceselector;
+            /**
+             * A selector to select which PrometheusRules to mount for loading alerting/recording rules from. Until (excluding) Prometheus Operator v0.24.0 Prometheus Operator will migrate any legacy rule ConfigMaps to PrometheusRule custom resources selected by RuleSelector. Make sure it does not match any config maps that you do not want to be migrated.
+             */
+            ruleSelector?: outputs.monitoring.v1.PrometheusSpecRuleselector;
+            /**
+             * /--rules.*&#47; command-line arguments.
+             */
+            rules?: outputs.monitoring.v1.PrometheusSpecRules;
+            /**
+             * Interval between consecutive scrapes. Default: `30s`
+             */
+            scrapeInterval?: string;
+            /**
+             * Number of seconds to wait for target to respond before erroring.
+             */
+            scrapeTimeout?: string;
+            /**
+             * Secrets is a list of Secrets in the same namespace as the Prometheus object, which shall be mounted into the Prometheus Pods. The Secrets are mounted into /etc/prometheus/secrets/<secret-name>.
+             */
+            secrets?: string[];
+            /**
+             * SecurityContext holds pod-level security attributes and common container settings. This defaults to the default PodSecurityContext.
+             */
+            securityContext?: outputs.monitoring.v1.PrometheusSpecSecuritycontext;
+            /**
+             * ServiceAccountName is the name of the ServiceAccount to use to run the Prometheus Pods.
+             */
+            serviceAccountName?: string;
+            /**
+             * Namespace's labels to match for ServiceMonitor discovery. If nil, only check own namespace.
+             */
+            serviceMonitorNamespaceSelector?: outputs.monitoring.v1.PrometheusSpecServicemonitornamespaceselector;
+            /**
+             * ServiceMonitors to be selected for target discovery. *Deprecated:* if neither this nor podMonitorSelector are specified, configuration is unmanaged.
+             */
+            serviceMonitorSelector?: outputs.monitoring.v1.PrometheusSpecServicemonitorselector;
+            /**
+             * SHA of Prometheus container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set. Deprecated: use 'image' instead.  The image digest can be specified as part of the image URL.
+             */
+            sha?: string;
+            /**
+             * EXPERIMENTAL: Number of shards to distribute targets onto. Number of replicas multiplied by shards is the total number of Pods created. Note that scaling down shards will not reshard data onto remaining instances, it must be manually moved. Increasing shards will not reshard data either but it will continue to be available from the same instances. To query globally use Thanos sidecar and Thanos querier or remote write data to a central location. Sharding is done on the content of the `__address__` target meta-label.
+             */
+            shards?: number;
+            /**
+             * Storage spec to specify how storage shall be used.
+             */
+            storage?: outputs.monitoring.v1.PrometheusSpecStorage;
+            /**
+             * Tag of Prometheus container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set. Deprecated: use 'image' instead.  The image tag can be specified as part of the image URL.
+             */
+            tag?: string;
+            /**
+             * Thanos configuration allows configuring various aspects of a Prometheus server in a Thanos environment. 
+             *  This section is experimental, it may change significantly without deprecation notice in any release. 
+             *  This is experimental and may change significantly without backward compatibility in any release.
+             */
+            thanos?: outputs.monitoring.v1.PrometheusSpecThanos;
+            /**
+             * If specified, the pod's tolerations.
+             */
+            tolerations?: outputs.monitoring.v1.PrometheusSpecTolerations[];
+            /**
+             * If specified, the pod's topology spread constraints.
+             */
+            topologySpreadConstraints?: outputs.monitoring.v1.PrometheusSpecTopologyspreadconstraints[];
+            /**
+             * Version of Prometheus to be deployed.
+             */
+            version?: string;
+            /**
+             * VolumeMounts allows configuration of additional VolumeMounts on the output StatefulSet definition. VolumeMounts specified will be appended to other VolumeMounts in the prometheus container, that are generated as a result of StorageSpec objects.
+             */
+            volumeMounts?: outputs.monitoring.v1.PrometheusSpecVolumemounts[];
+            /**
+             * Volumes allows configuration of additional volumes on the output StatefulSet definition. Volumes specified will be appended to other volumes that are generated as a result of StorageSpec objects.
+             */
+            volumes?: outputs.monitoring.v1.PrometheusSpecVolumes[];
+            /**
+             * Enable compression of the write-ahead log using Snappy. This flag is only available in versions of Prometheus >= 2.11.0.
+             */
+            walCompression?: boolean;
+            /**
+             * Defines the web command line flags when starting Prometheus.
+             */
+            web?: outputs.monitoring.v1.PrometheusSpecWeb;
+        }
+        /**
+         * prometheusSpecProvideDefaults sets the appropriate defaults for PrometheusSpec
+         */
+        export function prometheusSpecProvideDefaults(val: PrometheusSpec): PrometheusSpec {
+            return {
+                ...val,
+                evaluationInterval: (val.evaluationInterval) ?? "30s",
+                scrapeInterval: (val.scrapeInterval) ?? "30s",
+            };
+        }
+
+        /**
+         * AdditionalAlertManagerConfigs allows specifying a key of a Secret containing additional Prometheus AlertManager configurations. AlertManager configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alertmanager_config. As AlertManager configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible AlertManager configs are going to break Prometheus after the upgrade.
+         */
+        export interface PrometheusSpecAdditionalalertmanagerconfigs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * AdditionalAlertRelabelConfigs allows specifying a key of a Secret containing additional Prometheus alert relabel configurations. Alert relabel configurations specified are appended to the configurations generated by the Prometheus Operator. Alert relabel configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#alert_relabel_configs. As alert relabel configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible alert relabel configs are going to break Prometheus after the upgrade.
+         */
+        export interface PrometheusSpecAdditionalalertrelabelconfigs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Argument as part of the AdditionalArgs list.
+         */
+        export interface PrometheusSpecAdditionalargs {
+            /**
+             * Name of the argument, e.g. "scrape.discovery-reload-interval".
+             */
+            name: string;
+            /**
+             * Argument value, e.g. 30s. Can be empty for name-only arguments (e.g. --storage.tsdb.no-lockfile)
+             */
+            value?: string;
+        }
+
+        /**
+         * AdditionalScrapeConfigs allows specifying a key of a Secret containing additional Prometheus scrape configurations. Scrape configurations specified are appended to the configurations generated by the Prometheus Operator. Job configurations specified must have the form as specified in the official Prometheus documentation: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config. As scrape configs are appended, the user is responsible to make sure it is valid. Note that using this feature may expose the possibility to break upgrades of Prometheus. It is advised to review Prometheus release notes to ensure that no incompatible scrape configs are going to break Prometheus after the upgrade.
+         */
+        export interface PrometheusSpecAdditionalscrapeconfigs {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * If specified, the pod's scheduling constraints.
+         */
+        export interface PrometheusSpecAffinity {
+            /**
+             * Describes node affinity scheduling rules for the pod.
+             */
+            nodeAffinity?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinity;
+            /**
+             * Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+             */
+            podAffinity?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinity;
+            /**
+             * Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+             */
+            podAntiAffinity?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinity;
+        }
+
+        /**
+         * Describes node affinity scheduling rules for the pod.
+         */
+        export interface PrometheusSpecAffinityNodeaffinity {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecution[];
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecution;
+        }
+
+        /**
+         * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecution {
+            /**
+             * A node selector term, associated with the corresponding weight.
+             */
+            preference: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreference;
+            /**
+             * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
+             */
+            weight: number;
+        }
+
+        /**
+         * A node selector term, associated with the corresponding weight.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreference {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressions[];
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfields[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressions {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfields {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecution {
+            /**
+             * Required. A list of node selector terms. The terms are ORed.
+             */
+            nodeSelectorTerms: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectorterms[];
+        }
+
+        /**
+         * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectorterms {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressions[];
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: outputs.monitoring.v1.PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfields[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressions {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfields {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).
+         */
+        export interface PrometheusSpecAffinityPodaffinity {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecution[];
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecution[];
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecution {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: number;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecution {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).
+         */
+        export interface PrometheusSpecAffinityPodantiaffinity {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecution[];
+            /**
+             * If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecution[];
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecution {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: number;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecution {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecAffinityPodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Define details regarding alerting.
+         */
+        export interface PrometheusSpecAlerting {
+            /**
+             * AlertmanagerEndpoints Prometheus should fire alerts against.
+             */
+            alertmanagers: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagers[];
+        }
+
+        /**
+         * AlertmanagerEndpoints defines a selection of a single Endpoints object containing alertmanager IPs to fire alerts against.
+         */
+        export interface PrometheusSpecAlertingAlertmanagers {
+            /**
+             * Version of the Alertmanager API that Prometheus uses to send alerts. It can be "v1" or "v2".
+             */
+            apiVersion?: string;
+            /**
+             * Authorization section for this alertmanager endpoint
+             */
+            authorization?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersAuthorization;
+            /**
+             * BearerTokenFile to read from filesystem to use when authenticating to Alertmanager.
+             */
+            bearerTokenFile?: string;
+            /**
+             * Name of Endpoints object in Namespace.
+             */
+            name: string;
+            /**
+             * Namespace of Endpoints object.
+             */
+            namespace: string;
+            /**
+             * Prefix for the HTTP path alerts are pushed to.
+             */
+            pathPrefix?: string;
+            /**
+             * Port the Alertmanager API is exposed on.
+             */
+            port: number | string;
+            /**
+             * Scheme to use when firing alerts.
+             */
+            scheme?: string;
+            /**
+             * Timeout is a per-target Alertmanager timeout when pushing alerts.
+             */
+            timeout?: string;
+            /**
+             * TLS Config to use for alertmanager connection.
+             */
+            tlsConfig?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfig;
+        }
+
+        /**
+         * Authorization section for this alertmanager endpoint
+         */
+        export interface PrometheusSpecAlertingAlertmanagersAuthorization {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersAuthorizationCredentials;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: string;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecAlertingAlertmanagersAuthorizationCredentials {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * TLS Config to use for alertmanager connection.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfig {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCa;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: string;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCert;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: string;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: boolean;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: string;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigKeysecret;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: string;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCa {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCaConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCaSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCaConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCaSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCert {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCertConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecAlertingAlertmanagersTlsconfigCertSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCertConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigCertSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecAlertingAlertmanagersTlsconfigKeysecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * APIServerConfig allows specifying a host and auth methods to access apiserver. If left empty, Prometheus is assumed to run inside of the cluster and will discover API servers automatically and use the pod's CA certificate and bearer token file at /var/run/secrets/kubernetes.io/serviceaccount/.
+         */
+        export interface PrometheusSpecApiserverconfig {
+            /**
+             * Authorization section for accessing apiserver
+             */
+            authorization?: outputs.monitoring.v1.PrometheusSpecApiserverconfigAuthorization;
+            /**
+             * BasicAuth allow an endpoint to authenticate over basic authentication
+             */
+            basicAuth?: outputs.monitoring.v1.PrometheusSpecApiserverconfigBasicauth;
+            /**
+             * Bearer token for accessing apiserver.
+             */
+            bearerToken?: string;
+            /**
+             * File to read bearer token for accessing apiserver.
+             */
+            bearerTokenFile?: string;
+            /**
+             * Host of apiserver. A valid string consisting of a hostname or IP followed by an optional port number
+             */
+            host: string;
+            /**
+             * TLS Config to use for accessing apiserver.
+             */
+            tlsConfig?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfig;
+        }
+
+        /**
+         * Authorization section for accessing apiserver
+         */
+        export interface PrometheusSpecApiserverconfigAuthorization {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: outputs.monitoring.v1.PrometheusSpecApiserverconfigAuthorizationCredentials;
+            /**
+             * File to read a secret from, mutually exclusive with Credentials (from SafeAuthorization)
+             */
+            credentialsFile?: string;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: string;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecApiserverconfigAuthorizationCredentials {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * BasicAuth allow an endpoint to authenticate over basic authentication
+         */
+        export interface PrometheusSpecApiserverconfigBasicauth {
+            /**
+             * The secret in the service monitor namespace that contains the password for authentication.
+             */
+            password?: outputs.monitoring.v1.PrometheusSpecApiserverconfigBasicauthPassword;
+            /**
+             * The secret in the service monitor namespace that contains the username for authentication.
+             */
+            username?: outputs.monitoring.v1.PrometheusSpecApiserverconfigBasicauthUsername;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the password for authentication.
+         */
+        export interface PrometheusSpecApiserverconfigBasicauthPassword {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the username for authentication.
+         */
+        export interface PrometheusSpecApiserverconfigBasicauthUsername {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * TLS Config to use for accessing apiserver.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfig {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCa;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: string;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCert;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: string;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: boolean;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: string;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigKeysecret;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: string;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCa {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCaConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCaSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCaConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCaSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCert {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCertConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecApiserverconfigTlsconfigCertSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCertConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigCertSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecApiserverconfigTlsconfigKeysecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * ArbitraryFSAccessThroughSMs configures whether configuration based on a service monitor can access arbitrary files on the file system of the Prometheus container e.g. bearer token files.
+         */
+        export interface PrometheusSpecArbitraryfsaccessthroughsms {
+            deny?: boolean;
+        }
+
+        /**
+         * A single application container that you want to run within a pod.
+         */
+        export interface PrometheusSpecContainers {
+            /**
+             * Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            args?: string[];
+            /**
+             * Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            command?: string[];
+            /**
+             * List of environment variables to set in the container. Cannot be updated.
+             */
+            env?: outputs.monitoring.v1.PrometheusSpecContainersEnv[];
+            /**
+             * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
+             */
+            envFrom?: outputs.monitoring.v1.PrometheusSpecContainersEnvfrom[];
+            /**
+             * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+             */
+            image?: string;
+            /**
+             * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             */
+            imagePullPolicy?: string;
+            /**
+             * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+             */
+            lifecycle?: outputs.monitoring.v1.PrometheusSpecContainersLifecycle;
+            /**
+             * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            livenessProbe?: outputs.monitoring.v1.PrometheusSpecContainersLivenessprobe;
+            /**
+             * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+             */
+            name: string;
+            /**
+             * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
+             */
+            ports?: outputs.monitoring.v1.PrometheusSpecContainersPorts[];
+            /**
+             * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            readinessProbe?: outputs.monitoring.v1.PrometheusSpecContainersReadinessprobe;
+            /**
+             * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecContainersResources;
+            /**
+             * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+             */
+            securityContext?: outputs.monitoring.v1.PrometheusSpecContainersSecuritycontext;
+            /**
+             * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            startupProbe?: outputs.monitoring.v1.PrometheusSpecContainersStartupprobe;
+            /**
+             * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
+             */
+            stdin?: boolean;
+            /**
+             * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+             */
+            stdinOnce?: boolean;
+            /**
+             * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
+             */
+            terminationMessagePath?: string;
+            /**
+             * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+             */
+            terminationMessagePolicy?: string;
+            /**
+             * Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
+             */
+            tty?: boolean;
+            /**
+             * volumeDevices is the list of block devices to be used by the container.
+             */
+            volumeDevices?: outputs.monitoring.v1.PrometheusSpecContainersVolumedevices[];
+            /**
+             * Pod volumes to mount into the container's filesystem. Cannot be updated.
+             */
+            volumeMounts?: outputs.monitoring.v1.PrometheusSpecContainersVolumemounts[];
+            /**
+             * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+             */
+            workingDir?: string;
+        }
+
+        /**
+         * EnvVar represents an environment variable present in a Container.
+         */
+        export interface PrometheusSpecContainersEnv {
+            /**
+             * Name of the environment variable. Must be a C_IDENTIFIER.
+             */
+            name: string;
+            /**
+             * Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             */
+            value?: string;
+            /**
+             * Source for the environment variable's value. Cannot be used if value is not empty.
+             */
+            valueFrom?: outputs.monitoring.v1.PrometheusSpecContainersEnvValuefrom;
+        }
+
+        /**
+         * Source for the environment variable's value. Cannot be used if value is not empty.
+         */
+        export interface PrometheusSpecContainersEnvValuefrom {
+            /**
+             * Selects a key of a ConfigMap.
+             */
+            configMapKeyRef?: outputs.monitoring.v1.PrometheusSpecContainersEnvValuefromConfigmapkeyref;
+            /**
+             * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+             */
+            fieldRef?: outputs.monitoring.v1.PrometheusSpecContainersEnvValuefromFieldref;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+             */
+            resourceFieldRef?: outputs.monitoring.v1.PrometheusSpecContainersEnvValuefromResourcefieldref;
+            /**
+             * Selects a key of a secret in the pod's namespace
+             */
+            secretKeyRef?: outputs.monitoring.v1.PrometheusSpecContainersEnvValuefromSecretkeyref;
+        }
+
+        /**
+         * Selects a key of a ConfigMap.
+         */
+        export interface PrometheusSpecContainersEnvValuefromConfigmapkeyref {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+         */
+        export interface PrometheusSpecContainersEnvValuefromFieldref {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: string;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: string;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+         */
+        export interface PrometheusSpecContainersEnvValuefromResourcefieldref {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: string;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: number | string;
+            /**
+             * Required: resource to select
+             */
+            resource: string;
+        }
+
+        /**
+         * Selects a key of a secret in the pod's namespace
+         */
+        export interface PrometheusSpecContainersEnvValuefromSecretkeyref {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * EnvFromSource represents the source of a set of ConfigMaps
+         */
+        export interface PrometheusSpecContainersEnvfrom {
+            /**
+             * The ConfigMap to select from
+             */
+            configMapRef?: outputs.monitoring.v1.PrometheusSpecContainersEnvfromConfigmapref;
+            /**
+             * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+             */
+            prefix?: string;
+            /**
+             * The Secret to select from
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecContainersEnvfromSecretref;
+        }
+
+        /**
+         * The ConfigMap to select from
+         */
+        export interface PrometheusSpecContainersEnvfromConfigmapref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The Secret to select from
+         */
+        export interface PrometheusSpecContainersEnvfromSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+         */
+        export interface PrometheusSpecContainersLifecycle {
+            /**
+             * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            postStart?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststart;
+            /**
+             * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            preStop?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestop;
+        }
+
+        /**
+         * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecContainersLifecyclePoststart {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartExec;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartHttpget;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartTcpsocket;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePoststartHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecContainersLifecyclePoststartTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecContainersLifecyclePrestop {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopExec;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopHttpget;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopTcpsocket;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecContainersLifecyclePrestopHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecContainersLifecyclePrestopTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecContainersLivenessprobe {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecContainersLivenessprobeExec;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: number;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: outputs.monitoring.v1.PrometheusSpecContainersLivenessprobeGrpc;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecContainersLivenessprobeHttpget;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: number;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: number;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: number;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecContainersLivenessprobeTcpsocket;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: number;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: number;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersLivenessprobeExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecContainersLivenessprobeGrpc {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: number;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: string;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersLivenessprobeHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecContainersLivenessprobeHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersLivenessprobeHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecContainersLivenessprobeTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * ContainerPort represents a network port in a single container.
+         */
+        export interface PrometheusSpecContainersPorts {
+            /**
+             * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+             */
+            containerPort: number;
+            /**
+             * What host IP to bind the external port to.
+             */
+            hostIP?: string;
+            /**
+             * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+             */
+            hostPort?: number;
+            /**
+             * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
+             */
+            name?: string;
+            /**
+             * Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
+             */
+            protocol?: string;
+        }
+        /**
+         * prometheusSpecContainersPortsProvideDefaults sets the appropriate defaults for PrometheusSpecContainersPorts
+         */
+        export function prometheusSpecContainersPortsProvideDefaults(val: PrometheusSpecContainersPorts): PrometheusSpecContainersPorts {
+            return {
+                ...val,
+                protocol: (val.protocol) ?? "TCP",
+            };
+        }
+
+        /**
+         * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecContainersReadinessprobe {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecContainersReadinessprobeExec;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: number;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: outputs.monitoring.v1.PrometheusSpecContainersReadinessprobeGrpc;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecContainersReadinessprobeHttpget;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: number;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: number;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: number;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecContainersReadinessprobeTcpsocket;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: number;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: number;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersReadinessprobeExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecContainersReadinessprobeGrpc {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: number;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: string;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersReadinessprobeHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecContainersReadinessprobeHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersReadinessprobeHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecContainersReadinessprobeTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+         */
+        export interface PrometheusSpecContainersResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+         */
+        export interface PrometheusSpecContainersSecuritycontext {
+            /**
+             * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
+             */
+            allowPrivilegeEscalation?: boolean;
+            /**
+             * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+             */
+            capabilities?: outputs.monitoring.v1.PrometheusSpecContainersSecuritycontextCapabilities;
+            /**
+             * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            privileged?: boolean;
+            /**
+             * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.
+             */
+            procMount?: string;
+            /**
+             * Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            readOnlyRootFilesystem?: boolean;
+            /**
+             * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsGroup?: number;
+            /**
+             * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsNonRoot?: boolean;
+            /**
+             * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsUser?: number;
+            /**
+             * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seLinuxOptions?: outputs.monitoring.v1.PrometheusSpecContainersSecuritycontextSelinuxoptions;
+            /**
+             * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seccompProfile?: outputs.monitoring.v1.PrometheusSpecContainersSecuritycontextSeccompprofile;
+            /**
+             * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+             */
+            windowsOptions?: outputs.monitoring.v1.PrometheusSpecContainersSecuritycontextWindowsoptions;
+        }
+
+        /**
+         * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecContainersSecuritycontextCapabilities {
+            /**
+             * Added capabilities
+             */
+            add?: string[];
+            /**
+             * Removed capabilities
+             */
+            drop?: string[];
+        }
+
+        /**
+         * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecContainersSecuritycontextSeccompprofile {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: string;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: string;
+        }
+
+        /**
+         * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecContainersSecuritycontextSelinuxoptions {
+            /**
+             * Level is SELinux level label that applies to the container.
+             */
+            level?: string;
+            /**
+             * Role is a SELinux role label that applies to the container.
+             */
+            role?: string;
+            /**
+             * Type is a SELinux type label that applies to the container.
+             */
+            type?: string;
+            /**
+             * User is a SELinux user label that applies to the container.
+             */
+            user?: string;
+        }
+
+        /**
+         * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+         */
+        export interface PrometheusSpecContainersSecuritycontextWindowsoptions {
+            /**
+             * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
+             */
+            gmsaCredentialSpec?: string;
+            /**
+             * GMSACredentialSpecName is the name of the GMSA credential spec to use.
+             */
+            gmsaCredentialSpecName?: string;
+            /**
+             * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+             */
+            hostProcess?: boolean;
+            /**
+             * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsUserName?: string;
+        }
+
+        /**
+         * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecContainersStartupprobe {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecContainersStartupprobeExec;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: number;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: outputs.monitoring.v1.PrometheusSpecContainersStartupprobeGrpc;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecContainersStartupprobeHttpget;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: number;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: number;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: number;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecContainersStartupprobeTcpsocket;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: number;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: number;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecContainersStartupprobeExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecContainersStartupprobeGrpc {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: number;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: string;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecContainersStartupprobeHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecContainersStartupprobeHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecContainersStartupprobeHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecContainersStartupprobeTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * volumeDevice describes a mapping of a raw block device within a container.
+         */
+        export interface PrometheusSpecContainersVolumedevices {
+            /**
+             * devicePath is the path inside of the container that the device will be mapped to.
+             */
+            devicePath: string;
+            /**
+             * name must match the name of a persistentVolumeClaim in the pod
+             */
+            name: string;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecContainersVolumemounts {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: string;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: string;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: string;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: boolean;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: string;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: string;
+        }
+
+        /**
+         * ObjectReference references a PodMonitor, ServiceMonitor, Probe or PrometheusRule object.
+         */
+        export interface PrometheusSpecExcludedfromenforcement {
+            /**
+             * Group of the referent. When not specified, it defaults to `monitoring.coreos.com`
+             */
+            group?: string;
+            /**
+             * Name of the referent. When not set, all resources are matched.
+             */
+            name?: string;
+            /**
+             * Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+             */
+            namespace: string;
+            /**
+             * Resource of the referent.
+             */
+            resource: string;
+        }
+        /**
+         * prometheusSpecExcludedfromenforcementProvideDefaults sets the appropriate defaults for PrometheusSpecExcludedfromenforcement
+         */
+        export function prometheusSpecExcludedfromenforcementProvideDefaults(val: PrometheusSpecExcludedfromenforcement): PrometheusSpecExcludedfromenforcement {
+            return {
+                ...val,
+                group: (val.group) ?? "monitoring.coreos.com",
+            };
+        }
+
+        /**
+         * Exemplars related settings that are runtime reloadable. It requires to enable the exemplar storage feature to be effective.
+         */
+        export interface PrometheusSpecExemplars {
+            /**
+             * Maximum number of exemplars stored in memory for all series. If not set, Prometheus uses its default value. A value of zero or less than zero disables the storage.
+             */
+            maxSize?: number;
+        }
+
+        /**
+         * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.
+         */
+        export interface PrometheusSpecHostaliases {
+            /**
+             * Hostnames for the above IP address.
+             */
+            hostnames: string[];
+            /**
+             * IP address of the host file entry.
+             */
+            ip: string;
+        }
+
+        /**
+         * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
+         */
+        export interface PrometheusSpecImagepullsecrets {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * A single application container that you want to run within a pod.
+         */
+        export interface PrometheusSpecInitcontainers {
+            /**
+             * Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            args?: string[];
+            /**
+             * Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+             */
+            command?: string[];
+            /**
+             * List of environment variables to set in the container. Cannot be updated.
+             */
+            env?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnv[];
+            /**
+             * List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
+             */
+            envFrom?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvfrom[];
+            /**
+             * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.
+             */
+            image?: string;
+            /**
+             * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             */
+            imagePullPolicy?: string;
+            /**
+             * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+             */
+            lifecycle?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecycle;
+            /**
+             * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            livenessProbe?: outputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobe;
+            /**
+             * Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
+             */
+            name: string;
+            /**
+             * List of ports to expose from the container. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network. Modifying this array with strategic merge patch may corrupt the data. For more information See https://github.com/kubernetes/kubernetes/issues/108255. Cannot be updated.
+             */
+            ports?: outputs.monitoring.v1.PrometheusSpecInitcontainersPorts[];
+            /**
+             * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            readinessProbe?: outputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobe;
+            /**
+             * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecInitcontainersResources;
+            /**
+             * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+             */
+            securityContext?: outputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontext;
+            /**
+             * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            startupProbe?: outputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobe;
+            /**
+             * Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
+             */
+            stdin?: boolean;
+            /**
+             * Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+             */
+            stdinOnce?: boolean;
+            /**
+             * Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log. Cannot be updated.
+             */
+            terminationMessagePath?: string;
+            /**
+             * Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+             */
+            terminationMessagePolicy?: string;
+            /**
+             * Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
+             */
+            tty?: boolean;
+            /**
+             * volumeDevices is the list of block devices to be used by the container.
+             */
+            volumeDevices?: outputs.monitoring.v1.PrometheusSpecInitcontainersVolumedevices[];
+            /**
+             * Pod volumes to mount into the container's filesystem. Cannot be updated.
+             */
+            volumeMounts?: outputs.monitoring.v1.PrometheusSpecInitcontainersVolumemounts[];
+            /**
+             * Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
+             */
+            workingDir?: string;
+        }
+
+        /**
+         * EnvVar represents an environment variable present in a Container.
+         */
+        export interface PrometheusSpecInitcontainersEnv {
+            /**
+             * Name of the environment variable. Must be a C_IDENTIFIER.
+             */
+            name: string;
+            /**
+             * Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             */
+            value?: string;
+            /**
+             * Source for the environment variable's value. Cannot be used if value is not empty.
+             */
+            valueFrom?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefrom;
+        }
+
+        /**
+         * Source for the environment variable's value. Cannot be used if value is not empty.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefrom {
+            /**
+             * Selects a key of a ConfigMap.
+             */
+            configMapKeyRef?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromConfigmapkeyref;
+            /**
+             * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+             */
+            fieldRef?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromFieldref;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+             */
+            resourceFieldRef?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromResourcefieldref;
+            /**
+             * Selects a key of a secret in the pod's namespace
+             */
+            secretKeyRef?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvValuefromSecretkeyref;
+        }
+
+        /**
+         * Selects a key of a ConfigMap.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromConfigmapkeyref {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromFieldref {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: string;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: string;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromResourcefieldref {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: string;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: number | string;
+            /**
+             * Required: resource to select
+             */
+            resource: string;
+        }
+
+        /**
+         * Selects a key of a secret in the pod's namespace
+         */
+        export interface PrometheusSpecInitcontainersEnvValuefromSecretkeyref {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * EnvFromSource represents the source of a set of ConfigMaps
+         */
+        export interface PrometheusSpecInitcontainersEnvfrom {
+            /**
+             * The ConfigMap to select from
+             */
+            configMapRef?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvfromConfigmapref;
+            /**
+             * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+             */
+            prefix?: string;
+            /**
+             * The Secret to select from
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecInitcontainersEnvfromSecretref;
+        }
+
+        /**
+         * The ConfigMap to select from
+         */
+        export interface PrometheusSpecInitcontainersEnvfromConfigmapref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The Secret to select from
+         */
+        export interface PrometheusSpecInitcontainersEnvfromSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Actions that the management system should take in response to container lifecycle events. Cannot be updated.
+         */
+        export interface PrometheusSpecInitcontainersLifecycle {
+            /**
+             * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            postStart?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststart;
+            /**
+             * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+             */
+            preStop?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestop;
+        }
+
+        /**
+         * PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststart {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartExec;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartHttpget;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartTcpsocket;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePoststartHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePoststartTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc. The handler is not called if the container crashes or exits. The Pod's termination grace period countdown begins before the PreStop hook is executed. Regardless of the outcome of the handler, the container will eventually terminate within the Pod's termination grace period (unless delayed by finalizers). Other management of the container blocks until the hook completes or until the termination grace period is reached. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestop {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopExec;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopHttpget;
+            /**
+             * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopTcpsocket;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecInitcontainersLifecyclePrestopHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility. There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified.
+         */
+        export interface PrometheusSpecInitcontainersLifecyclePrestopTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobe {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeExec;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: number;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: outputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeGrpc;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeHttpget;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: number;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: number;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: number;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeTcpsocket;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: number;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: number;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeGrpc {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: number;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: string;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecInitcontainersLivenessprobeHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecInitcontainersLivenessprobeTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * ContainerPort represents a network port in a single container.
+         */
+        export interface PrometheusSpecInitcontainersPorts {
+            /**
+             * Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
+             */
+            containerPort: number;
+            /**
+             * What host IP to bind the external port to.
+             */
+            hostIP?: string;
+            /**
+             * Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
+             */
+            hostPort?: number;
+            /**
+             * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
+             */
+            name?: string;
+            /**
+             * Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
+             */
+            protocol?: string;
+        }
+        /**
+         * prometheusSpecInitcontainersPortsProvideDefaults sets the appropriate defaults for PrometheusSpecInitcontainersPorts
+         */
+        export function prometheusSpecInitcontainersPortsProvideDefaults(val: PrometheusSpecInitcontainersPorts): PrometheusSpecInitcontainersPorts {
+            return {
+                ...val,
+                protocol: (val.protocol) ?? "TCP",
+            };
+        }
+
+        /**
+         * Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobe {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeExec;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: number;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: outputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeGrpc;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeHttpget;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: number;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: number;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: number;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeTcpsocket;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: number;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: number;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeGrpc {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: number;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: string;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecInitcontainersReadinessprobeHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecInitcontainersReadinessprobeTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+         */
+        export interface PrometheusSpecInitcontainersResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontext {
+            /**
+             * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
+             */
+            allowPrivilegeEscalation?: boolean;
+            /**
+             * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+             */
+            capabilities?: outputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextCapabilities;
+            /**
+             * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            privileged?: boolean;
+            /**
+             * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.
+             */
+            procMount?: string;
+            /**
+             * Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.
+             */
+            readOnlyRootFilesystem?: boolean;
+            /**
+             * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsGroup?: number;
+            /**
+             * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsNonRoot?: boolean;
+            /**
+             * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsUser?: number;
+            /**
+             * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seLinuxOptions?: outputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextSelinuxoptions;
+            /**
+             * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seccompProfile?: outputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextSeccompprofile;
+            /**
+             * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+             */
+            windowsOptions?: outputs.monitoring.v1.PrometheusSpecInitcontainersSecuritycontextWindowsoptions;
+        }
+
+        /**
+         * The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextCapabilities {
+            /**
+             * Added capabilities
+             */
+            add?: string[];
+            /**
+             * Removed capabilities
+             */
+            drop?: string[];
+        }
+
+        /**
+         * The seccomp options to use by this container. If seccomp options are provided at both the pod & container level, the container options override the pod options. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextSeccompprofile {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: string;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: string;
+        }
+
+        /**
+         * The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextSelinuxoptions {
+            /**
+             * Level is SELinux level label that applies to the container.
+             */
+            level?: string;
+            /**
+             * Role is a SELinux role label that applies to the container.
+             */
+            role?: string;
+            /**
+             * Type is a SELinux type label that applies to the container.
+             */
+            type?: string;
+            /**
+             * User is a SELinux user label that applies to the container.
+             */
+            user?: string;
+        }
+
+        /**
+         * The Windows specific settings applied to all containers. If unspecified, the options from the PodSecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+         */
+        export interface PrometheusSpecInitcontainersSecuritycontextWindowsoptions {
+            /**
+             * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
+             */
+            gmsaCredentialSpec?: string;
+            /**
+             * GMSACredentialSpecName is the name of the GMSA credential spec to use.
+             */
+            gmsaCredentialSpecName?: string;
+            /**
+             * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+             */
+            hostProcess?: boolean;
+            /**
+             * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsUserName?: string;
+        }
+
+        /**
+         * StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+         */
+        export interface PrometheusSpecInitcontainersStartupprobe {
+            /**
+             * Exec specifies the action to take.
+             */
+            exec?: outputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeExec;
+            /**
+             * Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.
+             */
+            failureThreshold?: number;
+            /**
+             * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+             */
+            grpc?: outputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeGrpc;
+            /**
+             * HTTPGet specifies the http request to perform.
+             */
+            httpGet?: outputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeHttpget;
+            /**
+             * Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            initialDelaySeconds?: number;
+            /**
+             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+             */
+            periodSeconds?: number;
+            /**
+             * Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.
+             */
+            successThreshold?: number;
+            /**
+             * TCPSocket specifies an action involving a TCP port.
+             */
+            tcpSocket?: outputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeTcpsocket;
+            /**
+             * Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate. Minimum value is 1. spec.terminationGracePeriodSeconds is used if unset.
+             */
+            terminationGracePeriodSeconds?: number;
+            /**
+             * Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             */
+            timeoutSeconds?: number;
+        }
+
+        /**
+         * Exec specifies the action to take.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeExec {
+            /**
+             * Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+             */
+            command?: string[];
+        }
+
+        /**
+         * GRPC specifies an action involving a GRPC port. This is a beta field and requires enabling GRPCContainerProbe feature gate.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeGrpc {
+            /**
+             * Port number of the gRPC service. Number must be in the range 1 to 65535.
+             */
+            port: number;
+            /**
+             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+             *  If this is not specified, the default behavior is defined by gRPC.
+             */
+            service?: string;
+        }
+
+        /**
+         * HTTPGet specifies the http request to perform.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeHttpget {
+            /**
+             * Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
+             */
+            host?: string;
+            /**
+             * Custom headers to set in the request. HTTP allows repeated headers.
+             */
+            httpHeaders?: outputs.monitoring.v1.PrometheusSpecInitcontainersStartupprobeHttpgetHttpheaders[];
+            /**
+             * Path to access on the HTTP server.
+             */
+            path?: string;
+            /**
+             * Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+            /**
+             * Scheme to use for connecting to the host. Defaults to HTTP.
+             */
+            scheme?: string;
+        }
+
+        /**
+         * HTTPHeader describes a custom header to be used in HTTP probes
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeHttpgetHttpheaders {
+            /**
+             * The header field name
+             */
+            name: string;
+            /**
+             * The header field value
+             */
+            value: string;
+        }
+
+        /**
+         * TCPSocket specifies an action involving a TCP port.
+         */
+        export interface PrometheusSpecInitcontainersStartupprobeTcpsocket {
+            /**
+             * Optional: Host name to connect to, defaults to the pod IP.
+             */
+            host?: string;
+            /**
+             * Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
+             */
+            port: number | string;
+        }
+
+        /**
+         * volumeDevice describes a mapping of a raw block device within a container.
+         */
+        export interface PrometheusSpecInitcontainersVolumedevices {
+            /**
+             * devicePath is the path inside of the container that the device will be mapped to.
+             */
+            devicePath: string;
+            /**
+             * name must match the name of a persistentVolumeClaim in the pod
+             */
+            name: string;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecInitcontainersVolumemounts {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: string;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: string;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: string;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: boolean;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: string;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: string;
+        }
+
+        /**
+         * PodMetadata configures Labels and Annotations which are propagated to the prometheus pods.
+         */
+        export interface PrometheusSpecPodmetadata {
+            /**
+             * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             */
+            annotations?: {[key: string]: string};
+            /**
+             * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+             */
+            labels?: {[key: string]: string};
+            /**
+             * Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+             */
+            name?: string;
+        }
+
+        /**
+         * Namespace's labels to match for PodMonitor discovery. If nil, only check own namespace.
+         */
+        export interface PrometheusSpecPodmonitornamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecPodmonitornamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecPodmonitornamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * *Experimental* PodMonitors to be selected for target discovery. *Deprecated:* if neither this nor serviceMonitorSelector are specified, configuration is unmanaged.
+         */
+        export interface PrometheusSpecPodmonitorselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecPodmonitorselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecPodmonitorselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * *Experimental* Namespaces to be selected for Probe discovery. If nil, only check own namespace.
+         */
+        export interface PrometheusSpecProbenamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecProbenamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecProbenamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * *Experimental* Probes to be selected for target discovery.
+         */
+        export interface PrometheusSpecProbeselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecProbeselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecProbeselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * PrometheusRuleExcludeConfig enables users to configure excluded PrometheusRule names and their namespaces to be ignored while enforcing namespace label for alerts and metrics.
+         */
+        export interface PrometheusSpecPrometheusrulesexcludedfromenforce {
+            /**
+             * RuleNamespace - name of excluded rule
+             */
+            ruleName: string;
+            /**
+             * RuleNamespace - namespace of excluded rule
+             */
+            ruleNamespace: string;
+        }
+
+        /**
+         * QuerySpec defines the query command line flags when starting Prometheus.
+         */
+        export interface PrometheusSpecQuery {
+            /**
+             * The delta difference allowed for retrieving metrics during expression evaluations.
+             */
+            lookbackDelta?: string;
+            /**
+             * Number of concurrent queries that can be run at once.
+             */
+            maxConcurrency?: number;
+            /**
+             * Maximum number of samples a single query can load into memory. Note that queries will fail if they would load more samples than this into memory, so this also limits the number of samples a query can return.
+             */
+            maxSamples?: number;
+            /**
+             * Maximum time a query may take before being aborted.
+             */
+            timeout?: string;
+        }
+
+        /**
+         * RemoteReadSpec defines the configuration for Prometheus to read back samples from a remote endpoint.
+         */
+        export interface PrometheusSpecRemoteread {
+            /**
+             * Authorization section for remote read
+             */
+            authorization?: outputs.monitoring.v1.PrometheusSpecRemotereadAuthorization;
+            /**
+             * BasicAuth for the URL.
+             */
+            basicAuth?: outputs.monitoring.v1.PrometheusSpecRemotereadBasicauth;
+            /**
+             * Bearer token for remote read.
+             */
+            bearerToken?: string;
+            /**
+             * File to read bearer token for remote read.
+             */
+            bearerTokenFile?: string;
+            /**
+             * Custom HTTP headers to be sent along with each remote read request. Be aware that headers that are set by Prometheus itself can't be overwritten. Only valid in Prometheus versions 2.26.0 and newer.
+             */
+            headers?: {[key: string]: string};
+            /**
+             * The name of the remote read queue, it must be unique if specified. The name is used in metrics and logging in order to differentiate read configurations.  Only valid in Prometheus versions 2.15.0 and newer.
+             */
+            name?: string;
+            /**
+             * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            oauth2?: outputs.monitoring.v1.PrometheusSpecRemotereadOauth2;
+            /**
+             * Optional ProxyURL.
+             */
+            proxyUrl?: string;
+            /**
+             * Whether reads should be made for queries for time ranges that the local storage should have complete data for.
+             */
+            readRecent?: boolean;
+            /**
+             * Timeout for requests to the remote read endpoint.
+             */
+            remoteTimeout?: string;
+            /**
+             * An optional list of equality matchers which have to be present in a selector to query the remote read endpoint.
+             */
+            requiredMatchers?: {[key: string]: string};
+            /**
+             * TLS Config to use for remote read.
+             */
+            tlsConfig?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfig;
+            /**
+             * The URL of the endpoint to query from.
+             */
+            url: string;
+        }
+
+        /**
+         * Authorization section for remote read
+         */
+        export interface PrometheusSpecRemotereadAuthorization {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: outputs.monitoring.v1.PrometheusSpecRemotereadAuthorizationCredentials;
+            /**
+             * File to read a secret from, mutually exclusive with Credentials (from SafeAuthorization)
+             */
+            credentialsFile?: string;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: string;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecRemotereadAuthorizationCredentials {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * BasicAuth for the URL.
+         */
+        export interface PrometheusSpecRemotereadBasicauth {
+            /**
+             * The secret in the service monitor namespace that contains the password for authentication.
+             */
+            password?: outputs.monitoring.v1.PrometheusSpecRemotereadBasicauthPassword;
+            /**
+             * The secret in the service monitor namespace that contains the username for authentication.
+             */
+            username?: outputs.monitoring.v1.PrometheusSpecRemotereadBasicauthUsername;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the password for authentication.
+         */
+        export interface PrometheusSpecRemotereadBasicauthPassword {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the username for authentication.
+         */
+        export interface PrometheusSpecRemotereadBasicauthUsername {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+         */
+        export interface PrometheusSpecRemotereadOauth2 {
+            /**
+             * The secret or configmap containing the OAuth2 client id
+             */
+            clientId: outputs.monitoring.v1.PrometheusSpecRemotereadOauth2Clientid;
+            /**
+             * The secret containing the OAuth2 client secret
+             */
+            clientSecret: outputs.monitoring.v1.PrometheusSpecRemotereadOauth2Clientsecret;
+            /**
+             * Parameters to append to the token URL
+             */
+            endpointParams?: {[key: string]: string};
+            /**
+             * OAuth2 scopes used for the token request
+             */
+            scopes?: string[];
+            /**
+             * The URL to fetch the token from
+             */
+            tokenUrl: string;
+        }
+
+        /**
+         * The secret or configmap containing the OAuth2 client id
+         */
+        export interface PrometheusSpecRemotereadOauth2Clientid {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecRemotereadOauth2ClientidConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecRemotereadOauth2ClientidSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadOauth2ClientidConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadOauth2ClientidSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The secret containing the OAuth2 client secret
+         */
+        export interface PrometheusSpecRemotereadOauth2Clientsecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * TLS Config to use for remote read.
+         */
+        export interface PrometheusSpecRemotereadTlsconfig {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCa;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: string;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCert;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: string;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: boolean;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: string;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigKeysecret;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: string;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCa {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCaConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCaSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCaConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCaSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCert {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCertConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecRemotereadTlsconfigCertSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCertConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigCertSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecRemotereadTlsconfigKeysecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * RemoteWriteSpec defines the configuration to write samples from Prometheus to a remote endpoint.
+         */
+        export interface PrometheusSpecRemotewrite {
+            /**
+             * Authorization section for remote write
+             */
+            authorization?: outputs.monitoring.v1.PrometheusSpecRemotewriteAuthorization;
+            /**
+             * BasicAuth for the URL.
+             */
+            basicAuth?: outputs.monitoring.v1.PrometheusSpecRemotewriteBasicauth;
+            /**
+             * Bearer token for remote write.
+             */
+            bearerToken?: string;
+            /**
+             * File to read bearer token for remote write.
+             */
+            bearerTokenFile?: string;
+            /**
+             * Custom HTTP headers to be sent along with each remote write request. Be aware that headers that are set by Prometheus itself can't be overwritten. Only valid in Prometheus versions 2.25.0 and newer.
+             */
+            headers?: {[key: string]: string};
+            /**
+             * MetadataConfig configures the sending of series metadata to the remote storage.
+             */
+            metadataConfig?: outputs.monitoring.v1.PrometheusSpecRemotewriteMetadataconfig;
+            /**
+             * The name of the remote write queue, it must be unique if specified. The name is used in metrics and logging in order to differentiate queues. Only valid in Prometheus versions 2.15.0 and newer.
+             */
+            name?: string;
+            /**
+             * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            oauth2?: outputs.monitoring.v1.PrometheusSpecRemotewriteOauth2;
+            /**
+             * Optional ProxyURL.
+             */
+            proxyUrl?: string;
+            /**
+             * QueueConfig allows tuning of the remote write queue parameters.
+             */
+            queueConfig?: outputs.monitoring.v1.PrometheusSpecRemotewriteQueueconfig;
+            /**
+             * Timeout for requests to the remote write endpoint.
+             */
+            remoteTimeout?: string;
+            /**
+             * Enables sending of exemplars over remote write. Note that exemplar-storage itself must be enabled using the enableFeature option for exemplars to be scraped in the first place.  Only valid in Prometheus versions 2.27.0 and newer.
+             */
+            sendExemplars?: boolean;
+            /**
+             * Sigv4 allows to configures AWS's Signature Verification 4
+             */
+            sigv4?: outputs.monitoring.v1.PrometheusSpecRemotewriteSigv4;
+            /**
+             * TLS Config to use for remote write.
+             */
+            tlsConfig?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfig;
+            /**
+             * The URL of the endpoint to send samples to.
+             */
+            url: string;
+            /**
+             * The list of remote write relabel configurations.
+             */
+            writeRelabelConfigs?: outputs.monitoring.v1.PrometheusSpecRemotewriteWriterelabelconfigs[];
+        }
+
+        /**
+         * Authorization section for remote write
+         */
+        export interface PrometheusSpecRemotewriteAuthorization {
+            /**
+             * The secret's key that contains the credentials of the request
+             */
+            credentials?: outputs.monitoring.v1.PrometheusSpecRemotewriteAuthorizationCredentials;
+            /**
+             * File to read a secret from, mutually exclusive with Credentials (from SafeAuthorization)
+             */
+            credentialsFile?: string;
+            /**
+             * Set the authentication type. Defaults to Bearer, Basic will cause an error
+             */
+            type?: string;
+        }
+
+        /**
+         * The secret's key that contains the credentials of the request
+         */
+        export interface PrometheusSpecRemotewriteAuthorizationCredentials {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * BasicAuth for the URL.
+         */
+        export interface PrometheusSpecRemotewriteBasicauth {
+            /**
+             * The secret in the service monitor namespace that contains the password for authentication.
+             */
+            password?: outputs.monitoring.v1.PrometheusSpecRemotewriteBasicauthPassword;
+            /**
+             * The secret in the service monitor namespace that contains the username for authentication.
+             */
+            username?: outputs.monitoring.v1.PrometheusSpecRemotewriteBasicauthUsername;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the password for authentication.
+         */
+        export interface PrometheusSpecRemotewriteBasicauthPassword {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The secret in the service monitor namespace that contains the username for authentication.
+         */
+        export interface PrometheusSpecRemotewriteBasicauthUsername {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * MetadataConfig configures the sending of series metadata to the remote storage.
+         */
+        export interface PrometheusSpecRemotewriteMetadataconfig {
+            /**
+             * Whether metric metadata is sent to the remote storage or not.
+             */
+            send?: boolean;
+            /**
+             * How frequently metric metadata is sent to the remote storage.
+             */
+            sendInterval?: string;
+        }
+
+        /**
+         * OAuth2 for the URL. Only valid in Prometheus versions 2.27.0 and newer.
+         */
+        export interface PrometheusSpecRemotewriteOauth2 {
+            /**
+             * The secret or configmap containing the OAuth2 client id
+             */
+            clientId: outputs.monitoring.v1.PrometheusSpecRemotewriteOauth2Clientid;
+            /**
+             * The secret containing the OAuth2 client secret
+             */
+            clientSecret: outputs.monitoring.v1.PrometheusSpecRemotewriteOauth2Clientsecret;
+            /**
+             * Parameters to append to the token URL
+             */
+            endpointParams?: {[key: string]: string};
+            /**
+             * OAuth2 scopes used for the token request
+             */
+            scopes?: string[];
+            /**
+             * The URL to fetch the token from
+             */
+            tokenUrl: string;
+        }
+
+        /**
+         * The secret or configmap containing the OAuth2 client id
+         */
+        export interface PrometheusSpecRemotewriteOauth2Clientid {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecRemotewriteOauth2ClientidConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecRemotewriteOauth2ClientidSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteOauth2ClientidConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteOauth2ClientidSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The secret containing the OAuth2 client secret
+         */
+        export interface PrometheusSpecRemotewriteOauth2Clientsecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * QueueConfig allows tuning of the remote write queue parameters.
+         */
+        export interface PrometheusSpecRemotewriteQueueconfig {
+            /**
+             * BatchSendDeadline is the maximum time a sample will wait in buffer.
+             */
+            batchSendDeadline?: string;
+            /**
+             * Capacity is the number of samples to buffer per shard before we start dropping them.
+             */
+            capacity?: number;
+            /**
+             * MaxBackoff is the maximum retry delay.
+             */
+            maxBackoff?: string;
+            /**
+             * MaxRetries is the maximum number of times to retry a batch on recoverable errors.
+             */
+            maxRetries?: number;
+            /**
+             * MaxSamplesPerSend is the maximum number of samples per send.
+             */
+            maxSamplesPerSend?: number;
+            /**
+             * MaxShards is the maximum number of shards, i.e. amount of concurrency.
+             */
+            maxShards?: number;
+            /**
+             * MinBackoff is the initial retry delay. Gets doubled for every retry.
+             */
+            minBackoff?: string;
+            /**
+             * MinShards is the minimum number of shards, i.e. amount of concurrency.
+             */
+            minShards?: number;
+            /**
+             * Retry upon receiving a 429 status code from the remote-write storage. This is experimental feature and might change in the future.
+             */
+            retryOnRateLimit?: boolean;
+        }
+
+        /**
+         * Sigv4 allows to configures AWS's Signature Verification 4
+         */
+        export interface PrometheusSpecRemotewriteSigv4 {
+            /**
+             * AccessKey is the AWS API key. If blank, the environment variable `AWS_ACCESS_KEY_ID` is used.
+             */
+            accessKey?: outputs.monitoring.v1.PrometheusSpecRemotewriteSigv4Accesskey;
+            /**
+             * Profile is the named AWS profile used to authenticate.
+             */
+            profile?: string;
+            /**
+             * Region is the AWS region. If blank, the region from the default credentials chain used.
+             */
+            region?: string;
+            /**
+             * RoleArn is the named AWS profile used to authenticate.
+             */
+            roleArn?: string;
+            /**
+             * SecretKey is the AWS API secret. If blank, the environment variable `AWS_SECRET_ACCESS_KEY` is used.
+             */
+            secretKey?: outputs.monitoring.v1.PrometheusSpecRemotewriteSigv4Secretkey;
+        }
+
+        /**
+         * AccessKey is the AWS API key. If blank, the environment variable `AWS_ACCESS_KEY_ID` is used.
+         */
+        export interface PrometheusSpecRemotewriteSigv4Accesskey {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * SecretKey is the AWS API secret. If blank, the environment variable `AWS_SECRET_ACCESS_KEY` is used.
+         */
+        export interface PrometheusSpecRemotewriteSigv4Secretkey {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * TLS Config to use for remote write.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfig {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCa;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: string;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCert;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: string;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: boolean;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: string;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigKeysecret;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: string;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCa {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCaConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCaSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCaConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCaSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCert {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCertConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecRemotewriteTlsconfigCertSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCertConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigCertSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecRemotewriteTlsconfigKeysecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * RelabelConfig allows dynamic rewriting of the label set, being applied to samples before ingestion. It defines `<metric_relabel_configs>`-section of Prometheus configuration. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
+         */
+        export interface PrometheusSpecRemotewriteWriterelabelconfigs {
+            /**
+             * Action to perform based on regex matching. Default is 'replace'. uppercase and lowercase actions require Prometheus >= 2.36.
+             */
+            action?: string;
+            /**
+             * Modulus to take of the hash of the source label values.
+             */
+            modulus?: number;
+            /**
+             * Regular expression against which the extracted value is matched. Default is '(.*)'
+             */
+            regex?: string;
+            /**
+             * Replacement value against which a regex replace is performed if the regular expression matches. Regex capture groups are available. Default is '$1'
+             */
+            replacement?: string;
+            /**
+             * Separator placed between concatenated source label values. default is ';'.
+             */
+            separator?: string;
+            /**
+             * The source labels select values from existing labels. Their content is concatenated using the configured separator and matched against the configured regular expression for the replace, keep, and drop actions.
+             */
+            sourceLabels?: string[];
+            /**
+             * Label to which the resulting value is written in a replace action. It is mandatory for replace actions. Regex capture groups are available.
+             */
+            targetLabel?: string;
+        }
+        /**
+         * prometheusSpecRemotewriteWriterelabelconfigsProvideDefaults sets the appropriate defaults for PrometheusSpecRemotewriteWriterelabelconfigs
+         */
+        export function prometheusSpecRemotewriteWriterelabelconfigsProvideDefaults(val: PrometheusSpecRemotewriteWriterelabelconfigs): PrometheusSpecRemotewriteWriterelabelconfigs {
+            return {
+                ...val,
+                action: (val.action) ?? "replace",
+            };
+        }
+
+        /**
+         * Define resources requests and limits for single Pods.
+         */
+        export interface PrometheusSpecResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * Namespaces to be selected for PrometheusRules discovery. If unspecified, only the same namespace as the Prometheus object is in is used.
+         */
+        export interface PrometheusSpecRulenamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecRulenamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecRulenamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * /--rules.*&#47; command-line arguments.
+         */
+        export interface PrometheusSpecRules {
+            /**
+             * /--rules.alert.*&#47; command-line arguments
+             */
+            alert?: outputs.monitoring.v1.PrometheusSpecRulesAlert;
+        }
+
+        /**
+         * /--rules.alert.*&#47; command-line arguments
+         */
+        export interface PrometheusSpecRulesAlert {
+            /**
+             * Minimum duration between alert and restored 'for' state. This is maintained only for alerts with configured 'for' time greater than grace period.
+             */
+            forGracePeriod?: string;
+            /**
+             * Max time to tolerate prometheus outage for restoring 'for' state of alert.
+             */
+            forOutageTolerance?: string;
+            /**
+             * Minimum amount of time to wait before resending an alert to Alertmanager.
+             */
+            resendDelay?: string;
+        }
+
+        /**
+         * A selector to select which PrometheusRules to mount for loading alerting/recording rules from. Until (excluding) Prometheus Operator v0.24.0 Prometheus Operator will migrate any legacy rule ConfigMaps to PrometheusRule custom resources selected by RuleSelector. Make sure it does not match any config maps that you do not want to be migrated.
+         */
+        export interface PrometheusSpecRuleselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecRuleselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecRuleselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * SecurityContext holds pod-level security attributes and common container settings. This defaults to the default PodSecurityContext.
+         */
+        export interface PrometheusSpecSecuritycontext {
+            /**
+             * A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod: 
+             *  1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw---- 
+             *  If unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.
+             */
+            fsGroup?: number;
+            /**
+             * fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are "OnRootMismatch" and "Always". If not specified, "Always" is used. Note that this field cannot be set when spec.os.name is windows.
+             */
+            fsGroupChangePolicy?: string;
+            /**
+             * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsGroup?: number;
+            /**
+             * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsNonRoot?: boolean;
+            /**
+             * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            runAsUser?: number;
+            /**
+             * The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seLinuxOptions?: outputs.monitoring.v1.PrometheusSpecSecuritycontextSelinuxoptions;
+            /**
+             * The seccomp options to use by the containers in this pod. Note that this field cannot be set when spec.os.name is windows.
+             */
+            seccompProfile?: outputs.monitoring.v1.PrometheusSpecSecuritycontextSeccompprofile;
+            /**
+             * A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container. Note that this field cannot be set when spec.os.name is windows.
+             */
+            supplementalGroups?: number[];
+            /**
+             * Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.
+             */
+            sysctls?: outputs.monitoring.v1.PrometheusSpecSecuritycontextSysctls[];
+            /**
+             * The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+             */
+            windowsOptions?: outputs.monitoring.v1.PrometheusSpecSecuritycontextWindowsoptions;
+        }
+
+        /**
+         * The seccomp options to use by the containers in this pod. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecSecuritycontextSeccompprofile {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: string;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: string;
+        }
+
+        /**
+         * The SELinux context to be applied to all containers. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.
+         */
+        export interface PrometheusSpecSecuritycontextSelinuxoptions {
+            /**
+             * Level is SELinux level label that applies to the container.
+             */
+            level?: string;
+            /**
+             * Role is a SELinux role label that applies to the container.
+             */
+            role?: string;
+            /**
+             * Type is a SELinux type label that applies to the container.
+             */
+            type?: string;
+            /**
+             * User is a SELinux user label that applies to the container.
+             */
+            user?: string;
+        }
+
+        /**
+         * Sysctl defines a kernel parameter to be set
+         */
+        export interface PrometheusSpecSecuritycontextSysctls {
+            /**
+             * Name of a property to set
+             */
+            name: string;
+            /**
+             * Value of a property to set
+             */
+            value: string;
+        }
+
+        /**
+         * The Windows specific settings applied to all containers. If unspecified, the options within a container's SecurityContext will be used. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is linux.
+         */
+        export interface PrometheusSpecSecuritycontextWindowsoptions {
+            /**
+             * GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.
+             */
+            gmsaCredentialSpec?: string;
+            /**
+             * GMSACredentialSpecName is the name of the GMSA credential spec to use.
+             */
+            gmsaCredentialSpecName?: string;
+            /**
+             * HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.
+             */
+            hostProcess?: boolean;
+            /**
+             * The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
+             */
+            runAsUserName?: string;
+        }
+
+        /**
+         * Namespace's labels to match for ServiceMonitor discovery. If nil, only check own namespace.
+         */
+        export interface PrometheusSpecServicemonitornamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecServicemonitornamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecServicemonitornamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * ServiceMonitors to be selected for target discovery. *Deprecated:* if neither this nor podMonitorSelector are specified, configuration is unmanaged.
+         */
+        export interface PrometheusSpecServicemonitorselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecServicemonitorselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecServicemonitorselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Storage spec to specify how storage shall be used.
+         */
+        export interface PrometheusSpecStorage {
+            /**
+             * Deprecated: subPath usage will be disabled by default in a future release, this option will become unnecessary. DisableMountSubPath allows to remove any subPath usage in volume mounts.
+             */
+            disableMountSubPath?: boolean;
+            /**
+             * EmptyDirVolumeSource to be used by the Prometheus StatefulSets. If specified, used in place of any volumeClaimTemplate. More info: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
+             */
+            emptyDir?: outputs.monitoring.v1.PrometheusSpecStorageEmptydir;
+            /**
+             * EphemeralVolumeSource to be used by the Prometheus StatefulSets. This is a beta field in k8s 1.21, for lower versions, starting with k8s 1.19, it requires enabling the GenericEphemeralVolume feature gate. More info: https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes
+             */
+            ephemeral?: outputs.monitoring.v1.PrometheusSpecStorageEphemeral;
+            /**
+             * A PVC spec to be used by the Prometheus StatefulSets.
+             */
+            volumeClaimTemplate?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplate;
+        }
+
+        /**
+         * EmptyDirVolumeSource to be used by the Prometheus StatefulSets. If specified, used in place of any volumeClaimTemplate. More info: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
+         */
+        export interface PrometheusSpecStorageEmptydir {
+            /**
+             * medium represents what type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+             */
+            medium?: string;
+            /**
+             * sizeLimit is the total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+             */
+            sizeLimit?: number | string;
+        }
+
+        /**
+         * EphemeralVolumeSource to be used by the Prometheus StatefulSets. This is a beta field in k8s 1.21, for lower versions, starting with k8s 1.19, it requires enabling the GenericEphemeralVolume feature gate. More info: https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes
+         */
+        export interface PrometheusSpecStorageEphemeral {
+            /**
+             * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+             *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+             *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+             *  Required, must not be nil.
+             */
+            volumeClaimTemplate?: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplate;
+        }
+
+        /**
+         * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+         *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+         *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+         *  Required, must not be nil.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplate {
+            /**
+             * May contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation.
+             */
+            metadata?: {[key: string]: any};
+            /**
+             * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+             */
+            spec: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpec;
+        }
+
+        /**
+         * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpec {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: string[];
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+             */
+            dataSource?: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasource;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasourceref;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecResources;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelector;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: string;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: string;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: string;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasource {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecDatasourceref {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecStorageEphemeralVolumeclaimtemplateSpecSelectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A PVC spec to be used by the Prometheus StatefulSets.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplate {
+            /**
+             * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+             */
+            apiVersion?: string;
+            /**
+             * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+             */
+            kind?: string;
+            /**
+             * EmbeddedMetadata contains metadata relevant to an EmbeddedResource.
+             */
+            metadata?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateMetadata;
+            /**
+             * Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            spec?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpec;
+            /**
+             * Status represents the current information/status of a persistent volume claim. Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            status?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateStatus;
+        }
+
+        /**
+         * EmbeddedMetadata contains metadata relevant to an EmbeddedResource.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateMetadata {
+            /**
+             * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             */
+            annotations?: {[key: string]: string};
+            /**
+             * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+             */
+            labels?: {[key: string]: string};
+            /**
+             * Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+             */
+            name?: string;
+        }
+
+        /**
+         * Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpec {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: string[];
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+             */
+            dataSource?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecDatasource;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecDatasourceref;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecResources;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecSelector;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: string;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: string;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: string;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecDatasource {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecDatasourceref {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecSelector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateSpecSelectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateSpecSelectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Status represents the current information/status of a persistent volume claim. Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateStatus {
+            /**
+             * accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: string[];
+            /**
+             * allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
+             */
+            allocatedResources?: {[key: string]: number | string};
+            /**
+             * capacity represents the actual resources of the underlying volume.
+             */
+            capacity?: {[key: string]: number | string};
+            /**
+             * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.
+             */
+            conditions?: outputs.monitoring.v1.PrometheusSpecStorageVolumeclaimtemplateStatusConditions[];
+            /**
+             * phase represents the current phase of PersistentVolumeClaim.
+             */
+            phase?: string;
+            /**
+             * resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
+             */
+            resizeStatus?: string;
+        }
+
+        /**
+         * PersistentVolumeClaimCondition contails details about state of pvc
+         */
+        export interface PrometheusSpecStorageVolumeclaimtemplateStatusConditions {
+            /**
+             * lastProbeTime is the time we probed the condition.
+             */
+            lastProbeTime?: string;
+            /**
+             * lastTransitionTime is the time the condition transitioned from one status to another.
+             */
+            lastTransitionTime?: string;
+            /**
+             * message is the human-readable message indicating details about last transition.
+             */
+            message?: string;
+            /**
+             * reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports "ResizeStarted" that means the underlying persistent volume is being resized.
+             */
+            reason?: string;
+            status: string;
+            /**
+             * PersistentVolumeClaimConditionType is a valid value of PersistentVolumeClaimCondition.Type
+             */
+            type: string;
+        }
+
+        /**
+         * Thanos configuration allows configuring various aspects of a Prometheus server in a Thanos environment. 
+         *  This section is experimental, it may change significantly without deprecation notice in any release. 
+         *  This is experimental and may change significantly without backward compatibility in any release.
+         */
+        export interface PrometheusSpecThanos {
+            /**
+             * AdditionalArgs allows setting additional arguments for the Thanos container. The arguments are passed as-is to the Thanos container which may cause issues if they are invalid or not supporeted the given Thanos version. In case of an argument conflict (e.g. an argument which is already set by the operator itself) or when providing an invalid argument the reconciliation will fail and an error will be logged.
+             */
+            additionalArgs?: outputs.monitoring.v1.PrometheusSpecThanosAdditionalargs[];
+            /**
+             * Thanos base image if other than default. Deprecated: use 'image' instead
+             */
+            baseImage?: string;
+            /**
+             * GRPCServerTLSConfig configures the gRPC server from which Thanos Querier reads recorded rule data. Note: Currently only the CAFile, CertFile, and KeyFile fields are supported. Maps to the '--grpc-server-tls-*' CLI args.
+             */
+            grpcServerTlsConfig?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfig;
+            /**
+             * Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Thanos is being configured.
+             */
+            image?: string;
+            /**
+             * ListenLocal makes the Thanos sidecar listen on loopback, so that it does not bind against the Pod IP.
+             */
+            listenLocal?: boolean;
+            /**
+             * LogFormat for Thanos sidecar to be configured with.
+             */
+            logFormat?: string;
+            /**
+             * LogLevel for Thanos sidecar to be configured with.
+             */
+            logLevel?: string;
+            /**
+             * MinTime for Thanos sidecar to be configured with. Option can be a constant time in RFC3339 format or time duration relative to current time, such as -1d or 2h45m. Valid duration units are ms, s, m, h, d, w, y.
+             */
+            minTime?: string;
+            /**
+             * ObjectStorageConfig configures object storage in Thanos. Alternative to ObjectStorageConfigFile, and lower order priority.
+             */
+            objectStorageConfig?: outputs.monitoring.v1.PrometheusSpecThanosObjectstorageconfig;
+            /**
+             * ObjectStorageConfigFile specifies the path of the object storage configuration file. When used alongside with ObjectStorageConfig, ObjectStorageConfigFile takes precedence.
+             */
+            objectStorageConfigFile?: string;
+            /**
+             * ReadyTimeout is the maximum time Thanos sidecar will wait for Prometheus to start. Eg 10m
+             */
+            readyTimeout?: string;
+            /**
+             * Resources defines the resource requirements for the Thanos sidecar. If not provided, no requests/limits will be set
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecThanosResources;
+            /**
+             * SHA of Thanos container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set. Deprecated: use 'image' instead.  The image digest can be specified as part of the image URL.
+             */
+            sha?: string;
+            /**
+             * Tag of Thanos sidecar container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set. Deprecated: use 'image' instead.  The image tag can be specified as part of the image URL.
+             */
+            tag?: string;
+            /**
+             * TracingConfig configures tracing in Thanos. This is an experimental feature, it may change in any upcoming release in a breaking way.
+             */
+            tracingConfig?: outputs.monitoring.v1.PrometheusSpecThanosTracingconfig;
+            /**
+             * TracingConfig specifies the path of the tracing configuration file. When used alongside with TracingConfig, TracingConfigFile takes precedence.
+             */
+            tracingConfigFile?: string;
+            /**
+             * Version describes the version of Thanos to use.
+             */
+            version?: string;
+            /**
+             * VolumeMounts allows configuration of additional VolumeMounts on the output StatefulSet definition. VolumeMounts specified will be appended to other VolumeMounts in the thanos-sidecar container.
+             */
+            volumeMounts?: outputs.monitoring.v1.PrometheusSpecThanosVolumemounts[];
+        }
+
+        /**
+         * Argument as part of the AdditionalArgs list.
+         */
+        export interface PrometheusSpecThanosAdditionalargs {
+            /**
+             * Name of the argument, e.g. "scrape.discovery-reload-interval".
+             */
+            name: string;
+            /**
+             * Argument value, e.g. 30s. Can be empty for name-only arguments (e.g. --storage.tsdb.no-lockfile)
+             */
+            value?: string;
+        }
+
+        /**
+         * GRPCServerTLSConfig configures the gRPC server from which Thanos Querier reads recorded rule data. Note: Currently only the CAFile, CertFile, and KeyFile fields are supported. Maps to the '--grpc-server-tls-*' CLI args.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfig {
+            /**
+             * Struct containing the CA cert to use for the targets.
+             */
+            ca?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCa;
+            /**
+             * Path to the CA cert in the Prometheus container to use for the targets.
+             */
+            caFile?: string;
+            /**
+             * Struct containing the client cert file for the targets.
+             */
+            cert?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCert;
+            /**
+             * Path to the client cert file in the Prometheus container for the targets.
+             */
+            certFile?: string;
+            /**
+             * Disable target certificate validation.
+             */
+            insecureSkipVerify?: boolean;
+            /**
+             * Path to the client key file in the Prometheus container for the targets.
+             */
+            keyFile?: string;
+            /**
+             * Secret containing the client key file for the targets.
+             */
+            keySecret?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigKeysecret;
+            /**
+             * Used to verify the hostname for the targets.
+             */
+            serverName?: string;
+        }
+
+        /**
+         * Struct containing the CA cert to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCa {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCaConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCaSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCaConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCaSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Struct containing the client cert file for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCert {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCertConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecThanosGrpcservertlsconfigCertSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCertConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigCertSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing the client key file for the targets.
+         */
+        export interface PrometheusSpecThanosGrpcservertlsconfigKeysecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * ObjectStorageConfig configures object storage in Thanos. Alternative to ObjectStorageConfigFile, and lower order priority.
+         */
+        export interface PrometheusSpecThanosObjectstorageconfig {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Resources defines the resource requirements for the Thanos sidecar. If not provided, no requests/limits will be set
+         */
+        export interface PrometheusSpecThanosResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * TracingConfig configures tracing in Thanos. This is an experimental feature, it may change in any upcoming release in a breaking way.
+         */
+        export interface PrometheusSpecThanosTracingconfig {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecThanosVolumemounts {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: string;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: string;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: string;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: boolean;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: string;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: string;
+        }
+
+        /**
+         * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+         */
+        export interface PrometheusSpecTolerations {
+            /**
+             * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+             */
+            effect?: string;
+            /**
+             * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+             */
+            key?: string;
+            /**
+             * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+             */
+            operator?: string;
+            /**
+             * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+             */
+            tolerationSeconds?: number;
+            /**
+             * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+             */
+            value?: string;
+        }
+
+        /**
+         * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
+         */
+        export interface PrometheusSpecTopologyspreadconstraints {
+            /**
+             * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+             */
+            labelSelector?: outputs.monitoring.v1.PrometheusSpecTopologyspreadconstraintsLabelselector;
+            /**
+             * MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated. The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod. Keys that don't exist in the incoming pod labels will be ignored. A null or empty list means only match against labelSelector.
+             */
+            matchLabelKeys?: string[];
+            /**
+             * MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 2/2/1: In this case, the global minimum is 1. | zone1 | zone2 | zone3 | |  P P  |  P P  |   P   | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 2/2/2; scheduling it onto zone1(zone2) would make the ActualSkew(3-1) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.
+             */
+            maxSkew: number;
+            /**
+             * MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats "global minimum" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule. 
+             *  For example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so "global minimum" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew. 
+             *  This is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).
+             */
+            minDomains?: number;
+            /**
+             * NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations. 
+             *  If this value is nil, the behavior is equivalent to the Honor policy. This is a alpha-level feature enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeAffinityPolicy?: string;
+            /**
+             * NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included. 
+             *  If this value is nil, the behavior is equivalent to the Ignore policy. This is a alpha-level feature enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeTaintsPolicy?: string;
+            /**
+             * TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology. And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology. It's a required field.
+             */
+            topologyKey: string;
+            /**
+             * WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location, but giving higher precedence to topologies that would help reduce the skew. A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assignment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
+             */
+            whenUnsatisfiable: string;
+        }
+
+        /**
+         * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+         */
+        export interface PrometheusSpecTopologyspreadconstraintsLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecTopologyspreadconstraintsLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecTopologyspreadconstraintsLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * VolumeMount describes a mounting of a Volume within a container.
+         */
+        export interface PrometheusSpecVolumemounts {
+            /**
+             * Path within the container at which the volume should be mounted.  Must not contain ':'.
+             */
+            mountPath: string;
+            /**
+             * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
+             */
+            mountPropagation?: string;
+            /**
+             * This must match the Name of a Volume.
+             */
+            name: string;
+            /**
+             * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
+             */
+            readOnly?: boolean;
+            /**
+             * Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root).
+             */
+            subPath?: string;
+            /**
+             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). SubPathExpr and SubPath are mutually exclusive.
+             */
+            subPathExpr?: string;
+        }
+
+        /**
+         * Volume represents a named volume in a pod that may be accessed by any container in the pod.
+         */
+        export interface PrometheusSpecVolumes {
+            /**
+             * awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+             */
+            awsElasticBlockStore?: outputs.monitoring.v1.PrometheusSpecVolumesAwselasticblockstore;
+            /**
+             * azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+             */
+            azureDisk?: outputs.monitoring.v1.PrometheusSpecVolumesAzuredisk;
+            /**
+             * azureFile represents an Azure File Service mount on the host and bind mount to the pod.
+             */
+            azureFile?: outputs.monitoring.v1.PrometheusSpecVolumesAzurefile;
+            /**
+             * cephFS represents a Ceph FS mount on the host that shares a pod's lifetime
+             */
+            cephfs?: outputs.monitoring.v1.PrometheusSpecVolumesCephfs;
+            /**
+             * cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            cinder?: outputs.monitoring.v1.PrometheusSpecVolumesCinder;
+            /**
+             * configMap represents a configMap that should populate this volume
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecVolumesConfigmap;
+            /**
+             * csi (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).
+             */
+            csi?: outputs.monitoring.v1.PrometheusSpecVolumesCsi;
+            /**
+             * downwardAPI represents downward API about the pod that should populate this volume
+             */
+            downwardAPI?: outputs.monitoring.v1.PrometheusSpecVolumesDownwardapi;
+            /**
+             * emptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+             */
+            emptyDir?: outputs.monitoring.v1.PrometheusSpecVolumesEmptydir;
+            /**
+             * ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. 
+             *  Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through a PersistentVolumeClaim (see EphemeralVolumeSource for more information on the connection between this volume type and PersistentVolumeClaim). 
+             *  Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. 
+             *  Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. 
+             *  A pod can use both types of ephemeral volumes and persistent volumes at the same time.
+             */
+            ephemeral?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeral;
+            /**
+             * fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
+             */
+            fc?: outputs.monitoring.v1.PrometheusSpecVolumesFc;
+            /**
+             * flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
+             */
+            flexVolume?: outputs.monitoring.v1.PrometheusSpecVolumesFlexvolume;
+            /**
+             * flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running
+             */
+            flocker?: outputs.monitoring.v1.PrometheusSpecVolumesFlocker;
+            /**
+             * gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            gcePersistentDisk?: outputs.monitoring.v1.PrometheusSpecVolumesGcepersistentdisk;
+            /**
+             * gitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
+             */
+            gitRepo?: outputs.monitoring.v1.PrometheusSpecVolumesGitrepo;
+            /**
+             * glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/glusterfs/README.md
+             */
+            glusterfs?: outputs.monitoring.v1.PrometheusSpecVolumesGlusterfs;
+            /**
+             * hostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
+             */
+            hostPath?: outputs.monitoring.v1.PrometheusSpecVolumesHostpath;
+            /**
+             * iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md
+             */
+            iscsi?: outputs.monitoring.v1.PrometheusSpecVolumesIscsi;
+            /**
+             * name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+             */
+            name: string;
+            /**
+             * nfs represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            nfs?: outputs.monitoring.v1.PrometheusSpecVolumesNfs;
+            /**
+             * persistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            persistentVolumeClaim?: outputs.monitoring.v1.PrometheusSpecVolumesPersistentvolumeclaim;
+            /**
+             * photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+             */
+            photonPersistentDisk?: outputs.monitoring.v1.PrometheusSpecVolumesPhotonpersistentdisk;
+            /**
+             * portworxVolume represents a portworx volume attached and mounted on kubelets host machine
+             */
+            portworxVolume?: outputs.monitoring.v1.PrometheusSpecVolumesPortworxvolume;
+            /**
+             * projected items for all in one resources secrets, configmaps, and downward API
+             */
+            projected?: outputs.monitoring.v1.PrometheusSpecVolumesProjected;
+            /**
+             * quobyte represents a Quobyte mount on the host that shares a pod's lifetime
+             */
+            quobyte?: outputs.monitoring.v1.PrometheusSpecVolumesQuobyte;
+            /**
+             * rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
+             */
+            rbd?: outputs.monitoring.v1.PrometheusSpecVolumesRbd;
+            /**
+             * scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+             */
+            scaleIO?: outputs.monitoring.v1.PrometheusSpecVolumesScaleio;
+            /**
+             * secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecVolumesSecret;
+            /**
+             * storageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
+             */
+            storageos?: outputs.monitoring.v1.PrometheusSpecVolumesStorageos;
+            /**
+             * vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+             */
+            vsphereVolume?: outputs.monitoring.v1.PrometheusSpecVolumesVspherevolume;
+        }
+
+        /**
+         * awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+         */
+        export interface PrometheusSpecVolumesAwselasticblockstore {
+            /**
+             * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: string;
+            /**
+             * partition is the partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+             */
+            partition?: number;
+            /**
+             * readOnly value true will force the readOnly setting in VolumeMounts. More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+             */
+            readOnly?: boolean;
+            /**
+             * volumeID is unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
+             */
+            volumeID: string;
+        }
+
+        /**
+         * azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
+         */
+        export interface PrometheusSpecVolumesAzuredisk {
+            /**
+             * cachingMode is the Host Caching mode: None, Read Only, Read Write.
+             */
+            cachingMode?: string;
+            /**
+             * diskName is the Name of the data disk in the blob storage
+             */
+            diskName: string;
+            /**
+             * diskURI is the URI of data disk in the blob storage
+             */
+            diskURI: string;
+            /**
+             * fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: string;
+            /**
+             * kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared
+             */
+            kind?: string;
+            /**
+             * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+        }
+
+        /**
+         * azureFile represents an Azure File Service mount on the host and bind mount to the pod.
+         */
+        export interface PrometheusSpecVolumesAzurefile {
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+            /**
+             * secretName is the  name of secret that contains Azure Storage Account Name and Key
+             */
+            secretName: string;
+            /**
+             * shareName is the azure share Name
+             */
+            shareName: string;
+        }
+
+        /**
+         * cephFS represents a Ceph FS mount on the host that shares a pod's lifetime
+         */
+        export interface PrometheusSpecVolumesCephfs {
+            /**
+             * monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            monitors: string[];
+            /**
+             * path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /
+             */
+            path?: string;
+            /**
+             * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            readOnly?: boolean;
+            /**
+             * secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            secretFile?: string;
+            /**
+             * secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecVolumesCephfsSecretref;
+            /**
+             * user is optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+             */
+            user?: string;
+        }
+
+        /**
+         * secretRef is Optional: SecretRef is reference to the authentication secret for User, default is empty. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+         */
+        export interface PrometheusSpecVolumesCephfsSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * cinder represents a cinder volume attached and mounted on kubelets host machine. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+         */
+        export interface PrometheusSpecVolumesCinder {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            fsType?: string;
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            readOnly?: boolean;
+            /**
+             * secretRef is optional: points to a secret object containing parameters used to connect to OpenStack.
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecVolumesCinderSecretref;
+            /**
+             * volumeID used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+             */
+            volumeID: string;
+        }
+
+        /**
+         * secretRef is optional: points to a secret object containing parameters used to connect to OpenStack.
+         */
+        export interface PrometheusSpecVolumesCinderSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * configMap represents a configMap that should populate this volume
+         */
+        export interface PrometheusSpecVolumesConfigmap {
+            /**
+             * defaultMode is optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: number;
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: outputs.monitoring.v1.PrometheusSpecVolumesConfigmapItems[];
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * optional specify whether the ConfigMap or its keys must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesConfigmapItems {
+            /**
+             * key is the key to project.
+             */
+            key: string;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: string;
+        }
+
+        /**
+         * csi (Container Storage Interface) represents ephemeral storage that is handled by certain external CSI drivers (Beta feature).
+         */
+        export interface PrometheusSpecVolumesCsi {
+            /**
+             * driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.
+             */
+            driver: string;
+            /**
+             * fsType to mount. Ex. "ext4", "xfs", "ntfs". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.
+             */
+            fsType?: string;
+            /**
+             * nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+             */
+            nodePublishSecretRef?: outputs.monitoring.v1.PrometheusSpecVolumesCsiNodepublishsecretref;
+            /**
+             * readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).
+             */
+            readOnly?: boolean;
+            /**
+             * volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.
+             */
+            volumeAttributes?: {[key: string]: string};
+        }
+
+        /**
+         * nodePublishSecretRef is a reference to the secret object containing sensitive information to pass to the CSI driver to complete the CSI NodePublishVolume and NodeUnpublishVolume calls. This field is optional, and  may be empty if no secret is required. If the secret object contains more than one secret, all secret references are passed.
+         */
+        export interface PrometheusSpecVolumesCsiNodepublishsecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * downwardAPI represents downward API about the pod that should populate this volume
+         */
+        export interface PrometheusSpecVolumesDownwardapi {
+            /**
+             * Optional: mode bits to use on created files by default. Must be a Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: number;
+            /**
+             * Items is a list of downward API volume file
+             */
+            items?: outputs.monitoring.v1.PrometheusSpecVolumesDownwardapiItems[];
+        }
+
+        /**
+         * DownwardAPIVolumeFile represents information to create the file containing the pod field
+         */
+        export interface PrometheusSpecVolumesDownwardapiItems {
+            /**
+             * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+             */
+            fieldRef?: outputs.monitoring.v1.PrometheusSpecVolumesDownwardapiItemsFieldref;
+            /**
+             * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+             */
+            path: string;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+             */
+            resourceFieldRef?: outputs.monitoring.v1.PrometheusSpecVolumesDownwardapiItemsResourcefieldref;
+        }
+
+        /**
+         * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+         */
+        export interface PrometheusSpecVolumesDownwardapiItemsFieldref {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: string;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: string;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+         */
+        export interface PrometheusSpecVolumesDownwardapiItemsResourcefieldref {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: string;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: number | string;
+            /**
+             * Required: resource to select
+             */
+            resource: string;
+        }
+
+        /**
+         * emptyDir represents a temporary directory that shares a pod's lifetime. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+         */
+        export interface PrometheusSpecVolumesEmptydir {
+            /**
+             * medium represents what type of storage medium should back this directory. The default is "" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+             */
+            medium?: string;
+            /**
+             * sizeLimit is the total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir
+             */
+            sizeLimit?: number | string;
+        }
+
+        /**
+         * ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. 
+         *  Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through a PersistentVolumeClaim (see EphemeralVolumeSource for more information on the connection between this volume type and PersistentVolumeClaim). 
+         *  Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. 
+         *  Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. 
+         *  A pod can use both types of ephemeral volumes and persistent volumes at the same time.
+         */
+        export interface PrometheusSpecVolumesEphemeral {
+            /**
+             * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+             *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+             *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+             *  Required, must not be nil.
+             */
+            volumeClaimTemplate?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplate;
+        }
+
+        /**
+         * Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). 
+         *  An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. 
+         *  This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. 
+         *  Required, must not be nil.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplate {
+            /**
+             * May contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation.
+             */
+            metadata?: {[key: string]: any};
+            /**
+             * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+             */
+            spec: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpec;
+        }
+
+        /**
+         * The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpec {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: string[];
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+             */
+            dataSource?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasource;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceref;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecResources;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelector;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: string;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: string;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: string;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasource {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecDatasourceref {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecResources {
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.monitoring.v1.PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface PrometheusSpecVolumesEphemeralVolumeclaimtemplateSpecSelectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.
+         */
+        export interface PrometheusSpecVolumesFc {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: string;
+            /**
+             * lun is Optional: FC target lun number
+             */
+            lun?: number;
+            /**
+             * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+            /**
+             * targetWWNs is Optional: FC target worldwide names (WWNs)
+             */
+            targetWWNs?: string[];
+            /**
+             * wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.
+             */
+            wwids?: string[];
+        }
+
+        /**
+         * flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.
+         */
+        export interface PrometheusSpecVolumesFlexvolume {
+            /**
+             * driver is the name of the driver to use for this volume.
+             */
+            driver: string;
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+             */
+            fsType?: string;
+            /**
+             * options is Optional: this field holds extra command options if any.
+             */
+            options?: {[key: string]: string};
+            /**
+             * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+            /**
+             * secretRef is Optional: secretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecVolumesFlexvolumeSecretref;
+        }
+
+        /**
+         * secretRef is Optional: secretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts.
+         */
+        export interface PrometheusSpecVolumesFlexvolumeSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running
+         */
+        export interface PrometheusSpecVolumesFlocker {
+            /**
+             * datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+             */
+            datasetName?: string;
+            /**
+             * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
+             */
+            datasetUUID?: string;
+        }
+
+        /**
+         * gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+         */
+        export interface PrometheusSpecVolumesGcepersistentdisk {
+            /**
+             * fsType is filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: string;
+            /**
+             * partition is the partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            partition?: number;
+            /**
+             * pdName is unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            pdName: string;
+            /**
+             * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
+             */
+            readOnly?: boolean;
+        }
+
+        /**
+         * gitRepo represents a git repository at a particular revision. DEPRECATED: GitRepo is deprecated. To provision a container with a git repo, mount an EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir into the Pod's container.
+         */
+        export interface PrometheusSpecVolumesGitrepo {
+            /**
+             * directory is the target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+             */
+            directory?: string;
+            /**
+             * repository is the URL
+             */
+            repository: string;
+            /**
+             * revision is the commit hash for the specified revision.
+             */
+            revision?: string;
+        }
+
+        /**
+         * glusterfs represents a Glusterfs mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/glusterfs/README.md
+         */
+        export interface PrometheusSpecVolumesGlusterfs {
+            /**
+             * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+             */
+            endpoints: string;
+            /**
+             * path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+             */
+            path: string;
+            /**
+             * readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
+             */
+            readOnly?: boolean;
+        }
+
+        /**
+         * hostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath --- TODO(jonesdl) We need to restrict who can use host directory mounts and who can/can not mount host directories as read/write.
+         */
+        export interface PrometheusSpecVolumesHostpath {
+            /**
+             * path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+             */
+            path: string;
+            /**
+             * type for HostPath Volume Defaults to "" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
+             */
+            type?: string;
+        }
+
+        /**
+         * iscsi represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md
+         */
+        export interface PrometheusSpecVolumesIscsi {
+            /**
+             * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
+             */
+            chapAuthDiscovery?: boolean;
+            /**
+             * chapAuthSession defines whether support iSCSI Session CHAP authentication
+             */
+            chapAuthSession?: boolean;
+            /**
+             * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: string;
+            /**
+             * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.
+             */
+            initiatorName?: string;
+            /**
+             * iqn is the target iSCSI Qualified Name.
+             */
+            iqn: string;
+            /**
+             * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).
+             */
+            iscsiInterface?: string;
+            /**
+             * lun represents iSCSI Target Lun number.
+             */
+            lun: number;
+            /**
+             * portals is the iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+             */
+            portals?: string[];
+            /**
+             * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+             */
+            readOnly?: boolean;
+            /**
+             * secretRef is the CHAP Secret for iSCSI target and initiator authentication
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecVolumesIscsiSecretref;
+            /**
+             * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+             */
+            targetPortal: string;
+        }
+
+        /**
+         * secretRef is the CHAP Secret for iSCSI target and initiator authentication
+         */
+        export interface PrometheusSpecVolumesIscsiSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * nfs represents an NFS mount on the host that shares a pod's lifetime More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+         */
+        export interface PrometheusSpecVolumesNfs {
+            /**
+             * path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            path: string;
+            /**
+             * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            readOnly?: boolean;
+            /**
+             * server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
+             */
+            server: string;
+        }
+
+        /**
+         * persistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+         */
+        export interface PrometheusSpecVolumesPersistentvolumeclaim {
+            /**
+             * claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
+             */
+            claimName: string;
+            /**
+             * readOnly Will force the ReadOnly setting in VolumeMounts. Default false.
+             */
+            readOnly?: boolean;
+        }
+
+        /**
+         * photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine
+         */
+        export interface PrometheusSpecVolumesPhotonpersistentdisk {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: string;
+            /**
+             * pdID is the ID that identifies Photon Controller persistent disk
+             */
+            pdID: string;
+        }
+
+        /**
+         * portworxVolume represents a portworx volume attached and mounted on kubelets host machine
+         */
+        export interface PrometheusSpecVolumesPortworxvolume {
+            /**
+             * fSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: string;
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+            /**
+             * volumeID uniquely identifies a Portworx volume
+             */
+            volumeID: string;
+        }
+
+        /**
+         * projected items for all in one resources secrets, configmaps, and downward API
+         */
+        export interface PrometheusSpecVolumesProjected {
+            /**
+             * defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: number;
+            /**
+             * sources is the list of volume projections
+             */
+            sources?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSources[];
+        }
+
+        /**
+         * Projection that may be projected along with other supported volume types
+         */
+        export interface PrometheusSpecVolumesProjectedSources {
+            /**
+             * configMap information about the configMap data to project
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesConfigmap;
+            /**
+             * downwardAPI information about the downwardAPI data to project
+             */
+            downwardAPI?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapi;
+            /**
+             * secret information about the secret data to project
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesSecret;
+            /**
+             * serviceAccountToken is information about the serviceAccountToken data to project
+             */
+            serviceAccountToken?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesServiceaccounttoken;
+        }
+
+        /**
+         * configMap information about the configMap data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesConfigmap {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesConfigmapItems[];
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * optional specify whether the ConfigMap or its keys must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesConfigmapItems {
+            /**
+             * key is the key to project.
+             */
+            key: string;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: string;
+        }
+
+        /**
+         * downwardAPI information about the downwardAPI data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapi {
+            /**
+             * Items is a list of DownwardAPIVolume file
+             */
+            items?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiItems[];
+        }
+
+        /**
+         * DownwardAPIVolumeFile represents information to create the file containing the pod field
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiItems {
+            /**
+             * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+             */
+            fieldRef?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiItemsFieldref;
+            /**
+             * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+             */
+            path: string;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+             */
+            resourceFieldRef?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldref;
+        }
+
+        /**
+         * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiItemsFieldref {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: string;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: string;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesDownwardapiItemsResourcefieldref {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: string;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: number | string;
+            /**
+             * Required: resource to select
+             */
+            resource: string;
+        }
+
+        /**
+         * secret information about the secret data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesSecret {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: outputs.monitoring.v1.PrometheusSpecVolumesProjectedSourcesSecretItems[];
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * optional field specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesSecretItems {
+            /**
+             * key is the key to project.
+             */
+            key: string;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: string;
+        }
+
+        /**
+         * serviceAccountToken is information about the serviceAccountToken data to project
+         */
+        export interface PrometheusSpecVolumesProjectedSourcesServiceaccounttoken {
+            /**
+             * audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
+             */
+            audience?: string;
+            /**
+             * expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
+             */
+            expirationSeconds?: number;
+            /**
+             * path is the path relative to the mount point of the file to project the token into.
+             */
+            path: string;
+        }
+
+        /**
+         * quobyte represents a Quobyte mount on the host that shares a pod's lifetime
+         */
+        export interface PrometheusSpecVolumesQuobyte {
+            /**
+             * group to map volume access to Default is no group
+             */
+            group?: string;
+            /**
+             * readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+             */
+            readOnly?: boolean;
+            /**
+             * registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+             */
+            registry: string;
+            /**
+             * tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin
+             */
+            tenant?: string;
+            /**
+             * user to map volume access to Defaults to serivceaccount user
+             */
+            user?: string;
+            /**
+             * volume is a string that references an already created Quobyte volume by name.
+             */
+            volume: string;
+        }
+
+        /**
+         * rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. More info: https://examples.k8s.io/volumes/rbd/README.md
+         */
+        export interface PrometheusSpecVolumesRbd {
+            /**
+             * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd TODO: how do we prevent errors in the filesystem from compromising the machine
+             */
+            fsType?: string;
+            /**
+             * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            image: string;
+            /**
+             * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            keyring?: string;
+            /**
+             * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            monitors: string[];
+            /**
+             * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            pool?: string;
+            /**
+             * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            readOnly?: boolean;
+            /**
+             * secretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecVolumesRbdSecretref;
+            /**
+             * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+             */
+            user?: string;
+        }
+
+        /**
+         * secretRef is name of the authentication secret for RBDUser. If provided overrides keyring. Default is nil. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
+         */
+        export interface PrometheusSpecVolumesRbdSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.
+         */
+        export interface PrometheusSpecVolumesScaleio {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Default is "xfs".
+             */
+            fsType?: string;
+            /**
+             * gateway is the host address of the ScaleIO API Gateway.
+             */
+            gateway: string;
+            /**
+             * protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.
+             */
+            protectionDomain?: string;
+            /**
+             * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+            /**
+             * secretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+             */
+            secretRef: outputs.monitoring.v1.PrometheusSpecVolumesScaleioSecretref;
+            /**
+             * sslEnabled Flag enable/disable SSL communication with Gateway, default false
+             */
+            sslEnabled?: boolean;
+            /**
+             * storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.
+             */
+            storageMode?: string;
+            /**
+             * storagePool is the ScaleIO Storage Pool associated with the protection domain.
+             */
+            storagePool?: string;
+            /**
+             * system is the name of the storage system as configured in ScaleIO.
+             */
+            system: string;
+            /**
+             * volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.
+             */
+            volumeName?: string;
+        }
+
+        /**
+         * secretRef references to the secret for ScaleIO user and other sensitive information. If this is not provided, Login operation will fail.
+         */
+        export interface PrometheusSpecVolumesScaleioSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+         */
+        export interface PrometheusSpecVolumesSecret {
+            /**
+             * defaultMode is Optional: mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: number;
+            /**
+             * items If unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: outputs.monitoring.v1.PrometheusSpecVolumesSecretItems[];
+            /**
+             * optional field specify whether the Secret or its keys must be defined
+             */
+            optional?: boolean;
+            /**
+             * secretName is the name of the secret in the pod's namespace to use. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
+             */
+            secretName?: string;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface PrometheusSpecVolumesSecretItems {
+            /**
+             * key is the key to project.
+             */
+            key: string;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: string;
+        }
+
+        /**
+         * storageOS represents a StorageOS volume attached and mounted on Kubernetes nodes.
+         */
+        export interface PrometheusSpecVolumesStorageos {
+            /**
+             * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: string;
+            /**
+             * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+             */
+            readOnly?: boolean;
+            /**
+             * secretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
+             */
+            secretRef?: outputs.monitoring.v1.PrometheusSpecVolumesStorageosSecretref;
+            /**
+             * volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.
+             */
+            volumeName?: string;
+            /**
+             * volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to "default" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.
+             */
+            volumeNamespace?: string;
+        }
+
+        /**
+         * secretRef specifies the secret to use for obtaining the StorageOS API credentials.  If not specified, default values will be attempted.
+         */
+        export interface PrometheusSpecVolumesStorageosSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+        }
+
+        /**
+         * vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine
+         */
+        export interface PrometheusSpecVolumesVspherevolume {
+            /**
+             * fsType is filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+             */
+            fsType?: string;
+            /**
+             * storagePolicyID is the storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.
+             */
+            storagePolicyID?: string;
+            /**
+             * storagePolicyName is the storage Policy Based Management (SPBM) profile name.
+             */
+            storagePolicyName?: string;
+            /**
+             * volumePath is the path that identifies vSphere volume vmdk
+             */
+            volumePath: string;
+        }
+
+        /**
+         * Defines the web command line flags when starting Prometheus.
+         */
+        export interface PrometheusSpecWeb {
+            /**
+             * Defines HTTP parameters for web server.
+             */
+            httpConfig?: outputs.monitoring.v1.PrometheusSpecWebHttpconfig;
+            /**
+             * The prometheus web page title
+             */
+            pageTitle?: string;
+            /**
+             * Defines the TLS parameters for HTTPS.
+             */
+            tlsConfig?: outputs.monitoring.v1.PrometheusSpecWebTlsconfig;
+        }
+
+        /**
+         * Defines HTTP parameters for web server.
+         */
+        export interface PrometheusSpecWebHttpconfig {
+            /**
+             * List of headers that can be added to HTTP responses.
+             */
+            headers?: outputs.monitoring.v1.PrometheusSpecWebHttpconfigHeaders;
+            /**
+             * Enable HTTP/2 support. Note that HTTP/2 is only supported with TLS. When TLSConfig is not configured, HTTP/2 will be disabled. Whenever the value of the field changes, a rolling update will be triggered.
+             */
+            http2?: boolean;
+        }
+
+        /**
+         * List of headers that can be added to HTTP responses.
+         */
+        export interface PrometheusSpecWebHttpconfigHeaders {
+            /**
+             * Set the Content-Security-Policy header to HTTP responses. Unset if blank.
+             */
+            contentSecurityPolicy?: string;
+            /**
+             * Set the Strict-Transport-Security header to HTTP responses. Unset if blank. Please make sure that you use this with care as this header might force browsers to load Prometheus and the other applications hosted on the same domain and subdomains over HTTPS. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+             */
+            strictTransportSecurity?: string;
+            /**
+             * Set the X-Content-Type-Options header to HTTP responses. Unset if blank. Accepted value is nosniff. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+             */
+            xContentTypeOptions?: string;
+            /**
+             * Set the X-Frame-Options header to HTTP responses. Unset if blank. Accepted values are deny and sameorigin. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+             */
+            xFrameOptions?: string;
+            /**
+             * Set the X-XSS-Protection header to all responses. Unset if blank. https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+             */
+            xXSSProtection?: string;
+        }
+
+        /**
+         * Defines the TLS parameters for HTTPS.
+         */
+        export interface PrometheusSpecWebTlsconfig {
+            /**
+             * Contains the TLS certificate for the server.
+             */
+            cert: outputs.monitoring.v1.PrometheusSpecWebTlsconfigCert;
+            /**
+             * List of supported cipher suites for TLS versions up to TLS 1.2. If empty, Go default cipher suites are used. Available cipher suites are documented in the go documentation: https://golang.org/pkg/crypto/tls/#pkg-constants
+             */
+            cipherSuites?: string[];
+            /**
+             * Server policy for client authentication. Maps to ClientAuth Policies. For more detail on clientAuth options: https://golang.org/pkg/crypto/tls/#ClientAuthType
+             */
+            clientAuthType?: string;
+            /**
+             * Contains the CA certificate for client certificate authentication to the server.
+             */
+            client_ca?: outputs.monitoring.v1.PrometheusSpecWebTlsconfigClient_ca;
+            /**
+             * Elliptic curves that will be used in an ECDHE handshake, in preference order. Available curves are documented in the go documentation: https://golang.org/pkg/crypto/tls/#CurveID
+             */
+            curvePreferences?: string[];
+            /**
+             * Secret containing the TLS key for the server.
+             */
+            keySecret: outputs.monitoring.v1.PrometheusSpecWebTlsconfigKeysecret;
+            /**
+             * Maximum TLS version that is acceptable. Defaults to TLS13.
+             */
+            maxVersion?: string;
+            /**
+             * Minimum TLS version that is acceptable. Defaults to TLS12.
+             */
+            minVersion?: string;
+            /**
+             * Controls whether the server selects the client's most preferred cipher suite, or the server's most preferred cipher suite. If true then the server's preference, as expressed in the order of elements in cipherSuites, is used.
+             */
+            preferServerCipherSuites?: boolean;
+        }
+
+        /**
+         * Contains the TLS certificate for the server.
+         */
+        export interface PrometheusSpecWebTlsconfigCert {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecWebTlsconfigCertConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecWebTlsconfigCertSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigCertConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigCertSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Contains the CA certificate for client certificate authentication to the server.
+         */
+        export interface PrometheusSpecWebTlsconfigClient_ca {
+            /**
+             * ConfigMap containing data to use for the targets.
+             */
+            configMap?: outputs.monitoring.v1.PrometheusSpecWebTlsconfigClient_caConfigmap;
+            /**
+             * Secret containing data to use for the targets.
+             */
+            secret?: outputs.monitoring.v1.PrometheusSpecWebTlsconfigClient_caSecret;
+        }
+
+        /**
+         * ConfigMap containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigClient_caConfigmap {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing data to use for the targets.
+         */
+        export interface PrometheusSpecWebTlsconfigClient_caSecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Secret containing the TLS key for the server.
+         */
+        export interface PrometheusSpecWebTlsconfigKeysecret {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Most recent observed status of the Prometheus cluster. Read-only. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface PrometheusStatus {
+            /**
+             * Total number of available pods (ready for at least minReadySeconds) targeted by this Prometheus deployment.
+             */
+            availableReplicas: number;
+            /**
+             * The current state of the Prometheus deployment.
+             */
+            conditions?: outputs.monitoring.v1.PrometheusStatusConditions[];
+            /**
+             * Represents whether any actions on the underlying managed objects are being performed. Only delete actions will be performed.
+             */
+            paused: boolean;
+            /**
+             * Total number of non-terminated pods targeted by this Prometheus deployment (their labels match the selector).
+             */
+            replicas: number;
+            /**
+             * The list has one entry per shard. Each entry provides a summary of the shard status.
+             */
+            shardStatuses?: outputs.monitoring.v1.PrometheusStatusShardstatuses[];
+            /**
+             * Total number of unavailable pods targeted by this Prometheus deployment.
+             */
+            unavailableReplicas: number;
+            /**
+             * Total number of non-terminated pods targeted by this Prometheus deployment that have the desired version spec.
+             */
+            updatedReplicas: number;
+        }
+
+        /**
+         * PrometheusCondition represents the state of the resources associated with the Prometheus resource.
+         */
+        export interface PrometheusStatusConditions {
+            /**
+             * lastTransitionTime is the time of the last update to the current status property.
+             */
+            lastTransitionTime: string;
+            /**
+             * Human-readable message indicating details for the condition's last transition.
+             */
+            message?: string;
+            /**
+             * Reason for the condition's last transition.
+             */
+            reason?: string;
+            /**
+             * status of the condition.
+             */
+            status: string;
+            /**
+             * Type of the condition being reported.
+             */
+            type: string;
+        }
+
+        export interface PrometheusStatusShardstatuses {
+            /**
+             * Total number of available pods (ready for at least minReadySeconds) targeted by this shard.
+             */
+            availableReplicas: number;
+            /**
+             * Total number of pods targeted by this shard.
+             */
+            replicas: number;
+            /**
+             * Identifier of the shard.
+             */
+            shardID: string;
+            /**
+             * Total number of unavailable pods targeted by this shard.
+             */
+            unavailableReplicas: number;
+            /**
+             * Total number of non-terminated pods targeted by this shard that have the desired spec.
+             */
+            updatedReplicas: number;
         }
 
         /**
@@ -24926,6 +35534,3933 @@ export namespace opentelemetry {
              * The selector used to match the OpenTelemetryCollector's deployment or statefulSet pods.
              */
             selector?: string;
+        }
+
+    }
+}
+
+export namespace postgresql {
+    export namespace v1 {
+        /**
+         * Specification of the desired behavior of the backup. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface BackupSpec {
+            /**
+             * The cluster to backup
+             */
+            cluster?: outputs.postgresql.v1.BackupSpecCluster;
+            /**
+             * The policy to decide which instance should perform this backup. If empty, it defaults to `cluster.spec.backup.target`. Available options are empty string, `primary` and `prefer-standby`. `primary` to have backups run always on primary instances, `prefer-standby` to have backups run preferably on the most updated standby, if available.
+             */
+            target?: string;
+        }
+
+        /**
+         * The cluster to backup
+         */
+        export interface BackupSpecCluster {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Most recently observed status of the backup. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface BackupStatus {
+            /**
+             * The credentials to use to upload data to Azure Blob Storage
+             */
+            azureCredentials?: outputs.postgresql.v1.BackupStatusAzurecredentials;
+            /**
+             * The ID of the Barman backup
+             */
+            backupId?: string;
+            /**
+             * The Name of the Barman backup
+             */
+            backupName?: string;
+            /**
+             * The starting xlog
+             */
+            beginLSN?: string;
+            /**
+             * The starting WAL
+             */
+            beginWal?: string;
+            /**
+             * The backup command output in case of error
+             */
+            commandError?: string;
+            /**
+             * Unused. Retained for compatibility with old versions.
+             */
+            commandOutput?: string;
+            /**
+             * The path where to store the backup (i.e. s3://bucket/path/to/folder) this path, with different destination folders, will be used for WALs and for data. This may not be populated in case of errors.
+             */
+            destinationPath?: string;
+            /**
+             * Encryption method required to S3 API
+             */
+            encryption?: string;
+            /**
+             * The ending xlog
+             */
+            endLSN?: string;
+            /**
+             * The ending WAL
+             */
+            endWal?: string;
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+             */
+            endpointCA?: outputs.postgresql.v1.BackupStatusEndpointca;
+            /**
+             * Endpoint to be used to upload data to the cloud, overriding the automatic endpoint discovery
+             */
+            endpointURL?: string;
+            /**
+             * The detected error
+             */
+            error?: string;
+            /**
+             * The credentials to use to upload data to Google Cloud Storage
+             */
+            googleCredentials?: outputs.postgresql.v1.BackupStatusGooglecredentials;
+            /**
+             * Information to identify the instance where the backup has been taken from
+             */
+            instanceID?: outputs.postgresql.v1.BackupStatusInstanceid;
+            /**
+             * The last backup status
+             */
+            phase?: string;
+            /**
+             * The credentials to use to upload data to S3
+             */
+            s3Credentials?: outputs.postgresql.v1.BackupStatusS3credentials;
+            /**
+             * The server name on S3, the cluster name is used if this parameter is omitted
+             */
+            serverName?: string;
+            /**
+             * When the backup was started
+             */
+            startedAt?: string;
+            /**
+             * When the backup was terminated
+             */
+            stoppedAt?: string;
+        }
+
+        /**
+         * The credentials to use to upload data to Azure Blob Storage
+         */
+        export interface BackupStatusAzurecredentials {
+            /**
+             * The connection string to be used
+             */
+            connectionString?: outputs.postgresql.v1.BackupStatusAzurecredentialsConnectionstring;
+            /**
+             * Use the Azure AD based authentication without providing explicitly the keys.
+             */
+            inheritFromAzureAD?: boolean;
+            /**
+             * The storage account where to upload data
+             */
+            storageAccount?: outputs.postgresql.v1.BackupStatusAzurecredentialsStorageaccount;
+            /**
+             * The storage account key to be used in conjunction with the storage account name
+             */
+            storageKey?: outputs.postgresql.v1.BackupStatusAzurecredentialsStoragekey;
+            /**
+             * A shared-access-signature to be used in conjunction with the storage account name
+             */
+            storageSasToken?: outputs.postgresql.v1.BackupStatusAzurecredentialsStoragesastoken;
+        }
+
+        /**
+         * The connection string to be used
+         */
+        export interface BackupStatusAzurecredentialsConnectionstring {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The storage account where to upload data
+         */
+        export interface BackupStatusAzurecredentialsStorageaccount {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The storage account key to be used in conjunction with the storage account name
+         */
+        export interface BackupStatusAzurecredentialsStoragekey {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * A shared-access-signature to be used in conjunction with the storage account name
+         */
+        export interface BackupStatusAzurecredentialsStoragesastoken {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+         */
+        export interface BackupStatusEndpointca {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The credentials to use to upload data to Google Cloud Storage
+         */
+        export interface BackupStatusGooglecredentials {
+            /**
+             * The secret containing the Google Cloud Storage JSON file with the credentials
+             */
+            applicationCredentials?: outputs.postgresql.v1.BackupStatusGooglecredentialsApplicationcredentials;
+            /**
+             * If set to true, will presume that it's running inside a GKE environment, default to false.
+             */
+            gkeEnvironment?: boolean;
+        }
+
+        /**
+         * The secret containing the Google Cloud Storage JSON file with the credentials
+         */
+        export interface BackupStatusGooglecredentialsApplicationcredentials {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Information to identify the instance where the backup has been taken from
+         */
+        export interface BackupStatusInstanceid {
+            /**
+             * The container ID
+             */
+            ContainerID?: string;
+            /**
+             * The pod name
+             */
+            podName?: string;
+        }
+
+        /**
+         * The credentials to use to upload data to S3
+         */
+        export interface BackupStatusS3credentials {
+            /**
+             * The reference to the access key id
+             */
+            accessKeyId?: outputs.postgresql.v1.BackupStatusS3credentialsAccesskeyid;
+            /**
+             * Use the role based authentication without providing explicitly the keys.
+             */
+            inheritFromIAMRole?: boolean;
+            /**
+             * The reference to the secret containing the region name
+             */
+            region?: outputs.postgresql.v1.BackupStatusS3credentialsRegion;
+            /**
+             * The reference to the secret access key
+             */
+            secretAccessKey?: outputs.postgresql.v1.BackupStatusS3credentialsSecretaccesskey;
+            /**
+             * The references to the session key
+             */
+            sessionToken?: outputs.postgresql.v1.BackupStatusS3credentialsSessiontoken;
+        }
+
+        /**
+         * The reference to the access key id
+         */
+        export interface BackupStatusS3credentialsAccesskeyid {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The reference to the secret containing the region name
+         */
+        export interface BackupStatusS3credentialsRegion {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The reference to the secret access key
+         */
+        export interface BackupStatusS3credentialsSecretaccesskey {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The references to the session key
+         */
+        export interface BackupStatusS3credentialsSessiontoken {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Specification of the desired behavior of the cluster. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ClusterSpec {
+            /**
+             * Affinity/Anti-affinity rules for Pods
+             */
+            affinity?: outputs.postgresql.v1.ClusterSpecAffinity;
+            /**
+             * The configuration to be used for backups
+             */
+            backup?: outputs.postgresql.v1.ClusterSpecBackup;
+            /**
+             * Instructions to bootstrap this cluster
+             */
+            bootstrap?: outputs.postgresql.v1.ClusterSpecBootstrap;
+            /**
+             * The configuration for the CA and related certificates
+             */
+            certificates?: outputs.postgresql.v1.ClusterSpecCertificates;
+            /**
+             * Description of this PostgreSQL cluster
+             */
+            description?: string;
+            /**
+             * When this option is enabled, the operator will use the `SuperuserSecret` to update the `postgres` user password (if the secret is not present, the operator will automatically create one). When this option is disabled, the operator will ignore the `SuperuserSecret` content, delete it when automatically created, and then blank the password of the `postgres` user by setting it to `NULL`. Enabled by default.
+             */
+            enableSuperuserAccess?: boolean;
+            /**
+             * Env follows the Env format to pass environment variables to the pods created in the cluster
+             */
+            env?: outputs.postgresql.v1.ClusterSpecEnv[];
+            /**
+             * EnvFrom follows the EnvFrom format to pass environment variables sources to the pods to be used by Env
+             */
+            envFrom?: outputs.postgresql.v1.ClusterSpecEnvfrom[];
+            /**
+             * The list of external clusters which are used in the configuration
+             */
+            externalClusters?: outputs.postgresql.v1.ClusterSpecExternalclusters[];
+            /**
+             * The amount of time (in seconds) to wait before triggering a failover after the primary PostgreSQL instance in the cluster was detected to be unhealthy
+             */
+            failoverDelay?: number;
+            /**
+             * Name of the container image, supporting both tags (`<image>:<tag>`) and digests for deterministic and repeatable deployments (`<image>:<tag>@sha256:<digestValue>`)
+             */
+            imageName?: string;
+            /**
+             * Image pull policy. One of `Always`, `Never` or `IfNotPresent`. If not defined, it defaults to `IfNotPresent`. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             */
+            imagePullPolicy?: string;
+            /**
+             * The list of pull secrets to be used to pull the images
+             */
+            imagePullSecrets?: outputs.postgresql.v1.ClusterSpecImagepullsecrets[];
+            /**
+             * Metadata that will be inherited by all objects related to the Cluster
+             */
+            inheritedMetadata?: outputs.postgresql.v1.ClusterSpecInheritedmetadata;
+            /**
+             * Number of instances required in the cluster
+             */
+            instances: number;
+            /**
+             * The instances' log level, one of the following values: error, warning, info (default), debug, trace
+             */
+            logLevel?: string;
+            /**
+             * The configuration that is used by the portions of PostgreSQL that are managed by the instance manager
+             */
+            managed?: outputs.postgresql.v1.ClusterSpecManaged;
+            /**
+             * The target value for the synchronous replication quorum, that can be decreased if the number of ready standbys is lower than this. Undefined or 0 disable synchronous replication.
+             */
+            maxSyncReplicas?: number;
+            /**
+             * Minimum number of instances required in synchronous replication with the primary. Undefined or 0 allow writes to complete when no standby is available.
+             */
+            minSyncReplicas?: number;
+            /**
+             * The configuration of the monitoring infrastructure of this cluster
+             */
+            monitoring?: outputs.postgresql.v1.ClusterSpecMonitoring;
+            /**
+             * Define a maintenance window for the Kubernetes nodes
+             */
+            nodeMaintenanceWindow?: outputs.postgresql.v1.ClusterSpecNodemaintenancewindow;
+            /**
+             * The GID of the `postgres` user inside the image, defaults to `26`
+             */
+            postgresGID?: number;
+            /**
+             * The UID of the `postgres` user inside the image, defaults to `26`
+             */
+            postgresUID?: number;
+            /**
+             * Configuration of the PostgreSQL server
+             */
+            postgresql?: outputs.postgresql.v1.ClusterSpecPostgresql;
+            /**
+             * Method to follow to upgrade the primary server during a rolling update procedure, after all replicas have been successfully updated: it can be with a switchover (`switchover`) or in-place (`restart` - default)
+             */
+            primaryUpdateMethod?: string;
+            /**
+             * Deployment strategy to follow to upgrade the primary server during a rolling update procedure, after all replicas have been successfully updated: it can be automated (`unsupervised` - default) or manual (`supervised`)
+             */
+            primaryUpdateStrategy?: string;
+            /**
+             * Template to be used to define projected volumes, projected volumes will be mounted under `/projected` base folder
+             */
+            projectedVolumeTemplate?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplate;
+            /**
+             * Replica cluster configuration
+             */
+            replica?: outputs.postgresql.v1.ClusterSpecReplica;
+            /**
+             * Replication slots management configuration
+             */
+            replicationSlots?: outputs.postgresql.v1.ClusterSpecReplicationslots;
+            /**
+             * Resources requirements of every generated Pod. Please refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ for more information.
+             */
+            resources?: outputs.postgresql.v1.ClusterSpecResources;
+            /**
+             * If specified, the pod will be dispatched by specified Kubernetes scheduler. If not specified, the pod will be dispatched by the default scheduler. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/
+             */
+            schedulerName?: string;
+            /**
+             * The SeccompProfile applied to every Pod and Container. Defaults to: `RuntimeDefault`
+             */
+            seccompProfile?: outputs.postgresql.v1.ClusterSpecSeccompprofile;
+            /**
+             * Configure the generation of the service account
+             */
+            serviceAccountTemplate?: outputs.postgresql.v1.ClusterSpecServiceaccounttemplate;
+            /**
+             * The time in seconds that is allowed for a PostgreSQL instance to successfully start up (default 30)
+             */
+            startDelay?: number;
+            /**
+             * The time in seconds that is allowed for a PostgreSQL instance to gracefully shutdown (default 30)
+             */
+            stopDelay?: number;
+            /**
+             * Configuration of the storage of the instances
+             */
+            storage?: outputs.postgresql.v1.ClusterSpecStorage;
+            /**
+             * The secret containing the superuser password. If not defined a new secret will be created with a randomly generated password
+             */
+            superuserSecret?: outputs.postgresql.v1.ClusterSpecSuperusersecret;
+            /**
+             * The time in seconds that is allowed for a primary PostgreSQL instance to gracefully shutdown during a switchover. Default value is 40000000, greater than one year in seconds, big enough to simulate an infinite delay
+             */
+            switchoverDelay?: number;
+            /**
+             * TopologySpreadConstraints specifies how to spread matching pods among the given topology. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
+             */
+            topologySpreadConstraints?: outputs.postgresql.v1.ClusterSpecTopologyspreadconstraints[];
+            /**
+             * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+             */
+            walStorage?: outputs.postgresql.v1.ClusterSpecWalstorage;
+        }
+        /**
+         * clusterSpecProvideDefaults sets the appropriate defaults for ClusterSpec
+         */
+        export function clusterSpecProvideDefaults(val: ClusterSpec): ClusterSpec {
+            return {
+                ...val,
+                backup: (val.backup ? outputs.postgresql.v1.clusterSpecBackupProvideDefaults(val.backup) : undefined),
+                bootstrap: (val.bootstrap ? outputs.postgresql.v1.clusterSpecBootstrapProvideDefaults(val.bootstrap) : undefined),
+                enableSuperuserAccess: (val.enableSuperuserAccess) ?? true,
+                failoverDelay: (val.failoverDelay) ?? 0,
+                instances: (val.instances) ?? 1,
+                logLevel: (val.logLevel) ?? "info",
+                maxSyncReplicas: (val.maxSyncReplicas) ?? 0,
+                minSyncReplicas: (val.minSyncReplicas) ?? 0,
+                monitoring: (val.monitoring ? outputs.postgresql.v1.clusterSpecMonitoringProvideDefaults(val.monitoring) : undefined),
+                nodeMaintenanceWindow: (val.nodeMaintenanceWindow ? outputs.postgresql.v1.clusterSpecNodemaintenancewindowProvideDefaults(val.nodeMaintenanceWindow) : undefined),
+                postgresGID: (val.postgresGID) ?? 26,
+                postgresUID: (val.postgresUID) ?? 26,
+                primaryUpdateMethod: (val.primaryUpdateMethod) ?? "restart",
+                primaryUpdateStrategy: (val.primaryUpdateStrategy) ?? "unsupervised",
+                replicationSlots: (val.replicationSlots ? outputs.postgresql.v1.clusterSpecReplicationslotsProvideDefaults(val.replicationSlots) : undefined),
+                startDelay: (val.startDelay) ?? 30,
+                stopDelay: (val.stopDelay) ?? 30,
+                storage: (val.storage ? outputs.postgresql.v1.clusterSpecStorageProvideDefaults(val.storage) : undefined),
+                switchoverDelay: (val.switchoverDelay) ?? 40000000,
+                walStorage: (val.walStorage ? outputs.postgresql.v1.clusterSpecWalstorageProvideDefaults(val.walStorage) : undefined),
+            };
+        }
+
+        /**
+         * Affinity/Anti-affinity rules for Pods
+         */
+        export interface ClusterSpecAffinity {
+            /**
+             * AdditionalPodAffinity allows to specify pod affinity terms to be passed to all the cluster's pods.
+             */
+            additionalPodAffinity?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinity;
+            /**
+             * AdditionalPodAntiAffinity allows to specify pod anti-affinity terms to be added to the ones generated by the operator if EnablePodAntiAffinity is set to true (default) or to be used exclusively if set to false.
+             */
+            additionalPodAntiAffinity?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinity;
+            /**
+             * Activates anti-affinity for the pods. The operator will define pods anti-affinity unless this field is explicitly set to false
+             */
+            enablePodAntiAffinity?: boolean;
+            /**
+             * NodeAffinity describes node affinity scheduling rules for the pod. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+             */
+            nodeAffinity?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinity;
+            /**
+             * NodeSelector is map of key-value pairs used to define the nodes on which the pods can run. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+             */
+            nodeSelector?: {[key: string]: string};
+            /**
+             * PodAntiAffinityType allows the user to decide whether pod anti-affinity between cluster instance has to be considered a strong requirement during scheduling or not. Allowed values are: "preferred" (default if empty) or "required". Setting it to "required", could lead to instances remaining pending until new kubernetes nodes are added if all the existing nodes don't match the required pod anti-affinity rule. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+             */
+            podAntiAffinityType?: string;
+            /**
+             * Tolerations is a list of Tolerations that should be set for all the pods, in order to allow them to run on tainted nodes. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+             */
+            tolerations?: outputs.postgresql.v1.ClusterSpecAffinityTolerations[];
+            /**
+             * TopologyKey to use for anti-affinity configuration. See k8s documentation for more info on that
+             */
+            topologyKey?: string;
+        }
+
+        /**
+         * AdditionalPodAffinity allows to specify pod affinity terms to be passed to all the cluster's pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinity {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecution[];
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecution[];
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecution {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: number;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecution {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * AdditionalPodAntiAffinity allows to specify pod anti-affinity terms to be added to the ones generated by the operator if EnablePodAntiAffinity is set to true (default) or to be used exclusively if set to false.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinity {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the anti-affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling anti-affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node has pods which matches the corresponding podAffinityTerm; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecution[];
+            /**
+             * If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecution[];
+        }
+
+        /**
+         * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecution {
+            /**
+             * Required. A pod affinity term, associated with the corresponding weight.
+             */
+            podAffinityTerm: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm;
+            /**
+             * weight associated with matching the corresponding podAffinityTerm, in the range 1-100.
+             */
+            weight: number;
+        }
+
+        /**
+         * Required. A pod affinity term, associated with the corresponding weight.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinityterm {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityPreferredduringschedulingignoredduringexecutionPodaffinitytermNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecution {
+            /**
+             * A label query over a set of resources, in this case pods.
+             */
+            labelSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselector;
+            /**
+             * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+             */
+            namespaceSelector?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector;
+            /**
+             * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod's namespace".
+             */
+            namespaces?: string[];
+            /**
+             * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
+             */
+            topologyKey: string;
+        }
+
+        /**
+         * A label query over a set of resources, in this case pods.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod's namespace". An empty selector ({}) matches all namespaces.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityAdditionalpodantiaffinityRequiredduringschedulingignoredduringexecutionNamespaceselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * NodeAffinity describes node affinity scheduling rules for the pod. More info: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+         */
+        export interface ClusterSpecAffinityNodeaffinity {
+            /**
+             * The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding "weight" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.
+             */
+            preferredDuringSchedulingIgnoredDuringExecution?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecution[];
+            /**
+             * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+             */
+            requiredDuringSchedulingIgnoredDuringExecution?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecution;
+        }
+
+        /**
+         * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecution {
+            /**
+             * A node selector term, associated with the corresponding weight.
+             */
+            preference: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreference;
+            /**
+             * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
+             */
+            weight: number;
+        }
+
+        /**
+         * A node selector term, associated with the corresponding weight.
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreference {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressions[];
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfields[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchexpressions {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityPreferredduringschedulingignoredduringexecutionPreferenceMatchfields {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to an update), the system may or may not try to eventually evict the pod from its node.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecution {
+            /**
+             * Required. A list of node selector terms. The terms are ORed.
+             */
+            nodeSelectorTerms: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectorterms[];
+        }
+
+        /**
+         * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectorterms {
+            /**
+             * A list of node selector requirements by node's labels.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressions[];
+            /**
+             * A list of node selector requirements by node's fields.
+             */
+            matchFields?: outputs.postgresql.v1.ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfields[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchexpressions {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecAffinityNodeaffinityRequiredduringschedulingignoredduringexecutionNodeselectortermsMatchfields {
+            /**
+             * The label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+             */
+            operator: string;
+            /**
+             * An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+         */
+        export interface ClusterSpecAffinityTolerations {
+            /**
+             * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+             */
+            effect?: string;
+            /**
+             * Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+             */
+            key?: string;
+            /**
+             * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+             */
+            operator?: string;
+            /**
+             * TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.
+             */
+            tolerationSeconds?: number;
+            /**
+             * Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+             */
+            value?: string;
+        }
+
+        /**
+         * The configuration to be used for backups
+         */
+        export interface ClusterSpecBackup {
+            /**
+             * The configuration for the barman-cloud tool suite
+             */
+            barmanObjectStore?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstore;
+            /**
+             * RetentionPolicy is the retention policy to be used for backups and WALs (i.e. '60d'). The retention policy is expressed in the form of `XXu` where `XX` is a positive integer and `u` is in `[dwm]` - days, weeks, months.
+             */
+            retentionPolicy?: string;
+            /**
+             * The policy to decide which instance should perform backups. Available options are empty string, which will default to `prefer-standby` policy, `primary` to have backups run always on primary instances, `prefer-standby` to have backups run preferably on the most updated standby, if available.
+             */
+            target?: string;
+        }
+        /**
+         * clusterSpecBackupProvideDefaults sets the appropriate defaults for ClusterSpecBackup
+         */
+        export function clusterSpecBackupProvideDefaults(val: ClusterSpecBackup): ClusterSpecBackup {
+            return {
+                ...val,
+                target: (val.target) ?? "prefer-standby",
+            };
+        }
+
+        /**
+         * The configuration for the barman-cloud tool suite
+         */
+        export interface ClusterSpecBackupBarmanobjectstore {
+            /**
+             * The credentials to use to upload data to Azure Blob Storage
+             */
+            azureCredentials?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentials;
+            /**
+             * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            data?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreData;
+            /**
+             * The path where to store the backup (i.e. s3://bucket/path/to/folder) this path, with different destination folders, will be used for WALs and for data
+             */
+            destinationPath: string;
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+             */
+            endpointCA?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreEndpointca;
+            /**
+             * Endpoint to be used to upload data to the cloud, overriding the automatic endpoint discovery
+             */
+            endpointURL?: string;
+            /**
+             * The credentials to use to upload data to Google Cloud Storage
+             */
+            googleCredentials?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreGooglecredentials;
+            /**
+             * HistoryTags is a list of key value pairs that will be passed to the Barman --history-tags option.
+             */
+            historyTags?: {[key: string]: string};
+            /**
+             * The credentials to use to upload data to S3
+             */
+            s3Credentials?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentials;
+            /**
+             * The server name on S3, the cluster name is used if this parameter is omitted
+             */
+            serverName?: string;
+            /**
+             * Tags is a list of key value pairs that will be passed to the Barman --tags option.
+             */
+            tags?: {[key: string]: string};
+            /**
+             * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            wal?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreWal;
+        }
+
+        /**
+         * The credentials to use to upload data to Azure Blob Storage
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentials {
+            /**
+             * The connection string to be used
+             */
+            connectionString?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsConnectionstring;
+            /**
+             * Use the Azure AD based authentication without providing explicitly the keys.
+             */
+            inheritFromAzureAD?: boolean;
+            /**
+             * The storage account where to upload data
+             */
+            storageAccount?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsStorageaccount;
+            /**
+             * The storage account key to be used in conjunction with the storage account name
+             */
+            storageKey?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragekey;
+            /**
+             * A shared-access-signature to be used in conjunction with the storage account name
+             */
+            storageSasToken?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragesastoken;
+        }
+
+        /**
+         * The connection string to be used
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsConnectionstring {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The storage account where to upload data
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsStorageaccount {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The storage account key to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragekey {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * A shared-access-signature to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreAzurecredentialsStoragesastoken {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreData {
+            /**
+             * Compress a backup file (a tar file per tablespace) while streaming it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: string;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: string;
+            /**
+             * Control whether the I/O workload for the backup initial checkpoint will be limited, according to the `checkpoint_completion_target` setting on the PostgreSQL server. If set to true, an immediate checkpoint will be used, meaning PostgreSQL will complete the checkpoint as soon as possible. `false` by default.
+             */
+            immediateCheckpoint?: boolean;
+            /**
+             * The number of parallel jobs to be used to upload the backup, defaults to 2
+             */
+            jobs?: number;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreEndpointca {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The credentials to use to upload data to Google Cloud Storage
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreGooglecredentials {
+            /**
+             * The secret containing the Google Cloud Storage JSON file with the credentials
+             */
+            applicationCredentials?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreGooglecredentialsApplicationcredentials;
+            /**
+             * If set to true, will presume that it's running inside a GKE environment, default to false.
+             */
+            gkeEnvironment?: boolean;
+        }
+
+        /**
+         * The secret containing the Google Cloud Storage JSON file with the credentials
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreGooglecredentialsApplicationcredentials {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The credentials to use to upload data to S3
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentials {
+            /**
+             * The reference to the access key id
+             */
+            accessKeyId?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsAccesskeyid;
+            /**
+             * Use the role based authentication without providing explicitly the keys.
+             */
+            inheritFromIAMRole?: boolean;
+            /**
+             * The reference to the secret containing the region name
+             */
+            region?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsRegion;
+            /**
+             * The reference to the secret access key
+             */
+            secretAccessKey?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsSecretaccesskey;
+            /**
+             * The references to the session key
+             */
+            sessionToken?: outputs.postgresql.v1.ClusterSpecBackupBarmanobjectstoreS3credentialsSessiontoken;
+        }
+
+        /**
+         * The reference to the access key id
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsAccesskeyid {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The reference to the secret containing the region name
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsRegion {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The reference to the secret access key
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsSecretaccesskey {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The references to the session key
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreS3credentialsSessiontoken {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecBackupBarmanobjectstoreWal {
+            /**
+             * Compress a WAL file before sending it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: string;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: string;
+            /**
+             * Number of WAL files to be either archived in parallel (when the PostgreSQL instance is archiving to a backup object store) or restored in parallel (when a PostgreSQL standby is fetching WAL files from a recovery object store). If not specified, WAL files will be processed one at a time. It accepts a positive integer as a value - with 1 being the minimum accepted value.
+             */
+            maxParallel?: number;
+        }
+
+        /**
+         * Instructions to bootstrap this cluster
+         */
+        export interface ClusterSpecBootstrap {
+            /**
+             * Bootstrap the cluster via initdb
+             */
+            initdb?: outputs.postgresql.v1.ClusterSpecBootstrapInitdb;
+            /**
+             * Bootstrap the cluster taking a physical backup of another compatible PostgreSQL instance
+             */
+            pg_basebackup?: outputs.postgresql.v1.ClusterSpecBootstrapPg_basebackup;
+            /**
+             * Bootstrap the cluster from a backup
+             */
+            recovery?: outputs.postgresql.v1.ClusterSpecBootstrapRecovery;
+        }
+        /**
+         * clusterSpecBootstrapProvideDefaults sets the appropriate defaults for ClusterSpecBootstrap
+         */
+        export function clusterSpecBootstrapProvideDefaults(val: ClusterSpecBootstrap): ClusterSpecBootstrap {
+            return {
+                ...val,
+                initdb: (val.initdb ? outputs.postgresql.v1.clusterSpecBootstrapInitdbProvideDefaults(val.initdb) : undefined),
+            };
+        }
+
+        /**
+         * Bootstrap the cluster via initdb
+         */
+        export interface ClusterSpecBootstrapInitdb {
+            /**
+             * Whether the `-k` option should be passed to initdb, enabling checksums on data pages (default: `false`)
+             */
+            dataChecksums?: boolean;
+            /**
+             * Name of the database used by the application. Default: `app`.
+             */
+            database?: string;
+            /**
+             * The value to be passed as option `--encoding` for initdb (default:`UTF8`)
+             */
+            encoding?: string;
+            /**
+             * Bootstraps the new cluster by importing data from an existing PostgreSQL instance using logical backup (`pg_dump` and `pg_restore`)
+             */
+            import?: outputs.postgresql.v1.ClusterSpecBootstrapInitdbImport;
+            /**
+             * The value to be passed as option `--lc-ctype` for initdb (default:`C`)
+             */
+            localeCType?: string;
+            /**
+             * The value to be passed as option `--lc-collate` for initdb (default:`C`)
+             */
+            localeCollate?: string;
+            /**
+             * The list of options that must be passed to initdb when creating the cluster. Deprecated: This could lead to inconsistent configurations, please use the explicit provided parameters instead. If defined, explicit values will be ignored.
+             */
+            options?: string[];
+            /**
+             * Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+             */
+            owner?: string;
+            /**
+             * List of SQL queries to be executed as a superuser in the application database right after is created - to be used with extreme care (by default empty)
+             */
+            postInitApplicationSQL?: string[];
+            /**
+             * PostInitApplicationSQLRefs points references to ConfigMaps or Secrets which contain SQL files, the general implementation order to these references is from all Secrets to all ConfigMaps, and inside Secrets or ConfigMaps, the implementation order is same as the order of each array (by default empty)
+             */
+            postInitApplicationSQLRefs?: outputs.postgresql.v1.ClusterSpecBootstrapInitdbPostinitapplicationsqlrefs;
+            /**
+             * List of SQL queries to be executed as a superuser immediately after the cluster has been created - to be used with extreme care (by default empty)
+             */
+            postInitSQL?: string[];
+            /**
+             * List of SQL queries to be executed as a superuser in the `template1` after the cluster has been created - to be used with extreme care (by default empty)
+             */
+            postInitTemplateSQL?: string[];
+            /**
+             * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+             */
+            secret?: outputs.postgresql.v1.ClusterSpecBootstrapInitdbSecret;
+            /**
+             * The value in megabytes (1 to 1024) to be passed to the `--wal-segsize` option for initdb (default: empty, resulting in PostgreSQL default: 16MB)
+             */
+            walSegmentSize?: number;
+        }
+        /**
+         * clusterSpecBootstrapInitdbProvideDefaults sets the appropriate defaults for ClusterSpecBootstrapInitdb
+         */
+        export function clusterSpecBootstrapInitdbProvideDefaults(val: ClusterSpecBootstrapInitdb): ClusterSpecBootstrapInitdb {
+            return {
+                ...val,
+                import: (val.import ? outputs.postgresql.v1.clusterSpecBootstrapInitdbImportProvideDefaults(val.import) : undefined),
+            };
+        }
+
+        /**
+         * Bootstraps the new cluster by importing data from an existing PostgreSQL instance using logical backup (`pg_dump` and `pg_restore`)
+         */
+        export interface ClusterSpecBootstrapInitdbImport {
+            /**
+             * The databases to import
+             */
+            databases: string[];
+            /**
+             * List of SQL queries to be executed as a superuser in the application database right after is imported - to be used with extreme care (by default empty). Only available in microservice type.
+             */
+            postImportApplicationSQL?: string[];
+            /**
+             * The roles to import
+             */
+            roles?: string[];
+            /**
+             * When set to true, only the `pre-data` and `post-data` sections of `pg_restore` are invoked, avoiding data import. Default: `false`.
+             */
+            schemaOnly?: boolean;
+            /**
+             * The source of the import
+             */
+            source: outputs.postgresql.v1.ClusterSpecBootstrapInitdbImportSource;
+            /**
+             * The import type. Can be `microservice` or `monolith`.
+             */
+            type: string;
+        }
+        /**
+         * clusterSpecBootstrapInitdbImportProvideDefaults sets the appropriate defaults for ClusterSpecBootstrapInitdbImport
+         */
+        export function clusterSpecBootstrapInitdbImportProvideDefaults(val: ClusterSpecBootstrapInitdbImport): ClusterSpecBootstrapInitdbImport {
+            return {
+                ...val,
+                schemaOnly: (val.schemaOnly) ?? false,
+            };
+        }
+
+        /**
+         * The source of the import
+         */
+        export interface ClusterSpecBootstrapInitdbImportSource {
+            /**
+             * The name of the externalCluster used for import
+             */
+            externalCluster: string;
+        }
+
+        /**
+         * PostInitApplicationSQLRefs points references to ConfigMaps or Secrets which contain SQL files, the general implementation order to these references is from all Secrets to all ConfigMaps, and inside Secrets or ConfigMaps, the implementation order is same as the order of each array (by default empty)
+         */
+        export interface ClusterSpecBootstrapInitdbPostinitapplicationsqlrefs {
+            /**
+             * ConfigMapRefs holds a list of references to ConfigMaps
+             */
+            configMapRefs?: outputs.postgresql.v1.ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsConfigmaprefs[];
+            /**
+             * SecretRefs holds a list of references to Secrets
+             */
+            secretRefs?: outputs.postgresql.v1.ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsSecretrefs[];
+        }
+
+        /**
+         * ConfigMapKeySelector contains enough information to let you locate the key of a ConfigMap
+         */
+        export interface ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsConfigmaprefs {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * SecretKeySelector contains enough information to let you locate the key of a Secret
+         */
+        export interface ClusterSpecBootstrapInitdbPostinitapplicationsqlrefsSecretrefs {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+         */
+        export interface ClusterSpecBootstrapInitdbSecret {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Bootstrap the cluster taking a physical backup of another compatible PostgreSQL instance
+         */
+        export interface ClusterSpecBootstrapPg_basebackup {
+            /**
+             * Name of the database used by the application. Default: `app`.
+             */
+            database?: string;
+            /**
+             * Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+             */
+            owner?: string;
+            /**
+             * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+             */
+            secret?: outputs.postgresql.v1.ClusterSpecBootstrapPg_basebackupSecret;
+            /**
+             * The name of the server of which we need to take a physical backup
+             */
+            source: string;
+        }
+
+        /**
+         * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+         */
+        export interface ClusterSpecBootstrapPg_basebackupSecret {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Bootstrap the cluster from a backup
+         */
+        export interface ClusterSpecBootstrapRecovery {
+            /**
+             * The backup object containing the physical base backup from which to initiate the recovery procedure. Mutually exclusive with `source` and `volumeSnapshots`.
+             */
+            backup?: outputs.postgresql.v1.ClusterSpecBootstrapRecoveryBackup;
+            /**
+             * Name of the database used by the application. Default: `app`.
+             */
+            database?: string;
+            /**
+             * Name of the owner of the database in the instance to be used by applications. Defaults to the value of the `database` key.
+             */
+            owner?: string;
+            /**
+             * By default, the recovery process applies all the available WAL files in the archive (full recovery). However, you can also end the recovery as soon as a consistent state is reached or recover to a point-in-time (PITR) by specifying a `RecoveryTarget` object, as expected by PostgreSQL (i.e., timestamp, transaction Id, LSN, ...). More info: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-RECOVERY-TARGET
+             */
+            recoveryTarget?: outputs.postgresql.v1.ClusterSpecBootstrapRecoveryRecoverytarget;
+            /**
+             * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+             */
+            secret?: outputs.postgresql.v1.ClusterSpecBootstrapRecoverySecret;
+            /**
+             * The external cluster whose backup we will restore. This is also used as the name of the folder under which the backup is stored, so it must be set to the name of the source cluster Mutually exclusive with `backup` and `volumeSnapshots`.
+             */
+            source?: string;
+            /**
+             * The static PVC data source(s) from which to initiate the recovery procedure. Currently supporting `VolumeSnapshot` and `PersistentVolumeClaim` resources that map an existing PVC group, compatible with CloudNativePG, and taken with a cold backup copy on a fenced Postgres instance (limitation which will be removed in the future when online backup will be implemented). Mutually exclusive with `backup` and `source`.
+             */
+            volumeSnapshots?: outputs.postgresql.v1.ClusterSpecBootstrapRecoveryVolumesnapshots;
+        }
+
+        /**
+         * The backup object containing the physical base backup from which to initiate the recovery procedure. Mutually exclusive with `source` and `volumeSnapshots`.
+         */
+        export interface ClusterSpecBootstrapRecoveryBackup {
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+             */
+            endpointCA?: outputs.postgresql.v1.ClusterSpecBootstrapRecoveryBackupEndpointca;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive.
+         */
+        export interface ClusterSpecBootstrapRecoveryBackupEndpointca {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * By default, the recovery process applies all the available WAL files in the archive (full recovery). However, you can also end the recovery as soon as a consistent state is reached or recover to a point-in-time (PITR) by specifying a `RecoveryTarget` object, as expected by PostgreSQL (i.e., timestamp, transaction Id, LSN, ...). More info: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-RECOVERY-TARGET
+         */
+        export interface ClusterSpecBootstrapRecoveryRecoverytarget {
+            /**
+             * The ID of the backup from which to start the recovery process. If empty (default) the operator will automatically detect the backup based on targetTime or targetLSN if specified. Otherwise use the latest available backup in chronological order.
+             */
+            backupID?: string;
+            /**
+             * Set the target to be exclusive (defaults to true)
+             */
+            exclusive?: boolean;
+            /**
+             * End recovery as soon as a consistent state is reached
+             */
+            targetImmediate?: boolean;
+            /**
+             * The target LSN (Log Sequence Number)
+             */
+            targetLSN?: string;
+            /**
+             * The target name (to be previously created with `pg_create_restore_point`)
+             */
+            targetName?: string;
+            /**
+             * The target timeline ("latest" or a positive integer)
+             */
+            targetTLI?: string;
+            /**
+             * The target time as a timestamp in the RFC3339 standard
+             */
+            targetTime?: string;
+            /**
+             * The target transaction ID
+             */
+            targetXID?: string;
+        }
+
+        /**
+         * Name of the secret containing the initial credentials for the owner of the user database. If empty a new secret will be created from scratch
+         */
+        export interface ClusterSpecBootstrapRecoverySecret {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The static PVC data source(s) from which to initiate the recovery procedure. Currently supporting `VolumeSnapshot` and `PersistentVolumeClaim` resources that map an existing PVC group, compatible with CloudNativePG, and taken with a cold backup copy on a fenced Postgres instance (limitation which will be removed in the future when online backup will be implemented). Mutually exclusive with `backup` and `source`.
+         */
+        export interface ClusterSpecBootstrapRecoveryVolumesnapshots {
+            /**
+             * Configuration of the storage of the instances
+             */
+            storage: outputs.postgresql.v1.ClusterSpecBootstrapRecoveryVolumesnapshotsStorage;
+            /**
+             * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+             */
+            walStorage?: outputs.postgresql.v1.ClusterSpecBootstrapRecoveryVolumesnapshotsWalstorage;
+        }
+
+        /**
+         * Configuration of the storage of the instances
+         */
+        export interface ClusterSpecBootstrapRecoveryVolumesnapshotsStorage {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+         */
+        export interface ClusterSpecBootstrapRecoveryVolumesnapshotsWalstorage {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * The configuration for the CA and related certificates
+         */
+        export interface ClusterSpecCertificates {
+            /**
+             * The secret containing the Client CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate all the client certificates.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the client certificates, used as `ssl_ca_file` of all the instances.<br /> - `ca.key`: key used to generate client certificates, if ReplicationTLSSecret is provided, this can be omitted.<br />
+             */
+            clientCASecret?: string;
+            /**
+             * The secret of type kubernetes.io/tls containing the client certificate to authenticate as the `streaming_replica` user. If not defined, ClientCASecret must provide also `ca.key`, and a new secret will be created using the provided CA.
+             */
+            replicationTLSSecret?: string;
+            /**
+             * The list of the server alternative DNS names to be added to the generated server TLS certificates, when required.
+             */
+            serverAltDNSNames?: string[];
+            /**
+             * The secret containing the Server CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate the TLS certificate ServerTLSSecret.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the server certificate, used as `sslrootcert` in client connection strings.<br /> - `ca.key`: key used to generate Server SSL certs, if ServerTLSSecret is provided, this can be omitted.<br />
+             */
+            serverCASecret?: string;
+            /**
+             * The secret of type kubernetes.io/tls containing the server TLS certificate and key that will be set as `ssl_cert_file` and `ssl_key_file` so that clients can connect to postgres securely. If not defined, ServerCASecret must provide also `ca.key` and a new secret will be created using the provided CA.
+             */
+            serverTLSSecret?: string;
+        }
+
+        /**
+         * EnvVar represents an environment variable present in a Container.
+         */
+        export interface ClusterSpecEnv {
+            /**
+             * Name of the environment variable. Must be a C_IDENTIFIER.
+             */
+            name: string;
+            /**
+             * Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)" will produce the string literal "$(VAR_NAME)". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             */
+            value?: string;
+            /**
+             * Source for the environment variable's value. Cannot be used if value is not empty.
+             */
+            valueFrom?: outputs.postgresql.v1.ClusterSpecEnvValuefrom;
+        }
+
+        /**
+         * Source for the environment variable's value. Cannot be used if value is not empty.
+         */
+        export interface ClusterSpecEnvValuefrom {
+            /**
+             * Selects a key of a ConfigMap.
+             */
+            configMapKeyRef?: outputs.postgresql.v1.ClusterSpecEnvValuefromConfigmapkeyref;
+            /**
+             * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+             */
+            fieldRef?: outputs.postgresql.v1.ClusterSpecEnvValuefromFieldref;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+             */
+            resourceFieldRef?: outputs.postgresql.v1.ClusterSpecEnvValuefromResourcefieldref;
+            /**
+             * Selects a key of a secret in the pod's namespace
+             */
+            secretKeyRef?: outputs.postgresql.v1.ClusterSpecEnvValuefromSecretkeyref;
+        }
+
+        /**
+         * Selects a key of a ConfigMap.
+         */
+        export interface ClusterSpecEnvValuefromConfigmapkeyref {
+            /**
+             * The key to select.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.
+         */
+        export interface ClusterSpecEnvValuefromFieldref {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: string;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: string;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.
+         */
+        export interface ClusterSpecEnvValuefromResourcefieldref {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: string;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: number | string;
+            /**
+             * Required: resource to select
+             */
+            resource: string;
+        }
+
+        /**
+         * Selects a key of a secret in the pod's namespace
+         */
+        export interface ClusterSpecEnvValuefromSecretkeyref {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * EnvFromSource represents the source of a set of ConfigMaps
+         */
+        export interface ClusterSpecEnvfrom {
+            /**
+             * The ConfigMap to select from
+             */
+            configMapRef?: outputs.postgresql.v1.ClusterSpecEnvfromConfigmapref;
+            /**
+             * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
+             */
+            prefix?: string;
+            /**
+             * The Secret to select from
+             */
+            secretRef?: outputs.postgresql.v1.ClusterSpecEnvfromSecretref;
+        }
+
+        /**
+         * The ConfigMap to select from
+         */
+        export interface ClusterSpecEnvfromConfigmapref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the ConfigMap must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The Secret to select from
+         */
+        export interface ClusterSpecEnvfromSecretref {
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * ExternalCluster represents the connection parameters to an external cluster which is used in the other sections of the configuration
+         */
+        export interface ClusterSpecExternalclusters {
+            /**
+             * The configuration for the barman-cloud tool suite
+             */
+            barmanObjectStore?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstore;
+            /**
+             * The list of connection parameters, such as dbname, host, username, etc
+             */
+            connectionParameters?: {[key: string]: string};
+            /**
+             * The server name, required
+             */
+            name: string;
+            /**
+             * The reference to the password to be used to connect to the server
+             */
+            password?: outputs.postgresql.v1.ClusterSpecExternalclustersPassword;
+            /**
+             * The reference to an SSL certificate to be used to connect to this instance
+             */
+            sslCert?: outputs.postgresql.v1.ClusterSpecExternalclustersSslcert;
+            /**
+             * The reference to an SSL private key to be used to connect to this instance
+             */
+            sslKey?: outputs.postgresql.v1.ClusterSpecExternalclustersSslkey;
+            /**
+             * The reference to an SSL CA public key to be used to connect to this instance
+             */
+            sslRootCert?: outputs.postgresql.v1.ClusterSpecExternalclustersSslrootcert;
+        }
+
+        /**
+         * The configuration for the barman-cloud tool suite
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstore {
+            /**
+             * The credentials to use to upload data to Azure Blob Storage
+             */
+            azureCredentials?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentials;
+            /**
+             * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            data?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreData;
+            /**
+             * The path where to store the backup (i.e. s3://bucket/path/to/folder) this path, with different destination folders, will be used for WALs and for data
+             */
+            destinationPath: string;
+            /**
+             * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+             */
+            endpointCA?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreEndpointca;
+            /**
+             * Endpoint to be used to upload data to the cloud, overriding the automatic endpoint discovery
+             */
+            endpointURL?: string;
+            /**
+             * The credentials to use to upload data to Google Cloud Storage
+             */
+            googleCredentials?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreGooglecredentials;
+            /**
+             * HistoryTags is a list of key value pairs that will be passed to the Barman --history-tags option.
+             */
+            historyTags?: {[key: string]: string};
+            /**
+             * The credentials to use to upload data to S3
+             */
+            s3Credentials?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentials;
+            /**
+             * The server name on S3, the cluster name is used if this parameter is omitted
+             */
+            serverName?: string;
+            /**
+             * Tags is a list of key value pairs that will be passed to the Barman --tags option.
+             */
+            tags?: {[key: string]: string};
+            /**
+             * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+             */
+            wal?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreWal;
+        }
+
+        /**
+         * The credentials to use to upload data to Azure Blob Storage
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentials {
+            /**
+             * The connection string to be used
+             */
+            connectionString?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsConnectionstring;
+            /**
+             * Use the Azure AD based authentication without providing explicitly the keys.
+             */
+            inheritFromAzureAD?: boolean;
+            /**
+             * The storage account where to upload data
+             */
+            storageAccount?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStorageaccount;
+            /**
+             * The storage account key to be used in conjunction with the storage account name
+             */
+            storageKey?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragekey;
+            /**
+             * A shared-access-signature to be used in conjunction with the storage account name
+             */
+            storageSasToken?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragesastoken;
+        }
+
+        /**
+         * The connection string to be used
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsConnectionstring {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The storage account where to upload data
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStorageaccount {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The storage account key to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragekey {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * A shared-access-signature to be used in conjunction with the storage account name
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreAzurecredentialsStoragesastoken {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The configuration to be used to backup the data files When not defined, base backups files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreData {
+            /**
+             * Compress a backup file (a tar file per tablespace) while streaming it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: string;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: string;
+            /**
+             * Control whether the I/O workload for the backup initial checkpoint will be limited, according to the `checkpoint_completion_target` setting on the PostgreSQL server. If set to true, an immediate checkpoint will be used, meaning PostgreSQL will complete the checkpoint as soon as possible. `false` by default.
+             */
+            immediateCheckpoint?: boolean;
+            /**
+             * The number of parallel jobs to be used to upload the backup, defaults to 2
+             */
+            jobs?: number;
+        }
+
+        /**
+         * EndpointCA store the CA bundle of the barman endpoint. Useful when using self-signed certificates to avoid errors with certificate issuer and barman-cloud-wal-archive
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreEndpointca {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The credentials to use to upload data to Google Cloud Storage
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreGooglecredentials {
+            /**
+             * The secret containing the Google Cloud Storage JSON file with the credentials
+             */
+            applicationCredentials?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreGooglecredentialsApplicationcredentials;
+            /**
+             * If set to true, will presume that it's running inside a GKE environment, default to false.
+             */
+            gkeEnvironment?: boolean;
+        }
+
+        /**
+         * The secret containing the Google Cloud Storage JSON file with the credentials
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreGooglecredentialsApplicationcredentials {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The credentials to use to upload data to S3
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentials {
+            /**
+             * The reference to the access key id
+             */
+            accessKeyId?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsAccesskeyid;
+            /**
+             * Use the role based authentication without providing explicitly the keys.
+             */
+            inheritFromIAMRole?: boolean;
+            /**
+             * The reference to the secret containing the region name
+             */
+            region?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsRegion;
+            /**
+             * The reference to the secret access key
+             */
+            secretAccessKey?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSecretaccesskey;
+            /**
+             * The references to the session key
+             */
+            sessionToken?: outputs.postgresql.v1.ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSessiontoken;
+        }
+
+        /**
+         * The reference to the access key id
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsAccesskeyid {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The reference to the secret containing the region name
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsRegion {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The reference to the secret access key
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSecretaccesskey {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The references to the session key
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreS3credentialsSessiontoken {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The configuration for the backup of the WAL stream. When not defined, WAL files will be stored uncompressed and may be unencrypted in the object store, according to the bucket default policy.
+         */
+        export interface ClusterSpecExternalclustersBarmanobjectstoreWal {
+            /**
+             * Compress a WAL file before sending it to the object store. Available options are empty string (no compression, default), `gzip`, `bzip2` or `snappy`.
+             */
+            compression?: string;
+            /**
+             * Whenever to force the encryption of files (if the bucket is not already configured for that). Allowed options are empty string (use the bucket policy, default), `AES256` and `aws:kms`
+             */
+            encryption?: string;
+            /**
+             * Number of WAL files to be either archived in parallel (when the PostgreSQL instance is archiving to a backup object store) or restored in parallel (when a PostgreSQL standby is fetching WAL files from a recovery object store). If not specified, WAL files will be processed one at a time. It accepts a positive integer as a value - with 1 being the minimum accepted value.
+             */
+            maxParallel?: number;
+        }
+
+        /**
+         * The reference to the password to be used to connect to the server
+         */
+        export interface ClusterSpecExternalclustersPassword {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The reference to an SSL certificate to be used to connect to this instance
+         */
+        export interface ClusterSpecExternalclustersSslcert {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The reference to an SSL private key to be used to connect to this instance
+         */
+        export interface ClusterSpecExternalclustersSslkey {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * The reference to an SSL CA public key to be used to connect to this instance
+         */
+        export interface ClusterSpecExternalclustersSslrootcert {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * LocalObjectReference contains enough information to let you locate a local object with a known type inside the same namespace
+         */
+        export interface ClusterSpecImagepullsecrets {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Metadata that will be inherited by all objects related to the Cluster
+         */
+        export interface ClusterSpecInheritedmetadata {
+            annotations?: {[key: string]: string};
+            labels?: {[key: string]: string};
+        }
+
+        /**
+         * The configuration that is used by the portions of PostgreSQL that are managed by the instance manager
+         */
+        export interface ClusterSpecManaged {
+            /**
+             * Database roles managed by the `Cluster`
+             */
+            roles?: outputs.postgresql.v1.ClusterSpecManagedRoles[];
+        }
+
+        /**
+         * RoleConfiguration is the representation, in Kubernetes, of a PostgreSQL role with the additional field Ensure specifying whether to ensure the presence or absence of the role in the database 
+         *  The defaults of the CREATE ROLE command are applied Reference: https://www.postgresql.org/docs/current/sql-createrole.html
+         */
+        export interface ClusterSpecManagedRoles {
+            /**
+             * Whether a role bypasses every row-level security (RLS) policy. Default is `false`.
+             */
+            bypassrls?: boolean;
+            /**
+             * Description of the role
+             */
+            comment?: string;
+            /**
+             * If the role can log in, this specifies how many concurrent connections the role can make. `-1` (the default) means no limit.
+             */
+            connectionLimit?: number;
+            /**
+             * When set to `true`, the role being defined will be allowed to create new databases. Specifying `false` (default) will deny a role the ability to create databases.
+             */
+            createdb?: boolean;
+            /**
+             * Whether the role will be permitted to create, alter, drop, comment on, change the security label for, and grant or revoke membership in other roles. Default is `false`.
+             */
+            createrole?: boolean;
+            /**
+             * DisablePassword indicates that a role's password should be set to NULL in Postgres
+             */
+            disablePassword?: boolean;
+            /**
+             * Ensure the role is `present` or `absent` - defaults to "present"
+             */
+            ensure?: string;
+            /**
+             * List of one or more existing roles to which this role will be immediately added as a new member. Default empty.
+             */
+            inRoles?: string[];
+            /**
+             * Whether a role "inherits" the privileges of roles it is a member of. Defaults is `true`.
+             */
+            inherit?: boolean;
+            /**
+             * Whether the role is allowed to log in. A role having the `login` attribute can be thought of as a user. Roles without this attribute are useful for managing database privileges, but are not users in the usual sense of the word. Default is `false`.
+             */
+            login?: boolean;
+            /**
+             * Name of the role
+             */
+            name: string;
+            /**
+             * Secret containing the password of the role (if present) If null, the password will be ignored unless DisablePassword is set
+             */
+            passwordSecret?: outputs.postgresql.v1.ClusterSpecManagedRolesPasswordsecret;
+            /**
+             * Whether a role is a replication role. A role must have this attribute (or be a superuser) in order to be able to connect to the server in replication mode (physical or logical replication) and in order to be able to create or drop replication slots. A role having the `replication` attribute is a very highly privileged role, and should only be used on roles actually used for replication. Default is `false`.
+             */
+            replication?: boolean;
+            /**
+             * Whether the role is a `superuser` who can override all access restrictions within the database - superuser status is dangerous and should be used only when really needed. You must yourself be a superuser to create a new superuser. Defaults is `false`.
+             */
+            superuser?: boolean;
+            /**
+             * Date and time after which the role's password is no longer valid. When omitted, the password will never expire (default).
+             */
+            validUntil?: string;
+        }
+        /**
+         * clusterSpecManagedRolesProvideDefaults sets the appropriate defaults for ClusterSpecManagedRoles
+         */
+        export function clusterSpecManagedRolesProvideDefaults(val: ClusterSpecManagedRoles): ClusterSpecManagedRoles {
+            return {
+                ...val,
+                connectionLimit: (val.connectionLimit) ?? -1,
+                ensure: (val.ensure) ?? "present",
+                inherit: (val.inherit) ?? true,
+            };
+        }
+
+        /**
+         * Secret containing the password of the role (if present) If null, the password will be ignored unless DisablePassword is set
+         */
+        export interface ClusterSpecManagedRolesPasswordsecret {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * The configuration of the monitoring infrastructure of this cluster
+         */
+        export interface ClusterSpecMonitoring {
+            /**
+             * The list of config maps containing the custom queries
+             */
+            customQueriesConfigMap?: outputs.postgresql.v1.ClusterSpecMonitoringCustomqueriesconfigmap[];
+            /**
+             * The list of secrets containing the custom queries
+             */
+            customQueriesSecret?: outputs.postgresql.v1.ClusterSpecMonitoringCustomqueriessecret[];
+            /**
+             * Whether the default queries should be injected. Set it to `true` if you don't want to inject default queries into the cluster. Default: false.
+             */
+            disableDefaultQueries?: boolean;
+            /**
+             * Enable or disable the `PodMonitor`
+             */
+            enablePodMonitor?: boolean;
+        }
+        /**
+         * clusterSpecMonitoringProvideDefaults sets the appropriate defaults for ClusterSpecMonitoring
+         */
+        export function clusterSpecMonitoringProvideDefaults(val: ClusterSpecMonitoring): ClusterSpecMonitoring {
+            return {
+                ...val,
+                disableDefaultQueries: (val.disableDefaultQueries) ?? false,
+                enablePodMonitor: (val.enablePodMonitor) ?? false,
+            };
+        }
+
+        /**
+         * ConfigMapKeySelector contains enough information to let you locate the key of a ConfigMap
+         */
+        export interface ClusterSpecMonitoringCustomqueriesconfigmap {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * SecretKeySelector contains enough information to let you locate the key of a Secret
+         */
+        export interface ClusterSpecMonitoringCustomqueriessecret {
+            /**
+             * The key to select
+             */
+            key: string;
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Define a maintenance window for the Kubernetes nodes
+         */
+        export interface ClusterSpecNodemaintenancewindow {
+            /**
+             * Is there a node maintenance activity in progress?
+             */
+            inProgress: boolean;
+            /**
+             * Reuse the existing PVC (wait for the node to come up again) or not (recreate it elsewhere - when `instances` >1)
+             */
+            reusePVC?: boolean;
+        }
+        /**
+         * clusterSpecNodemaintenancewindowProvideDefaults sets the appropriate defaults for ClusterSpecNodemaintenancewindow
+         */
+        export function clusterSpecNodemaintenancewindowProvideDefaults(val: ClusterSpecNodemaintenancewindow): ClusterSpecNodemaintenancewindow {
+            return {
+                ...val,
+                inProgress: (val.inProgress) ?? false,
+                reusePVC: (val.reusePVC) ?? true,
+            };
+        }
+
+        /**
+         * Configuration of the PostgreSQL server
+         */
+        export interface ClusterSpecPostgresql {
+            /**
+             * Options to specify LDAP configuration
+             */
+            ldap?: outputs.postgresql.v1.ClusterSpecPostgresqlLdap;
+            /**
+             * PostgreSQL configuration options (postgresql.conf)
+             */
+            parameters?: {[key: string]: string};
+            /**
+             * PostgreSQL Host Based Authentication rules (lines to be appended to the pg_hba.conf file)
+             */
+            pg_hba?: string[];
+            /**
+             * Specifies the maximum number of seconds to wait when promoting an instance to primary. Default value is 40000000, greater than one year in seconds, big enough to simulate an infinite timeout
+             */
+            promotionTimeout?: number;
+            /**
+             * Lists of shared preload libraries to add to the default ones
+             */
+            shared_preload_libraries?: string[];
+            /**
+             * Requirements to be met by sync replicas. This will affect how the "synchronous_standby_names" parameter will be set up.
+             */
+            syncReplicaElectionConstraint?: outputs.postgresql.v1.ClusterSpecPostgresqlSyncreplicaelectionconstraint;
+        }
+
+        /**
+         * Options to specify LDAP configuration
+         */
+        export interface ClusterSpecPostgresqlLdap {
+            /**
+             * Bind as authentication configuration
+             */
+            bindAsAuth?: outputs.postgresql.v1.ClusterSpecPostgresqlLdapBindasauth;
+            /**
+             * Bind+Search authentication configuration
+             */
+            bindSearchAuth?: outputs.postgresql.v1.ClusterSpecPostgresqlLdapBindsearchauth;
+            /**
+             * LDAP server port
+             */
+            port?: number;
+            /**
+             * LDAP schema to be used, possible options are `ldap` and `ldaps`
+             */
+            scheme?: string;
+            /**
+             * LDAP hostname or IP address
+             */
+            server?: string;
+            /**
+             * Set to 'true' to enable LDAP over TLS. 'false' is default
+             */
+            tls?: boolean;
+        }
+
+        /**
+         * Bind as authentication configuration
+         */
+        export interface ClusterSpecPostgresqlLdapBindasauth {
+            /**
+             * Prefix for the bind authentication option
+             */
+            prefix?: string;
+            /**
+             * Suffix for the bind authentication option
+             */
+            suffix?: string;
+        }
+
+        /**
+         * Bind+Search authentication configuration
+         */
+        export interface ClusterSpecPostgresqlLdapBindsearchauth {
+            /**
+             * Root DN to begin the user search
+             */
+            baseDN?: string;
+            /**
+             * DN of the user to bind to the directory
+             */
+            bindDN?: string;
+            /**
+             * Secret with the password for the user to bind to the directory
+             */
+            bindPassword?: outputs.postgresql.v1.ClusterSpecPostgresqlLdapBindsearchauthBindpassword;
+            /**
+             * Attribute to match against the username
+             */
+            searchAttribute?: string;
+            /**
+             * Search filter to use when doing the search+bind authentication
+             */
+            searchFilter?: string;
+        }
+
+        /**
+         * Secret with the password for the user to bind to the directory
+         */
+        export interface ClusterSpecPostgresqlLdapBindsearchauthBindpassword {
+            /**
+             * The key of the secret to select from.  Must be a valid secret key.
+             */
+            key: string;
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * Specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Requirements to be met by sync replicas. This will affect how the "synchronous_standby_names" parameter will be set up.
+         */
+        export interface ClusterSpecPostgresqlSyncreplicaelectionconstraint {
+            /**
+             * This flag enables the constraints for sync replicas
+             */
+            enabled: boolean;
+            /**
+             * A list of node labels values to extract and compare to evaluate if the pods reside in the same topology or not
+             */
+            nodeLabelsAntiAffinity?: string[];
+        }
+
+        /**
+         * Template to be used to define projected volumes, projected volumes will be mounted under `/projected` base folder
+         */
+        export interface ClusterSpecProjectedvolumetemplate {
+            /**
+             * defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            defaultMode?: number;
+            /**
+             * sources is the list of volume projections
+             */
+            sources?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSources[];
+        }
+
+        /**
+         * Projection that may be projected along with other supported volume types
+         */
+        export interface ClusterSpecProjectedvolumetemplateSources {
+            /**
+             * configMap information about the configMap data to project
+             */
+            configMap?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesConfigmap;
+            /**
+             * downwardAPI information about the downwardAPI data to project
+             */
+            downwardAPI?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapi;
+            /**
+             * secret information about the secret data to project
+             */
+            secret?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesSecret;
+            /**
+             * serviceAccountToken is information about the serviceAccountToken data to project
+             */
+            serviceAccountToken?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesServiceaccounttoken;
+        }
+
+        /**
+         * configMap information about the configMap data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesConfigmap {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesConfigmapItems[];
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * optional specify whether the ConfigMap or its keys must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesConfigmapItems {
+            /**
+             * key is the key to project.
+             */
+            key: string;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: string;
+        }
+
+        /**
+         * downwardAPI information about the downwardAPI data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapi {
+            /**
+             * Items is a list of DownwardAPIVolume file
+             */
+            items?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiItems[];
+        }
+
+        /**
+         * DownwardAPIVolumeFile represents information to create the file containing the pod field
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiItems {
+            /**
+             * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+             */
+            fieldRef?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsFieldref;
+            /**
+             * Optional: mode bits used to set permissions on this file, must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'
+             */
+            path: string;
+            /**
+             * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+             */
+            resourceFieldRef?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsResourcefieldref;
+        }
+
+        /**
+         * Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsFieldref {
+            /**
+             * Version of the schema the FieldPath is written in terms of, defaults to "v1".
+             */
+            apiVersion?: string;
+            /**
+             * Path of the field to select in the specified API version.
+             */
+            fieldPath: string;
+        }
+
+        /**
+         * Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesDownwardapiItemsResourcefieldref {
+            /**
+             * Container name: required for volumes, optional for env vars
+             */
+            containerName?: string;
+            /**
+             * Specifies the output format of the exposed resources, defaults to "1"
+             */
+            divisor?: number | string;
+            /**
+             * Required: resource to select
+             */
+            resource: string;
+        }
+
+        /**
+         * secret information about the secret data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesSecret {
+            /**
+             * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.
+             */
+            items?: outputs.postgresql.v1.ClusterSpecProjectedvolumetemplateSourcesSecretItems[];
+            /**
+             * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?
+             */
+            name?: string;
+            /**
+             * optional field specify whether the Secret or its key must be defined
+             */
+            optional?: boolean;
+        }
+
+        /**
+         * Maps a string key to a path within a volume.
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesSecretItems {
+            /**
+             * key is the key to project.
+             */
+            key: string;
+            /**
+             * mode is Optional: mode bits used to set permissions on this file. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. If not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
+             */
+            mode?: number;
+            /**
+             * path is the relative path of the file to map the key to. May not be an absolute path. May not contain the path element '..'. May not start with the string '..'.
+             */
+            path: string;
+        }
+
+        /**
+         * serviceAccountToken is information about the serviceAccountToken data to project
+         */
+        export interface ClusterSpecProjectedvolumetemplateSourcesServiceaccounttoken {
+            /**
+             * audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
+             */
+            audience?: string;
+            /**
+             * expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
+             */
+            expirationSeconds?: number;
+            /**
+             * path is the path relative to the mount point of the file to project the token into.
+             */
+            path: string;
+        }
+
+        /**
+         * Replica cluster configuration
+         */
+        export interface ClusterSpecReplica {
+            /**
+             * If replica mode is enabled, this cluster will be a replica of an existing cluster. Replica cluster can be created from a recovery object store or via streaming through pg_basebackup. Refer to the Replication page of the documentation for more information.
+             */
+            enabled?: boolean;
+            /**
+             * The name of the external cluster which is the replication origin
+             */
+            source: string;
+        }
+
+        /**
+         * Replication slots management configuration
+         */
+        export interface ClusterSpecReplicationslots {
+            /**
+             * Replication slots for high availability configuration
+             */
+            highAvailability?: outputs.postgresql.v1.ClusterSpecReplicationslotsHighavailability;
+            /**
+             * Standby will update the status of the local replication slots every `updateInterval` seconds (default 30).
+             */
+            updateInterval?: number;
+        }
+        /**
+         * clusterSpecReplicationslotsProvideDefaults sets the appropriate defaults for ClusterSpecReplicationslots
+         */
+        export function clusterSpecReplicationslotsProvideDefaults(val: ClusterSpecReplicationslots): ClusterSpecReplicationslots {
+            return {
+                ...val,
+                highAvailability: (val.highAvailability ? outputs.postgresql.v1.clusterSpecReplicationslotsHighavailabilityProvideDefaults(val.highAvailability) : undefined),
+                updateInterval: (val.updateInterval) ?? 30,
+            };
+        }
+
+        /**
+         * Replication slots for high availability configuration
+         */
+        export interface ClusterSpecReplicationslotsHighavailability {
+            /**
+             * If enabled, the operator will automatically manage replication slots on the primary instance and use them in streaming replication connections with all the standby instances that are part of the HA cluster. If disabled (default), the operator will not take advantage of replication slots in streaming connections with the replicas. This feature also controls replication slots in replica cluster, from the designated primary to its cascading replicas. This can only be set at creation time.
+             */
+            enabled?: boolean;
+            /**
+             * Prefix for replication slots managed by the operator for HA. It may only contain lower case letters, numbers, and the underscore character. This can only be set at creation time. By default set to `_cnpg_`.
+             */
+            slotPrefix?: string;
+        }
+        /**
+         * clusterSpecReplicationslotsHighavailabilityProvideDefaults sets the appropriate defaults for ClusterSpecReplicationslotsHighavailability
+         */
+        export function clusterSpecReplicationslotsHighavailabilityProvideDefaults(val: ClusterSpecReplicationslotsHighavailability): ClusterSpecReplicationslotsHighavailability {
+            return {
+                ...val,
+                enabled: (val.enabled) ?? false,
+                slotPrefix: (val.slotPrefix) ?? "_cnpg_",
+            };
+        }
+
+        /**
+         * Resources requirements of every generated Pod. Please refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ for more information.
+         */
+        export interface ClusterSpecResources {
+            /**
+             * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. 
+             *  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. 
+             *  This field is immutable. It can only be set for containers.
+             */
+            claims?: outputs.postgresql.v1.ClusterSpecResourcesClaims[];
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * ResourceClaim references one entry in PodSpec.ResourceClaims.
+         */
+        export interface ClusterSpecResourcesClaims {
+            /**
+             * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
+             */
+            name: string;
+        }
+
+        /**
+         * The SeccompProfile applied to every Pod and Container. Defaults to: `RuntimeDefault`
+         */
+        export interface ClusterSpecSeccompprofile {
+            /**
+             * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is "Localhost".
+             */
+            localhostProfile?: string;
+            /**
+             * type indicates which kind of seccomp profile will be applied. Valid options are: 
+             *  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.
+             */
+            type: string;
+        }
+
+        /**
+         * Configure the generation of the service account
+         */
+        export interface ClusterSpecServiceaccounttemplate {
+            /**
+             * Metadata are the metadata to be used for the generated service account
+             */
+            metadata: outputs.postgresql.v1.ClusterSpecServiceaccounttemplateMetadata;
+        }
+
+        /**
+         * Metadata are the metadata to be used for the generated service account
+         */
+        export interface ClusterSpecServiceaccounttemplateMetadata {
+            /**
+             * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             */
+            annotations?: {[key: string]: string};
+            /**
+             * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+             */
+            labels?: {[key: string]: string};
+        }
+
+        /**
+         * Configuration of the storage of the instances
+         */
+        export interface ClusterSpecStorage {
+            /**
+             * Template to be used to generate the Persistent Volume Claim
+             */
+            pvcTemplate?: outputs.postgresql.v1.ClusterSpecStoragePvctemplate;
+            /**
+             * Resize existent PVCs, defaults to true
+             */
+            resizeInUseVolumes?: boolean;
+            /**
+             * Size of the storage. Required if not already specified in the PVC template. Changes to this field are automatically reapplied to the created PVCs. Size cannot be decreased.
+             */
+            size?: string;
+            /**
+             * StorageClass to use for database data (`PGDATA`). Applied after evaluating the PVC template, if available. If not specified, generated PVCs will be satisfied by the default storage class
+             */
+            storageClass?: string;
+        }
+        /**
+         * clusterSpecStorageProvideDefaults sets the appropriate defaults for ClusterSpecStorage
+         */
+        export function clusterSpecStorageProvideDefaults(val: ClusterSpecStorage): ClusterSpecStorage {
+            return {
+                ...val,
+                resizeInUseVolumes: (val.resizeInUseVolumes) ?? true,
+            };
+        }
+
+        /**
+         * Template to be used to generate the Persistent Volume Claim
+         */
+        export interface ClusterSpecStoragePvctemplate {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: string[];
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+             */
+            dataSource?: outputs.postgresql.v1.ClusterSpecStoragePvctemplateDatasource;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: outputs.postgresql.v1.ClusterSpecStoragePvctemplateDatasourceref;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: outputs.postgresql.v1.ClusterSpecStoragePvctemplateResources;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: outputs.postgresql.v1.ClusterSpecStoragePvctemplateSelector;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: string;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: string;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: string;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+         */
+        export interface ClusterSpecStoragePvctemplateDatasource {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+         */
+        export interface ClusterSpecStoragePvctemplateDatasourceref {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+            /**
+             * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            namespace?: string;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface ClusterSpecStoragePvctemplateResources {
+            /**
+             * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. 
+             *  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. 
+             *  This field is immutable. It can only be set for containers.
+             */
+            claims?: outputs.postgresql.v1.ClusterSpecStoragePvctemplateResourcesClaims[];
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * ResourceClaim references one entry in PodSpec.ResourceClaims.
+         */
+        export interface ClusterSpecStoragePvctemplateResourcesClaims {
+            /**
+             * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
+             */
+            name: string;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface ClusterSpecStoragePvctemplateSelector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecStoragePvctemplateSelectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecStoragePvctemplateSelectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * The secret containing the superuser password. If not defined a new secret will be created with a randomly generated password
+         */
+        export interface ClusterSpecSuperusersecret {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
+         */
+        export interface ClusterSpecTopologyspreadconstraints {
+            /**
+             * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+             */
+            labelSelector?: outputs.postgresql.v1.ClusterSpecTopologyspreadconstraintsLabelselector;
+            /**
+             * MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated. The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. MatchLabelKeys cannot be set when LabelSelector isn't set. Keys that don't exist in the incoming pod labels will be ignored. A null or empty list means only match against labelSelector. 
+             *  This is a beta field and requires the MatchLabelKeysInPodTopologySpread feature gate to be enabled (enabled by default).
+             */
+            matchLabelKeys?: string[];
+            /**
+             * MaxSkew describes the degree to which pods may be unevenly distributed. When `whenUnsatisfiable=DoNotSchedule`, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 2/2/1: In this case, the global minimum is 1. | zone1 | zone2 | zone3 | |  P P  |  P P  |   P   | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 2/2/2; scheduling it onto zone1(zone2) would make the ActualSkew(3-1) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When `whenUnsatisfiable=ScheduleAnyway`, it is used to give higher precedence to topologies that satisfy it. It's a required field. Default value is 1 and 0 is not allowed.
+             */
+            maxSkew: number;
+            /**
+             * MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats "global minimum" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule. 
+             *  For example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so "global minimum" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew. 
+             *  This is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).
+             */
+            minDomains?: number;
+            /**
+             * NodeAffinityPolicy indicates how we will treat Pod's nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations. 
+             *  If this value is nil, the behavior is equivalent to the Honor policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeAffinityPolicy?: string;
+            /**
+             * NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included. 
+             *  If this value is nil, the behavior is equivalent to the Ignore policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.
+             */
+            nodeTaintsPolicy?: string;
+            /**
+             * TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each <key, value> as a "bucket", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology. And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology. It's a required field.
+             */
+            topologyKey: string;
+            /**
+             * WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location, but giving higher precedence to topologies that would help reduce the skew. A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assignment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.
+             */
+            whenUnsatisfiable: string;
+        }
+
+        /**
+         * LabelSelector is used to find matching pods. Pods that match this label selector are counted to determine the number of pods in their corresponding topology domain.
+         */
+        export interface ClusterSpecTopologyspreadconstraintsLabelselector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecTopologyspreadconstraintsLabelselectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecTopologyspreadconstraintsLabelselectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Configuration of the storage for PostgreSQL WAL (Write-Ahead Log)
+         */
+        export interface ClusterSpecWalstorage {
+            /**
+             * Template to be used to generate the Persistent Volume Claim
+             */
+            pvcTemplate?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplate;
+            /**
+             * Resize existent PVCs, defaults to true
+             */
+            resizeInUseVolumes?: boolean;
+            /**
+             * Size of the storage. Required if not already specified in the PVC template. Changes to this field are automatically reapplied to the created PVCs. Size cannot be decreased.
+             */
+            size?: string;
+            /**
+             * StorageClass to use for database data (`PGDATA`). Applied after evaluating the PVC template, if available. If not specified, generated PVCs will be satisfied by the default storage class
+             */
+            storageClass?: string;
+        }
+        /**
+         * clusterSpecWalstorageProvideDefaults sets the appropriate defaults for ClusterSpecWalstorage
+         */
+        export function clusterSpecWalstorageProvideDefaults(val: ClusterSpecWalstorage): ClusterSpecWalstorage {
+            return {
+                ...val,
+                resizeInUseVolumes: (val.resizeInUseVolumes) ?? true,
+            };
+        }
+
+        /**
+         * Template to be used to generate the Persistent Volume Claim
+         */
+        export interface ClusterSpecWalstoragePvctemplate {
+            /**
+             * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
+             */
+            accessModes?: string[];
+            /**
+             * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+             */
+            dataSource?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplateDatasource;
+            /**
+             * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            dataSourceRef?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplateDatasourceref;
+            /**
+             * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+             */
+            resources?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplateResources;
+            /**
+             * selector is a label query over volumes to consider for binding.
+             */
+            selector?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplateSelector;
+            /**
+             * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
+             */
+            storageClassName?: string;
+            /**
+             * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
+             */
+            volumeMode?: string;
+            /**
+             * volumeName is the binding reference to the PersistentVolume backing this claim.
+             */
+            volumeName?: string;
+        }
+
+        /**
+         * dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.
+         */
+        export interface ClusterSpecWalstoragePvctemplateDatasource {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+        }
+
+        /**
+         * dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+         */
+        export interface ClusterSpecWalstoragePvctemplateDatasourceref {
+            /**
+             * APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
+             */
+            apiGroup?: string;
+            /**
+             * Kind is the type of resource being referenced
+             */
+            kind: string;
+            /**
+             * Name is the name of resource being referenced
+             */
+            name: string;
+            /**
+             * Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.
+             */
+            namespace?: string;
+        }
+
+        /**
+         * resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
+         */
+        export interface ClusterSpecWalstoragePvctemplateResources {
+            /**
+             * Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. 
+             *  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. 
+             *  This field is immutable. It can only be set for containers.
+             */
+            claims?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplateResourcesClaims[];
+            /**
+             * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            limits?: {[key: string]: number | string};
+            /**
+             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+             */
+            requests?: {[key: string]: number | string};
+        }
+
+        /**
+         * ResourceClaim references one entry in PodSpec.ResourceClaims.
+         */
+        export interface ClusterSpecWalstoragePvctemplateResourcesClaims {
+            /**
+             * Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.
+             */
+            name: string;
+        }
+
+        /**
+         * selector is a label query over volumes to consider for binding.
+         */
+        export interface ClusterSpecWalstoragePvctemplateSelector {
+            /**
+             * matchExpressions is a list of label selector requirements. The requirements are ANDed.
+             */
+            matchExpressions?: outputs.postgresql.v1.ClusterSpecWalstoragePvctemplateSelectorMatchexpressions[];
+            /**
+             * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+             */
+            matchLabels?: {[key: string]: string};
+        }
+
+        /**
+         * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+         */
+        export interface ClusterSpecWalstoragePvctemplateSelectorMatchexpressions {
+            /**
+             * key is the label key that the selector applies to.
+             */
+            key: string;
+            /**
+             * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+             */
+            operator: string;
+            /**
+             * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+             */
+            values?: string[];
+        }
+
+        /**
+         * Most recently observed status of the cluster. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ClusterStatus {
+            /**
+             * AzurePVCUpdateEnabled shows if the PVC online upgrade is enabled for this cluster
+             */
+            azurePVCUpdateEnabled?: boolean;
+            /**
+             * The configuration for the CA and related certificates, initialized with defaults.
+             */
+            certificates?: outputs.postgresql.v1.ClusterStatusCertificates;
+            /**
+             * The commit hash number of which this operator running
+             */
+            cloudNativePGCommitHash?: string;
+            /**
+             * The hash of the binary of the operator
+             */
+            cloudNativePGOperatorHash?: string;
+            /**
+             * Conditions for cluster object
+             */
+            conditions?: outputs.postgresql.v1.ClusterStatusConditions[];
+            /**
+             * The list of resource versions of the configmaps, managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the configmap data
+             */
+            configMapResourceVersion?: outputs.postgresql.v1.ClusterStatusConfigmapresourceversion;
+            /**
+             * Current primary instance
+             */
+            currentPrimary?: string;
+            /**
+             * The timestamp when the primary was detected to be unhealthy This field is reported when spec.failoverDelay is populated or during online upgrades
+             */
+            currentPrimaryFailingSinceTimestamp?: string;
+            /**
+             * The timestamp when the last actual promotion to primary has occurred
+             */
+            currentPrimaryTimestamp?: string;
+            /**
+             * List of all the PVCs created by this cluster and still available which are not attached to a Pod
+             */
+            danglingPVC?: string[];
+            /**
+             * The first recoverability point, stored as a date in RFC3339 format
+             */
+            firstRecoverabilityPoint?: string;
+            /**
+             * List of all the PVCs not dangling nor initializing
+             */
+            healthyPVC?: string[];
+            /**
+             * List of all the PVCs that are being initialized by this cluster
+             */
+            initializingPVC?: string[];
+            /**
+             * List of instance names in the cluster
+             */
+            instanceNames?: string[];
+            /**
+             * The total number of PVC Groups detected in the cluster. It may differ from the number of existing instance pods.
+             */
+            instances?: number;
+            /**
+             * The reported state of the instances during the last reconciliation loop
+             */
+            instancesReportedState?: {[key: string]: outputs.postgresql.v1.ClusterStatusInstancesreportedstate};
+            /**
+             * InstancesStatus indicates in which status the instances are
+             */
+            instancesStatus?: {[key: string]: string[]};
+            /**
+             * How many Jobs have been created by this cluster
+             */
+            jobCount?: number;
+            /**
+             * Stored as a date in RFC3339 format
+             */
+            lastFailedBackup?: string;
+            /**
+             * Stored as a date in RFC3339 format
+             */
+            lastSuccessfulBackup?: string;
+            /**
+             * ID of the latest generated node (used to avoid node name clashing)
+             */
+            latestGeneratedNode?: number;
+            /**
+             * ManagedRolesStatus reports the state of the managed roles in the cluster
+             */
+            managedRolesStatus?: outputs.postgresql.v1.ClusterStatusManagedrolesstatus;
+            /**
+             * OnlineUpdateEnabled shows if the online upgrade is enabled inside the cluster
+             */
+            onlineUpdateEnabled?: boolean;
+            /**
+             * Current phase of the cluster
+             */
+            phase?: string;
+            /**
+             * Reason for the current phase
+             */
+            phaseReason?: string;
+            /**
+             * The integration needed by poolers referencing the cluster
+             */
+            poolerIntegrations?: outputs.postgresql.v1.ClusterStatusPoolerintegrations;
+            /**
+             * How many PVCs have been created by this cluster
+             */
+            pvcCount?: number;
+            /**
+             * Current list of read pods
+             */
+            readService?: string;
+            /**
+             * The total number of ready instances in the cluster. It is equal to the number of ready instance pods.
+             */
+            readyInstances?: number;
+            /**
+             * List of all the PVCs that have ResizingPVC condition.
+             */
+            resizingPVC?: string[];
+            /**
+             * The list of resource versions of the secrets managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the secret data
+             */
+            secretsResourceVersion?: outputs.postgresql.v1.ClusterStatusSecretsresourceversion;
+            /**
+             * Target primary instance, this is different from the previous one during a switchover or a failover
+             */
+            targetPrimary?: string;
+            /**
+             * The timestamp when the last request for a new primary has occurred
+             */
+            targetPrimaryTimestamp?: string;
+            /**
+             * The timeline of the Postgres cluster
+             */
+            timelineID?: number;
+            /**
+             * Instances topology.
+             */
+            topology?: outputs.postgresql.v1.ClusterStatusTopology;
+            /**
+             * List of all the PVCs that are unusable because another PVC is missing
+             */
+            unusablePVC?: string[];
+            /**
+             * Current write pod
+             */
+            writeService?: string;
+        }
+
+        /**
+         * The configuration for the CA and related certificates, initialized with defaults.
+         */
+        export interface ClusterStatusCertificates {
+            /**
+             * The secret containing the Client CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate all the client certificates.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the client certificates, used as `ssl_ca_file` of all the instances.<br /> - `ca.key`: key used to generate client certificates, if ReplicationTLSSecret is provided, this can be omitted.<br />
+             */
+            clientCASecret?: string;
+            /**
+             * Expiration dates for all certificates.
+             */
+            expirations?: {[key: string]: string};
+            /**
+             * The secret of type kubernetes.io/tls containing the client certificate to authenticate as the `streaming_replica` user. If not defined, ClientCASecret must provide also `ca.key`, and a new secret will be created using the provided CA.
+             */
+            replicationTLSSecret?: string;
+            /**
+             * The list of the server alternative DNS names to be added to the generated server TLS certificates, when required.
+             */
+            serverAltDNSNames?: string[];
+            /**
+             * The secret containing the Server CA certificate. If not defined, a new secret will be created with a self-signed CA and will be used to generate the TLS certificate ServerTLSSecret.<br /> <br /> Contains:<br /> <br /> - `ca.crt`: CA that should be used to validate the server certificate, used as `sslrootcert` in client connection strings.<br /> - `ca.key`: key used to generate Server SSL certs, if ServerTLSSecret is provided, this can be omitted.<br />
+             */
+            serverCASecret?: string;
+            /**
+             * The secret of type kubernetes.io/tls containing the server TLS certificate and key that will be set as `ssl_cert_file` and `ssl_key_file` so that clients can connect to postgres securely. If not defined, ServerCASecret must provide also `ca.key` and a new secret will be created using the provided CA.
+             */
+            serverTLSSecret?: string;
+        }
+
+        /**
+         * Condition contains details for one aspect of the current state of this API Resource. --- This struct is intended for direct use as an array at the field path .status.conditions.  For example, 
+         *  type FooStatus struct{ // Represents the observations of a foo's current state. // Known .status.conditions.type are: "Available", "Progressing", and "Degraded" // +patchMergeKey=type // +patchStrategy=merge // +listType=map // +listMapKey=type Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"` 
+         *  // other fields }
+         */
+        export interface ClusterStatusConditions {
+            /**
+             * lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.
+             */
+            lastTransitionTime: string;
+            /**
+             * message is a human readable message indicating details about the transition. This may be an empty string.
+             */
+            message: string;
+            /**
+             * observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.
+             */
+            observedGeneration?: number;
+            /**
+             * reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.
+             */
+            reason: string;
+            /**
+             * status of the condition, one of True, False, Unknown.
+             */
+            status: string;
+            /**
+             * type of condition in CamelCase or in foo.example.com/CamelCase. --- Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)
+             */
+            type: string;
+        }
+
+        /**
+         * The list of resource versions of the configmaps, managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the configmap data
+         */
+        export interface ClusterStatusConfigmapresourceversion {
+            /**
+             * A map with the versions of all the config maps used to pass metrics. Map keys are the config map names, map values are the versions
+             */
+            metrics?: {[key: string]: string};
+        }
+
+        /**
+         * InstanceReportedState describes the last reported state of an instance during a reconciliation loop
+         */
+        export interface ClusterStatusInstancesreportedstate {
+            /**
+             * indicates if an instance is the primary one
+             */
+            isPrimary: boolean;
+            /**
+             * indicates on which TimelineId the instance is
+             */
+            timeLineID?: number;
+        }
+
+        /**
+         * ManagedRolesStatus reports the state of the managed roles in the cluster
+         */
+        export interface ClusterStatusManagedrolesstatus {
+            /**
+             * ByStatus gives the list of roles in each state
+             */
+            byStatus?: {[key: string]: string[]};
+            /**
+             * CannotReconcile lists roles that cannot be reconciled in PostgreSQL, with an explanation of the cause
+             */
+            cannotReconcile?: {[key: string]: string[]};
+            /**
+             * PasswordStatus gives the last transaction id and password secret version for each managed role
+             */
+            passwordStatus?: {[key: string]: outputs.postgresql.v1.ClusterStatusManagedrolesstatusPasswordstatus};
+        }
+
+        /**
+         * PasswordState represents the state of the password of a managed RoleConfiguration
+         */
+        export interface ClusterStatusManagedrolesstatusPasswordstatus {
+            /**
+             * the resource version of the password secret
+             */
+            resourceVersion?: string;
+            /**
+             * the last transaction ID to affect the role definition in PostgreSQL
+             */
+            transactionID?: number;
+        }
+
+        /**
+         * The integration needed by poolers referencing the cluster
+         */
+        export interface ClusterStatusPoolerintegrations {
+            /**
+             * PgBouncerIntegrationStatus encapsulates the needed integration for the pgbouncer poolers referencing the cluster
+             */
+            pgBouncerIntegration?: outputs.postgresql.v1.ClusterStatusPoolerintegrationsPgbouncerintegration;
+        }
+
+        /**
+         * PgBouncerIntegrationStatus encapsulates the needed integration for the pgbouncer poolers referencing the cluster
+         */
+        export interface ClusterStatusPoolerintegrationsPgbouncerintegration {
+            secrets?: string[];
+        }
+
+        /**
+         * The list of resource versions of the secrets managed by the operator. Every change here is done in the interest of the instance manager, which will refresh the secret data
+         */
+        export interface ClusterStatusSecretsresourceversion {
+            /**
+             * The resource version of the "app" user secret
+             */
+            applicationSecretVersion?: string;
+            /**
+             * The resource version of the Barman Endpoint CA if provided
+             */
+            barmanEndpointCA?: string;
+            /**
+             * Unused. Retained for compatibility with old versions.
+             */
+            caSecretVersion?: string;
+            /**
+             * The resource version of the PostgreSQL client-side CA secret version
+             */
+            clientCaSecretVersion?: string;
+            /**
+             * The resource versions of the managed roles secrets
+             */
+            managedRoleSecretVersion?: {[key: string]: string};
+            /**
+             * A map with the versions of all the secrets used to pass metrics. Map keys are the secret names, map values are the versions
+             */
+            metrics?: {[key: string]: string};
+            /**
+             * The resource version of the "streaming_replica" user secret
+             */
+            replicationSecretVersion?: string;
+            /**
+             * The resource version of the PostgreSQL server-side CA secret version
+             */
+            serverCaSecretVersion?: string;
+            /**
+             * The resource version of the PostgreSQL server-side secret version
+             */
+            serverSecretVersion?: string;
+            /**
+             * The resource version of the "postgres" user secret
+             */
+            superuserSecretVersion?: string;
+        }
+
+        /**
+         * Instances topology.
+         */
+        export interface ClusterStatusTopology {
+            /**
+             * Instances contains the pod topology of the instances
+             */
+            instances?: {[key: string]: {[key: string]: string}};
+            /**
+             * SuccessfullyExtracted indicates if the topology data was extract. It is useful to enact fallback behaviors in synchronous replica election in case of failures
+             */
+            successfullyExtracted?: boolean;
+        }
+
+        /**
+         * Specification of the desired behavior of the ScheduledBackup. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ScheduledBackupSpec {
+            /**
+             * Indicates which ownerReference should be put inside the created backup resources.<br /> - none: no owner reference for created backup objects (same behavior as before the field was introduced)<br /> - self: sets the Scheduled backup object as owner of the backup<br /> - cluster: set the cluster as owner of the backup<br />
+             */
+            backupOwnerReference?: string;
+            /**
+             * The cluster to backup
+             */
+            cluster?: outputs.postgresql.v1.ScheduledBackupSpecCluster;
+            /**
+             * If the first backup has to be immediately start after creation or not
+             */
+            immediate?: boolean;
+            /**
+             * The schedule does not follow the same format used in Kubernetes CronJobs as it includes an additional seconds specifier, see https://pkg.go.dev/github.com/robfig/cron#hdr-CRON_Expression_Format
+             */
+            schedule: string;
+            /**
+             * If this backup is suspended or not
+             */
+            suspend?: boolean;
+            /**
+             * The policy to decide which instance should perform this backup. If empty, it defaults to `cluster.spec.backup.target`. Available options are empty string, `primary` and `prefer-standby`. `primary` to have backups run always on primary instances, `prefer-standby` to have backups run preferably on the most updated standby, if available.
+             */
+            target?: string;
+        }
+        /**
+         * scheduledBackupSpecProvideDefaults sets the appropriate defaults for ScheduledBackupSpec
+         */
+        export function scheduledBackupSpecProvideDefaults(val: ScheduledBackupSpec): ScheduledBackupSpec {
+            return {
+                ...val,
+                backupOwnerReference: (val.backupOwnerReference) ?? "none",
+            };
+        }
+
+        /**
+         * The cluster to backup
+         */
+        export interface ScheduledBackupSpecCluster {
+            /**
+             * Name of the referent.
+             */
+            name: string;
+        }
+
+        /**
+         * Most recently observed status of the ScheduledBackup. This data may not be up to date. Populated by the system. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+         */
+        export interface ScheduledBackupStatus {
+            /**
+             * The latest time the schedule
+             */
+            lastCheckTime?: string;
+            /**
+             * Information when was the last time that backup was successfully scheduled.
+             */
+            lastScheduleTime?: string;
+            /**
+             * Next time we will run a backup
+             */
+            nextScheduleTime?: string;
         }
 
     }
