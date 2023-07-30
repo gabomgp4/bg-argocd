@@ -29,7 +29,7 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
       },
       {
         name: "hostname-port",
-        value: "30907",
+        value: "32092",
       },
     ],
     http: {

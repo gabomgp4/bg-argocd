@@ -5,6 +5,7 @@ import * as clickhouse from "./crd/clickhouse/v1"; // Replace this with the path
 import * as metallb from "./crd/metallb/v1beta1"; // Replace this with the path to your generated module5
 import {selector} from "./keycloack";
 import { interpolate } from "@pulumi/pulumi";
+import * as kong from "./kong";
 const yaml = require("js-yaml");
 const crypto = require("crypto");
 
@@ -152,3 +153,4 @@ const qrynService = new k8s.core.v1.Service("qryn", {
 
 
 export const selectorKeyCloack = selector;
+export const urnKong = kong.urn;
