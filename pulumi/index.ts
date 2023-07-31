@@ -4,6 +4,7 @@ import * as kx from "@pulumi/kubernetesx";
 import * as clickhouse from "./crd/clickhouse/v1"; // Replace this with the path to your generated module
 import * as metallb from "./crd/metallb/v1beta1"; // Replace this with the path to your generated module5
 import {selector} from "./keycloack";
+import {ingress} from "./echo-server";
 import { interpolate } from "@pulumi/pulumi";
 import * as kong from "./kong";
 const yaml = require("js-yaml");
@@ -154,3 +155,4 @@ const qrynService = new k8s.core.v1.Service("qryn", {
 
 export const selectorKeyCloack = selector;
 export const urnKong = kong.urn;
+export const echoIngress = ingress;

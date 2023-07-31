@@ -7716,6 +7716,323 @@ export namespace clickhouse {
     }
 }
 
+export namespace configuration {
+    export namespace v1 {
+        /**
+         * ConfigFrom references a secret containing the plugin configuration. This should be used when the plugin configuration contains sensitive information, such as AWS credentials in the Lambda plugin or the client secret in the OIDC plugin. Only one of `config` or `configFrom` may be used in a KongClusterPlugin, not both at once.
+         */
+        export interface KongClusterPluginConfigfromArgs {
+            /**
+             * Specifies a name, a namespace, and a key of a secret to refer to.
+             */
+            secretKeyRef?: pulumi.Input<inputs.configuration.v1.KongClusterPluginConfigfromSecretkeyrefArgs>;
+        }
+
+        /**
+         * Specifies a name, a namespace, and a key of a secret to refer to.
+         */
+        export interface KongClusterPluginConfigfromSecretkeyrefArgs {
+            /**
+             * The key containing the value.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * The secret containing the key.
+             */
+            name: pulumi.Input<string>;
+            /**
+             * The namespace containing the secret.
+             */
+            namespace: pulumi.Input<string>;
+        }
+
+        /**
+         * Ordering overrides the normal plugin execution order. It's only available on Kong Enterprise. `<phase>` is a request processing phase (for example, `access` or `body_filter`) and `<plugin>` is the name of the plugin that will run before or after the KongPlugin. For example, a KongPlugin with `plugin: rate-limiting` and `before.access: ["key-auth"]` will create a rate limiting plugin that limits requests _before_ they are authenticated.
+         */
+        export interface KongClusterPluginOrderingArgs {
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            after?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            before?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+        }
+
+        /**
+         * Proxy defines additional connection options for the routes to be configured in the Kong Gateway, e.g. `connection_timeout`, `retries`, etc.
+         */
+        export interface KongIngressProxyArgs {
+            /**
+             * The timeout in milliseconds for	establishing a connection to the upstream server. Deprecated: use Service's "konghq.com/connect-timeout" annotation instead.
+             */
+            connect_timeout?: pulumi.Input<number>;
+            /**
+             * (optional) The path to be used in requests to the upstream server. Deprecated: use Service's "konghq.com/path" annotation instead.
+             */
+            path?: pulumi.Input<string>;
+            /**
+             * The protocol used to communicate with the upstream. Deprecated: use Service's "konghq.com/protocol" annotation instead.
+             */
+            protocol?: pulumi.Input<string>;
+            /**
+             * The timeout in milliseconds between two successive read operations for transmitting a request to the upstream server. Deprecated: use Service's "konghq.com/read-timeout" annotation instead.
+             */
+            read_timeout?: pulumi.Input<number>;
+            /**
+             * The number of retries to execute upon failure to proxy. Deprecated: use Service's "konghq.com/retries" annotation instead.
+             */
+            retries?: pulumi.Input<number>;
+            /**
+             * The timeout in milliseconds between two successive write operations for transmitting a request to the upstream server. Deprecated: use Service's "konghq.com/write-timeout" annotation instead.
+             */
+            write_timeout?: pulumi.Input<number>;
+        }
+
+        /**
+         * Route define rules to match client requests. Each Route is associated with a Service, and a Service may have multiple Routes associated to it.
+         */
+        export interface KongIngressRouteArgs {
+            /**
+             * Headers contains one or more lists of values indexed by header name that will cause this Route to match if present in the request. The Host header cannot be used with this attribute. Deprecated: use Ingress' "konghq.com/headers" annotation instead.
+             */
+            headers?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            /**
+             * HTTPSRedirectStatusCode is the status code Kong responds with when all properties of a Route match except the protocol. Deprecated: use Ingress' "ingress.kubernetes.io/force-ssl-redirect" or "konghq.com/https-redirect-status-code" annotations instead.
+             */
+            https_redirect_status_code?: pulumi.Input<number>;
+            /**
+             * Methods is a list of HTTP methods that match this Route. Deprecated: use Ingress' "konghq.com/override-protocols" annotation instead.
+             */
+            methods?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * PathHandling controls how the Service path, Route path and requested path are combined when sending a request to the upstream. Deprecated: use Ingress' "konghq.com/path-handling" annotation instead.
+             */
+            path_handling?: pulumi.Input<string>;
+            /**
+             * PreserveHost sets When matching a Route via one of the hosts domain names, use the request Host header in the upstream request headers. If set to false, the upstream Host header will be that of the Service’s host. Deprecated: use Ingress' "konghq.com/preserve-host" annotation instead.
+             */
+            preserve_host?: pulumi.Input<boolean>;
+            /**
+             * Protocols is an array of the protocols this Route should allow. Deprecated: use Ingress' "konghq.com/protocols" annotation instead.
+             */
+            protocols?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * RegexPriority is a number used to choose which route resolves a given request when several routes match it using regexes simultaneously. Deprecated: use Ingress' "konghq.com/regex-priority" annotation instead.
+             */
+            regex_priority?: pulumi.Input<number>;
+            /**
+             * RequestBuffering sets whether to enable request body buffering or not. Deprecated: use Ingress' "konghq.com/request-buffering" annotation instead.
+             */
+            request_buffering?: pulumi.Input<boolean>;
+            /**
+             * ResponseBuffering sets whether to enable response body buffering or not. Deprecated: use Ingress' "konghq.com/response-buffering" annotation instead.
+             */
+            response_buffering?: pulumi.Input<boolean>;
+            /**
+             * SNIs is a list of SNIs that match this Route when using stream routing. Deprecated: use Ingress' "konghq.com/snis" annotation instead.
+             */
+            snis?: pulumi.Input<pulumi.Input<string>[]>;
+            /**
+             * StripPath sets When matching a Route via one of the paths strip the matching prefix from the upstream request URL. Deprecated: use Ingress' "konghq.com/strip-path" annotation instead.
+             */
+            strip_path?: pulumi.Input<boolean>;
+        }
+
+        /**
+         * Upstream represents a virtual hostname and can be used to load balance incoming requests over multiple targets (e.g. Kubernetes Services can be a target, or URLs can be targets).
+         */
+        export interface KongIngressUpstreamArgs {
+            /**
+             * Algorithm is the load balancing algorithm to use.
+             */
+            algorithm?: pulumi.Input<string>;
+            /**
+             * HashFallback defines What to use as hashing input if the primary hash_on does not return a hash. Accepted values are: "none", "consumer", "ip", "header", "cookie".
+             */
+            hash_fallback?: pulumi.Input<string>;
+            /**
+             * HashFallbackHeader is the header name to take the value from as hash input. Only required when "hash_fallback" is set to "header".
+             */
+            hash_fallback_header?: pulumi.Input<string>;
+            /**
+             * HashFallbackQueryArg is the "hash_fallback" version of HashOnQueryArg.
+             */
+            hash_fallback_query_arg?: pulumi.Input<string>;
+            /**
+             * HashFallbackURICapture is the "hash_fallback" version of HashOnURICapture.
+             */
+            hash_fallback_uri_capture?: pulumi.Input<string>;
+            /**
+             * HashOn defines what to use as hashing input. Accepted values are: "none", "consumer", "ip", "header", "cookie", "path", "query_arg", "uri_capture".
+             */
+            hash_on?: pulumi.Input<string>;
+            /**
+             * The cookie name to take the value from as hash input. Only required when "hash_on" or "hash_fallback" is set to "cookie".
+             */
+            hash_on_cookie?: pulumi.Input<string>;
+            /**
+             * The cookie path to set in the response headers. Only required when "hash_on" or "hash_fallback" is set to "cookie".
+             */
+            hash_on_cookie_path?: pulumi.Input<string>;
+            /**
+             * HashOnHeader defines the header name to take the value from as hash input. Only required when "hash_on" is set to "header".
+             */
+            hash_on_header?: pulumi.Input<string>;
+            /**
+             * HashOnQueryArg is the query string parameter whose value is the hash input when "hash_on" is set to "query_arg".
+             */
+            hash_on_query_arg?: pulumi.Input<string>;
+            /**
+             * HashOnURICapture is the name of the capture group whose value is the hash input when "hash_on" is set to "uri_capture".
+             */
+            hash_on_uri_capture?: pulumi.Input<string>;
+            /**
+             * Healthchecks defines the health check configurations in Kong.
+             */
+            healthchecks?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksArgs>;
+            /**
+             * HostHeader is The hostname to be used as Host header when proxying requests through Kong.
+             */
+            host_header?: pulumi.Input<string>;
+            /**
+             * Slots is the number of slots in the load balancer algorithm.
+             */
+            slots?: pulumi.Input<number>;
+        }
+
+        /**
+         * Healthchecks defines the health check configurations in Kong.
+         */
+        export interface KongIngressUpstreamHealthchecksArgs {
+            /**
+             * ActiveHealthcheck configures active health check probing.
+             */
+            active?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksActiveArgs>;
+            /**
+             * PassiveHealthcheck configures passive checks around passive health checks.
+             */
+            passive?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksPassiveArgs>;
+            threshold?: pulumi.Input<number>;
+        }
+
+        /**
+         * ActiveHealthcheck configures active health check probing.
+         */
+        export interface KongIngressUpstreamHealthchecksActiveArgs {
+            concurrency?: pulumi.Input<number>;
+            /**
+             * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+             */
+            healthy?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksActiveHealthyArgs>;
+            http_path?: pulumi.Input<string>;
+            https_sni?: pulumi.Input<string>;
+            https_verify_certificate?: pulumi.Input<boolean>;
+            timeout?: pulumi.Input<number>;
+            type?: pulumi.Input<string>;
+            /**
+             * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+             */
+            unhealthy?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksActiveUnhealthyArgs>;
+        }
+
+        /**
+         * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+         */
+        export interface KongIngressUpstreamHealthchecksActiveHealthyArgs {
+            http_statuses?: pulumi.Input<pulumi.Input<number>[]>;
+            interval?: pulumi.Input<number>;
+            successes?: pulumi.Input<number>;
+        }
+
+        /**
+         * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+         */
+        export interface KongIngressUpstreamHealthchecksActiveUnhealthyArgs {
+            http_failures?: pulumi.Input<number>;
+            http_statuses?: pulumi.Input<pulumi.Input<number>[]>;
+            interval?: pulumi.Input<number>;
+            tcp_failures?: pulumi.Input<number>;
+            timeouts?: pulumi.Input<number>;
+        }
+
+        /**
+         * PassiveHealthcheck configures passive checks around passive health checks.
+         */
+        export interface KongIngressUpstreamHealthchecksPassiveArgs {
+            /**
+             * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+             */
+            healthy?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksPassiveHealthyArgs>;
+            type?: pulumi.Input<string>;
+            /**
+             * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+             */
+            unhealthy?: pulumi.Input<inputs.configuration.v1.KongIngressUpstreamHealthchecksPassiveUnhealthyArgs>;
+        }
+
+        /**
+         * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+         */
+        export interface KongIngressUpstreamHealthchecksPassiveHealthyArgs {
+            http_statuses?: pulumi.Input<pulumi.Input<number>[]>;
+            interval?: pulumi.Input<number>;
+            successes?: pulumi.Input<number>;
+        }
+
+        /**
+         * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+         */
+        export interface KongIngressUpstreamHealthchecksPassiveUnhealthyArgs {
+            http_failures?: pulumi.Input<number>;
+            http_statuses?: pulumi.Input<pulumi.Input<number>[]>;
+            interval?: pulumi.Input<number>;
+            tcp_failures?: pulumi.Input<number>;
+            timeouts?: pulumi.Input<number>;
+        }
+
+        /**
+         * ConfigFrom references a secret containing the plugin configuration. This should be used when the plugin configuration contains sensitive information, such as AWS credentials in the Lambda plugin or the client secret in the OIDC plugin. Only one of `config` or `configFrom` may be used in a KongPlugin, not both at once.
+         */
+        export interface KongPluginConfigfromArgs {
+            /**
+             * Specifies a name and a key of a secret to refer to. The namespace is implicitly set to the one of referring object.
+             */
+            secretKeyRef?: pulumi.Input<inputs.configuration.v1.KongPluginConfigfromSecretkeyrefArgs>;
+        }
+
+        /**
+         * Specifies a name and a key of a secret to refer to. The namespace is implicitly set to the one of referring object.
+         */
+        export interface KongPluginConfigfromSecretkeyrefArgs {
+            /**
+             * The key containing the value.
+             */
+            key: pulumi.Input<string>;
+            /**
+             * The secret containing the key.
+             */
+            name: pulumi.Input<string>;
+        }
+
+        /**
+         * Ordering overrides the normal plugin execution order. It's only available on Kong Enterprise. `<phase>` is a request processing phase (for example, `access` or `body_filter`) and `<plugin>` is the name of the plugin that will run before or after the KongPlugin. For example, a KongPlugin with `plugin: rate-limiting` and `before.access: ["key-auth"]` will create a rate limiting plugin that limits requests _before_ they are authenticated.
+         */
+        export interface KongPluginOrderingArgs {
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            after?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            before?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+        }
+
+    }
+}
+
 export namespace k8s {
     export namespace v2alpha1 {
         export interface KeycloakRealmImportSpecArgs {

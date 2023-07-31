@@ -6307,19 +6307,19 @@ export namespace clickhouse {
             /**
              * ClickHouse operator git commit SHA
              */
-            chop-commit?: string;
+            chopCommit?: string;
             /**
              * ClickHouse operator build date
              */
-            chop-date?: string;
+            chopDate?: string;
             /**
              * IP address of the operator's pod which managed this CHI
              */
-            chop-ip?: string;
+            chopIp?: string;
             /**
              * ClickHouse operator version
              */
-            chop-version?: string;
+            chopVersion?: string;
             /**
              * Clusters count
              */
@@ -6383,7 +6383,7 @@ export namespace clickhouse {
             /**
              * Pod IPs
              */
-            pod-ips?: string[];
+            podIps?: string[];
             /**
              * Pods
              */
@@ -7608,19 +7608,19 @@ export namespace clickhouse {
             /**
              * ClickHouse operator git commit SHA
              */
-            chop-commit?: string;
+            chopCommit?: string;
             /**
              * ClickHouse operator build date
              */
-            chop-date?: string;
+            chopDate?: string;
             /**
              * IP address of the operator's pod which managed this CHI
              */
-            chop-ip?: string;
+            chopIp?: string;
             /**
              * ClickHouse operator version
              */
-            chop-version?: string;
+            chopVersion?: string;
             /**
              * Clusters count
              */
@@ -7684,7 +7684,7 @@ export namespace clickhouse {
             /**
              * Pod IPs
              */
-            pod-ips?: string[];
+            podIps?: string[];
             /**
              * Pods
              */
@@ -7713,6 +7713,323 @@ export namespace clickhouse {
              * Started task ids
              */
             taskIDsStarted?: string[];
+        }
+
+    }
+}
+
+export namespace configuration {
+    export namespace v1 {
+        /**
+         * ConfigFrom references a secret containing the plugin configuration. This should be used when the plugin configuration contains sensitive information, such as AWS credentials in the Lambda plugin or the client secret in the OIDC plugin. Only one of `config` or `configFrom` may be used in a KongClusterPlugin, not both at once.
+         */
+        export interface KongClusterPluginConfigfrom {
+            /**
+             * Specifies a name, a namespace, and a key of a secret to refer to.
+             */
+            secretKeyRef?: outputs.configuration.v1.KongClusterPluginConfigfromSecretkeyref;
+        }
+
+        /**
+         * Specifies a name, a namespace, and a key of a secret to refer to.
+         */
+        export interface KongClusterPluginConfigfromSecretkeyref {
+            /**
+             * The key containing the value.
+             */
+            key: string;
+            /**
+             * The secret containing the key.
+             */
+            name: string;
+            /**
+             * The namespace containing the secret.
+             */
+            namespace: string;
+        }
+
+        /**
+         * Ordering overrides the normal plugin execution order. It's only available on Kong Enterprise. `<phase>` is a request processing phase (for example, `access` or `body_filter`) and `<plugin>` is the name of the plugin that will run before or after the KongPlugin. For example, a KongPlugin with `plugin: rate-limiting` and `before.access: ["key-auth"]` will create a rate limiting plugin that limits requests _before_ they are authenticated.
+         */
+        export interface KongClusterPluginOrdering {
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            after?: {[key: string]: string[]};
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            before?: {[key: string]: string[]};
+        }
+
+        /**
+         * Proxy defines additional connection options for the routes to be configured in the Kong Gateway, e.g. `connection_timeout`, `retries`, etc.
+         */
+        export interface KongIngressProxy {
+            /**
+             * The timeout in milliseconds for	establishing a connection to the upstream server. Deprecated: use Service's "konghq.com/connect-timeout" annotation instead.
+             */
+            connect_timeout?: number;
+            /**
+             * (optional) The path to be used in requests to the upstream server. Deprecated: use Service's "konghq.com/path" annotation instead.
+             */
+            path?: string;
+            /**
+             * The protocol used to communicate with the upstream. Deprecated: use Service's "konghq.com/protocol" annotation instead.
+             */
+            protocol?: string;
+            /**
+             * The timeout in milliseconds between two successive read operations for transmitting a request to the upstream server. Deprecated: use Service's "konghq.com/read-timeout" annotation instead.
+             */
+            read_timeout?: number;
+            /**
+             * The number of retries to execute upon failure to proxy. Deprecated: use Service's "konghq.com/retries" annotation instead.
+             */
+            retries?: number;
+            /**
+             * The timeout in milliseconds between two successive write operations for transmitting a request to the upstream server. Deprecated: use Service's "konghq.com/write-timeout" annotation instead.
+             */
+            write_timeout?: number;
+        }
+
+        /**
+         * Route define rules to match client requests. Each Route is associated with a Service, and a Service may have multiple Routes associated to it.
+         */
+        export interface KongIngressRoute {
+            /**
+             * Headers contains one or more lists of values indexed by header name that will cause this Route to match if present in the request. The Host header cannot be used with this attribute. Deprecated: use Ingress' "konghq.com/headers" annotation instead.
+             */
+            headers?: {[key: string]: string[]};
+            /**
+             * HTTPSRedirectStatusCode is the status code Kong responds with when all properties of a Route match except the protocol. Deprecated: use Ingress' "ingress.kubernetes.io/force-ssl-redirect" or "konghq.com/https-redirect-status-code" annotations instead.
+             */
+            https_redirect_status_code?: number;
+            /**
+             * Methods is a list of HTTP methods that match this Route. Deprecated: use Ingress' "konghq.com/override-protocols" annotation instead.
+             */
+            methods?: string[];
+            /**
+             * PathHandling controls how the Service path, Route path and requested path are combined when sending a request to the upstream. Deprecated: use Ingress' "konghq.com/path-handling" annotation instead.
+             */
+            path_handling?: string;
+            /**
+             * PreserveHost sets When matching a Route via one of the hosts domain names, use the request Host header in the upstream request headers. If set to false, the upstream Host header will be that of the Service’s host. Deprecated: use Ingress' "konghq.com/preserve-host" annotation instead.
+             */
+            preserve_host?: boolean;
+            /**
+             * Protocols is an array of the protocols this Route should allow. Deprecated: use Ingress' "konghq.com/protocols" annotation instead.
+             */
+            protocols?: string[];
+            /**
+             * RegexPriority is a number used to choose which route resolves a given request when several routes match it using regexes simultaneously. Deprecated: use Ingress' "konghq.com/regex-priority" annotation instead.
+             */
+            regex_priority?: number;
+            /**
+             * RequestBuffering sets whether to enable request body buffering or not. Deprecated: use Ingress' "konghq.com/request-buffering" annotation instead.
+             */
+            request_buffering?: boolean;
+            /**
+             * ResponseBuffering sets whether to enable response body buffering or not. Deprecated: use Ingress' "konghq.com/response-buffering" annotation instead.
+             */
+            response_buffering?: boolean;
+            /**
+             * SNIs is a list of SNIs that match this Route when using stream routing. Deprecated: use Ingress' "konghq.com/snis" annotation instead.
+             */
+            snis?: string[];
+            /**
+             * StripPath sets When matching a Route via one of the paths strip the matching prefix from the upstream request URL. Deprecated: use Ingress' "konghq.com/strip-path" annotation instead.
+             */
+            strip_path?: boolean;
+        }
+
+        /**
+         * Upstream represents a virtual hostname and can be used to load balance incoming requests over multiple targets (e.g. Kubernetes Services can be a target, or URLs can be targets).
+         */
+        export interface KongIngressUpstream {
+            /**
+             * Algorithm is the load balancing algorithm to use.
+             */
+            algorithm?: string;
+            /**
+             * HashFallback defines What to use as hashing input if the primary hash_on does not return a hash. Accepted values are: "none", "consumer", "ip", "header", "cookie".
+             */
+            hash_fallback?: string;
+            /**
+             * HashFallbackHeader is the header name to take the value from as hash input. Only required when "hash_fallback" is set to "header".
+             */
+            hash_fallback_header?: string;
+            /**
+             * HashFallbackQueryArg is the "hash_fallback" version of HashOnQueryArg.
+             */
+            hash_fallback_query_arg?: string;
+            /**
+             * HashFallbackURICapture is the "hash_fallback" version of HashOnURICapture.
+             */
+            hash_fallback_uri_capture?: string;
+            /**
+             * HashOn defines what to use as hashing input. Accepted values are: "none", "consumer", "ip", "header", "cookie", "path", "query_arg", "uri_capture".
+             */
+            hash_on?: string;
+            /**
+             * The cookie name to take the value from as hash input. Only required when "hash_on" or "hash_fallback" is set to "cookie".
+             */
+            hash_on_cookie?: string;
+            /**
+             * The cookie path to set in the response headers. Only required when "hash_on" or "hash_fallback" is set to "cookie".
+             */
+            hash_on_cookie_path?: string;
+            /**
+             * HashOnHeader defines the header name to take the value from as hash input. Only required when "hash_on" is set to "header".
+             */
+            hash_on_header?: string;
+            /**
+             * HashOnQueryArg is the query string parameter whose value is the hash input when "hash_on" is set to "query_arg".
+             */
+            hash_on_query_arg?: string;
+            /**
+             * HashOnURICapture is the name of the capture group whose value is the hash input when "hash_on" is set to "uri_capture".
+             */
+            hash_on_uri_capture?: string;
+            /**
+             * Healthchecks defines the health check configurations in Kong.
+             */
+            healthchecks?: outputs.configuration.v1.KongIngressUpstreamHealthchecks;
+            /**
+             * HostHeader is The hostname to be used as Host header when proxying requests through Kong.
+             */
+            host_header?: string;
+            /**
+             * Slots is the number of slots in the load balancer algorithm.
+             */
+            slots?: number;
+        }
+
+        /**
+         * Healthchecks defines the health check configurations in Kong.
+         */
+        export interface KongIngressUpstreamHealthchecks {
+            /**
+             * ActiveHealthcheck configures active health check probing.
+             */
+            active?: outputs.configuration.v1.KongIngressUpstreamHealthchecksActive;
+            /**
+             * PassiveHealthcheck configures passive checks around passive health checks.
+             */
+            passive?: outputs.configuration.v1.KongIngressUpstreamHealthchecksPassive;
+            threshold?: number;
+        }
+
+        /**
+         * ActiveHealthcheck configures active health check probing.
+         */
+        export interface KongIngressUpstreamHealthchecksActive {
+            concurrency?: number;
+            /**
+             * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+             */
+            healthy?: outputs.configuration.v1.KongIngressUpstreamHealthchecksActiveHealthy;
+            http_path?: string;
+            https_sni?: string;
+            https_verify_certificate?: boolean;
+            timeout?: number;
+            type?: string;
+            /**
+             * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+             */
+            unhealthy?: outputs.configuration.v1.KongIngressUpstreamHealthchecksActiveUnhealthy;
+        }
+
+        /**
+         * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+         */
+        export interface KongIngressUpstreamHealthchecksActiveHealthy {
+            http_statuses?: number[];
+            interval?: number;
+            successes?: number;
+        }
+
+        /**
+         * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+         */
+        export interface KongIngressUpstreamHealthchecksActiveUnhealthy {
+            http_failures?: number;
+            http_statuses?: number[];
+            interval?: number;
+            tcp_failures?: number;
+            timeouts?: number;
+        }
+
+        /**
+         * PassiveHealthcheck configures passive checks around passive health checks.
+         */
+        export interface KongIngressUpstreamHealthchecksPassive {
+            /**
+             * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+             */
+            healthy?: outputs.configuration.v1.KongIngressUpstreamHealthchecksPassiveHealthy;
+            type?: string;
+            /**
+             * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+             */
+            unhealthy?: outputs.configuration.v1.KongIngressUpstreamHealthchecksPassiveUnhealthy;
+        }
+
+        /**
+         * Healthy configures thresholds and HTTP status codes to mark targets healthy for an upstream.
+         */
+        export interface KongIngressUpstreamHealthchecksPassiveHealthy {
+            http_statuses?: number[];
+            interval?: number;
+            successes?: number;
+        }
+
+        /**
+         * Unhealthy configures thresholds and HTTP status codes to mark targets unhealthy.
+         */
+        export interface KongIngressUpstreamHealthchecksPassiveUnhealthy {
+            http_failures?: number;
+            http_statuses?: number[];
+            interval?: number;
+            tcp_failures?: number;
+            timeouts?: number;
+        }
+
+        /**
+         * ConfigFrom references a secret containing the plugin configuration. This should be used when the plugin configuration contains sensitive information, such as AWS credentials in the Lambda plugin or the client secret in the OIDC plugin. Only one of `config` or `configFrom` may be used in a KongPlugin, not both at once.
+         */
+        export interface KongPluginConfigfrom {
+            /**
+             * Specifies a name and a key of a secret to refer to. The namespace is implicitly set to the one of referring object.
+             */
+            secretKeyRef?: outputs.configuration.v1.KongPluginConfigfromSecretkeyref;
+        }
+
+        /**
+         * Specifies a name and a key of a secret to refer to. The namespace is implicitly set to the one of referring object.
+         */
+        export interface KongPluginConfigfromSecretkeyref {
+            /**
+             * The key containing the value.
+             */
+            key: string;
+            /**
+             * The secret containing the key.
+             */
+            name: string;
+        }
+
+        /**
+         * Ordering overrides the normal plugin execution order. It's only available on Kong Enterprise. `<phase>` is a request processing phase (for example, `access` or `body_filter`) and `<plugin>` is the name of the plugin that will run before or after the KongPlugin. For example, a KongPlugin with `plugin: rate-limiting` and `before.access: ["key-auth"]` will create a rate limiting plugin that limits requests _before_ they are authenticated.
+         */
+        export interface KongPluginOrdering {
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            after?: {[key: string]: string[]};
+            /**
+             * PluginOrderingPhase indicates which plugins in a phase should affect the target plugin's order
+             */
+            before?: {[key: string]: string[]};
         }
 
     }

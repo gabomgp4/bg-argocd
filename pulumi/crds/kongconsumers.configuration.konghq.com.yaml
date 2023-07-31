@@ -1,0 +1,155 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.1
+  creationTimestamp: '2023-07-28T01:40:20Z'
+  generation: 1
+  managedFields:
+    - apiVersion: apiextensions.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:controller-gen.kubebuilder.io/version: {}
+        f:spec:
+          f:conversion:
+            .: {}
+            f:strategy: {}
+          f:group: {}
+          f:names:
+            f:categories: {}
+            f:kind: {}
+            f:listKind: {}
+            f:plural: {}
+            f:shortNames: {}
+            f:singular: {}
+          f:scope: {}
+          f:versions: {}
+      manager: helm
+      operation: Update
+      time: '2023-07-28T01:40:20Z'
+    - apiVersion: apiextensions.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:acceptedNames:
+            f:categories: {}
+            f:kind: {}
+            f:listKind: {}
+            f:plural: {}
+            f:shortNames: {}
+            f:singular: {}
+          f:conditions:
+            k:{"type":"Established"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"NamesAccepted"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+      manager: kube-apiserver
+      operation: Update
+      subresource: status
+      time: '2023-07-28T01:40:20Z'
+  name: kongconsumers.configuration.konghq.com
+  resourceVersion: '7720547'
+  uid: d101aec1-4656-4d38-95ad-ca4667c38290
+spec:
+  conversion:
+    strategy: None
+  group: configuration.konghq.com
+  names:
+    categories:
+      - kong-ingress-controller
+    kind: KongConsumer
+    listKind: KongConsumerList
+    plural: kongconsumers
+    shortNames:
+      - kc
+    singular: kongconsumer
+  scope: Namespaced
+  versions:
+    - additionalPrinterColumns:
+        - description: Username of a Kong Consumer
+          jsonPath: .username
+          name: Username
+          type: string
+        - description: Age
+          jsonPath: .metadata.creationTimestamp
+          name: Age
+          type: date
+      name: v1
+      schema:
+        openAPIV3Schema:
+          description: KongConsumer is the Schema for the kongconsumers API.
+          properties:
+            apiVersion:
+              description: >-
+                APIVersion defines the versioned schema of this representation
+                of an object. Servers should convert recognized schemas to the
+                latest internal value, and may reject unrecognized values. More
+                info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+              type: string
+            credentials:
+              description: >-
+                Credentials are references to secrets containing a credential to
+                be provisioned in Kong.
+              items:
+                type: string
+              type: array
+            custom_id:
+              description: >-
+                CustomID is a Kong cluster-unique existing ID for the consumer -
+                useful for mapping Kong with users in your existing database.
+              type: string
+            kind:
+              description: >-
+                Kind is a string value representing the REST resource this
+                object represents. Servers may infer this from the endpoint the
+                client submits requests to. Cannot be updated. In CamelCase.
+                More info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+              type: string
+            metadata:
+              type: object
+            username:
+              description: Username is a Kong cluster-unique username of the consumer.
+              type: string
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+status:
+  acceptedNames:
+    categories:
+      - kong-ingress-controller
+    kind: KongConsumer
+    listKind: KongConsumerList
+    plural: kongconsumers
+    shortNames:
+      - kc
+    singular: kongconsumer
+  conditions:
+    - lastTransitionTime: '2023-07-28T01:40:20Z'
+      message: no conflicts found
+      reason: NoConflicts
+      status: 'True'
+      type: NamesAccepted
+    - lastTransitionTime: '2023-07-28T01:40:20Z'
+      message: the initial names have been accepted
+      reason: InitialNamesAccepted
+      status: 'True'
+      type: Established
+  storedVersions:
+    - v1

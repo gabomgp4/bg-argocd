@@ -17,24 +17,20 @@ const dbSecret = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?
 // Adapted from https://github.com/keycloak/keycloak/issues/14666#issuecomment-1461028049
 const keyCloak = new keycloack.Keycloak("keycloak", {
   spec: {
-    hostname: {
-      hostname: "keycloak",
-      strict: false,
-      strictBackchannel: false,
-    },
     additionalOptions: [
       {
         name: "hostname-strict-https",
         value: "false",
       },
       {
-        name: "hostname-port",
-        value: "32092",
+        name: "hostname-strict",
+        value: "false",
       },
+      {
+        name: "proxy",
+        value: "edge",
+      }
     ],
-    http: {
-      httpEnabled: true,
-    },
     ingress: {
       enabled: false,
     },
@@ -54,20 +50,26 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
 });
 
 const ingress = new k8s.networking.v1.Ingress("keycloack", {
+  metadata: {
+    annotations: {
+      "konghq.com/plugins": "https-port-plugin",
+    },
+  },
   spec: {
     ingressClassName: "kong",
     rules: [
       {
         host: "keycloak",
         http: {
-          
           paths: [
             {
               path: "/",
               pathType: "Prefix",
               backend: {
                 service: {
-                  name: interpolate `${keyCloak.metadata.apply(metadata=>metadata?.name)}-service`,
+                  name: interpolate`${keyCloak.metadata.apply(
+                    (metadata) => metadata?.name
+                  )}-service`,
                   port: {
                     number: 8080,
                   },
