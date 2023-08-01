@@ -3,7 +3,7 @@ import * as kx from "@pulumi/kubernetesx";
 5;
 import * as clickhouse from "./crd/clickhouse/v1"; // Replace this with the path to your generated module
 import * as metallb from "./crd/metallb/v1beta1"; // Replace this with the path to your generated module5
-import {selector} from "./keycloack";
+import {selector} from "./keycloak";
 import {ingress} from "./echo-server";
 import { interpolate } from "@pulumi/pulumi";
 import * as kong from "./kong";

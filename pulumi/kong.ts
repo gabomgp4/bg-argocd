@@ -1,7 +1,9 @@
 import * as k8s from "@pulumi/kubernetes";
 import * as kong from "./crd/configuration/v1";
+import * as keycloak from "./keycloak";
+import { interpolate } from "@pulumi/pulumi";
 
-const nginxIngress = new k8s.helm.v3.Chart("kong-ingress", {
+const kongIngress = new k8s.helm.v3.Chart("kong-ingress", {
   chart: "kong",
   skipCRDRendering: true, //enable with new cluster from scratch
   version: "2.25.0",
@@ -23,6 +25,7 @@ const nginxIngress = new k8s.helm.v3.Chart("kong-ingress", {
   },
 });
 
+
 const port = 32611;
 
 const oidcPlugin = new kong.KongClusterPlugin("kong-oidc", {
@@ -39,11 +42,11 @@ const oidcPlugin = new kong.KongClusterPlugin("kong-oidc", {
   plugin: "oidc",
   config: {
     client_id: "kong-oidc",
-    client_secret: "DYohG9nSWBWKwiguFvyflZ04w9EEfmgm", // Generated on keyCloak
+    client_secret: "nsFygnVAMLpPBIaONbbO3k6XrjiSyWKn", // Generated on keyCloak
     realm: "kong",
-    discovery: `https://keycloak:${port}/realms/kong/.well-known/openid-configuration`,
+    discovery: interpolate`https://keycloak:${port}/realms/kong/.well-known/openid-configuration`,
     scope: "openid",
-    redirect_after_logout_uri: `https://keycloak:${port}/auth/realms/kong-oidc/protocol/openid-connect/logout?redirect_uri=http://grafana`,
+    redirect_after_logout_uri: interpolate`https://keycloak:${port}/auth/realms/kong-oidc/protocol/openid-connect/logout?redirect_uri=https://grafana:${port}/`,
     ssl_verify: "no",
   },
 });
@@ -98,4 +101,4 @@ const grafanaIngress = new k8s.networking.v1.Ingress("grafana", {
   },
 });
 
-export const urn = nginxIngress.urn;
+export const urn = kongIngress.urn;

@@ -49,6 +49,8 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
   },
 });
 
+const keyCloakService = interpolate`${keyCloak.metadata.apply((metadata) => metadata?.name)}-service`
+
 const ingress = new k8s.networking.v1.Ingress("keycloack", {
   metadata: {
     annotations: {
@@ -67,9 +69,7 @@ const ingress = new k8s.networking.v1.Ingress("keycloack", {
               pathType: "Prefix",
               backend: {
                 service: {
-                  name: interpolate`${keyCloak.metadata.apply(
-                    (metadata) => metadata?.name
-                  )}-service`,
+                  name: keyCloakService,
                   port: {
                     number: 8080,
                   },
@@ -83,6 +83,6 @@ const ingress = new k8s.networking.v1.Ingress("keycloack", {
   },
 });
 
-export const ingressNameOutput = ingress.metadata.name;
+export const ingressHost = keyCloakService;
 
 export const selector = keyCloakDb.status.apply((status) => status?.writeService);
