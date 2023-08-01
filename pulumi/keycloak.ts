@@ -2,6 +2,7 @@ import { interpolate } from "@pulumi/pulumi";
 import * as keycloack from "./crd/k8s/v2alpha1"; // Replace this with the path to your generated module
 import * as cnpg from "./crd/postgresql/v1";
 import * as k8s from "@pulumi/kubernetes";
+import cluster from "cluster";
 
 const keyCloakDb = new cnpg.Cluster("keycloak-db", {
   spec: {
@@ -15,8 +16,10 @@ const keyCloakDb = new cnpg.Cluster("keycloak-db", {
 const dbSecret = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?.name)}-app`;
 
 // Adapted from https://github.com/keycloak/keycloak/issues/14666#issuecomment-1461028049
+const keyCloakDbInstance = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?.name)}`;
 const keyCloak = new keycloack.Keycloak("keycloak", {
   spec: {
+    instances: 3,
     additionalOptions: [
       {
         name: "hostname-strict-https",
@@ -29,13 +32,14 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
       {
         name: "proxy",
         value: "edge",
-      }
+      },
     ],
     ingress: {
-      enabled: false,
+      enabled: true,
     },
     db: {
-      host: keyCloakDb.status.apply((status) => status?.writeService!),
+      vendor: "postgres",
+      host: interpolate`${keyCloakDbInstance}-rw`,
       usernameSecret: {
         name: dbSecret,
         key: "username",
@@ -49,7 +53,8 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
   },
 });
 
-const keyCloakService = interpolate`${keyCloak.metadata.apply((metadata) => metadata?.name)}-service`
+const keyCloakInstance = interpolate`${keyCloak.metadata.apply((metadata) => metadata?.name)}`;
+const keyCloakService = interpolate`${keyCloakInstance}-service`;
 
 const ingress = new k8s.networking.v1.Ingress("keycloack", {
   metadata: {

@@ -11,6 +11,10 @@ const kongIngress = new k8s.helm.v3.Chart("kong-ingress", {
     repo: "https://charts.konghq.com",
   },
   values: {
+    replicaCount: 3,
+    autoscaling: {
+      enabled: false,
+    },
     image: {
       repository: "revomatico/docker-kong-oidc",
       tag: "3.3.0-1",
@@ -20,7 +24,7 @@ const kongIngress = new k8s.helm.v3.Chart("kong-ingress", {
     },
     env: {
       PLUGINS: "bundled,oidc",
-      LOG_LEVEL: "debug",
+      LOG_LEVEL: "info",
     },
   },
 });
@@ -42,12 +46,12 @@ const oidcPlugin = new kong.KongClusterPlugin("kong-oidc", {
   plugin: "oidc",
   config: {
     client_id: "kong-oidc",
-    client_secret: "nsFygnVAMLpPBIaONbbO3k6XrjiSyWKn", // Generated on keyCloak
+    client_secret: "1BbSCCnuf0x1n3OWGOgunBPy5CN8eIw3", // Generated on keyCloak
     realm: "kong",
     discovery: interpolate`https://keycloak:${port}/realms/kong/.well-known/openid-configuration`,
     scope: "openid",
     redirect_after_logout_uri: interpolate`https://keycloak:${port}/auth/realms/kong-oidc/protocol/openid-connect/logout?redirect_uri=https://grafana:${port}/`,
-    ssl_verify: "no",
+    ssl_verify: "no", //change on production
   },
 });
 
