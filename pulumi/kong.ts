@@ -72,6 +72,7 @@ const httpsPortPlugin = new kong.KongClusterPlugin("https-port-plugin", {
   },
 });
 
+
 const grafanaIngress = new k8s.networking.v1.Ingress("grafana", {
   metadata: {
     namespace: "cattle-monitoring-system",
@@ -88,7 +89,7 @@ const grafanaIngress = new k8s.networking.v1.Ingress("grafana", {
           paths: [
             {
               path: "/",
-              pathType: "Prefix",
+              pathType: "ImplementationSpecific",
               backend: {
                 service: {
                   name: "rancher-monitoring-grafana",

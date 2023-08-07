@@ -3,6 +3,7 @@ import * as keycloack from "./crd/k8s/v2alpha1"; // Replace this with the path t
 import * as cnpg from "./crd/postgresql/v1";
 import * as k8s from "@pulumi/kubernetes";
 import cluster from "cluster";
+import * as kong from "./crd/configuration/v1";
 
 const keyCloakDb = new cnpg.Cluster("keycloak-db", {
   spec: {
@@ -51,6 +52,34 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
       database: "app",
     },
   },
+});
+
+// Put on the service as annotiation konghq.com/override":"keycloak-kong-ingress"
+const keycloackKongIngress = new kong.KongIngress("keycloak-kong-ingress", {
+  upstream: {
+    healthchecks: {
+      active: {
+        healthy: {
+          interval: 2,
+          successes: 3
+        },
+        http_path: "/health/ready",
+        type: "http",
+        unhealthy: {
+          http_failures: 1,
+          interval: 5
+        }
+      },
+      passive: {
+        healthy: {
+          successes: 1
+        },
+        unhealthy: {
+          tcp_failures: 1,
+        }
+      }
+    }
+  }
 });
 
 const keyCloakInstance = interpolate`${keyCloak.metadata.apply((metadata) => metadata?.name)}`;
