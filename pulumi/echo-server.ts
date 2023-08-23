@@ -1,5 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as k8s from "@pulumi/kubernetes";
+import {config} from "./config";
 
 // Namespace
 const echoserverNamespace = new k8s.core.v1.Namespace("echoserver", {
@@ -85,7 +86,7 @@ const echoserverIngress = new k8s.networking.v1.Ingress("echoserver", {
     ingressClassName: "kong",
     rules: [
       {
-        host: "echo-server",
+        host: `echo-server.${config.rootDomain}`,
         http: {
           paths: [
             {

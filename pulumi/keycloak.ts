@@ -4,6 +4,10 @@ import * as cnpg from "./crd/postgresql/v1";
 import * as k8s from "@pulumi/kubernetes";
 import cluster from "cluster";
 import * as kong from "./crd/configuration/v1";
+import {config} from "./config";
+import {cloudNativePg, localStorageClass} from './storage'
+
+
 
 const keyCloakDb = new cnpg.Cluster("keycloak-db", {
   spec: {
@@ -12,6 +16,27 @@ const keyCloakDb = new cnpg.Cluster("keycloak-db", {
       size: "1Gi",
     },
   },
+}, {
+  dependsOn: [cloudNativePg, localStorageClass],
+});
+
+
+const keycloakVersion = "22.0.1"
+
+const keycloaksCrd = new k8s.yaml.ConfigFile("keycloack-crd", {
+  file: `https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/${keycloakVersion}/kubernetes/keycloaks.k8s.keycloak.org-v1.yml`,
+});
+
+const keycloakRealImports = new k8s.yaml.ConfigFile("keycloack-real-imports", {
+  file: `https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/${keycloakVersion}/kubernetes/keycloakrealmimports.k8s.keycloak.org-v1.yml`,
+}, {
+  dependsOn: [keycloaksCrd],
+});
+
+const keycloakOperator = new k8s.yaml.ConfigFile("keycloack-operator", {
+  file: `https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/${keycloakVersion}/kubernetes/kubernetes.yml`,
+}, {
+  dependsOn: [keycloakRealImports],
 });
 
 const dbSecret = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?.name)}-app`;
@@ -52,6 +77,8 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
       database: "app",
     },
   },
+}, {
+  dependsOn: [keycloakOperator],
 });
 
 // Put on the service as annotiation konghq.com/override":"keycloak-kong-ingress"
@@ -95,7 +122,7 @@ const ingress = new k8s.networking.v1.Ingress("keycloack", {
     ingressClassName: "kong",
     rules: [
       {
-        host: "keycloak",
+        host: `keycloak.${config.rootDomain}`,
         http: {
           paths: [
             {

@@ -8,6 +8,7 @@
         "@pulumi/kubernetes": "^3.0.0",
         "@pulumi/kubernetesx": "^0.1.5",
         "@pulumi/pulumi": "^3.0.0",
+        "@types/js-yaml": "^4.0.5",
         "js-yaml": "^4.1.0"
     }
 }

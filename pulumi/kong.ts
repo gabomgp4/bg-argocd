@@ -2,12 +2,13 @@ import * as k8s from "@pulumi/kubernetes";
 import * as kong from "./crd/configuration/v1";
 import * as keycloak from "./keycloak";
 import { interpolate } from "@pulumi/pulumi";
+import {config} from "./config";
+import * as telemetry from './telemetry';
 
-const kongIngress = new k8s.helm.v3.Chart("kong-ingress", {
+const kongIngress = new k8s.helm.v3.Release("kong-ingress", {
   chart: "kong",
-  skipCRDRendering: true, //enable with new cluster from scratch
   version: "2.25.0",
-  fetchOpts: {
+  repositoryOpts: {
     repo: "https://charts.konghq.com",
   },
   values: {
@@ -53,6 +54,8 @@ const oidcPlugin = new kong.KongClusterPlugin("kong-oidc", {
     redirect_after_logout_uri: interpolate`https://keycloak:${port}/auth/realms/kong-oidc/protocol/openid-connect/logout?redirect_uri=https://grafana:${port}/`,
     ssl_verify: "no", //change on production
   },
+}, {
+  dependsOn: kongIngress,
 });
 
 const httpsPortPlugin = new kong.KongClusterPlugin("https-port-plugin", {
@@ -70,12 +73,13 @@ const httpsPortPlugin = new kong.KongClusterPlugin("https-port-plugin", {
   config: {
     access: [`ngx.var.upstream_x_forwarded_port=${port}`],
   },
+}, {
+  dependsOn: kongIngress,
 });
 
 
 const grafanaIngress = new k8s.networking.v1.Ingress("grafana", {
   metadata: {
-    namespace: "cattle-monitoring-system",
     annotations: {
       "konghq.com/plugins": "oidc",
     },
@@ -84,7 +88,7 @@ const grafanaIngress = new k8s.networking.v1.Ingress("grafana", {
     ingressClassName: "kong",
     rules: [
       {
-        host: "grafana",
+        host: `grafana.${config.rootDomain}`,
         http: {
           paths: [
             {
@@ -104,6 +108,8 @@ const grafanaIngress = new k8s.networking.v1.Ingress("grafana", {
       },
     ],
   },
+}, {
+  dependsOn: [kongIngress, telemetry.kubePrometheusStack],
 });
 
 export const urn = kongIngress.urn;
