@@ -134,6 +134,8 @@ const qrynDeployment = new k8s.apps.v1.Deployment("qryn", {
       },
     },
   },
+}, {
+  dependsOn: [pvSimpleInstallation],
 });
 
 const qrynService = new k8s.core.v1.Service("qryn", {
@@ -154,9 +156,11 @@ const qrynService = new k8s.core.v1.Service("qryn", {
       "io.metrico.service": "qryn",
     },
   },
+}, {
+  dependsOn: [qrynDeployment],
 });
 
 
-export const selectorKeyCloack = selector;
+export const selectorKeyCloak = selector;
 export const urnKong = kong.urn;
 export const echoIngress = ingress;

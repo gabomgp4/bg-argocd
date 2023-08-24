@@ -1,5 +1,5 @@
 import { interpolate } from "@pulumi/pulumi";
-import * as keycloack from "./crd/k8s/v2alpha1"; // Replace this with the path to your generated module
+import * as keycloak from "./crd/k8s/v2alpha1"; // Replace this with the path to your generated module
 import * as cnpg from "./crd/postgresql/v1";
 import * as k8s from "@pulumi/kubernetes";
 import cluster from "cluster";
@@ -23,17 +23,17 @@ const keyCloakDb = new cnpg.Cluster("keycloak-db", {
 
 const keycloakVersion = "22.0.1"
 
-const keycloaksCrd = new k8s.yaml.ConfigFile("keycloack-crd", {
+const keycloaksCrd = new k8s.yaml.ConfigFile("keycloak-crd", {
   file: `https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/${keycloakVersion}/kubernetes/keycloaks.k8s.keycloak.org-v1.yml`,
 });
 
-const keycloakRealImports = new k8s.yaml.ConfigFile("keycloack-real-imports", {
+const keycloakRealImports = new k8s.yaml.ConfigFile("keycloak-real-imports", {
   file: `https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/${keycloakVersion}/kubernetes/keycloakrealmimports.k8s.keycloak.org-v1.yml`,
 }, {
   dependsOn: [keycloaksCrd],
 });
 
-const keycloakOperator = new k8s.yaml.ConfigFile("keycloack-operator", {
+const keycloakOperator = new k8s.yaml.ConfigFile("keyclock-operator", {
   file: `https://raw.githubusercontent.com/keycloak/keycloak-k8s-resources/${keycloakVersion}/kubernetes/kubernetes.yml`,
 }, {
   dependsOn: [keycloakRealImports],
@@ -43,7 +43,7 @@ const dbSecret = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?
 
 // Adapted from https://github.com/keycloak/keycloak/issues/14666#issuecomment-1461028049
 const keyCloakDbInstance = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?.name)}`;
-const keyCloak = new keycloack.Keycloak("keycloak", {
+const keyCloak = new keycloak.Keycloak("keycloak", {
   spec: {
     instances: 3,
     additionalOptions: [
@@ -82,7 +82,7 @@ const keyCloak = new keycloack.Keycloak("keycloak", {
 });
 
 // Put on the service as annotiation konghq.com/override":"keycloak-kong-ingress"
-const keycloackKongIngress = new kong.KongIngress("keycloak-kong-ingress", {
+const keycloakKongIngress = new kong.KongIngress("keycloak-kong-ingress", {
   upstream: {
     healthchecks: {
       active: {
@@ -112,7 +112,7 @@ const keycloackKongIngress = new kong.KongIngress("keycloak-kong-ingress", {
 const keyCloakInstance = interpolate`${keyCloak.metadata.apply((metadata) => metadata?.name)}`;
 const keyCloakService = interpolate`${keyCloakInstance}-service`;
 
-const ingress = new k8s.networking.v1.Ingress("keycloack", {
+const ingress = new k8s.networking.v1.Ingress("keycloak", {
   metadata: {
     annotations: {
       "konghq.com/plugins": "https-port-plugin",

@@ -31,7 +31,7 @@ export const localStorageClass = new k8s.storage.v1.StorageClass("local-hostpath
   dependsOn: [openebs],
 });
 
-export const clickHouseOperator = new k8s.helm.v3.Release("clickhouse-operator", {
+export const clickHouseOperator = new k8s.helm.v3.Release("cho", {
   chart: "altinity-clickhouse-operator",
   version: "0.21.3",
   repositoryOpts: {
