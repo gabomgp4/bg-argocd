@@ -2,7 +2,7 @@ import * as k8s from "@pulumi/kubernetes";
 import * as kx from "@pulumi/kubernetesx";
 5;
 import * as clickhouse from "./crd/clickhouse/v1"; // Replace this with the path to your generated module
-import * as metallb from "./crd/metallb/v1beta1"; // Replace this with the path to your generated module5
+import * as metallb from "./metallb"; // Replace this with the path to your generated module5
 import {selector} from "./keycloak";
 import {ingress} from "./echo-server";
 import * as storage from './storage';
@@ -164,3 +164,4 @@ const qrynService = new k8s.core.v1.Service("qryn", {
 export const selectorKeyCloak = selector;
 export const urnKong = kong.urn;
 export const echoIngress = ingress;
+export const jj = metallb.addressPool;

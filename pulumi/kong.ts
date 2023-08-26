@@ -1,6 +1,5 @@
 import * as k8s from "@pulumi/kubernetes";
 import * as kong from "./crd/configuration/v1";
-import * as mlb from "./crd/metallb/v1beta1";
 import * as keycloak from "./keycloak";
 import { interpolate } from "@pulumi/pulumi";
 import { config } from "./config";
@@ -85,26 +84,6 @@ const httpsPortPlugin = new kong.KongClusterPlugin(
   }
 );
 
-const metallb = new k8s.helm.v3.Release("metallb", {
-  chart: "metallb",
-  version: "0.13.10",
-  repositoryOpts: {
-    repo: "https://metallb.github.io/metallb",
-  },
-});
-
-const addressPool = new mlb.AddressPool(
-  "address-pool",
-  {
-    spec: {
-      protocol: "layer2",
-      addresses: ["192.168.10.0/24"],
-    },
-  },
-  {
-    dependsOn: metallb,
-  }
-);
 
 const grafanaIngress = new k8s.networking.v1.Ingress(
   "grafana",
@@ -142,7 +121,7 @@ const grafanaIngress = new k8s.networking.v1.Ingress(
     },
   },
   {
-    dependsOn: [kongIngress, telemetry.kubePrometheusStack, addressPool],
+    dependsOn: [kongIngress, telemetry.kubePrometheusStack],
   }
 );
 
