@@ -1,0 +1,29 @@
+apiVersion: crd.projectcalico.org/v1
+kind: BGPPeer
+metadata:
+  name: route-reflector-peer
+spec:
+  nodeSelector: "all()"
+  peerSelector: "route-reflector == 'true'"
+---
+apiVersion: crd.projectcalico.org/v1
+kind: BGPPeer
+metadata:
+  name: openwrt-peer
+spec:
+  peerIP: "192.168.1.1"
+  asNumber: 64512
+  nodeSelector: "route-reflector == 'true'"
+---
+apiVersion: crd.projectcalico.org/v1
+kind: BGPConfiguration
+metadata:
+  name: default
+spec:
+  logSeverityScreen: "Info"
+  nodeToNodeMeshEnabled: false
+  asNumber: 64512
+  serviceClusterIPs:
+    - cidr: "10.43.0.0/16"
+  serviceLoadBalancerIPs:
+    - cidr: "172.16.0.0/16"

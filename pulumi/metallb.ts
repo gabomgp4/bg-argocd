@@ -1,6 +1,14 @@
 import * as mlb from "./crd/metallb/v1beta1";
 import * as k8s from "@pulumi/kubernetes";
 
+/**
+ * Debe marcarse el nodo ggomez-control como routereflector:
+ * 
+ *  > kubectl annotate node ggomez-control projectcalico.org/RouteReflectorClusterID=244.0.0.1
+ *  > kubectl label node ggomez-control route-reflector=true
+ * 
+ */
+
 // inspired in
 // https://devpress.csdn.net/cloud/62f654497e6682346618b0b8.html#devmenu7
 // https://docs.rke2.io/install/network_options
@@ -20,7 +28,7 @@ import * as k8s from "@pulumi/kubernetes";
   //       - cidr: 10.42.0.0/16
   //         encapsulation: VXLAN
   //         natOutgoing: Enabled
-  //       - cidr: fd0a:6cbe::/64
+  //       - cidr: fd10::/56
   //         encapsulation: VXLAN
   //         natOutgoing: Enabled
 // `,
@@ -35,7 +43,7 @@ import * as k8s from "@pulumi/kubernetes";
 //       - cidr: 10.42.0.0/16
 //         encapsulation: None
 //         natOutgoing: Disabled
-//       - cidr: fd0a:6cbe::/64
+//       - cidr: fd10::/56
 //         encapsulation: None
 //         natOutgoing: Disabled
 
@@ -61,48 +69,17 @@ spec:
 6. Reiniciar todos los pods del namespace calico-system.
 7. Si quedan pods pegados, reinicar unicamente el pod que sirve de reflector, el calico-node presente en homelab01 (el que esta marcado como reflector.)
 
-Cluster CIDR: 10.42.0.0/16,fd0a:6cbe:0::/64
-Service CIDR: 10.43.0.0/16,fd0a:6cbe:1::/112
+Cluster CIDR: 10.42.0.0/16,fd10::/56
+Service CIDR: 10.43.0.0/16,fd10:0:1::/112
 
 IMPORTANTE: bloquear a NetworkManager de molestar a calico: 
   https://docs.tigera.io/calico/latest/operations/troubleshoot/troubleshooting#configure-networkmanager
+
+
+Cuando se crea el cluster en Rancher por primera vez:
+
+En clsuter.yaml se puede ver como se creo el cluster con RKE. Recordar el cluster se debe llamar homelab.
 */
-
-const workerRouteReflector = new k8s.apiextensions.CustomResource("route-reflector-peer", {
-  apiVersion: "crd.projectcalico.org/v1",
-  kind: "BGPPeer",
-  spec: {
-    nodeSelector: "all()",
-    peerSelector: "route-reflector == 'true'",
-  },
-});
-
-const openwrtPeer = new k8s.apiextensions.CustomResource("openwrt-peer", {
-  apiVersion: "crd.projectcalico.org/v1",
-  kind: "BGPPeer",
-  spec: {
-    peerIP: "192.168.1.1",
-    asNumber: 65000,
-    nodeSelector: "route-reflector == 'true'",
-  },
-});
-
-const bgpConfiguration = new k8s.apiextensions.CustomResource("default", {
-  apiVersion: "crd.projectcalico.org/v1",
-  kind: "BGPConfiguration",
-  metadata: {
-    name: "default",
-  },
-  spec: {
-    logSeverityScreen: "Info",
-    nodeToNodeMeshEnabled: false,
-    asNumber: 64512,
-    serviceClusterIPs: [{cidr: "10.43.0.0/16"}],
-    serviceLoadBalancerIPs: [{cidr: "172.16.0.0/16"}],
-  },
-});
-
-export const bgpConfigurationName = bgpConfiguration.metadata.name;
 
 const metallb = new k8s.helm.v3.Release("metallb", {
   chart: "metallb",

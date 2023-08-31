@@ -9,6 +9,7 @@ import * as storage from './storage';
 import * as telemetry from './telemetry';
 import { interpolate } from "@pulumi/pulumi";
 import * as kong from "./kong";
+import "./argocd";
 const yaml = require("js-yaml");
 const crypto = require("crypto");
 
