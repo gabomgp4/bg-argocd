@@ -81,6 +81,8 @@ Cuando se crea el cluster en Rancher por primera vez:
 En clsuter.yaml se puede ver como se creo el cluster con RKE. Recordar el cluster se debe llamar homelab.
 */
 
+// keycloak-dcdc74e3-service.default.svc.homelab.local
+
 const metallb = new k8s.helm.v3.Release("metallb", {
   chart: "metallb",
   version: "0.13.10",
