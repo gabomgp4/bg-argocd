@@ -84,45 +84,4 @@ const httpsPortPlugin = new kong.KongClusterPlugin(
   }
 );
 
-
-const grafanaIngress = new k8s.networking.v1.Ingress(
-  "grafana",
-  {
-    metadata: {
-      annotations: {
-        "konghq.com/plugins": "oidc",
-      },
-    },
-    spec: {
-      ingressClassName: "kong",
-      rules: [
-        {
-          host: `grafana.${config.rootDomain}`,
-          http: {
-            paths: [
-              {
-                path: "/",
-                pathType: "ImplementationSpecific",
-                backend: {
-                  service: {
-                    name: telemetry.kubePrometheusStack.status.name.apply(
-                      (name) => name + "-grafana"
-                    ),
-                    port: {
-                      number: 80,
-                    },
-                  },
-                },
-              },
-            ],
-          },
-        },
-      ],
-    },
-  },
-  {
-    dependsOn: [kongIngress, telemetry.kubePrometheusStack],
-  }
-);
-
 export const urn = kongIngress.urn;

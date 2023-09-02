@@ -6,7 +6,7 @@ import * as metallb from "./metallb"; // Replace this with the path to your gene
 import {selector} from "./keycloak";
 import {ingress} from "./echo-server";
 import * as storage from './storage';
-import * as telemetry from './telemetry';
+import './telemetry';
 import { interpolate } from "@pulumi/pulumi";
 import * as kong from "./kong";
 import "./argocd";
