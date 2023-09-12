@@ -84,6 +84,8 @@ En clsuter.yaml se puede ver como se creo el cluster con RKE. Recordar el cluste
 // keycloak-dcdc74e3-service.default.svc.homelab.local
 
 const metallb = new k8s.helm.v3.Release("metallb", {
+  namespace: "metallb-system",
+  createNamespace: true,
   chart: "metallb",
   version: "0.13.10",
   repositoryOpts: {
@@ -94,6 +96,9 @@ const metallb = new k8s.helm.v3.Release("metallb", {
 export const addressPool = new mlb.AddressPool(
   "address-pool",
   {
+    metadata: {
+      namespace: "metallb-system",
+    },
     spec: {
       protocol: "bgp",
       addresses: ["172.16.0.0/16"],

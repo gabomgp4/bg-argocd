@@ -7,9 +7,12 @@ import * as kong from "./crd/configuration/v1";
 import {config} from "./config";
 import {cloudNativePg, localStorageClass} from './storage'
 
-
+var keycloakNs = new k8s.core.v1.Namespace("keycloak");
 
 const keyCloakDb = new cnpg.Cluster("keycloak-db", {
+  metadata: {
+    namespace: keycloakNs.metadata.name,
+  },
   spec: {
     instances: 3,
     storage: {
@@ -44,6 +47,9 @@ const dbSecret = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?
 // Adapted from https://github.com/keycloak/keycloak/issues/14666#issuecomment-1461028049
 const keyCloakDbInstance = interpolate`${keyCloakDb.metadata.apply((metadata) => metadata?.name)}`;
 const keyCloak = new keycloak.Keycloak("keycloak", {
+  metadata: {
+    namespace: keycloakNs.metadata.name,
+  },
   spec: {
     instances: 3,
     additionalOptions: [
@@ -114,6 +120,7 @@ const keyCloakService = interpolate`${keyCloakInstance}-service`;
 
 const ingress = new k8s.networking.v1.Ingress("keycloak", {
   metadata: {
+    namespace: keycloakNs.metadata.name,
     annotations: {
       "konghq.com/plugins": "https-port-plugin",
     },

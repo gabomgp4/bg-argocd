@@ -6,6 +6,8 @@ import { config } from "./config";
 import * as telemetry from "./telemetry";
 
 const kongIngress = new k8s.helm.v3.Release("kong-ingress", {
+  namespace: "kong",
+  createNamespace: true,
   chart: "kong",
   version: "2.25.0",
   repositoryOpts: {

@@ -2,10 +2,42 @@ import * as k8s from "@pulumi/kubernetes";
 import * as yaml from "js-yaml";
 
 const openebs = new k8s.helm.v3.Release("openebs", {
+  namespace: "openebs",
+  createNamespace: true,
   chart: "openebs",
   version: "",
   repositoryOpts: {
     repo: "https://openebs.github.io/charts",
+  },
+  //Installing only LocalPV HostPath provisioner
+  values: {
+    "localpv": {
+      "enabled": true,
+      "storageClassName": "local-hostpath",
+    },
+    "ndm": {
+      "enabled": false,
+    },
+    "cstor": {
+      "enabled": false,
+    },
+    "jiva": {
+      "enabled": false,
+    },
+    "provisioners": {
+      "localpv-hostpath": {
+        "enabled": true,
+      },
+      "ndm-block": {
+        "enabled": false,
+      },
+      "cstor-block": {
+        "enabled": false,
+      },
+      "jiva": {
+        "enabled": false,
+      },
+    },
   },
 });
 
@@ -31,16 +63,9 @@ export const localStorageClass = new k8s.storage.v1.StorageClass("local-hostpath
   dependsOn: [openebs],
 });
 
-export const clickHouseOperator = new k8s.helm.v3.Release("cho", {
-  chart: "altinity-clickhouse-operator",
-  version: "0.21.3",
-  repositoryOpts: {
-    repo: "https://docs.altinity.com/clickhouse-operator/",
-  },
-});
-
-
 export const cloudNativePg = new k8s.helm.v3.Release("cloudnative-pg", {
+  namespace: "cloudnative-pg",
+  createNamespace: true,
   chart: "cloudnative-pg",
   version: "0.18.2",
   repositoryOpts: {
