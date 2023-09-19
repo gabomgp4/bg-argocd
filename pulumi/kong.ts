@@ -4,6 +4,7 @@ import * as keycloak from "./keycloak";
 import { interpolate } from "@pulumi/pulumi";
 import { config } from "./config";
 import * as telemetry from "./telemetry";
+import * as certManager from "./crd/certmanager/v1";
 
 const kongIngress = new k8s.helm.v3.Release("kong-ingress", {
   namespace: "kong",
@@ -32,7 +33,9 @@ const kongIngress = new k8s.helm.v3.Release("kong-ingress", {
   },
 });
 
-const port = 32611;
+export const keyCloakRoot = `keycloak.${config.rootDomain}`;
+
+const realm = "kong-oidc";
 
 const oidcPlugin = new kong.KongClusterPlugin(
   "kong-oidc",
@@ -50,12 +53,12 @@ const oidcPlugin = new kong.KongClusterPlugin(
     plugin: "oidc",
     config: {
       client_id: "kong-oidc",
-      client_secret: "1BbSCCnuf0x1n3OWGOgunBPy5CN8eIw3", // Generated on keyCloak
-      realm: "kong",
-      discovery: interpolate`https://keycloak:${port}/realms/kong/.well-known/openid-configuration`,
+      client_secret: "N8pENiqzwqXKFutBBxwufQ6yPWKsH8Bz", // Generated on keyCloak
+      realm: "kong-oidc",
+      discovery: interpolate`https://${keyCloakRoot}/realms/${realm}/.well-known/openid-configuration`,
       scope: "openid",
-      redirect_after_logout_uri: interpolate`https://keycloak:${port}/auth/realms/kong-oidc/protocol/openid-connect/logout?redirect_uri=https://grafana:${port}/`,
-      ssl_verify: "no", //change on production
+      redirect_after_logout_uri: interpolate`https://${keyCloakRoot}/auth/realms/${realm}/protocol/openid-connect/logout?redirect_uri=https://echo-server.${config.rootDomain}/`,
+      ssl_verify: "yes",
     },
   },
   {
@@ -78,7 +81,7 @@ const httpsPortPlugin = new kong.KongClusterPlugin(
     disabled: false,
     plugin: "post-function",
     config: {
-      access: [`ngx.var.upstream_x_forwarded_port=${port}`],
+      access: [`ngx.var.upstream_x_forwarded_port=${443}`],
     },
   },
   {

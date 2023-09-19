@@ -1,6 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as k8s from "@pulumi/kubernetes";
-import {config} from "./config";
+import { config } from "./config";
 
 // Namespace
 const echoserverNamespace = new k8s.core.v1.Namespace("echoserver", {
@@ -73,20 +73,29 @@ const echoserverService = new k8s.core.v1.Service("echoserver", {
   },
 });
 
+const echoServerDomain = `echo-server.${config.rootDomain}`;
+
 // Ingress
 const echoserverIngress = new k8s.networking.v1.Ingress("echoserver", {
   metadata: {
     name: "echoserver",
     namespace: echoserverNamespace.metadata.name,
     annotations: {
-      "konghq.com/plugins": "https-port-plugin",
+      "konghq.com/plugins": "https-port-plugin,oidc",
+      "cert-manager.io/cluster-issuer": "letsencrypt-prod",
     },
   },
   spec: {
     ingressClassName: "kong",
+    tls: [
+      {
+        hosts: [echoServerDomain],
+        secretName: "echo-server-tls",
+      },
+    ],
     rules: [
       {
-        host: `echo-server.${config.rootDomain}`,
+        host: echoServerDomain,
         http: {
           paths: [
             {
