@@ -53,7 +53,7 @@ const echoserverDeployment = new k8s.apps.v1.Deployment("echoserver", {
 });
 
 // Service
-const echoserverService = new k8s.core.v1.Service("echoserver", {
+const service = new k8s.core.v1.Service("echoserver", {
   metadata: {
     name: "echoserver",
     namespace: echoserverNamespace.metadata.name,
@@ -61,6 +61,7 @@ const echoserverService = new k8s.core.v1.Service("echoserver", {
   spec: {
     ports: [
       {
+        name: "http",
         port: 80,
         targetPort: 80,
         protocol: "TCP",
@@ -73,13 +74,14 @@ const echoserverService = new k8s.core.v1.Service("echoserver", {
   },
 });
 
-const echoServerDomain = `echo-server.${config.rootDomain}`;
+const app = "echo-server";
+const domain = `${app}.${config.rootDomain}`;
 
 // Ingress
-const echoserverIngress = new k8s.networking.v1.Ingress("echoserver", {
+const ingress = new k8s.networking.v1.Ingress(`${app}-app`, {
   metadata: {
-    name: "echoserver",
-    namespace: echoserverNamespace.metadata.name,
+    name: app,
+    namespace: service.metadata.namespace,
     annotations: {
       "konghq.com/plugins": "https-port-plugin,oidc",
       "cert-manager.io/cluster-issuer": "letsencrypt-prod",
@@ -89,13 +91,13 @@ const echoserverIngress = new k8s.networking.v1.Ingress("echoserver", {
     ingressClassName: "kong",
     tls: [
       {
-        hosts: [echoServerDomain],
-        secretName: "echo-server-tls",
+        hosts: [domain],
+        secretName: `${domain}-tls`,
       },
     ],
     rules: [
       {
-        host: echoServerDomain,
+        host: domain,
         http: {
           paths: [
             {
@@ -103,9 +105,9 @@ const echoserverIngress = new k8s.networking.v1.Ingress("echoserver", {
               pathType: "Prefix",
               backend: {
                 service: {
-                  name: "echoserver",
+                  name: service.metadata.name,
                   port: {
-                    number: 80,
+                    name: "http",
                   },
                 },
               },
@@ -116,5 +118,3 @@ const echoserverIngress = new k8s.networking.v1.Ingress("echoserver", {
     ],
   },
 });
-
-export const ingress = echoserverIngress.metadata.name;

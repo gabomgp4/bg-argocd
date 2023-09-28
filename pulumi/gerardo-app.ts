@@ -1,5 +1,7 @@
 import * as kx from "@pulumi/kubernetesx";
 import * as _ from "lodash";
+import * as k8s from "@pulumi/kubernetes";
+import { config } from "./config";
 
 var podEnv = {
   EXTERNAL_REST_URL: "http://localhost:8080/rest/users",
@@ -34,12 +36,61 @@ const pb = new kx.PodBuilder({
       name: "gerardo-app",
       image: "gerardoaquino25/bfftest",
       env: mapObjectToEnvArray(podEnv),
+      ports: {
+        http: 8080,
+      },
     },
   ],
   restartPolicy: "Always",
 });
 
-// Create a Job using the Pod defined by the PodBuilder.
-const exampleJobKx = new kx.Deployment("gerardo-app", {
+const deployKx = new kx.Deployment("gerardo-app", {
   spec: pb.asDeploymentSpec(),
+});
+
+const service = deployKx.createService();
+
+const app = "gerardo-demo";
+const domain = `${app}.${config.rootDomain}`;
+
+// Ingress
+const ingress = new k8s.networking.v1.Ingress(`${app}-app`, {
+  metadata: {
+    name: app,
+    namespace: service.metadata.namespace,
+    annotations: {
+      "konghq.com/plugins": "https-port-plugin,oidc",
+      "cert-manager.io/cluster-issuer": "letsencrypt-prod",
+    },
+  },
+  spec: {
+    ingressClassName: "kong",
+    tls: [
+      {
+        hosts: [domain],
+        secretName: `${domain}-tls`,
+      },
+    ],
+    rules: [
+      {
+        host: domain,
+        http: {
+          paths: [
+            {
+              path: "/",
+              pathType: "Prefix",
+              backend: {
+                service: {
+                  name: service.metadata.name,
+                  port: {
+                    name: "http",
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
 });
