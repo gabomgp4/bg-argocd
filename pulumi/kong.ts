@@ -35,7 +35,7 @@ const kongIngress = new k8s.helm.v3.Release("kong-ingress", {
 
 export const keyCloakRoot = `keycloak.${config.rootDomain}`;
 
-const realm = "kong-oidc";
+const realm = "kong";
 
 const oidcPlugin = new kong.KongClusterPlugin(
   "kong-oidc",
@@ -53,8 +53,8 @@ const oidcPlugin = new kong.KongClusterPlugin(
     plugin: "oidc",
     config: {
       client_id: "kong-oidc",
-      client_secret: "N8pENiqzwqXKFutBBxwufQ6yPWKsH8Bz", // Generated on keyCloak
-      realm: "kong-oidc",
+      client_secret: "FPhzvjn5hpgr9tzHVsXsCpDUXpT4IHqa", // Generated on keyCloak
+      realm: realm,
       discovery: interpolate`https://${keyCloakRoot}/realms/${realm}/.well-known/openid-configuration`,
       scope: "openid",
       redirect_after_logout_uri: interpolate`https://${keyCloakRoot}/auth/realms/${realm}/protocol/openid-connect/logout?redirect_uri=https://echo-server.${config.rootDomain}/`,

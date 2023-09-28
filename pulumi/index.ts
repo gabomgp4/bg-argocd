@@ -5,3 +5,4 @@ import "./telemetry";
 import "./kong";
 import "./argocd";
 import "./cert-manager";
+import "./gerardo-app";
