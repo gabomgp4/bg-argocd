@@ -5,6 +5,7 @@ import { config } from "./config";
 
 var podEnv = {
   EXTERNAL_REST_URL: "http://localhost:8080/rest/users",
+  SERVER_maxHttpHeaderSize: 48000,
   SPRING_DATASOURCE: {
     URL: "jdbc:h2:mem:testdb",
     USERNAME: "sa",
@@ -34,7 +35,7 @@ const pb = new kx.PodBuilder({
   containers: [
     {
       name: "gerardo-app",
-      image: "gerardoaquino25/bfftest",
+      image: "gerardoaquino25/bfftest:v1.0",
       env: mapObjectToEnvArray(podEnv),
       ports: {
         http: 8080,
