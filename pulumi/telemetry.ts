@@ -1,4 +1,6 @@
 import * as k8s from "@pulumi/kubernetes";
+import { config } from "./config";
+import { interpolate } from "@pulumi/pulumi";
 
 export const signoz = new k8s.helm.v3.Release("signoz", {
   namespace: "signoz",
@@ -19,39 +21,48 @@ export const signoz = new k8s.helm.v3.Release("signoz", {
   },
 });
 
-import * as otel from "./crd/opentelemetry/v1alpha1";
-import { interpolate } from "@pulumi/pulumi";
+const app = "signoz";
+const domain = `${app}.${config.rootDomain}`;
 
-// const openTelemetryOperator = new k8s.helm.v3.Release("opentelemetry-operator", {
-//   namespace: "opentelemetry-operator-system",
-//   createNamespace: true,
-//   chart: "opentelemetry-operator",
-//   version: "0.39.1",
-//   values: {},
-//   repositoryOpts: {
-//     repo: "https://open-telemetry.github.io/opentelemetry-helm-charts",
-//   },
-// });
+var service = interpolate `${signoz.status.name}-otel-collector`
 
-// const myInstrumentation = new otel.Instrumentation(
-//   "my-instrumentation",
-//   {
-//     metadata: {
-//       name: "my-instrumentation",
-//       namespace: "default",
-//     },
-//     spec: {
-//       exporter: {
-//         endpoint: interpolate`http://${signoz.name}-otel-collector.${signoz.namespace}.svc.homelab.local:4317`,
-//       },
-//       propagators: ["tracecontext", "baggage", "b3"],
-//       sampler: {
-//         type: "parentbased_traceidratio",
-//         argument: "1",
-//       },
-//     },
-//   },
-//   {
-//     dependsOn: [openTelemetryOperator],
-//   }
-// );
+const ingress = new k8s.networking.v1.Ingress(`${app}-app`, {
+  metadata: {
+    name: "signoz-ingress",
+    namespace: "signoz",
+    annotations: {
+      "konghq.com/plugins": "https-port-plugin",
+      "cert-manager.io/cluster-issuer": "letsencrypt-prod",
+    },
+  },
+  spec: {
+    ingressClassName: "kong",
+    tls: [
+      {
+        hosts: [domain],
+        secretName: `${domain}-tls`,
+      },
+    ],
+    rules: [
+      {
+        host: domain,
+        http: {
+          paths: [
+            {
+              path: "/",
+              pathType: "Prefix",
+              backend: {
+                service: {
+                  name: service,
+                  port: {
+                    name: "otlp-http",
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
+});
