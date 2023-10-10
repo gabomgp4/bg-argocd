@@ -27,14 +27,15 @@ spec:
             - cidr: 10.42.0.0/16
               encapsulation: None
               natOutgoing: Disabled
-            - cidr: fd01::/56
+            - cidr: fd00:20::/60
               encapsulation: None
               natOutgoing: Disabled
     etcd:
       snapshotRetention: 5
       snapshotScheduleCron: 0 */5 * * *
     machineGlobalConfig:
-      cluster-cidr: 10.42.0.0/16,fd10::/56
+      # cluster-dns: 192.168.1.1
+      cluster-cidr: 10.42.0.0/16,fd00:20::/60
       cluster-domain: homelab.local
       cni: calico
       disable:
@@ -42,7 +43,7 @@ spec:
       disable-kube-proxy: false
       etcd-expose-metrics: true
       profile: null
-      service-cidr: 10.43.0.0/16,fd10:0:1::/112
+      service-cidr: 10.43.0.0/16,fd00:30::/112
     machinePools:
 #      - cloudCredentialSecretName: string
 #        controlPlaneRole: boolean

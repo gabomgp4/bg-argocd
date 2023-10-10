@@ -11,6 +11,7 @@ var podEnv = {
     USERNAME: "sa",
     PASSWORD: "",
   },
+  OTEL_JAVAAGENT_DEBUG: "true",
 };
 
 //map nested object to k8s env using lodash
@@ -35,7 +36,7 @@ const pb = new kx.PodBuilder({
   containers: [
     {
       name: "gerardo-app",
-      image: "gerardoaquino25/bfftest:v1.0",
+      image: "gerardoaquino25/bfftest:v1.0u",
       env: mapObjectToEnvArray(podEnv),
       ports: {
         http: 8080,
@@ -46,6 +47,11 @@ const pb = new kx.PodBuilder({
 });
 
 const deployKx = new kx.Deployment("gerardo-app", {
+  metadata: {
+    annotations: {
+      "instrumentation.opentelemetry.io/inject-java": "my-instrumentation",
+    },
+  },
   spec: pb.asDeploymentSpec(),
 });
 
