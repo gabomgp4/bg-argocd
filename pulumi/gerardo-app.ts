@@ -11,7 +11,16 @@ var podEnv = {
     USERNAME: "sa",
     PASSWORD: "",
   },
-  OTEL_JAVAAGENT_DEBUG: "true",
+  OTEL: {
+    JAVAAGENT_DEBUG: "true",
+    RESOURCE_ATTRIBUTES: "service.name=BGTest",
+    TRACES_EXPORTER: "otlp",
+    EXPORTER_OTLP: {
+      PROTOCOL: "http/protobuf",
+      ENDPOINT: "http://signoz.ggomez.ddnsgeek.com",
+      COMPRESSION: "gzip",
+    },
+  },
 };
 
 //map nested object to k8s env using lodash

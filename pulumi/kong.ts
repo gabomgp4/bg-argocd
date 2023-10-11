@@ -53,7 +53,7 @@ const oidcPlugin = new kong.KongClusterPlugin(
     plugin: "oidc",
     config: {
       client_id: "kong-oidc",
-      client_secret: "FPhzvjn5hpgr9tzHVsXsCpDUXpT4IHqa", // Generated on keyCloak
+      client_secret: "Bndkm9Jcjerst9t0Ms1PDsBNcITPewct", // Generated on keyCloak
       realm: realm,
       discovery: interpolate`https://${keyCloakRoot}/realms/${realm}/.well-known/openid-configuration`,
       scope: "openid",
