@@ -10,6 +10,9 @@ spec:
     repoURL: https://github.com/gabomgp4/bg-argocd
     path: ./argocd/keycloak/
     targetRevision: main
+    helm:
+      valueFiles:
+        - values-develop.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
