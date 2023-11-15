@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/gabomgp4/bg-argocd
     targetRevision: main
-    path: ./argocd/aks/extra/manisfests/
+    path: ./argocd/aks/extra/manisfests
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
