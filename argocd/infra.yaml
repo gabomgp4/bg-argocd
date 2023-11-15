@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: main-az-devops-gitops
+  namespace: argocd
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: az-devops-gitops
+  source:
+    repoURL: repo
+    path: ./argocd/aks/develop
+    targetRevision: main
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+    
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      prune: true
+
+      selfHeal: true
