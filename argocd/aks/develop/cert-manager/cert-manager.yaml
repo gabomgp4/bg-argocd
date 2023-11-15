@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cert-manager
-  namespace: argocd  # This should be the namespace where Argo CD is installed
+  namespace: default  # This should be the namespace where Argo CD is installed
 spec:
   project: helm-charts  # The Argo CD project to deploy to, `default` is used here but this should be changed to your project name
   source:

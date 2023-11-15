@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: keycloak
-  namespace: argocd
+  namespace: default
 spec:
   project: az-devops-gitops
   source:
