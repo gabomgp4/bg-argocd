@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kong
+  namespace: argocd
+spec:
+  project: helm-charts
+  source:
+    chart: kong
+    repoURL: https://charts.konghq.com
+    targetRevision: 2.25.0
+    helm:
+      releaseName: bg-kong
+      parameters:
+        - name: "replicaCount"
+          value: "3"
+        - name: "autoscaling.enabled"
+          value: "false"
+        - name: "image.repository"
+          value: "revomatico/docker-kong-oidc"
+        - name: "image.tag"
+          value: "3.3.0-1"
+        - name: "proxy.type"
+          value: "LoadBalancer"
+        - name: "env.PLUGINS"
+          value: "bundled,oidc"
+        - name: "env.LOG_LEVEL"
+          value: "info"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kong
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

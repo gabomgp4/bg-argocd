@@ -18,7 +18,6 @@ var podEnv = {
     EXPORTER_OTLP: {
       PROTOCOL: "http/protobuf",
       ENDPOINT: "http://signoz.ggomez.ddnsgeek.com",
-      COMPRESSION: "gzip",
     },
   },
 };
@@ -45,7 +44,7 @@ const pb = new kx.PodBuilder({
   containers: [
     {
       name: "gerardo-app",
-      image: "gerardoaquino25/bfftest:v1.0u",
+      image: "gerardoaquino25/bfftest:v2.0u",
       env: mapObjectToEnvArray(podEnv),
       ports: {
         http: 8080,

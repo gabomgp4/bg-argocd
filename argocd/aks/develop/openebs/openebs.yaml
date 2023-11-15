@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openebs
+  namespace: argocd
+spec:
+  project: helm-charts
+  source:
+    chart: openebs
+    repoURL: 'https://openebs.github.io/charts'
+    targetRevision: 3.9.0  # or specify a particular version or branch
+    helm:
+      releaseName: bg-openebs
+      parameters:
+        - name: "localpv.enabled"
+          value: "true"
+        - name: "localpv.storageClassName"
+          value: "local-hostpath"
+        - name: "ndm.enabled"
+          value: "false"
+        - name: "cstor.enabled"
+          value: "false"
+        - name: "jiva.enabled"
+          value: "false"
+        - name: "provisioners.localpv-hostpath.enabled"
+          value: "true"
+        - name: "provisioners.ndm-block.enabled"
+          value: "false"
+        - name: "provisioners.cstor-block.enabled"
+          value: "false"
+        - name: "provisioners.jiva.enabled"
+          value: "false"
+  destination:
+    server: 'https://kubernetes.default.svc'  # This is usually the in-cluster Kubernetes API server
+    namespace: openebs
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated: 
+      prune: true
+      selfHeal: true

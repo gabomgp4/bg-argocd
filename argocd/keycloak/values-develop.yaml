@@ -1,0 +1,10 @@
+keycloak:
+  version: "22.0.1"
+  db:
+    size: "10Gi"
+
+postgres:
+  instances: 3
+
+ingress:
+  domain: "bg-gnm-dev.eastus.cloudapp.azure.com"  # Replace with your domain

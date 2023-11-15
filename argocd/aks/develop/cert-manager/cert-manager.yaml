@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd  # This should be the namespace where Argo CD is installed
+spec:
+  project: helm-charts  # The Argo CD project to deploy to, `default` is used here but this should be changed to your project name
+  source:
+    chart: 'cert-manager'  # The name of the chart
+    repoURL: 'https://charts.jetstack.io'  # The Helm repository URL
+    targetRevision: '1.13.0'  # The version of the chart
+    helm:
+      releaseName: bg-cert-manager
+      parameters:  # Equivalent to `values` in the Helm Release
+        - name: installCRDs
+          value: 'false'
+  destination:
+    namespace: cert-manager  # The target namespace for deployment
+    server: 'https://kubernetes.default.svc'  # Your cluster API URL; change it if you're not deploying to the default cluster
+  syncPolicy:
+    automated:  # This section can be adjusted to your CI/CD preferences
+      prune: true  # This will delete resources that are no longer defined in the Helm chart
+      selfHeal: true  # This will attempt to fix discrepancies between the desired state in Git and the live state in the cluster
+    syncOptions:  # Sync options can be used for various sync behaviors
+      - CreateNamespace=true  # This tells Argo CD to create the namespace if it does not exist
