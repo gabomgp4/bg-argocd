@@ -1,0 +1,9 @@
+apiVersion: metallb.io/v1beta1
+kind: AddressPool
+metadata:
+  name: address-pool
+  namespace: metallb-system
+spec:
+  protocol: bgp
+  addresses:
+  - 172.16.0.0/16

@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb-resources
+  namespace: default
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+spec:
+  project: az-devops-gitops
+  source:
+    repoURL: https://github.com/gabomgp4/bg-argocd
+    targetRevision: main
+    path: ./argocd/aks/extra/manifests/metallb/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: metallb-system
+  syncPolicy:
+    syncOptions:  
+      - PruneLast=true                    # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+      - CreateNamespace=true              # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+      - RespectIgnoreDifferences=true     # Respect ignored fields from '.Values.ignoreDifferences'
+      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+    # automated:
+    #   prune: true
+    #   selfHeal: true
