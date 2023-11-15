@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metallb-resources
+  name: extra-resources
   namespace: default
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
@@ -11,10 +11,9 @@ spec:
   source:
     repoURL: https://github.com/gabomgp4/bg-argocd
     targetRevision: main
-    path: ./argocd/aks/extra/manisfests/metallb
+    path: ./argocd/aks/extra/manisfests/
   destination:
     server: https://kubernetes.default.svc
-    namespace: metallb-system
   syncPolicy:
     syncOptions:  
       - PruneLast=true                    # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
