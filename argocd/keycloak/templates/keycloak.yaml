@@ -18,10 +18,10 @@ spec:
     vendor: postgres
     host: 'keycloak-rw`'
     usernameSecret:
-      name: dbSecret
+      name: keycloak-db-app
       key: username
     passwordSecret:
-      name: dbSecret
+      name: keycloak-db-app
       key: password
     database: app
 
