@@ -16,7 +16,7 @@ spec:
     enabled: false
   db:
     vendor: postgres
-    host: 'keycloak-db-rw`'
+    host: 'keycloak-db-rw'
     usernameSecret:
       name: keycloak-db-app
       key: username
