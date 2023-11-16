@@ -7,4 +7,4 @@ postgres:
   instances: 3
 
 ingress:
-  domain: "bg-gnm-dev.eastus.cloudapp.azure.com"  # Replace with your domain
+  domain: "bg-gnm-dev.ggomez.ddnsgeek.com"  # Replace with your domain
