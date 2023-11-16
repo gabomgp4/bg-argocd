@@ -5,7 +5,10 @@ metadata:
   annotations:
     openebs.io/cas-type: "local"
     cas.openebs.io/config: |
-      {"StorageType": "hostpath", "BasePath": "/home/openebs/local"}
+      - name: StorageType
+        value: "hostpath"
+      - name: BasePath
+        value: "/home/openebs/local"
     storageclass.kubernetes.io/is-default-class: "true"
 reclaimPolicy: Delete
 provisioner: openebs.io/local
