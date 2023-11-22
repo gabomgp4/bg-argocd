@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: signoz
+  namespace: default
+spec:
+  project: helm-charts
+  source:
+    chart: cloudnative-pg
+    repoURL: https://charts.signoz.io
+    targetRevision: 0.30.4
+    helm:
+      releaseName: signoz
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: signoz
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
