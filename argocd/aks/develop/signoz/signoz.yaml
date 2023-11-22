@@ -6,7 +6,7 @@ metadata:
 spec:
   project: helm-charts
   source:
-    chart: cloudnative-pg
+    chart: signoz
     repoURL: https://charts.signoz.io
     targetRevision: 0.30.4
     helm:
