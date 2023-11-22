@@ -43,7 +43,7 @@ spec:
   selector:
     app: echoserver
 ---
-apiVersion: networking.v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: echo-server
