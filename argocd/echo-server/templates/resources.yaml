@@ -55,10 +55,10 @@ spec:
   ingressClassName: kong
   tls:
   - hosts:
-    - echo-server.{{Values.ingress.domain}}
-    secretName: echo-server.{{Values.ingress.domain}}-tls  # Replace "rootDomain" with the actual root domain
+    - echo-server.{{.Values.ingress.domain}}
+    secretName: echo-server.{{.Values.ingress.domain}}-tls  # Replace "rootDomain" with the actual root domain
   rules:
-  - host: echo-server.{{Values.ingress.domain}}  # Replace "rootDomain" with the actual root domain
+  - host: echo-server.{{.Values.ingress.domain}}  # Replace "rootDomain" with the actual root domain
     http:
       paths:
       - path: /
