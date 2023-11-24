@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: signoz-bg
+  namespace: signoz
+  annotations:
+    konghq.com/plugins: "https-port-plugin,oidc"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: kong
+  tls:
+    tls:
+    - hosts:
+        - {{ .Values.ingress.domain }}
+      secretName: keycloak-server-tls
+  rules:
+  - host: {{.Values.ingress.domain}}
+    http:
+      paths:
+      - path: /signoz-otel-collector
+        pathType: Prefix
+        backend:
+          service:
+            name: signoz-otel-collector
+            port:
+              name: http

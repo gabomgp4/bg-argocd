@@ -54,17 +54,18 @@ metadata:
 spec:
   ingressClassName: kong
   tls:
-  - hosts:
-    - echo-server.{{.Values.ingress.domain}}
-    secretName: echo-server.{{.Values.ingress.domain}}-tls  # Replace "rootDomain" with the actual root domain
+    tls:
+    - hosts:
+        - {{ .Values.ingress.domain }}
+      secretName: keycloak-server-tls
   rules:
-  - host: echo-server.{{.Values.ingress.domain}}  # Replace "rootDomain" with the actual root domain
+  - host: {{.Values.ingress.domain}}
     http:
       paths:
-      - path: /
+      - path: /echo-server
         pathType: Prefix
         backend:
           service:
-            name: echoserver  # Assuming "service.metadata.name" resolves to "echoserver"
+            name: echoserver
             port:
               name: http

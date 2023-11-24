@@ -1,0 +1,18 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+metadata:
+  name: oidc
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+  labels:
+    global: "false"
+config:
+  client_id: "kong-oidc"
+  client_secret: "Bndkm9Jcjerst9t0Ms1PDsBNcITPewct"
+  realm: "kong"
+  discovery: "https://{{ .Values.ingress.domain }}/keycloak/realms/kong/.well-known/openid-configuration"
+  scope: "openid"
+  redirect_after_logout_uri: "https://{{ .Values.ingress.domain }}/keycloak/realms/kong/protocol/openid-connect/logout?redirect_uri=https://{{ .Values.ingress.domain }}/keycloak/"
+  ssl_verify: "yes"
+plugin: oidc
+disabled: false

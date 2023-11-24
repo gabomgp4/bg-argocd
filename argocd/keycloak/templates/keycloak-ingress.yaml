@@ -16,7 +16,7 @@ spec:
     - host: {{ .Values.ingress.domain }}
       http:
         paths:
-          - path: "/"
+          - path: "/keycloak"
             pathType: "Prefix"
             backend:
               service:
