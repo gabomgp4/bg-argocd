@@ -55,10 +55,10 @@ spec:
   ingressClassName: kong
   tls:
     - hosts:
-        - { { .Values.ingress.domain } }
+        - {{ .Values.ingress.domain }}
       secretName: keycloak-server-tls
   rules:
-    - host: { { .Values.ingress.domain } }
+    - host: {{ .Values.ingress.domain }}
       http:
         paths:
           - path: /echo-server
