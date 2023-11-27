@@ -16,3 +16,17 @@ config:
   ssl_verify: "yes"
 plugin: oidc
 disabled: false
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+metadata:
+  name: https-port-plugin
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+  labels:
+    global: "false"
+config:
+  access:
+    - "ngx.var.upstream_x_forwarded_port=443"
+plugin: post-function
+disabled: false
