@@ -17,7 +17,7 @@ spec:
       http:
         paths:
           - path: "/keycloak"
-            pathType: "Prefix"
+            pathType: "ImplementationSpecific"
             backend:
               service:
                 name: keycloak-service
