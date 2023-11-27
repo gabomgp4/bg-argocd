@@ -12,6 +12,8 @@ spec:
       value: 'false'
     - name: proxy
       value: edge
+    - name: hostname-path
+      value: /keycloak
   ingress:
     enabled: false
   db:
