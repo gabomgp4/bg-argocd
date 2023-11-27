@@ -62,7 +62,7 @@ spec:
       http:
         paths:
           - path: /echo-server
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: echoserver
