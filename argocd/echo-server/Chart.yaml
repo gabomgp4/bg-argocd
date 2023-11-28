@@ -1,4 +1,4 @@
 apiVersion: v2
 name: echoserver-chart
 description: A Helm chart for echo server
-version: 0.2.0
+version: 0.3.0
