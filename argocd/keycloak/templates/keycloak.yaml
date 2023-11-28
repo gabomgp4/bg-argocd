@@ -12,10 +12,6 @@ spec:
       value: 'false'
     - name: proxy
       value: edge
-    - name: hostname-path
-      value: /keycloak
-    # - name: hostname-path
-    #   value: /keycloak
     - name: http-relative-path 
       value: /keycloak
   ingress:
