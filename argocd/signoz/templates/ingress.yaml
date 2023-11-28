@@ -22,7 +22,7 @@ spec:
               service:
                 name: signoz-otel-collector
                 port:
-                  name: http
+                  name: otlp-http
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
