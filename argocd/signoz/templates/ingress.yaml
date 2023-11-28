@@ -46,6 +46,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: signoz
+                name: signoz-frontend
                 port:
                   name: http

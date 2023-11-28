@@ -1,4 +1,4 @@
 apiVersion: v2
 name: signoz-bg
 description: A Helm chart for echo server
-version: 0.5.0
+version: 0.6.0
