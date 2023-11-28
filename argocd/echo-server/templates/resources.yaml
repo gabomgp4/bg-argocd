@@ -49,7 +49,7 @@ metadata:
   name: echoserver
   namespace: echoserver
   annotations:
-    konghq.com/plugins: "https-port-plugin"
+    konghq.com/plugins: "https-port-plugin,oidc"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: kong

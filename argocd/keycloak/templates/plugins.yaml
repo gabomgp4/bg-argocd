@@ -8,7 +8,7 @@ metadata:
     global: "false"
 config:
   client_id: "kong-oidc"
-  client_secret: "Bndkm9Jcjerst9t0Ms1PDsBNcITPewct"
+  client_secret: "utFhJr77nnsMCJc4p8DhulXJIs9BnHTJ"
   realm: "kong"
   discovery: "https://{{ .Values.ingress.domain }}/keycloak/realms/kong/.well-known/openid-configuration"
   scope: "openid"
