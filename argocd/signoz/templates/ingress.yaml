@@ -17,7 +17,7 @@ spec:
       http:
         paths:
           - path: /signoz-otel-collector
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: signoz-otel-collector
@@ -43,7 +43,7 @@ spec:
       http:
         paths:
           - path: /signoz
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: signoz-frontend
