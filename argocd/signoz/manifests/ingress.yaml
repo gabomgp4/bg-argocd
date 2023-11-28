@@ -24,3 +24,30 @@ spec:
             name: signoz-otel-collector
             port:
               name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: signoz-ui-bg
+  namespace: signoz
+  annotations:
+    konghq.com/plugins: "https-port-plugin"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: kong
+  tls:
+    tls:
+    - hosts:
+        - {{ .Values.ingress.domain }}
+      secretName: keycloak-server-tls
+  rules:
+  - host: {{.Values.ingress.domain}}
+    http:
+      paths:
+      - path: /signoz
+        pathType: Prefix
+        backend:
+          service:
+            name: signoz
+            port:
+              name: http
