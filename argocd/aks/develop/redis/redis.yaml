@@ -10,14 +10,14 @@ spec:
     targetRevision: 18.0.0
     chart: redis
     helm:
-      values: |
-        cluster:
-          enabled: false
-        replica:
-          replicaCount: 0
-        master:
-          persistence:
-            enabled: false
+      releaseName: bg-redis
+      parameters:
+        - name: "cluster.enabled"
+          value: "false"
+        - name: "replica.replicaCount"
+          value: "0"
+        - name: "master.persistence.enabled"
+          value: "false"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: redis

@@ -10,13 +10,16 @@ spec:
     targetRevision: 12.10.9
     chart: minio
     helm:
-      values: |
-        persistence:
-          enabled: true
-          size: 100Gi
-        auth:
-          rootUser: minio-admin
-          rootPassword: minio-admin
+      releaseName: bg-redis
+      parameters:
+        - name: "persistence.enabled"
+          value: "true"
+        - name: "size"
+          value: "100Gi"
+        - name: "auth.rootUser"
+          value: "admin"
+        - name: "auth.rootPassword"
+          value: "admin"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: minio
