@@ -10,7 +10,7 @@ spec:
     targetRevision: 18.0.0
     chart: redis
     helm:
-      releaseName: bg-redis
+      releaseName: bg
       parameters:
         - name: "cluster.enabled"
           value: "false"

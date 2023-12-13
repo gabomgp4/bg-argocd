@@ -10,7 +10,7 @@ spec:
     targetRevision: 12.10.9
     chart: minio
     helm:
-      releaseName: bg-redis
+      releaseName: bg
       parameters:
         - name: "persistence.enabled"
           value: "true"
