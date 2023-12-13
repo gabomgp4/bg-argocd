@@ -5,5 +5,23 @@ metadata:
   namespace: keycloak
 spec:
   instances: {{ .Values.postgres.instances }}
+  backup:
+    barmanObjectStore:
+      destinationPath: "???<destination path here>"
+      azureCredentials:
+        inheritFromAzureAD: true
+      wal:
+        compression: gzip
   storage:
     size: {{ .Values.keycloak.db.size }}
+    storageClassName: managed-csi
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: backup-keycloak-db
+spec:
+  schedule: "0 0 0 * * *"
+  backupOwnerReference: self
+  cluster:
+    name: pg-backup
