@@ -14,7 +14,7 @@ spec:
       parameters:
         - name: "persistence.enabled"
           value: "true"
-        - name: "size"
+        - name: "persistence.size"
           value: "100Gi"
         - name: "auth.rootUser"
           value: "admin"
