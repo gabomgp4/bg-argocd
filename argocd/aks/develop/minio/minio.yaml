@@ -19,7 +19,7 @@ spec:
         - name: "auth.rootUser"
           value: "admin"
         - name: "auth.rootPassword"
-          value: "admin"
+          value: "55lzpkoc0uk0k6d3"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: minio
