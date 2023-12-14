@@ -26,7 +26,7 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
-  name: backup-keycloak-db-2
+  name: backup-keycloak-db-3
   namespace: keycloak
 spec:
   schedule: "0 0 0 * * *"
