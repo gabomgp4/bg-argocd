@@ -19,7 +19,6 @@ spec:
         compression: gzip
   storage:
     size: {{ .Values.keycloak.db.size }}
-    storageClassName: managed-csi
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
