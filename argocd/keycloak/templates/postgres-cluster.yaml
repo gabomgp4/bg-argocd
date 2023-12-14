@@ -39,7 +39,7 @@ metadata:
 spec:
   method: barmanObjectStore
   cluster:
-    name: pg-backup
+    name: keycloak-db
 ---
 apiVersion: v1
 kind: Secret
