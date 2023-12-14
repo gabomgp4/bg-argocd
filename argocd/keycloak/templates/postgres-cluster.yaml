@@ -34,7 +34,7 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: Backup
 metadata:
-  name: backup-example
+  name: backup-example-2
   namespace: keycloak
 spec:
   method: barmanObjectStore
