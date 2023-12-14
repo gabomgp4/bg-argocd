@@ -7,9 +7,14 @@ spec:
   instances: {{ .Values.postgres.instances }}
   backup:
     barmanObjectStore:
-      destinationPath: "???<destination path here>"
-      azureCredentials:
-        inheritFromAzureAD: true
+      destinationPath: "http://bg-minio.minio.svc.homelab.local:9000/backups/keycloak-db/"
+      s3Credentials:
+        accessKeyId:
+          name: s3-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: s3-creds
+          key: ACCESS_SECRET_KEY
       wal:
         compression: gzip
   storage:
@@ -25,3 +30,13 @@ spec:
   backupOwnerReference: self
   cluster:
     name: pg-backup
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: s3-creds
+  namespace: keycloak
+type: Opaque
+data:
+  ACCESS_KEY_ID: NUdUd2EzRmRwTHdJU3hVNlk2aWs=
+  ACCESS_SECRET_KEY: WTVkWDZveGh4SnFVd2hSVjdJR0VyTDlEWW1PVmYxV084cmRMNnRkYw==
