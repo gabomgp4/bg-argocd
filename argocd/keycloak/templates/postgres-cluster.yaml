@@ -7,7 +7,8 @@ spec:
   instances: {{ .Values.postgres.instances }}
   backup:
     barmanObjectStore:
-      destinationPath: "s3://bg-minio.minio.svc.homelab.local:9000/backups/keycloak-db/"
+      destinationPath: "s3://backups/keycloak-db"
+      endpointURL: http://bg-minio.minio.svc.homelab.local:9000
       s3Credentials:
         accessKeyId:
           name: s3-creds
