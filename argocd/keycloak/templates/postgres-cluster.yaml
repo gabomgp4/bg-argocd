@@ -24,23 +24,23 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: ScheduledBackup
 metadata:
-  name: backup-keycloak-db
+  name: backup-keycloak-db-2
   namespace: keycloak
 spec:
-  schedule: "0 0 0 * * *"
+  schedule: "0 0 * * *"
   backupOwnerReference: self
   cluster:
     name: pg-backup
----
-apiVersion: postgresql.cnpg.io/v1
-kind: Backup
-metadata:
-  name: backup-example-3
-  namespace: keycloak
-spec:
-  method: barmanObjectStore
-  cluster:
-    name: keycloak-db
+# ---
+# apiVersion: postgresql.cnpg.io/v1
+# kind: Backup
+# metadata:
+#   name: backup-example-3
+#   namespace: keycloak
+# spec:
+#   method: barmanObjectStore
+#   cluster:
+#     name: keycloak-db
 ---
 apiVersion: v1
 kind: Secret
