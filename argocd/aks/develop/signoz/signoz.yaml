@@ -18,8 +18,8 @@ spec:
             # Set free space size on default disk in bytes
             defaultKeepFreeSpaceBytes: "104857600" # 100MiB
             type: s3
-            endpoint: http://bg-minio.minio.svc.homelab.local:9000/backups/signoz
-            accessKey: admin
+            endpoint: http://bg-minio.minio.svc.homelab.local:9000/backups/signoz/
+            accessKey: 5GTwa3FdpLwISxU6Y6ik
             secretAccess: Y5dX6oxhxJqUwhRV7IGErL9DYmOVf1WO8rdL6tdc
   destination:
     server: https://kubernetes.default.svc
