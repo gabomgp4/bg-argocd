@@ -1,56 +1,56 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: signoz
-  namespace: default
-spec:
-  project: helm-charts
-  source:
-    chart: signoz
-    repoURL: https://charts.signoz.io
-    targetRevision: 0.31.1
-    helm:
-      releaseName: signoz
-      values: |
-        clickhouse:
-          coldStorage:
-            enabled: true
-            # Set free space size on default disk in bytes
-            defaultKeepFreeSpaceBytes: "104857600" # 100MiB
-            type: s3
-            endpoint: http://bg-minio.minio.svc.homelab.local:9000/backups/signoz/
-            accessKey: 5GTwa3FdpLwISxU6Y6ik
-            secretAccess: Y5dX6oxhxJqUwhRV7IGErL9DYmOVf1WO8rdL6tdc
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: signoz
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      prune: true
-      selfHeal: true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: signoz-bg
-  namespace: default
-spec:
-  project: helm-charts
-  source:
-    repoURL: https://github.com/gabomgp4/bg-argocd
-    path: ./argocd/signoz/
-    targetRevision: main
-    helm:
-      valueFiles:
-        - values-develop.yaml
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: signoz
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true  
-    automated:
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: signoz
+#   namespace: default
+# spec:
+#   project: helm-charts
+#   source:
+#     chart: signoz
+#     repoURL: https://charts.signoz.io
+#     targetRevision: 0.31.1
+#     helm:
+#       releaseName: signoz
+#       values: |
+#         clickhouse:
+#           coldStorage:
+#             enabled: true
+#             # Set free space size on default disk in bytes
+#             defaultKeepFreeSpaceBytes: "104857600" # 100MiB
+#             type: s3
+#             endpoint: http://bg-minio.minio.svc.homelab.local:9000/backups/signoz/
+#             accessKey: 5GTwa3FdpLwISxU6Y6ik
+#             secretAccess: Y5dX6oxhxJqUwhRV7IGErL9DYmOVf1WO8rdL6tdc
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: signoz
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       prune: true
+#       selfHeal: true
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: signoz-bg
+#   namespace: default
+# spec:
+#   project: helm-charts
+#   source:
+#     repoURL: https://github.com/gabomgp4/bg-argocd
+#     path: ./argocd/signoz/
+#     targetRevision: main
+#     helm:
+#       valueFiles:
+#         - values-develop.yaml
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: signoz
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true  
+#     automated:
+#       prune: true
+#       selfHeal: true
