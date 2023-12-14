@@ -6,6 +6,7 @@ metadata:
 spec:
   instances: {{ .Values.postgres.instances }}
   backup:
+    retentionPolicy: "30d"
     barmanObjectStore:
       destinationPath: "s3://backups/keycloak-db"
       endpointURL: http://bg-minio.minio.svc.homelab.local:9000
